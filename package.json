@@ -1,10 +1,10 @@
 {
 
-  "name": "Test",
+  "name": "Roast-Bot",
 
-  "description": "Test",
+  "description": "A bot to roast the living hell out of people on discord",
 
-  "version": "0.0.0",
+  "version": "1.0.02",
 
   "main": "bot.js",
 
