@@ -5,8 +5,8 @@ client.on("ready", () => {
    console.log("I am ready!");
 });
 client.on("message", message => {
-   if(message.content === "ping") {
-      message.reply("pong");
+   if(message.content === "!help") {
+      message.reply("Commands: !info, !help, !roast @PERSONS_NAME");
    }
 });
 
