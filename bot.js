@@ -6,8 +6,13 @@ client.on("ready", () => {
 });
 client.on("message", message => {
    if(message.content === "!help") {
-      message.reply("Commands: !info, !help, !roast @PERSONS_NAME");
+      message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
    }
+   
+   if(message.context === "!info"){
+        message.reply("Roast-Bot was created by Ole113 on 2018-06-26 and is version BETA 1.0.2. For more information visit https://github.com/Ole113/Roast-Bot");
+   }
+   
 });
 
 client.login(process.env.BOT_TOKEN);
