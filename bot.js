@@ -6,7 +6,7 @@ client.on("ready", () => {
 });
 client.on("message", message => {
    if(message.content === "!help") {
-      message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME**.");
+      message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
    }
    /*
    if(message.content === "!info") {
