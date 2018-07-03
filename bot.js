@@ -8,8 +8,8 @@ client.on("message", message => {
    if(message.content.startsWith("!help")) {
       return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
    } else if(message.content.startsWith("!info")){
-
-    let bicon = client.user.displayAvatarURL;
+        return message.channel.send("Test");
+    /*let bicon = client.user.displayAvatarURL;
        let botembed = new Discord.RichEmbed()
        .setDescription("Roast-Bot Information")
        .setColor("#ff3300")
@@ -17,6 +17,7 @@ client.on("message", message => {
        .addField("Bot Name", "Roast-Bot");
        
        return message.channel.send(botembed);
+       */
    }
 });
 //message.reply
