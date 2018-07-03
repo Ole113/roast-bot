@@ -5,9 +5,9 @@ client.on("ready", () => {
    console.log("I am ready!");
 });
 client.on("message", message => {
-   if(message.content.startsWith() == "!help") {
+   if(message.content.startsWith("!help")) {
       return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
-   } else if(message.content.startsWith() == "!info"){
+   } else if(message.content.startsWith("!info")){
 
     let bicon = client.user.displayAvatarURL;
        let botembed = new Discord.RichEmbed()
