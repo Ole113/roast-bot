@@ -19,7 +19,7 @@ client.on("message", message => {
        return message.channel.send(botembed);
        */
    } else if (message.content === "!roast") {
-       const sayMessage = args.join(" ");
+       const sayMessage = args.join("test");
        message.channel.send(client.users.find('username', sayMessage).toString());
 }
 });
