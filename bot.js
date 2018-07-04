@@ -18,9 +18,9 @@ client.on("message", message => {
        
        return message.channel.send(botembed);
        */
-   } else if (command === "!mention") {
-  const sayMessage = args.join(" ");
-  message.channel.send(client.users.find('username', sayMessage).toString());
+   } else if (message.content === "!roast") {
+       const sayMessage = args.join(" ");
+       message.channel.send(client.users.find('username', sayMessage).toString());
 }
 });
 //message.reply
