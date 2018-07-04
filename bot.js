@@ -18,7 +18,10 @@ client.on("message", message => {
        
        return message.channel.send(botembed);
        */
-   }
+   } else if (command === "!mention") {
+  const sayMessage = args.join(" ");
+  message.channel.send(client.users.find('username', sayMessage).toString());
+}
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
