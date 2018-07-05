@@ -59,7 +59,7 @@ const roasts = [
 ];
 client.on("ready", () => {
     console.log("Ready");
-	client.user.setPresence({ game: { name: "God", type: 0 } });	   
+	client.user.setPresence({ game: { name: "you type", type: "WATCHING" } });	   
 	
 });
 client.on("message", message => {
@@ -68,8 +68,8 @@ client.on("message", message => {
     } else if(message.content === "!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
     } else if(message.content.startsWith("!roast")) {
-		const random = Math.ceil(Math.random() * 54);
-	    return message.channel.send(roasts[random - 1].roast);
+	const random = Math.ceil(Math.random() * 54);
+	return message.channel.send(roasts[random - 1].roast);
     }
 });
 //message.reply
