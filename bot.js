@@ -58,19 +58,19 @@ const roasts = [
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
 client.on("ready", () => {
-   console.log("Ready");
-   client.user.setPresence({ game: { name: "God", type: 0 } });	   
-
+    console.log("Ready");
+	client.user.setPresence({ game: { name: "God", type: 0 } });	   
+	
 });
 client.on("message", message => {
-   if(message.content === "!help") {
-      return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
-   } else if(message.content === "!info"){
+    if(message.content === "!help") {
+        return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
+    } else if(message.content === "!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
-   } else if(message.content.startsWith("!roast")) {
-	const random = Math.ceil(Math.random() * 54);
-	return message.channel.send(roasts[random - 1].roast);
-   }
+    } else if(message.content.startsWith("!roast")) {
+		const random = Math.ceil(Math.random() * 54);
+	    return message.channel.send(roasts[random - 1].roast);
+    }
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
