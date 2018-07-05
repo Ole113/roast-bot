@@ -60,6 +60,7 @@ const roasts = [
 const random = Math.ceil(Math.random() * 54);
 msg = message.context.toLowerCase();
 mention = message.mentions.users.first();
+if(message.author.bot) return;
 client.on("ready", () => {
    console.log("Ready");
 });
