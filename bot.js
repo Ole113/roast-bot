@@ -57,7 +57,7 @@ const roasts = [
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
-const random = 1;
+const random = Math.ceil(Math.random() * 54 - 1);
 //mention = message.mentions.users.first();
 //if(message.author.bot) return;
 client.on("ready", () => {
@@ -69,11 +69,8 @@ client.on("message", message => {
    } else if(message.content === "!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
    } else if (message.content.startsWith("!roast")) {
-	return message.channel.send(roasts[random - 1].roast);
-	random++;
-	if(random == roasts.length - 1){
-		random = 1;
-	}
+	return message.channel.send(roasts[random].roast);
+	random = Math.ceil(Math.random() * 54 - 1);
    }
 });
 //message.reply
