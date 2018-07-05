@@ -70,6 +70,7 @@ client.on("message", message => {
    } else if (message.content.startsWith("!roast")) {
 	for(var i = 0;i < roasts.length;i++){
 	    return message.channel.send(roasts[i].roast);
+		i++;
 	}
 	if(i == roasts.length){
 	    i = 0;	
