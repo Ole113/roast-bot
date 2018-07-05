@@ -59,7 +59,7 @@ const roasts = [
 ];
 client.on("ready", () => {
    console.log("Ready");
-   client.user.setActivity({game: {name: "with my code", type: 0}});
+   client.user.setActivity("test");
 });
 client.on("message", message => {
    if(message.content === "!help") {
