@@ -59,8 +59,7 @@ const roasts = [
 ];
 client.on("ready", () => {
    console.log("Ready");
-   client.user.setStatus("Online");
-   client.user.setGame("Hello");
+   client.user.setActivity('YouTube', { type: 'WATCHING' });
 });
 client.on("message", message => {
    if(message.content === "!help") {
