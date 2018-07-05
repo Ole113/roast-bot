@@ -68,16 +68,7 @@ client.on("message", message => {
    } else if (message.content.startsWith("!roast")) {
 	const random = Math.ceil(Math.random() * 54);
 	return message.channel.send(roasts[random - 1].roast);
-   } else if(message.content.startsWith("!google")) {
-        let google = args.slice(1).join("+");
-        let link = `https://www.google.com/search?q=` + google;
-	message.channel.send(link);
-   } else if(message.content.startsWith("!youtube")) {
-        let youtube = args.slice(1).join("+");
-        let link = `https://www.youtube.com/results?search_query=` + youtube;
-	message.channel.send(link);
-}
-
+   }
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
