@@ -57,10 +57,10 @@ const roasts = [
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
-//mention = message.mentions.users.first();
-//if(message.author.bot) return;
 client.on("ready", () => {
    console.log("Ready");
+   bot.user.setStatus("Online");
+   bot.user.setGame("Hello");
 });
 client.on("message", message => {
    if(message.content === "!help") {
