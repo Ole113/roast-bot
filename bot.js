@@ -75,7 +75,7 @@ client.on("message", message => {
         mention.sendMessage(mentionMessage);
         message.channel.send("done");
 	*/
-	message.channel.send("test");
+	return message.channel.send("test");
 	}
 });
 //message.reply
