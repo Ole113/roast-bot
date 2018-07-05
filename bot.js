@@ -58,8 +58,8 @@ const roasts = [
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
 //const random = Math.ceil(Math.random() * 54); 
-//mention = message.mentions.users.first();
-//if(message.author.bot) return;
+mention = message.mentions.users.first();
+if(message.author.bot) return;
 client.on("ready", () => {
    console.log("Ready");
 });
@@ -69,14 +69,11 @@ client.on("message", message => {
    } else if(message.content === "!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
    } else if (message.content.startsWith("!roast")) {
-	   /*
-        if(mention == null){ return; }
+	if(mention == null){ return; }
         mentionMessage = message.content.slice(7);
         mention.sendMessage(mentionMessage);
-        message.channel.send("done");
-	*/
-	return message.channel.send("test");
-	}
+        return message.channel.send("done");
+   }
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
