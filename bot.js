@@ -70,7 +70,7 @@ client.on("message", message => {
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
    } else if (message.content.startsWith("!roast")) {
 	if(mention == null){ return; }
-        mentionMessage = message.content.slice(7);
+        mentionMessage = message.content.slice(8);
         mention.sendMessage(mentionMessage);
         return message.channel.send("done");
    }
