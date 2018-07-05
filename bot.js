@@ -68,13 +68,8 @@ client.on("message", message => {
    } else if(message.content === "!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
    } else if (message.content.startsWith("!roast")) {
-	for(var i = 0;i < roasts.length;i++){
-	    return message.channel.send(roasts[i].roast);
-		i++;
-	}
-	if(i == roasts.length){
-	    i = 0;	
-	}
+	const random = Math.ceil(Math.random() * 54);
+	return message.channel.send(roasts[random - 1].roast);
    }
 });
 //message.reply
