@@ -1,6 +1,24 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
+msg = message.context.toLowerCase();
+mention = message.mentions.users.first();
+if(message.author.bot) return;
+client.on("ready", () => {
+   console.log("Ready");
+});
+client.on("message", message => {
+   if(message.content === "!help") {
+      return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
+   } else if(message.content === "!info"){
+        return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
+   } else if (msg.startsWith("!roast")) {
+        if(mention == null){ return; }
+	message.delete();
+        mentionMessage = message.content.slice(7);
+        mention.sendMessage(mentionMessage);
+        message.channel.send("done");
+}
+});
 const roasts = [
 	{"roast":"Id offer you some gun but your smiles got plenty of it"},
 	{"roast":"Repeat After me: semen is not hair gel"},
@@ -58,24 +76,6 @@ const roasts = [
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
 const random = Math.ceil(Math.random() * 54);
-msg = message.context.toLowerCase();
-mention = message.mentions.users.first();
-if(message.author.bot) return;
-client.on("ready", () => {
-   console.log("Ready");
-});
-client.on("message", message => {
-   if(message.content === "!help") {
-      return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
-   } else if(message.content === "!info"){
-        return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
-   } else if (msg.startsWith("!roast")) {
-        if(mention == null){ return; }
-	message.delete();
-        mentionMessage = message.content.slice(7);
-        mention.sendMessage(mentionMessage);
-        message.channel.send("done");
-}
-});
+
 //message.reply
 client.login(process.env.BOT_TOKEN);
