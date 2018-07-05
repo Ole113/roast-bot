@@ -59,7 +59,7 @@ const roasts = [
 ];
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity('YouTube', { type: 'WATCHING' })	   
+    client.user.setActivity("you type", { type: "WATCHING" })	   
 	
 });
 client.on("message", message => {
