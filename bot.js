@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
+/*
 const roasts = [
 	{"roast":"Id offer you some gun but your smiles got plenty of it"},
 	{"roast":"Repeat After me: semen is not hair gel"},
@@ -57,7 +57,7 @@ const roasts = [
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
-const random = Math.ceil(Math.random() * 54);
+const random = Math.ceil(Math.random() * 54); */
 //mention = message.mentions.users.first();
 //if(message.author.bot) return;
 client.on("ready", () => {
