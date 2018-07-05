@@ -58,8 +58,8 @@ const roasts = [
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
 //const random = Math.ceil(Math.random() * 54); 
-mention = message.mentions.users.first();
-if(message.author.bot) return;
+//mention = message.mentions.users.first();
+//if(message.author.bot) return;
 client.on("ready", () => {
    console.log("Ready");
 });
