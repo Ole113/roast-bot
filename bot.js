@@ -59,8 +59,8 @@ const roasts = [
 ];
 client.on("ready", () => {
    console.log("Ready");
-   bot.user.setStatus("Online");
-   bot.user.setGame("Hello");
+   client.user.setStatus("Online");
+   client.user.setGame("Hello");
 });
 client.on("message", message => {
    if(message.content === "!help") {
