@@ -5,7 +5,7 @@ const roasts = [
 	{"roast":"Id offer you some gun but your smiles got plenty of it"},
 	{"roast":"Repeat After me: semen is not hair gel"},
 	{"roast":"Your body fat is about as evenly distributed as wealth in the US economy"},
-	{"roast":"Your like dobby from harry potter, only people wont be said when you die in the seventh book"},
+	{"roast":"Your like dobby from harry potter, only people wont be sad when you die in the seventh book"},
 	{"roast":"If I asked you about your cock it wouldnt be a very long conversation"},
 	{"roast":"You sound like a founder of a start up company that makes male tampons"},
 	{"roast":"You have the kinds of looks that make people talk about your personality"},
