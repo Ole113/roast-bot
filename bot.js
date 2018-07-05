@@ -71,8 +71,7 @@ client.on("message", message => {
    } else if (message.content.startsWith("!roast")) {
 	if(mention == null){ return; }
         mentionMessage = message.content.slice(7);
-        return mention.sendMessage(mentionMessage);
-        return message.channel.send("done");
+        return message.channel.send(mentionMessage);
    }
 });
 //message.reply
