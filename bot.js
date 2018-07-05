@@ -58,8 +58,8 @@ const roasts = [
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
 const random = Math.ceil(Math.random() * 54);
-const msg = message.context.toLowerCase();
-const mention = message.mentions.users.first();
+msg = message.context.toLowerCase();
+mention = message.mentions.users.first();
 client.on("ready", () => {
    console.log("Ready");
 });
