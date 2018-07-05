@@ -59,6 +59,8 @@ const roasts = [
 ];
 client.on("ready", () => {
    console.log("Ready");
+   client.user.setPresence({ game: { name: 'test', type: 0 } });	   
+
 });
 client.on("message", message => {
    if(message.content === "!help") {
@@ -68,8 +70,6 @@ client.on("message", message => {
    } else if(message.content.startsWith("!roast")) {
 	const random = Math.ceil(Math.random() * 54);
 	return message.channel.send(roasts[random - 1].roast);
-   } else if(message.content == "!setgame"){
-	client.user.setPresence({ game: { name: 'test', type: 0 } });	   
    }
 });
 //message.reply
