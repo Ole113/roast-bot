@@ -71,8 +71,8 @@ client.on("message", message => {
    } else if (message.content.startsWith("!roast")) {
 	return message.channel.send(roasts[random - 1].roast);
 	random++;
-	if(random == roasts.length){
-		random = 0;
+	if(random == roasts.length - 1){
+		random = 1;
 	}
    }
 });
