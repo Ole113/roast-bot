@@ -59,7 +59,6 @@ const roasts = [
 ];
 client.on("ready", () => {
    console.log("Ready");
-   client.user.setActivity("test");
 });
 client.on("message", message => {
    if(message.content === "!help") {
