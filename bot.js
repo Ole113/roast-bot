@@ -71,7 +71,6 @@ client.on("message", message => {
     } else if(message.content.startsWith("!roast")) {
   	const random = Math.ceil(Math.random() * 54);
 return message.channel.send(roasts[random - 1].roast);
- 		}
     }
 });
 //message.reply
