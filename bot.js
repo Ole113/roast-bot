@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const roasts = [
-	{"roast":"Id offer you some gun but your smiles got plenty of it"},
+	{"roast":"Id offer you some gum but your smiles got plenty of it"},
 	{"roast":"Repeat After me: semen is not hair gel"},
 	{"roast":"Your body fat is about as evenly distributed as wealth in the US economy"},
 	{"roast":"Your like dobby from harry potter, only people wont be sad when you die in the seventh book"},
@@ -69,11 +69,8 @@ client.on("message", message => {
     } else if(message.content === "!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
     } else if(message.content.startsWith("!roast")) {
-	
-	return message.channel.send(roasts[i].roast);
-  i++;
- 		if(roasts[i] == roasts/*IF MORE ROASTS ARE ADDED CHANGE THIS NUMBER UP */[54]){
- 		    i = 0;
+  	const random = Math.ceil(Math.random() * 54);
+return message.channel.send(roasts[random - 1].roast);
  		}
     }
 });
