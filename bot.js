@@ -57,7 +57,7 @@ const roasts = [
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
-var i = 0;
+
 client.on("ready", () => {
     console.log("Ready");
     client.user.setActivity("you type", { type: "WATCHING" })	   
