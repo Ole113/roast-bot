@@ -64,11 +64,11 @@ client.on("ready", () => {
 	
 });
 client.on("message", message => {
-    if(message.content === "!help") {
-        return message.channel.send("Commands: **!info**, **!help**, **!roast @USERNAME** ");
-    } else if(message.content === "!info"){
+    if(message.content === "r!help") {
+        return message.channel.send("Commands: **r!info**, **r!help**, **r!roast @USERNAME** ");
+    } else if(message.content === "r!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
-    } else if(message.content.startsWith("!roast")) {
+    } else if(message.content.startsWith("r!roast")) {
   	const random = Math.ceil(Math.random() * 54);
 return message.channel.send(roasts[random - 1].roast);
     }
