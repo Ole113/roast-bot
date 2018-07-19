@@ -60,7 +60,7 @@ const roasts = [
 
 client.on("ready", () => {
     console.log("Ready");
-    client.user.setActivity("for r!help", { type: "WATCHING" })	   
+    client.user.setActivity("r!help", { type: "PLAYING" })	   
 	
 });
 client.on("message", message => {
