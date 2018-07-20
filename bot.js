@@ -65,13 +65,14 @@ client.on("ready", () => {
 });
 client.on("message", message => {
     if(message.content === "r!help") {
-        return message.channel.send("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generates a random roast.");
+        return message.channel.send("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server.");
     } else if(message.content === "r!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
     } else if(message.content === "r!roast") {
   	const random = Math.ceil(Math.random() * 54);
 return message.channel.send(roasts[random - 1].roast);
     }
+      
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
