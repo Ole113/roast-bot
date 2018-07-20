@@ -65,7 +65,7 @@ client.on("ready", () => {
 });
 client.on("message", message => {
     if(message.content === "r!help") {
-        return message.channel.send("Commands: \n \n **r!info** \n **r!help** \n **r!roast** ");
+        return message.channel.send("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generates a random roast.");
     } else if(message.content === "r!info"){
         return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
     } else if(message.content === "r!roast") {
