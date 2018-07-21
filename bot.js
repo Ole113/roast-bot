@@ -72,7 +72,7 @@ client.on("message", message => {
   	const random = Math.ceil(Math.random() * 54);
 return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
-       message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=0");
+       message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     }
       
 });
