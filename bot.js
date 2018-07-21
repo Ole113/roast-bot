@@ -69,12 +69,12 @@ client.on("message", message => {
     } else if(message.content === "r!info"){
        let icon = client.user.displayAvatarURL;
        let embed = new Discord.RichEmbed()
-       .setColor("#FFFFFF")
+       .setColor("#F2F2F2")
        .setDescription("Roast-Bot Information:")
        .setThumbnail(icon);
        .addField("Created On: ", bot.user.createdAt);
        return message.channel.send(embed);
-        return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
+       //return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
     } else if(message.content === "r!roast") {
   	const random = Math.ceil(Math.random() * 54);
 return message.channel.send(roasts[random - 1].roast);
