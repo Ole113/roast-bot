@@ -73,6 +73,8 @@ client.on("message", message => {
 return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
        message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
+    } else if(message.content === "r!devServer"){
+      message.content.send("Link: https://discord.gg/fuDF42D.");
     }
       
 });
