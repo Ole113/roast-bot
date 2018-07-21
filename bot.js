@@ -67,8 +67,8 @@ client.on("message", message => {
     if(message.content === "r!help") {
        let icon = client.user.displayAvatarURL;
        let embed = new Discord.RichEmbed()
-       .setColor("#F2F2F2")
-       .setDescription("Roast-Bot Information")
+       .setColor("#FFFFFF")
+       .setDescription("Roast-Bot Information:")
        .setThumbnail(icon);
        return message.channel.send(embed);
        return message.channel.send("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server.");
