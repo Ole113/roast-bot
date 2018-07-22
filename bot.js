@@ -73,7 +73,7 @@ client.on("message", message => {
        .setDescription("Bot Information:")
        .setThumbnail(icon);
        //.addField("Created On:", client.user.createdAt);
-       //.addField("Name:", client.user.username)
+       // .addField("Name:", client.user.username)
        return message.channel.send(embed);
        //return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
     } else if(message.content === "r!roast") {
