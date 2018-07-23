@@ -65,7 +65,15 @@ client.on("ready", () => {
 });
 client.on("message", message => {
     if(message.content === "r!help") {
-		return message.channel.send("Roast-Bot Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.");
+		let help_icon = client.user.displayAvatarURL;
+		let help_embed = new Discord.RichEmbed()
+		.setColor("#EB671D")
+		.setTitle("Roast-Bot Commands:")
+		.addBlankField()
+		.setThumbnail(help_icon)
+		.setDescription("test");
+		return message.channel.send(help_embed);
+		//return message.channel.send("Roast-Bot Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.");
     } else if(message.content === "r!info"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
