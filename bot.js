@@ -69,7 +69,7 @@ client.on("message", message => {
 		.setColor("#EB671D")
 		.setTitle("Roast-Bot Commands:")
 		.addBlankField()
-		.addField("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.");
+		.addField("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.", "test");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!info"){
         let bot_icon = client.user.displayAvatarURL;
