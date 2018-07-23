@@ -68,7 +68,7 @@ client.on('guildMemberAdd', member => {
   
 	let embed = new Discord.RichEmbed()
 	.setTitle('User has joined the server!')
-	.setColor('#00ff00')
+	.setColor('#EB671D')
 	.addField('Username', member.user.username, true)
 	.addField('Tag', member, true)
 	welcomeleavechannel.send(embed);
@@ -82,7 +82,7 @@ client.on('guildMemberAdd', member => {
   
 	let embed = new Discord.RichEmbed()
 	.setTitle('User has left the server!')
-	.setColor('#ff0000')
+	.setColor("#EB671D")
 	.addField('Username', member.user.username, true)
 	.addField('Tag', member, true)
 	welcomeleavechannel.send(embed);
