@@ -72,14 +72,14 @@ client.on("message", message => {
 		.addBlankField()
 		.setThumbnail(help_icon)
 		.addField("r!help:", "List of Roast-Bot Commands.")
-		.addField("r!info:", "Learn more about Roast-Bot.")
+		.addField("r!bot:", "Learn more about Roast-Bot.")
 		.addField("r!roast:", "Generate a random roast.")
 		.addField("r!invite:", "Link to invite Roast-Bot to a server")
 		.addField("r!devServer:", "Invite link to the Roast-Bot Devlopment Server.")
 		.addField("r!server:", "Info about your server.");
 		return message.channel.send(help_embed);
 		//return message.channel.send("");
-    } else if(message.content === "r!info"){
+    } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
@@ -98,7 +98,7 @@ client.on("message", message => {
     } else if(message.content === "r!devServer"){
     	message.channel.send("Link: https://discord.gg/fuDF42D.");
     } else if(message.content === "r!server"){
-		let server_icon = message.guild.icon;
+		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
 		.setTitle("Server Information:")
