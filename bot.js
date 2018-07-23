@@ -87,9 +87,7 @@ client.on("message", message => {
 		.addBlankField()
 	    .setThumbnail(bot_icon)
 		.addField("Bot Name:", client.user.username)
-		.addBlankField()
 		.addField("Created On:", client.user.createdAt)
-		.addBlankField()
 		.setFooter("Created By Ole113");
     	return message.channel.send(bot_embed);
     } else if(message.content === "r!roast") {
@@ -107,11 +105,8 @@ client.on("message", message => {
 		.addBlankField()
 		.setThumbnail(server_icon)
 		.addField("Server Name", message.guild.name)
-		.addBlankField()
 		.addField("Created On", message.guild.createdAt)
-		.addBlankField()
 		.addField("You Joined", message.member.joinedAt)
-		.addBlankField()
 		.addField("Total Members", message.guild.memberCount)
 		return message.channel.send(server_embed);
 	}
