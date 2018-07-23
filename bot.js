@@ -67,9 +67,10 @@ client.on('guildMemberAdd', member => {
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has joined the server!")
+	.setTitle(member.user.username + " has joined the server.")
 	.setColor("#EB671D")
-	.addField("Time", join_time)
+	.addField("Time:", join_time)
+	.addField("Tag:", member);
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
   });
@@ -79,9 +80,10 @@ client.on('guildMemberAdd', member => {
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has left the server, Later Aligator")
+	.setTitle(member.user.username + " has left the server, Later Aligator.")
 	.setColor("#EB671D")
-	.addField("Time", leave_time)
+	.addField("Time:", leave_time)
+	.addField("Tag:", member)
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
   });
@@ -99,7 +101,8 @@ client.on("message", message => {
 		.addField("r!roast:", "Generate a random roast.")
 		.addField("r!invite:", "Link to invite Roast-Bot to a server")
 		.addField("r!devServer:", "Invite link to the Roast-Bot Devlopment Server.")
-		.addField("r!server:", "Info about your server.");
+		.addField("r!server:", "Info about your server.")
+		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".");
 		return message.channel.send(help_embed);
 		//return message.channel.send("");
     } else if(message.content === "r!bot"){
