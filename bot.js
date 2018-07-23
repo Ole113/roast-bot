@@ -98,7 +98,7 @@ client.on("message", message => {
     } else if(message.content === "r!devServer"){
     	message.channel.send("Link: https://discord.gg/fuDF42D.");
     } else if(message.content === "r!server"){
-		let server_icon = message.guild.displayAvatarURL;
+		let server_icon = message.guild.icon;
 		let server_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
 		.setTitle("Server Information:")
