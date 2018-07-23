@@ -65,12 +65,7 @@ client.on("ready", () => {
 });
 client.on("message", message => {
     if(message.content === "r!help") {
-		let help_embed = new Discord.MessageEmbed()
-		.setColor("#EB671D")
-		.setTitle("Roast-Bot Commands:")
-		.addBlankField()
-		.addField("Commands:", "**r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.");
-		return message.channel.send(help_embed);
+		return message.channel.send("Roast-Bot Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.");
     } else if(message.content === "r!info"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
@@ -86,7 +81,7 @@ client.on("message", message => {
     	return message.channel.send(bot_embed);
     } else if(message.content === "r!roast") {
   		const random = Math.ceil(Math.random() * 54);
-return message.channel.send(roasts[random - 1].roast);
+		return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     } else if(message.content === "r!devServer"){
