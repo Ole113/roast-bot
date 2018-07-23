@@ -65,26 +65,35 @@ client.on("ready", () => {
 });
 client.on("message", message => {
     if(message.content === "r!help") {
-       return message.channel.send("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server.");
+    	return message.channel.send("Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: Pull up the commands for Roast-Bot. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server.");
     } else if(message.content === "r!info"){
-       let icon = client.user.displayAvatarURL;
-       let embed = new Discord.RichEmbed()
-       .setColor("#EB671D")
-       .setDescription("Bot Information:")
-       .setThumbnail(icon)
-       .addField("Created On:", client.user.createdAt)
-       .addField("Name:", client.user.username);
-       return message.channel.send(embed);
-       //return message.channel.send("Roast-Bot was created on 2018-06-26 by Ole113. For more information visit https://github.com/Ole113/Roast-Bot");
+        let bot_icon = client.user.displayAvatarURL;
+        let bot_embed = new Discord.RichEmbed()
+        .setColor("#EB671D")
+        .setDescription("Bot Information:")
+	    .setThumbnail(bot_icon)
+	    .addField("Bot Name:", client.user.username)
+        .addField("Created On:", client.user.createdAt);
+    	return message.channel.send(bot_embed);
     } else if(message.content === "r!roast") {
-  	const random = Math.ceil(Math.random() * 54);
+  		const random = Math.ceil(Math.random() * 54);
 return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
-       message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
+    	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     } else if(message.content === "r!devServer"){
-      message.channel.send("Link: https://discord.gg/fuDF42D.");
-    }
-      
+    	message.channel.send("Link: https://discord.gg/fuDF42D.");
+    } else if(message.content === "r!server"){
+		let server_icon = message.guild.displayAvatarURL;
+		let server_embed = new Discord.RichEmbed()
+		.setColor("#EB671D")
+		.setDescription("Server Information:")
+		.setThumbnail(server_icon)
+		.addField("Server Name", message.guild.name)
+		.addField("Created On", message.guild.createdAt)
+		.addField("You Joined", message.member.joinedAt)
+		.addField("Total Members", message.guild.memberCount);
+		return message.channel.send(server_embed);
+	}
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
