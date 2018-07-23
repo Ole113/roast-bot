@@ -61,7 +61,12 @@ const roasts = [
 client.on("ready", () => {
     console.log("Ready");
     client.user.setActivity("r!help", { type: "PLAYING" })	   
-	
+});
+client.on("guildMemberAdd", (guild, member) => {
+	message.channel.send("Welcome to " + guild.name + ", " + member.user.username);
+});
+client.on("guildMemberRemove", (guild, member) => {
+	message.channel.send(member.user.username + ", Later Aligator.");
 });
 client.on("message", message => {
     if(message.content === "r!help") {
