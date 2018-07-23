@@ -132,10 +132,10 @@ client.on("message", message => {
 		.setTitle("Server Information:")
 		.addBlankField()
 		.setThumbnail(server_icon)
-		.addField("Server Name", message.guild.name)
-		.addField("Created On", message.guild.createdAt)
-		.addField("You Joined", message.member.joinedAt)
-		.addField("Total Members", message.guild.memberCount);
+		.addField("Server Name:", message.guild.name)
+		.addField("Created On:", message.guild.createdAt)
+		.addField("You Joined:", message.member.joinedAt)
+		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
 });
