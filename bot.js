@@ -70,10 +70,11 @@ client.on("message", message => {
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
-        .setDescription("Bot Information:")
+        .setTitle("Bot Information:")
 	    .setThumbnail(bot_icon)
 	    .addField("Bot Name:", client.user.username)
-        .addField("Created On:", client.user.createdAt);
+		.addField("Created On:", client.user.createdAt)
+		.setFooter("Created By Ole113");
     	return message.channel.send(bot_embed);
     } else if(message.content === "r!roast") {
   		const random = Math.ceil(Math.random() * 54);
@@ -86,7 +87,7 @@ return message.channel.send(roasts[random - 1].roast);
 		let server_icon = message.guild.displayAvatarURL;
 		let server_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
-		.setDescription("Server Information:")
+		.setTitle("Server Information:")
 		.setThumbnail(server_icon)
 		.addField("Server Name", message.guild.name)
 		.addField("Created On", message.guild.createdAt)
