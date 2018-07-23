@@ -62,12 +62,33 @@ client.on("ready", () => {
     console.log("Ready");
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
-client.on("guildMemberAdd", (guild, member) => {
-	message.channel.send("Welcome to " + guild.name + ", " + member.user.username);
-});
-client.on("guildMemberRemove", (guild, member) => {
-	message.channel.send(member.user.username + ", Later Aligator.");
-});
+client.on('guildMemberAdd', member => {
+	let welcomeleavechannel = member.guild.channels.find('name', 'welcome-leave-log');
+	if (!welcomeleavechannel) return;
+  
+	let embed = new Discord.RichEmbed()
+	.setTitle('User has joined the server!')
+	.setColor('#00ff00')
+	.addField('Username', member.user.username, true)
+	.addField('Tag', member, true)
+	welcomeleavechannel.send(embed);
+  
+	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
+  });
+  
+  client.on('guildMemberRemove', member => {
+	let welcomeleavechannel = member.guild.channels.find('name', 'welcome-leave-log');
+	if (!welcomeleavechannel) return;
+  
+	let embed = new Discord.RichEmbed()
+	.setTitle('User has left the server!')
+	.setColor('#ff0000')
+	.addField('Username', member.user.username, true)
+	.addField('Tag', member, true)
+	welcomeleavechannel.send(embed);
+  
+	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
+  });
 client.on("message", message => {
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
