@@ -70,10 +70,13 @@ client.on("message", message => {
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
-        .setTitle("Bot Information:")
+		.setTitle("Bot Information:")
+		.addBlankField()
 	    .setThumbnail(bot_icon)
-	    .addField("Bot Name:", client.user.username)
+		.addField("Bot Name:", client.user.username)
+		.addBlankField()
 		.addField("Created On:", client.user.createdAt)
+		.addBlankField()
 		.setFooter("Created By Ole113");
     	return message.channel.send(bot_embed);
     } else if(message.content === "r!roast") {
@@ -88,11 +91,15 @@ return message.channel.send(roasts[random - 1].roast);
 		let server_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
 		.setTitle("Server Information:")
+		.addBlankField()
 		.setThumbnail(server_icon)
 		.addField("Server Name", message.guild.name)
+		.addBlankField()
 		.addField("Created On", message.guild.createdAt)
+		.addBlankField()
 		.addField("You Joined", message.member.joinedAt)
-		.addField("Total Members", message.guild.memberCount);
+		.addBlankField()
+		.addField("Total Members", message.guild.memberCount)
 		return message.channel.send(server_embed);
 	}
 });
