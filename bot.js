@@ -69,24 +69,26 @@ client.on('guildMemberAdd', member => {
 	let join_embed = new Discord.RichEmbed()
 	.setTitle(member.user.username + " has joined the server.")
 	.setColor("#EB671D")
+	.addBlankField()
 	.addField("Time:", join_time)
 	.addField("Tag:", member);
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
-  });
+});
 
-  client.on('guildMemberRemove', member => {
+client.on('guildMemberRemove', member => {
 	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
 	.setTitle(member.user.username + " has left the server, Later Aligator.")
 	.setColor("#EB671D")
+	.addBlankField()
 	.addField("Time:", leave_time)
 	.addField("Tag:", member)
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
-  });
+});
 
 client.on("message", message => {
     if(message.content === "r!help") {
