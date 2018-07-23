@@ -76,7 +76,7 @@ client.on("message", message => {
 		.addField("r!roast:", "Generate a random roast.")
 		.addField("r!invite:", "Link to invite Roast-Bot to a server")
 		.addField("r!devServer:", "Invite link to the Roast-Bot Devlopment Server.")
-		.addField("r!server:", "Info about your server.")
+		.addField("r!server:", "Info about your server.");
 		return message.channel.send(help_embed);
 		//return message.channel.send("");
     } else if(message.content === "r!info"){
@@ -107,7 +107,7 @@ client.on("message", message => {
 		.addField("Server Name", message.guild.name)
 		.addField("Created On", message.guild.createdAt)
 		.addField("You Joined", message.member.joinedAt)
-		.addField("Total Members", message.guild.memberCount)
+		.addField("Total Members", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
 });
