@@ -72,8 +72,11 @@ client.on("message", message => {
 		.addBlankField()
 		.setThumbnail(help_icon)
 		.addField("r!help:", "List of Roast-Bot Commands.")
-		.addField("r!info:", "Learn more about Roast-Bot.");
-		//.setDescription("Roast-Bot Commands: \n \n **r!info**: Learn more about Roast-Bot. \n **r!help**: List of Roast-Bot Commands. \n **r!roast**: Generate a random roast. \n **r!invite**: Link to invite Roast-Bot to a server. \n **r!devServer**: Invite link to the Roast-Bot Development Server. \n **r!server**: Info about the server.");
+		.addField("r!info:", "Learn more about Roast-Bot.")
+		.addField("r!roast:", "Generate a random roast.")
+		.addField("r!invite:", "Link to invite Roast-Bot to a server")
+		.addField("r!devServer:", "Invite link to the Roast-Bot Devlopment Server.")
+		.addField("r!server:", "Info about your server.")
 		return message.channel.send(help_embed);
 		//return message.channel.send("");
     } else if(message.content === "r!info"){
