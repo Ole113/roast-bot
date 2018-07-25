@@ -69,7 +69,6 @@ client.on('guildMemberAdd', member => {
 	let join_embed = new Discord.RichEmbed()
 	.setTitle(member.user.username + " has joined the server.")
 	.setColor("#EB671D")
-	.addBlankField()
 	.addField("Time:", join_time)
 	.addField("Tag:", member);
 	welcomeleavechannel.send(join_embed);
@@ -83,7 +82,6 @@ client.on('guildMemberRemove', member => {
 	let leave_embed = new Discord.RichEmbed()
 	.setTitle(member.user.username + " has left the server, Later Aligator.")
 	.setColor("#EB671D")
-	.addBlankField()
 	.addField("Time:", leave_time)
 	.addField("Tag:", member)
 	welcomeleavechannel.send(leave_embed);
