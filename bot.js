@@ -75,7 +75,6 @@ client.on('guildMemberAdd', member => {
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
-
 client.on('guildMemberRemove', member => {
 	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
 	let leave_time = new Date();
@@ -88,7 +87,12 @@ client.on('guildMemberRemove', member => {
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
 });
-
+client.on("guildCreate", guild => {
+    console.log("Roast Bot joined a new server named: " + guild.name);
+})
+client.on("guildDelete", guild => {
+    console.log("Roast-Bot left a server named: " + guild.name);
+})
 client.on("message", message => {
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
