@@ -139,7 +139,7 @@ client.on("message", message => {
 
 	const xp = require("./xp.json");
 	let xpAdd = 5;
-	console.log(xpAdd);
+	//console.log(xpAdd);
 
 	if(!xp[message.author.id]){
 		xp[message.author.id] = {
