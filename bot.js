@@ -148,7 +148,7 @@ client.on("message", message => {
 		};
 	}
 
-
+  const fs = require("fs");
 	let nxtLvl = xp[message.author.id].level * 300;
 	let curxp = xp[message.author.id].xp;
 	let curlvl = xp[message.author.id].level;
