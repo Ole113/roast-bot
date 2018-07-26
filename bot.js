@@ -156,7 +156,7 @@ client.on("message", message => {
 	if(nxtLvl <= xp[message.author.id].xp){
 		xp[message.author.id].level = curlvl + 1;
 	}
-	console.log(`Level is ${xp[message.author.id].level}`)
+	//console.log(`Level is ${xp[message.author.id].level}`);
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
