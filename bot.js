@@ -136,6 +136,27 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
+
+	let xpAdd = 5;
+	console.log(xpAdd);
+
+	if(!xp[message.author.id]){
+		xp[message.author.id] = {
+			xp: 0,
+			level: 1
+		};
+	}
+
+	xp[message.author.id].xp = xp[message.author.id] + xpAdd;
+
+	let nxtLvl = xp[message.author.id].level * 300;
+	let curxp = xp[message.author.id].xp;
+	let curlvl = xp[message.author.id].level;
+
+	if(nxtLvl <= xp[message.author.id].xp){
+		xp[message.author.id].level = curlvl + 1;
+	}
+	console.log(`Level is ${xp[message.author.id].level}`)
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
