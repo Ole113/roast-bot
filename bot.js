@@ -96,6 +96,7 @@ client.on("message", message => {
 		.setTitle("Roast-Bot Commands:")
 		.addBlankField()
 		.setThumbnail(help_icon)
+    .setFooter("v1.2.0, More commands will be added over time, stay tuned!")
 		.addField("r!help:", "List of Roast-Bot Commands.")
 		.addField("r!bot:", "Learn more about Roast-Bot.")
 		.addField("r!roast:", "Generate a random roast.")
