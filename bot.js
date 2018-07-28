@@ -60,7 +60,7 @@ const roasts = [
 
 client.on("ready", () => {
 	console.log("Ready");
-	console.log(client.servers.length);
+	console.log(client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
 client.on('guildMemberAdd', member => {
