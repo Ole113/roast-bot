@@ -139,7 +139,7 @@ client.on("message", message => {
 		return message.channel.send(server_embed);
 	}
 
-	const xp = require("../xp.json");
+	const xp = require("xp.json");
 	let xpAdd = 5;
 	//console.log(xpAdd);
 
