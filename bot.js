@@ -138,7 +138,7 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
-	/*
+	
 	const db = require("quick.db");
 
 	db.updateValue(message.author.id + message.guild.id, 1).then(i => {
@@ -153,7 +153,7 @@ client.on("message", message => {
 			});
 		}
 	});
-	*/
+	
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
