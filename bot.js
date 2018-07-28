@@ -142,7 +142,7 @@ client.on("message", message => {
 	const db = require("quick.db");
 
 	db.updateValue(message.author.id + message.guild.id, 1).then(i => {
-		const messages;
+		let messages;
 		if(i.value == 5) messages = 5;
 		else if(i.value == 15) messages = 15;
 		else if(i.value = 25) messages = 25;
