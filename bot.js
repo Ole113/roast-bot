@@ -139,27 +139,20 @@ client.on("message", message => {
 		return message.channel.send(server_embed);
 	}
 
-    const fs = require('fs'); 
-    fs.readFile('./xp.json', (err, xp) => {
-        var xpToAdd=5;
+	const db = require("quick.db");
 
-        if (!xp[message.author.id]) xp[message.author.id] = {xp:0, level: 1}
-        var currentxp = xp[message.author.id].xp;
-        var curlevel = xp[message.author.id].level;
-        var nxtLevel = curlevel * 300;
+	db.updateValue(message.author.id + message.guild.id, 1).then(i => {
+		const messages;
+		if(i.value == 5) messages = 5;
+		else if(i.value == 15) messages = 15;
+		else if(i.value = 25) messages = 25;
 
-        if (currentxp < nxtLevel) {
-         currentxp + xpToAdd
-         return
-        }
-        if (currentxp >= nxtLevel) {
-            curlevel + 1;
-            message.reply(`level is now ${xp[message.author.id].level}`);
-        }
-          fs.writeFile('./xp.json',JSON.stringify(xp), (err) => {
-            if (err) console.log(err);
-          });
-    });
+		if(!isNaN(messages)){
+			db.updateValue(`userLevel_${message.author.id + message.guild.id}`, 1).then(o => {
+				message.channel.send(`You sent ${messages} messages, so you leveled up! Your are now level ${o.value}`)
+			});
+		}
+	});
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
