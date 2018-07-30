@@ -166,9 +166,8 @@ client.on("message", message => {
 		.addBlankField()
 		.setThumbnail(message.author.displayAvatarURL)
 		.addField("Level:", userData.level)
-		.addField("Level:", userData.points);
+		.addField("Points:", userData.points);
 		return message.channel.send(level_embed);
-		message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
 	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
 	  if (err) console.error(err)
