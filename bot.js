@@ -110,7 +110,6 @@ client.on("message", message => {
 		.addField("r!server:", "Info about your server.")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".");
 		return message.channel.send(help_embed);
-		//return message.channel.send("");
     } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
@@ -142,22 +141,32 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
-	/*
-	const db = require("quick.db");
+	const fs = require("fs");
+	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
-	db.updateValue(message.author.id + message.guild.id, 1).then(i => {
-		let messages;
-		if(i.value == 5) messages = 5;
-		else if(i.value == 15) messages = 15;
-		else if(i.value = 25) messages = 25;
-
-		if(!isNaN(messages)){
-			db.updateValue(`userLevel_${message.author.id + message.guild.id}`, 1).then(o => {
-				message.channel.send(`You sent ${messages} messages, so you leveled up! Your are now level ${o.value}`)
-			});
-		}
+	if (!message.content.startsWith("r!")) return;
+	if (message.author.bot) return;
+  
+	if (!points[message.author.id]) points[message.author.id] = {
+	  points: 0,
+	  level: 0
+	};
+	let userData = points[message.author.id];
+	userData.points++;
+  
+	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+	if (curLevel > userData.level) {
+	  userData.level = curLevel;
+	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+	}
+  
+	if (message.content.startsWith(prefix + "level")) {
+	  message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+	}
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+	  if (err) console.error(err)
 	});
-*/
+  
 	
 });
 //message.reply
