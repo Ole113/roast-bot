@@ -108,7 +108,8 @@ client.on("message", message => {
 		.addField("r!invite:", "Link to invite Roast-Bot to a server")
 		.addField("r!server:", "Info about your server.")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
-		.addField("Roast-Bot Development Server:", "https://discord.gg/fuDF42D");
+		.addBlankField()
+		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the help server. \n https://discord.gg/fuDF42D");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
