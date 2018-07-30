@@ -154,9 +154,10 @@ client.on("message", message => {
 	let userData = points[message.author.id];
 	userData.points++;
 
-	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+	let curLevel = 1;
 	if (curLevel > userData.level) {
 	  userData.level = curLevel;
+	  curLevel++;
 	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
 	}
 	if (message.content.startsWith("r!" + "level")) {
