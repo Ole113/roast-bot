@@ -140,9 +140,11 @@ client.on("message", message => {
 		.addField("You Joined:", message.member.joinedAt)
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
-	}else if (message.content === "r!level") {
+	}
+	if (message.content === "r!level") {
 		message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
-	}else if (!message.content.startsWith("r!")) return;
+	}
+	if (!message.content.startsWith("r!")) return;
 	if (message.author.bot) return;
   
 	if (!points[message.author.id]) points[message.author.id] = {
