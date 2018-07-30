@@ -144,8 +144,8 @@ client.on("message", message => {
 
 	const fs = require("fs");	
 	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
-	
-	if (!message.content.startsWith(prefix)) return;
+
+	if (!message.content.startsWith("r!")) return;
 	if (message.author.bot) return;
   
 	if (!points[message.author.id]) points[message.author.id] = {
@@ -162,7 +162,7 @@ client.on("message", message => {
 	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
 	}
   
-	if (message.content.startsWith(prefix + "level")) {
+	if (message.content.startsWith("r!" + "level")) {
 	  message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
 	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
