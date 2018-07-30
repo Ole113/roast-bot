@@ -144,7 +144,7 @@ client.on("message", message => {
 	const fs = require("fs");
 	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
-	if (!message.content.startsWith("")) return;
+	//if (!message.content.startsWith("")) return;
 	if (message.author.bot) return;
   
 	if (!points[message.author.id]) points[message.author.id] = {
