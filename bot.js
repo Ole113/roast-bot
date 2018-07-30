@@ -160,7 +160,7 @@ client.on("message", message => {
 	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
 	}
   
-	if (message.content.startsWith(prefix + "level")) {
+	if (message.content.startsWith("r!" + "level")) {
 	  message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
 	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
