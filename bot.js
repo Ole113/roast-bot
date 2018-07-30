@@ -157,7 +157,7 @@ client.on("message", message => {
   
 	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
 	if (curLevel > userData.level) {
-	  // Level up!
+
 	  userData.level = curLevel;
 	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
 	}
@@ -165,7 +165,7 @@ client.on("message", message => {
 	if (message.content.startsWith("r!" + "level")) {
 	  message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
-	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+	fs.writeFile("./points.json", JSON.stringify (points), (err) => {
 	  if (err) console.error(err)
 	});
 
