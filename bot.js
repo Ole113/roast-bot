@@ -140,11 +140,9 @@ client.on("message", message => {
 		.addField("You Joined:", message.member.joinedAt)
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
-	}
-	const fs = require("fs");
-	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
-
-	if (!message.content.startsWith("r!")) return;
+	}else if (message.content === "r!level") {
+		message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+	}else if (!message.content.startsWith("r!")) return;
 	if (message.author.bot) return;
   
 	if (!points[message.author.id]) points[message.author.id] = {
@@ -153,23 +151,13 @@ client.on("message", message => {
 	};
 	let userData = points[message.author.id];
 	userData.points++;
-
-	let curLevel = 1;
+  
+	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
 	if (curLevel > userData.level) {
 	  userData.level = curLevel;
-	  curLevel++;
 	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
 	}
-	if (message.content.startsWith("r!" + "level")) {
-		let level_embed = new Discord.RichEmbed()
-		.setColor("#EB671D")
-		.setTitle("Level:")
-		.addBlankField()
-		.setThumbnail(message.author.displayAvatarURL)
-		.addField("Level:", userData.level)
-		.addField("Points:", userData.points);
-		return message.channel.send(level_embed);
-	}
+
 	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
 	  if (err) console.error(err)
 	});
