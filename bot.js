@@ -101,7 +101,7 @@ client.on("message", message => {
 		.setTitle("Roast-Bot Commands:")
 		.addBlankField()
 		.setThumbnail(help_icon)
-    .setFooter("v1.2.0, More commands will be added over time, stay tuned!")
+    .setFooter("v1.2.4, More commands will be added over time, stay tuned!")
 		.addField("r!help:", "List of Roast-Bot Commands.")
 		.addField("r!bot:", "Learn more about Roast-Bot.")
 		.addField("r!roast:", "Generate a random roast.")
@@ -109,7 +109,8 @@ client.on("message", message => {
 		.addField("r!server:", "Info about your server.")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
-		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D");
+		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
+		.setFooter("v1.2.4, for release notes join the Roast-Bot help server");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
