@@ -129,7 +129,7 @@ client.on("message", message => {
 		//const main = "r!roast " + member;
 		//const reply = main.slice(8, word.length);
 		/* message.author/member =>  person that wrote the message */
-		return message.mentions.members.first(); 
+		return message.mentions.users.first(); 
 
 		//return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
