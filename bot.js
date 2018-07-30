@@ -142,50 +142,32 @@ client.on("message", message => {
 		return message.channel.send(server_embed);
 	}
 
-	const sql = require("sqlite");
-	sql.open("./score.sqlite");
+	const fs = require("fs");	
+	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 	
-	const prefix = "+";
-	client.on("message", message => {
-	  if (message.author.bot) return;
-	  if (message.channel.type !== "text") return;
-	
-	  sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-		if (!row) {
-		  sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
-		} else {
-		  let curLevel = Math.floor(0.1 * Math.sqrt(row.points + 1));
-		  if (curLevel > row.level) {
-			row.level = curLevel;
-			sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${message.author.id}`);
-			message.reply(`You've leveled up to level **${curLevel}**! Ain't that dandy?`);
-		  }
-		  sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${message.author.id}`);
-		}
-	  }).catch(() => {
-		console.error;
-		sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
-		  sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
-		});
-	  });
-	
-	  if (!message.content.startsWith("r!")) return;
-	
-	  if (message.content.startsWith("r!" + "level")) {
-		sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-		  if (!row) return message.reply("Your current level is 0");
-		  message.reply(`Your current level is ${row.level}`);
-		});
-	  } else
-	
-	  if (message.content.startsWith("r!" + "points")) {
-		sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-		  if (!row) return message.reply("sadly you do not have any points yet!");
-		  message.reply(`you currently have ${row.points} points, good going!`);
-		});
-	  }
+	if (!message.content.startsWith(prefix)) return;
+	if (message.author.bot) return;
+  
+	if (!points[message.author.id]) points[message.author.id] = {
+	  points: 0,
+	  level: 0
+	};
+	let userData = points[message.author.id];
+	userData.points++;
+  
+	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+	if (curLevel > userData.level) {
+	  // Level up!
+	  userData.level = curLevel;
+	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+	}
+  
+	if (message.content.startsWith(prefix + "level")) {
+	  message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+	}
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+	  if (err) console.error(err)
 	});
-	
 
 });
 //message.reply
