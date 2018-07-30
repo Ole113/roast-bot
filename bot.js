@@ -128,10 +128,10 @@ client.on("message", message => {
 		
 		//const main = "r!roast " + member;
 		//const reply = main.slice(8, word.length);
-		/* message.author/member =>  person that wrote the message
-		message.mentions.members/users.first() => person that was tagged */
+		/* message.author/member =>  person that wrote the message */
+		return message.mentions.members.first(); 
 
-		return message.channel.send(roasts[random - 1].roast);
+		//return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     } else if(message.content === "r!server"){
