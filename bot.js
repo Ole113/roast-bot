@@ -123,9 +123,11 @@ client.on("message", message => {
 		.addField("Created On:", client.user.createdAt)
 		.setFooter("Created By Ole113");
     	return message.channel.send(bot_embed);
-    } else if(message.content === "r!roast") {
-  		const random = Math.ceil(Math.random() * 54);
-		return message.channel.send(roasts[random - 1].roast);
+    } else if(message.content.startsWith("r!roast")){
+		const random = Math.ceil(Math.random() * 54);
+		const main = "r!roast " + member;
+		const reply = main.slice(8, word.length);
+		return message.channel.send(reply + roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     } else if(message.content === "r!server"){
