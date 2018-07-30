@@ -106,9 +106,9 @@ client.on("message", message => {
 		.addField("r!bot:", "Learn more about Roast-Bot.")
 		.addField("r!roast:", "Generate a random roast.")
 		.addField("r!invite:", "Link to invite Roast-Bot to a server")
-		.addField("r!devServer:", "Invite link to the Roast-Bot Devlopment Server.")
 		.addField("r!server:", "Info about your server.")
-		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".");
+		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
+		.addField("Roast-Bot Development Server:", "https://discord.gg/fuDF42D");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
@@ -126,8 +126,6 @@ client.on("message", message => {
 		return message.channel.send(roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
-    } else if(message.content === "r!devServer"){
-    	message.channel.send("Link: https://discord.gg/fuDF42D.");
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
