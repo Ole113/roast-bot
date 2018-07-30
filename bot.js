@@ -141,6 +141,10 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
+
+	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+	const fs = require("fs");
+	
 	if (message.content === "r!level") {
 		message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
