@@ -141,7 +141,7 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	}
-
+	/*
 	const fs = require("fs");	
 	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
@@ -168,7 +168,7 @@ client.on("message", message => {
 	fs.writeFile("./points.json", JSON.stringify (points), (err) => {
 	  if (err) console.error(err)
 	});
-
+	*/
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
