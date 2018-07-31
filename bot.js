@@ -68,7 +68,7 @@ client.on('guildMemberAdd', member => {
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has joined the server.")
+	.setTitle(member.user.displayAvatarURL + member.user.username + " has joined the server.")
 	.setColor("#EB671D")
 	.addField("Time:", join_time)
 	.addField("Tag:", member);
