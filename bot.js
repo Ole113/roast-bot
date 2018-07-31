@@ -68,10 +68,11 @@ client.on('guildMemberAdd', member => {
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
-	.setTitle(client.user.displayAvatarURL + member.user.username + " has joined the server.")
+	.setTitle(member.user.username + " has joined the server.")
 	.setColor("#EB671D")
 	.addField("Time:", join_time)
-	.addField("Tag:", member);
+	.addField("Tag:", member)
+	.setThumbnail(member.user.displayAvatarURL);
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
@@ -80,10 +81,11 @@ client.on('guildMemberRemove', member => {
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
-	.setTitle(client.user.displayAvatarURL + member.user.username + " has left the server, Later Aligator.")
+	.setTitle(member.user.username + " has left the server, Later Aligator.")
 	.setColor("#EB671D")
 	.addField("Time:", leave_time)
 	.addField("Tag:", member)
+	.setThumbnail(member.user.displayAvatarURL);
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
 });
