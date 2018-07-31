@@ -104,7 +104,7 @@ client.on("message", message => {
     .setFooter("v1.3.0, More commands will be added over time, stay tuned!")
 		.addField("r!help:", "List of Roast-Bot Commands.")
 		.addField("r!bot:", "Learn more about Roast-Bot.")
-		.addField("r!roast @user: or r!roast", "Generate a random roast.")
+		.addField("r!roast @user or r!roast:", "Generate a random roast.")
 		.addField("r!invite:", "Link to invite Roast-Bot to a server")
 		.addField("r!server:", "Info about your server.")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
