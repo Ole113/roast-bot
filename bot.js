@@ -63,8 +63,8 @@ client.on("ready", () => {
 	console.log(client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
-client.on('guildMemberAdd', member => {
-	let welcomeleavechannel = member.guild.channels.find('name', 'welcome-leave-log');
+client.on("guildMemberAdd", member => {
+	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
@@ -76,7 +76,7 @@ client.on('guildMemberAdd', member => {
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
-client.on('guildMemberRemove', member => {
+client.on("guildMemberRemove", member => {
 	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
@@ -115,7 +115,7 @@ client.on("message", message => {
 		.setFooter("v1.3.0, for release notes join the Roast-Bot help server.");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!roast"){
-        		const random = Math.ceil(Math.random() * 54);
+        const random = Math.ceil(Math.random() * 54);
 		return message.channel.send(roasts[random - 1].roast);
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
@@ -135,7 +135,7 @@ client.on("message", message => {
 		const reply = word.slice(8, word.length);
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast);
-} else if(message.content === "r!invite") {
+	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
@@ -149,35 +149,10 @@ client.on("message", message => {
 		.addField("You Joined:", message.member.joinedAt)
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
+	} else if(message.content === "r!meme") {
+		return message.channel.send("Meme command coming soon!");
 	}
-	/*
-	const fs = require("fs");	
-	let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
-	if (!message.content.startsWith("r!")) return;
-	if (message.author.bot) return;
-  
-	if (!points[message.author.id]) points[message.author.id] = {
-	  points: 0,
-	  level: 0
-	};
-	let userData = points[message.author.id];
-	userData.points++;
-  
-	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
-	if (curLevel > userData.level) {
-
-	  userData.level = curLevel;
-	  message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
-	}
-  
-	if (message.content.startsWith("r!" + "level")) {
-	  message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
-	}
-	fs.writeFile("./points.json", JSON.stringify (points), (err) => {
-	  if (err) console.error(err)
-	});
-	*/
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
