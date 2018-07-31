@@ -151,7 +151,7 @@ client.on("message", message => {
 		return message.channel.send(server_embed);
 	} else if(message.content === "r!meme") {
 		let i = 0;
-		return message.channel.send("",{files: [`Images/meme${[i]}.PNG`]});
+		return message.channel.send("",{files: [`Images/meme${[i].toString}.PNG`]});
 	}
 
 });
