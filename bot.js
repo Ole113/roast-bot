@@ -59,7 +59,7 @@ const roasts = [
 ];
 
 client.on("ready", () => {
-	console.log("Ready");
+	console.log("Roast-Bot Status: READY");
 	console.log(client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
@@ -151,7 +151,7 @@ client.on("message", message => {
 		return message.channel.send(server_embed);
 	} else if(message.content === "r!meme") {
 		let i = 0;
-		return message.channel.send("",{files: ["Images/meme[i].PNG"]});
+		return message.channel.send("",{files: [`Images/meme${[i]}.PNG`]});
 	}
 
 });
