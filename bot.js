@@ -150,7 +150,8 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	} else if(message.content === "r!meme") {
-		return message.channel.send("test",{files: ["Images/meme1.PNG"]});
+		let i = 0;
+		return message.channel.send("",{files: ["Images/meme[i].PNG"]});
 	}
 
 });
