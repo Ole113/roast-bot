@@ -125,13 +125,11 @@ client.on("message", message => {
     	return message.channel.send(bot_embed);
     } else if(message.content.startsWith("r!roast")){
 		const random = Math.ceil(Math.random() * 54);
-		
-		//const main = "r!roast " + member;
-		//const reply = main.slice(8, word.length);
-		/* message.author/member =>  person that wrote the message */
-		return message.mentions.users.first(); 
 
-		//return message.channel.send(roasts[random - 1].roast);
+		const word = message.content;
+		const reply = word.slice(8, word.length);
+
+		return message.channel.send(reply + ", " + roasts[random - 1].roast);
     } else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
     } else if(message.content === "r!server"){
