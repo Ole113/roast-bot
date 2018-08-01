@@ -150,10 +150,9 @@ client.on("message", message => {
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
 	} else if(message.content === "r!meme") {
-		let i = 2;
-		return message.channel.send({files: [`Images/meme${i}.PNG`]});
+		const random_memes = Math.ceil(Math.random() * 107);
+		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
 	}
-
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
