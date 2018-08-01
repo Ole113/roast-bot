@@ -3,7 +3,7 @@
 
   "description": "A bot to roast people on discord",
 
-  "version": "1.1.0",
+  "version": "1.4.0",
 
   "main": "bot.js",
 
