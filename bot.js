@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const weather = require("weather-js");
+const db = require("quick.db");
 const client = new Discord.Client();
 
 const roasts = [
@@ -60,7 +61,7 @@ const roasts = [
 ];
 
 client.on("ready", () => {
-	console.log("Roast-Bot is ready to roast:");
+	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
@@ -153,7 +154,18 @@ client.on("message", message => {
 	} else if(message.content === "r!meme") {
 		const random_memes = Math.ceil(Math.random() * 107);
 		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
-	} /*
+	} else if(message.content.startsWith("r!clear")){
+		const word = message.content;
+		const number = word.slice(8, word.length);
+
+		if(!message.memeber.hasPermission("Admin" || "Mod")){
+			return message.channel.send("Looks like you done have the roles Admin or Mod :(");
+		}
+		message.channel.bulkDelete(number).then(() => {
+			return message.channel.send(`Cleared ${number} messages.`)
+		});
+	}
+	/*
 	else if(message.content === "r!weather") {
 		const word = message.content;
 		let cont = message.content.slice(8, word.length);
