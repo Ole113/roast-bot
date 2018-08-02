@@ -177,7 +177,7 @@ client.on("message", message => {
 			return message.channel.send("The max number of messages you can delete is 100 :( <:roast_circle:474755210485563404>");
 		} else if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast_circle:474755210485563404>");
-		} else if(number = ""){
+		} else if(number == ""){
 			return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
 		} else {
 	    	return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
@@ -199,7 +199,7 @@ client.on("message", message => {
 	
 		})
 	
-		
+
 		// We also need to make sure it doesn't respond to bots
 		//if (sender.bot) return;
 		if (!message.content.startsWith("r!")) return; // We also want to make it so that if the message does not start with the prefix, return.
