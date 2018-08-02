@@ -157,7 +157,7 @@ client.on("message", message => {
 		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
-		const number = word.slice(8, word.length);
+		const number = word.slice(7, word.length);
 
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :(");
