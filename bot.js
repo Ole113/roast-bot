@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const weather = require("weather-js");
-const db = require("quick.db");
+///const db = require("quick.db");
 const client = new Discord.Client();
 
 const roasts = [
