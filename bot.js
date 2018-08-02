@@ -115,7 +115,7 @@ client.on("message", message => {
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.4.0, for release notes join the Roast-Bot help server.");
+		.setFooter("v1.5.0, for release notes join the Roast-Bot help server.");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 54);
@@ -160,7 +160,7 @@ client.on("message", message => {
 		const number = word.slice(8, word.length);
 
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Looks like you done have the permissions to do that :(");
+			return message.channel.send("Looks like you dont have the permissions to do that :(");
 		} 
 		message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
