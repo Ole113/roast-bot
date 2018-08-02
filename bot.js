@@ -154,6 +154,7 @@ client.on("message", message => {
 		const random_memes = Math.ceil(Math.random() * 107);
 		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
 	} else if(message.content === "r!weather") {
+		const word = message.content;
 		let cont = message.content.slice(8, word.length);
 		let args = cont.slice(1);
 
