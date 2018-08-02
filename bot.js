@@ -159,7 +159,7 @@ client.on("message", message => {
 		const word = message.content;
 		const number = word.slice(8, word.length);
 
-		if(guild.me.hasPermission("MANAGE_MESSAGES")){
+		if(!member.guild.me.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :(");
 		}
 		if(number > 100){
