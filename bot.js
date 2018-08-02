@@ -168,7 +168,7 @@ client.on("message", message => {
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :(");
 		}
-    if(typeof parseInt(number) == "number"){
+    if(number.isInteger == "false"){
 	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES.");
     }	message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
