@@ -83,7 +83,7 @@ client.on("guildMemberRemove", member => {
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has left the server, Later Aligator.")
+	.setTitle(member.user.username + " has left the server, later aligator.")
 	.setColor("#EB671D")
 	.addField("Time:", leave_time)
 	.addField("Tag:", member)
