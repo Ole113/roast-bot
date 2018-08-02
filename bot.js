@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const weather = require("weather-js");
 const client = new Discord.Client();
 
 const roasts = [
@@ -59,8 +60,8 @@ const roasts = [
 ];
 
 client.on("ready", () => {
-	console.log("Roast-Bot Status: READY");
-	console.log(client.guilds.size);
+	console.log("Roast-Bot is ready to roast:");
+	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
 client.on("guildMemberAdd", member => {
@@ -152,6 +153,15 @@ client.on("message", message => {
 	} else if(message.content === "r!meme") {
 		const random_memes = Math.ceil(Math.random() * 107);
 		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
+	} else if(message.content === "r!weather") {
+		let cont = message.content.slice(8, word.length);
+		let args = cont.slice(1);
+
+		weather.find({search: args[0], degreeType: "F"}, function(err, result) {
+			if(err) message.channel.send(err);
+
+			message.channel.send(JSON.stringify(result[0].current, nulll, 2));
+		});
 	}
 });
 //message.reply
