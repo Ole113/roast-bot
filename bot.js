@@ -164,9 +164,9 @@ client.on("message", message => {
 
 			message.channel.send(JSON.stringify(result[0].current, nulll, 2));
 		});
-		*/
+		
 	}
-	
+	*/
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
