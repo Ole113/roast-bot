@@ -172,7 +172,7 @@ client.on("message", message => {
 			return message.channel.send(`Cleared ${number} messages.`)
 		});
 	} else if(message.content === "r!clear"){
-    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES.
+    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES.");
   }
 	/*
 	else if(message.content === "r!weather") {
