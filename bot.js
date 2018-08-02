@@ -162,7 +162,7 @@ client.on("message", message => {
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :(");
 		} 
-		message.channel.bulkDelete(number).then(() => {
+		message.channel.bulkDelete(number + 1).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
 		});
 	}
