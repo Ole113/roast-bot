@@ -111,6 +111,7 @@ client.on("message", message => {
 		.addField("r!invite", "Link to invite Roast-Bot to a server")
 		.addField("r!server", "Info about your server.")
 		.addField("r!meme", "Sends a meme to the current channel.")
+		.addField("r!clear #OF_MESSAGES", "Choose how many messages you want to delete. Max is 100.")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
@@ -159,7 +160,7 @@ client.on("message", message => {
 		const number = word.slice(8, word.length);
 
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Looks like you done have the roles Admin or Mod :(");
+			return message.channel.send("Looks like you done have the permissions to do that :(");
 		} 
 		message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
