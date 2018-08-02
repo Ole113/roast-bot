@@ -168,12 +168,12 @@ client.on("message", message => {
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :(");
 		}
-		message.channel.bulkDelete(number).then(() => {
+    if(number == " "){
+	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES.");
+    }	message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
 		});
-	} else if(message.content === "r!clear"){
-    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES.");
-  }
+	}
 	/*
 	else if(message.content === "r!weather") {
 		const word = message.content;
