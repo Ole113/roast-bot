@@ -158,9 +158,9 @@ client.on("message", message => {
 		const word = message.content;
 		const number = word.slice(8, word.length);
 
-		/* if(!message.memeber.hasPermission("Admin" || "Mod")){
+		if(!message.memeber.hasPermission("Admin" || "Mod", false, true, true)){
 			return message.channel.send("Looks like you done have the roles Admin or Mod :(");
-		} */
+		}
 		message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
 		});
