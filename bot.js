@@ -184,6 +184,7 @@ client.on("message", message => {
 		}
 
 	} 
+	/*
 		db.updateValue(message.author.id + message.guild.id, 1).then(i => { 
 	
 			let messages; 
@@ -201,7 +202,7 @@ client.on("message", message => {
 		// We also need to make sure it doesn't respond to bots
 		if (sender.bot) return;
 		if (!message.content.startsWith(prefix)) return; // We also want to make it so that if the message does not start with the prefix, return.
-	
+	*/
 	/*
 	else if(message.content === "r!game1 start"){
 		if(message.content === "r!game1 info"){
