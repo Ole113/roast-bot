@@ -1,24 +1,14 @@
 {
   "name": "roast-bot",
-
   "description": "A bot to roast people on discord",
-
   "version": "1.4.0",
-
   "main": "bot.js",
-
   "scripts": {
-
     "start": "node bot.js"
-
   },
-
   "dependencies": {
-
     "discord.js": "11.3.2",
-
-    "request": "2.81.0"
-
+    "request": "2.81.0",
+    "weather-js": "^2.0.0"
   }
-
 }
