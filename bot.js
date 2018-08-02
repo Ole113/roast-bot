@@ -184,6 +184,24 @@ client.on("message", message => {
 		}
 
 	} 
+		db.updateValue(message.author.id + message.guild.id, 1).then(i => { 
+	
+			let messages; 
+			if (i.value == 5) messages = 5; // Level 1
+			else if (i.value == 10) messages = 10; // Level 2
+			else if (i.value == 15) messages = 15; // Level 3 
+			if (!isNaN(messages)) { // If messages IS STILL empty, run this.
+				db.updateValue(`userLevel_${message.author.id + message.guild.id}`, 1).then(o => { // This returns the updated object of userLevel_ID. 
+					message.channel.send(`You sent ${messages} messages, so you leveled up! You are now level ${o.value}`) // Send their updated level to the channel.
+				})
+			}
+	
+		})
+	
+		// We also need to make sure it doesn't respond to bots
+		if (sender.bot) return;
+		if (!message.content.startsWith(prefix)) return; // We also want to make it so that if the message does not start with the prefix, return.
+	
 	/*
 	else if(message.content === "r!game1 start"){
 		if(message.content === "r!game1 info"){
