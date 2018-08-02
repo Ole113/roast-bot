@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const weather = require("weather-js");
+//const weather = require("weather-js");
 const client = new Discord.Client();
 
 const roasts = [
@@ -153,7 +153,8 @@ client.on("message", message => {
 	} else if(message.content === "r!meme") {
 		const random_memes = Math.ceil(Math.random() * 107);
 		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
-	} else if(message.content === "r!weather") {
+	} /*
+	else if(message.content === "r!weather") {
 		let cont = message.content.slice(8, word.length);
 		let args = cont.slice(1);
 
@@ -163,6 +164,7 @@ client.on("message", message => {
 			message.channel.send(JSON.stringify(result[0].current, nulll, 2));
 		});
 	}
+	*/
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
