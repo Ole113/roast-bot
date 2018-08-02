@@ -199,9 +199,10 @@ client.on("message", message => {
 	
 		})
 	
+		
 		// We also need to make sure it doesn't respond to bots
 		//if (sender.bot) return;
-		if (!message.content.startsWith(prefix)) return; // We also want to make it so that if the message does not start with the prefix, return.
+		if (!message.content.startsWith("r!")) return; // We also want to make it so that if the message does not start with the prefix, return.
 	
 	/*
 	else if(message.content === "r!game1 start"){
