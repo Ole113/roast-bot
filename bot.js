@@ -159,6 +159,9 @@ client.on("message", message => {
 		const word = message.content;
 		const number = word.slice(8, word.length);
 
+		if(number > 100){
+			return message.channel.send("The max number of messages you can delete is 100 :(");
+		}
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :(");
 		}
