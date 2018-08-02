@@ -191,7 +191,7 @@ client.on("message", message => {
 			else if (i.value == 15) messages = 15; // Level 3 
 			if (!isNaN(messages)) { // If messages IS STILL empty, run this.
 				db.add(`userLevel_${message.author.id + message.guild.id}`, 1).then(o => { // This returns the updated object of userLevel_ID. 
-					message.channel.send(`You sent ${messages} messages, so you leveled up! You are now level ${o.value}`) // Send their updated level to the channel.
+					return message.channel.send(`You sent ${messages} messages, so you leveled up! You are now level ${o.value}`) // Send their updated level to the channel.
 				})
 			}
 	
@@ -199,7 +199,7 @@ client.on("message", message => {
 	
 
 		// We also need to make sure it doesn't respond to bots
-		//if (sender.bot) return;
+		if (message.author.bot) return;
 		if (!message.content.startsWith("r!")) return; // We also want to make it so that if the message does not start with the prefix, return.
 	
 	/*
