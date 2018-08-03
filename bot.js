@@ -115,19 +115,19 @@ client.on("message", message => {
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.5.0, for release notes join the Roast-Bot help server.");
+		.setFooter("v1.5.0, for release notes join the Roast-Bot help server. <:roast_circle:474755210485563404>");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 54);
-		return message.channel.send(roasts[random_roasts - 1].roast + "<:roast:473588975639199744>");
+		return message.channel.send(roasts[random_roasts - 1].roast + "<:roast_circle:474755210485563404>");
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
-		.setTitle("Bot Information:")
+		.setTitle("<:roast_circle:474755210485563404> Bot Information:")
 		.addBlankField()
 	    .setThumbnail(bot_icon)
-		.addField("Bot Name:", client.user.username + "<:roast:473588975639199744>")
+		.addField("Bot Name:", client.user.username + "<:roast_circle:474755210485563404>")
 		.addField("Created On:", client.user.createdAt)
 		.setFooter("Created By Ole113#2421");
     	return message.channel.send(bot_embed);
@@ -137,9 +137,9 @@ client.on("message", message => {
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 
-		return message.channel.send(reply + ", " + roasts[random - 1].roast + "<:roast:473588975639199744>");
+		return message.channel.send(reply + ", " + roasts[random - 1].roast + "<:roast_circle:474755210485563404>");
 	} else if(message.content === "r!invite") {
-    	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast:473588975639199744>");
+    	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
@@ -160,16 +160,16 @@ client.on("message", message => {
 		const number = word.slice(7, word.length);
 
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast:473588975639199744>");
+			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>");
 		}
 		if(number > 100){
-			return message.channel.send("The max number of messages you can delete is 100 :( <:roast:473588975639199744>");
+			return message.channel.send("The max number of messages you can delete is 100 :( <:roast_circle:474755210485563404>");
 		}
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast:473588975639199744>");
+			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast_circle:474755210485563404>");
 		}
     if(number === ""){
-	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES. <:roast:473588975639199744>");
+	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES. <:roast_circle:474755210485563404>");
     }	message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
 		});
