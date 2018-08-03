@@ -130,7 +130,7 @@ client.on("message", message => {
 		return message.channel.send(bot_embed);
 	} else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 54);
-		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Meme #${random}** <:roast_circle:474755210485563404>`);
+		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Meme #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
 		const random = Math.ceil(Math.random() * 54);
 
