@@ -127,7 +127,7 @@ client.on("message", message => {
 		.setTitle("<:roast_circle:474755210485563404> Bot Information:")
 		.addBlankField()
 	    .setThumbnail(bot_icon)
-		.addField("Bot Name:", client.user.username + "<:roast_circle:474755210485563404>")
+		.addField("Bot Name:", client.user.username)
 		.addField("Created On:", client.user.createdAt)
 		.setFooter("Created By Ole113#2421");
     	return message.channel.send(bot_embed);
@@ -137,7 +137,7 @@ client.on("message", message => {
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 
-		return message.channel.send(reply + ", " + roasts[random - 1].roast + "<:roast_circle:474755210485563404>");
+		return message.channel.send(reply + ", " + roasts[random - 1].roast  + `\n **Meme #${random}** <:roast_circle:474755210485563404>`);
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
@@ -154,7 +154,7 @@ client.on("message", message => {
 		return message.channel.send(server_embed);
 	} else if(message.content === "r!meme") {
 		const random_memes = Math.ceil(Math.random() * 107);
-		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]});
+		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]} + `\n **Meme #${random_memes}** <:roast_circle:474755210485563404>`);
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
@@ -171,7 +171,7 @@ client.on("message", message => {
     if(number === ""){
 	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES. <:roast_circle:474755210485563404>");
     }	message.channel.bulkDelete(number).then(() => {
-			return message.channel.send(`Cleared ${number} messages.`)
+			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
 	}
 	/*
