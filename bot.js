@@ -127,7 +127,7 @@ client.on("message", message => {
 		.setTitle("Bot Information:")
 		.addBlankField()
 	    .setThumbnail(bot_icon)
-		.addField("Bot Name:", client.user.username <:roast:473588975639199744>)
+		.addField("Bot Name:", client.user.username + "<:roast:473588975639199744>")
 		.addField("Created On:", client.user.createdAt)
 		.setFooter("Created By Ole113#2421");
     	return message.channel.send(bot_embed);
@@ -137,7 +137,7 @@ client.on("message", message => {
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 
-		return message.channel.send(reply + ", " + roasts[random - 1].roast);
+		return message.channel.send(reply + ", " + roasts[random - 1].roast + "<:roast:473588975639199744>");
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast:473588975639199744>");
     } else if(message.content === "r!server"){
