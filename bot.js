@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const weather = require("weather-js");
+//const weather = require("weather-js");
 ///const db = require("quick.db");
 const client = new Discord.Client();
 
@@ -130,14 +130,18 @@ client.on("message", message => {
 		return message.channel.send(bot_embed);
 	} else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 54);
-		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Meme #${random_roasts}** <:roast_circle:474755210485563404>`);
+		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
 		const random = Math.ceil(Math.random() * 54);
 
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 
-		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Meme #${random}** <:roast_circle:474755210485563404>`);
+		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
+	} else if(message.content.startsWith("r!roast #")){
+		let word = message.content;
+		let number = word.slice(9, word.length);
+		return message.channel.send(roasts[number - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`)
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
