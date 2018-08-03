@@ -169,7 +169,7 @@ client.on("message", message => {
 			return message.channel.send("Looks like you dont have the permissions to do that :(");
 		}
     if(number === ""){
-	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES.");
+	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES. <:roast:473588975639199744>");
     }	message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages.`)
 		});
