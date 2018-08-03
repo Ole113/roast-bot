@@ -115,11 +115,11 @@ client.on("message", message => {
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.5.0, for release notes join the Roast-Bot help server.");
+		.setFooter("v1.5.0, for release notes join the Roast-Bot help server. <:roast:473588975639199744>");
 		return message.channel.send(help_embed);
     } else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 54);
-		return message.channel.send(roasts[random_roasts - 1].roast);
+		return message.channel.send(roasts[random_roasts - 1].roast + "<:roast:473588975639199744>");
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
@@ -127,9 +127,9 @@ client.on("message", message => {
 		.setTitle("Bot Information:")
 		.addBlankField()
 	    .setThumbnail(bot_icon)
-		.addField("Bot Name:", client.user.username)
+		.addField("Bot Name:", client.user.username <:roast:473588975639199744>)
 		.addField("Created On:", client.user.createdAt)
-		.setFooter("Created By Ole113");
+		.setFooter("Created By Ole113#2421");
     	return message.channel.send(bot_embed);
     } else if(message.content.startsWith("r!roast")){
 		const random = Math.ceil(Math.random() * 54);
@@ -139,7 +139,7 @@ client.on("message", message => {
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast);
 	} else if(message.content === "r!invite") {
-    	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595");
+    	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast:473588975639199744>");
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
@@ -160,13 +160,13 @@ client.on("message", message => {
 		const number = word.slice(7, word.length);
 
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :(");
+			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast:473588975639199744>");
 		}
 		if(number > 100){
-			return message.channel.send("The max number of messages you can delete is 100 :(");
+			return message.channel.send("The max number of messages you can delete is 100 :( <:roast:473588975639199744>");
 		}
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Looks like you dont have the permissions to do that :(");
+			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast:473588975639199744>");
 		}
     if(number === ""){
 	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES. <:roast:473588975639199744>");
