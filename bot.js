@@ -156,6 +156,7 @@ client.on("message", message => {
 		const random_memes = Math.ceil(Math.random() * 107);
 		let meme_embed = new Discord.RichEmbed()
 		.addField({files: [`Images/meme${random_memes}.PNG`]}, `Meme #${random_memes} <:roast_circle:474755210485563404>`)
+		return message.channel.send(meme_embed);
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
