@@ -115,7 +115,7 @@ client.on("message", message => {
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.5.0, for release notes join the Roast-Bot help server. " + "<:roast_circle:474755210485563404>");
+		.setFooter("v1.5.0, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
@@ -127,7 +127,10 @@ client.on("message", message => {
 		.addField("Bot Name:", client.user.username)
 		.addField("Created On:", client.user.createdAt)
 		.setFooter("Created By Ole113#2421");
-    	return message.channel.send(bot_embed);
+		return message.channel.send(bot_embed);
+	} else if(message.content === "r!roast"){
+        const random_roasts = Math.ceil(Math.random() * 54);
+		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Meme #${random}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast")){
 		const random = Math.ceil(Math.random() * 54);
 
@@ -135,9 +138,6 @@ client.on("message", message => {
 		const reply = word.slice(8, word.length);
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Meme #${random}** <:roast_circle:474755210485563404>`);
-	} else if(message.content === "r!roast"){
-        const random_roasts = Math.ceil(Math.random() * 54);
-		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Meme #${random}** <:roast_circle:474755210485563404>`);
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
