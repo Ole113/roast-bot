@@ -141,7 +141,7 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!roast #")){
 		let word = message.content;
 		let number = word.slice(9, word.length);
-		return message.channel.send(roasts[number - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`)
+		return message.channel.send(roasts[number - 1].roast + `\n **Roast #${number}** <:roast_circle:474755210485563404>`)
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
