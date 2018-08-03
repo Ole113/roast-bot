@@ -155,7 +155,8 @@ client.on("message", message => {
 	} else if(message.content === "r!meme") {
 		const random_memes = Math.ceil(Math.random() * 107);
 	
-		return (message.channel.send({files: [`Images/meme${random_memes}.PNG`]}) + ` \nMeme #${random_memes} <:roast_circle:474755210485563404>`)
+		return (message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>` + {files: [`Images/meme${random_memes}.PNG`]}))
+		return message.channel.send()
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
