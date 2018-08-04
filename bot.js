@@ -109,12 +109,12 @@ client.on("message", message => {
 		.addField("r!roast @USER, r!roast, or r!roast #NUMBER_OF_ROAST", "Generate a random roast with the number of roast it was.")
 		.addField("r!invite", "Link to invite Roast-Bot to a server")
 		.addField("r!server", "Info about your server.")
-		.addField("r!meme", "Sends a meme to the current channel.")
+		.addField("r!meme, or r!meme #NUMBER_OF_MEME", "Sends a meme to the current channel.")
 		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.5.5, for release notes join the Roast-Bot help server. ");
+		.setFooter("v1.6.0, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
