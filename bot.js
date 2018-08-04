@@ -199,7 +199,7 @@ client.on("message", message => {
 			return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         X     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
 		}
 
-		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+		//return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
 	}
 
 });
