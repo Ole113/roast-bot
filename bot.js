@@ -185,7 +185,7 @@ client.on("message", message => {
 		});
 	} else if(message.content.startsWith("r!game1")){
 		let A1 = "", A2 = "", A3 = "", B1 = "", B2 = "", B3 = "", C1 = "", C2 = "", C3 = "";
-		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n   A       B        C\n\n    ${A1}    |     ${B1}     |     ${C1}     \n-----------------\n    ${A2}    |     ${B2}     |     ${C2}     \n-----------------\n    ${A3}    |     ${B3}     |     ${C3}     `);
+		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n   A     B     C\n\n1         ${A1}    |     ${B1}     |     ${C1}     \n-----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n-----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
 	}
 	/*
 	else if(message.content === "r!weather") {
