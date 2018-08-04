@@ -164,7 +164,7 @@ client.on("message", message => {
 		//.setImage({files: [`Images/meme${random_memes}.PNG`]})
 		//setFooter(`Meme #${random_memes} <:roast_circle:474755210485563404>`);
 		//return message.channel.send(meme_embed);
-		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]})
+		//return message.channel.send({files: [`Images/meme${random_memes}.PNG`]})
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
