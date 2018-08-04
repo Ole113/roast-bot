@@ -110,7 +110,7 @@ client.on("message", message => {
 		.addField("r!roast @USER, r!roast, or r!roast #NUMBER_OF_ROAST", "Generate a random roast with the number of roast it was.")
 		.addField("r!invite", "Link to invite Roast-Bot to a server")
 		.addField("r!server", "Info about your server.")
-		.addField("r!meme", "Sends a meme to the current channel.")
+		.addField("r!meme", "Sends a meme to the current channel. \n \n")
 		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
