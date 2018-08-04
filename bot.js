@@ -131,18 +131,21 @@ client.on("message", message => {
 	} else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 54);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
-    } else if(message.content.startsWith("r!roast ") && message.content != "r!roast #"){
+    } else if(message.content.startsWith("r!roast ")){
+		if(message.content.startsWith("r!roast #")){
+			let word1 = message.content;
+			let number1 = word.slice(9, word1.length);
+			let number_int = parseInt(number1);
+			return message.channel.send(roasts[number_int - 1].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`)
+		}
 		const random = Math.ceil(Math.random() * 54);
 
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-	/*} else if(message.content.startsWith("r!roast #")){
-		let word = message.content;
-		let number = word.slice(9, word.length);
-		let number_int = parseInt(number);
-		return message.channel.send(roasts[number_int - 1].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`) */
+	} else if(message.content.startsWith("r!roast #")){
+
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
