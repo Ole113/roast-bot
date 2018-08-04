@@ -184,7 +184,16 @@ client.on("message", message => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
 	} else if(message.content.startsWith("r!game1")){
-		return message.channel.send("Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        |          |          \n-----------------\n        |          |          \n-----------------\n        |          |          ");
+		let A1 = " ";
+		let A2 = " ";
+		let A3 = " ";
+		let B1 = " ";
+		let B2 = " ";
+		let B3 = " ";
+		let C1 = " ";
+		let C2 = " ";
+		let C3 = " ";
+		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n    ${A1}    |     ${B1}     |     ${C1}     \n-----------------\n    ${A2}    |     ${B2}     |     ${C2}     \n-----------------\n    ${A3}    |     ${B3}     |     ${C3}     `);
 	}
 	/*
 	else if(message.content === "r!weather") {
