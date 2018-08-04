@@ -178,29 +178,16 @@ client.on("message", message => {
 		if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast_circle:474755210485563404>");
 		}
-    if(number === ""){
-	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
-    }	message.channel.bulkDelete(number).then(() => {
-			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
+    	if(number === ""){
+	    	return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
+		}	
+		message.channel.bulkDelete(number).then(() => {
+		return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
 	} else if(message.content.startsWith("r!game1")){
 		let A1 = "", A2 = "", A3 = "", B1 = "", B2 = "", B3 = "", C1 = "", C2 = "", C3 = "";
-		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n      A        B        C\n\n1         ${A1}    |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n       A         B         C\n\n1         ${A1}     |     ${B1}      |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
 	}
-	/*
-	else if(message.content === "r!weather") {
-		const word = message.content;
-		let cont = message.content.slice(8, word.length);
-		let args = cont.slice(1);
-
-		weather.find({search: args[0], degreeType: "F"}, function(err, result) {
-			if(err) message.channel.send(err);
-
-			message.channel.send(JSON.stringify(result[0].current, nulll, 2));
-		});
-		
-	}
-	*/
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
