@@ -107,15 +107,15 @@ client.on("message", message => {
 		.setThumbnail(help_icon)
 		.addField("r!help", "List of Roast-Bot Commands.")
 		.addField("r!bot", "Learn more about Roast-Bot.")
-		.addField("r!roast @user or r!roast", "Generate a random roast.")
+		.addField("r!roast @USER, r!roast, or r!roast #NUMBER_OF_ROAST", "Generate a random roast with the number of roast it was.")
 		.addField("r!invite", "Link to invite Roast-Bot to a server")
 		.addField("r!server", "Info about your server.")
 		.addField("r!meme", "Sends a meme to the current channel.")
-		.addField("r!clear #OF_MESSAGES", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
+		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.5.0, for release notes join the Roast-Bot help server. ");
+		.setFooter("v1.5.5, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
@@ -144,8 +144,6 @@ client.on("message", message => {
 		const reply = word.slice(8, word.length);
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-	} else if(message.content.startsWith("r!roast #")){
-
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
@@ -182,7 +180,7 @@ client.on("message", message => {
 			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast_circle:474755210485563404>");
 		}
     if(number === ""){
-	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear #OF_MESSAGES. <:roast_circle:474755210485563404>");
+	    return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
     }	message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
