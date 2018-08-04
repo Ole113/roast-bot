@@ -157,7 +157,7 @@ client.on("message", message => {
 		.addField("You Joined:", message.member.joinedAt)
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
-	} else if(message.content === "r!meme") {
+	} else if(message.content.startsWith("r!meme")) {
 		const random_memes = Math.ceil(Math.random() * 107);
 		if(message.content.startsWith("r!meme #")){
 			let word2 = message.content;
