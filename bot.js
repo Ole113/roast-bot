@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
-//const weather = require("weather-js");
-///const db = require("quick.db");
+const db = require("quick.db");
 const client = new Discord.Client();
 
 const roasts = [
@@ -110,7 +109,7 @@ client.on("message", message => {
 		.addField("r!roast @USER, r!roast, or r!roast #NUMBER_OF_ROAST", "Generate a random roast with the number of roast it was.")
 		.addField("r!invite", "Link to invite Roast-Bot to a server")
 		.addField("r!server", "Info about your server.")
-		.addField("r!meme", "Sends a meme to the current channel. \n \n")
+		.addField("r!meme", "Sends a meme to the current channel.")
 		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
 		.addBlankField()
@@ -145,7 +144,7 @@ client.on("message", message => {
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 	} else if(message.content === "r!invite") {
-    	message.channel.send("Invite Link: https://discordbots.org/bot/461361233644355595 <:roast_circle:474755210485563404>");
+    	message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
@@ -161,7 +160,7 @@ client.on("message", message => {
 	} else if(message.content === "r!meme") {
 		const random_memes = Math.ceil(Math.random() * 107);
 		//let meme_embed = new Discord.RichEmbed()
-		//return message.channel.send("Meme #" + random_memes + " <:roast_circle:474755210485563404>" + {files: [`Images/meme${random_memes}.PNG`]} );
+		return message.channel.send({files: [`Images/meme${random_memes}.PNG`]}, `Meme # ${random_memes} <:roast_circle:474755210485563404>`);
 		//.setImage({files: [`Images/meme${random_memes}.PNG`]})
 		//setFooter(`Meme #${random_memes} <:roast_circle:474755210485563404>`);
 		//return message.channel.send(meme_embed);
