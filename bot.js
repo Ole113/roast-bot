@@ -193,7 +193,7 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!game1 ")){
 		const word = message.content;
 		const place = word.slice(8, word.length);
-		if(place == A1){
+		if(place == "A1"){
 			A1 = "X";
 		}
 		let A1 = "", A2 = "", A3 = "", B1 = "", B2 = "", B3 = "", C1 = "", C2 = "", C3 = "";
