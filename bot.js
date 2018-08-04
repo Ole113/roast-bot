@@ -184,7 +184,7 @@ client.on("message", message => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
 	} else if(message.content.startsWith("r!game1")){
-		return message.channel.send("\n          |         |          |          \n          |          |          \n--------------------\n          |          |          \n          |          |          \n--------------------\n          |          |          \n          |          |          ");
+		return message.channel.send("\n                   |          |          \n          |          |          \n--------------------\n          |          |          \n          |          |          \n--------------------\n          |          |          \n          |          |          ");
 	}
 	/*
 	else if(message.content === "r!weather") {
