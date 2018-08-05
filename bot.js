@@ -189,7 +189,7 @@ client.on("message", message => {
 			return message.channel.send("Game1 is Tic-Tac-Toe.  Player 1 is X and Player 2 is O, the point of the game is to try to get 3 in row to win! If neither player is able to do this and all spaces are filled the game ends in a draw.  To chose where to go you chose by letter and then number, for example A1 would be the top left, C1 would be the top right and so on. The game board looks like this: \n\nTic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B          C\n\n1              |          |          \n        -----------------\n2             |          |          \n        -----------------\n3             |          |          ");
 		}
 		let A1 = "", A2 = "", A3 = "", B1 = "", B2 = "", B3 = "", C1 = "", C2 = "", C3 = "";
-		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+		return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n\n        -----------------\n\n2         ${A2}    |     ${B2}     |     ${C2}     \n\n        -----------------\n\n3         ${A3}    |     ${B3}     |     ${C3}     `);
 	} else if(message.content.startsWith("r!game1 ")){
 		const word = message.content;
 		let slice = word.slice(8, word.length);
