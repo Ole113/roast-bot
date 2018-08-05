@@ -201,104 +201,108 @@ client.on("message", message => {
 				if(player == 1){
 					A1 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
+
 				} else if(player == 2){
 					A1 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "A2":
 				if(player == 1){
 					A2 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
+
 				} else if(player == 2){
 					A2 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "A3":
 				if(player == 1){
 					A3 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
+
 				} else if(player == 2){
 					A3 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "B1":
 				if(player == 1){
 					B1 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				} else if(player == 2){
 					B1 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "B2":
 				if(player == 1){
 					B2 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
+
 				} else if(player == 2){
 					B2 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "B3":
 				if(player == 1){
 					B3 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				} else if(player == 2){
 					B3 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "C1":
 				if(player == 1){
 					C1 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				} else if(player == 2){
 					C1 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "C2":
 				if(player == 1){
 					C2 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				} else if(player == 2){
 					C2 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			case slice = "C3":
 				if(player == 1){
 					C3 = "X";
 					player = 2;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				} else if(player == 2){
 					C3 = "O";
 					player = 1;
-					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
+					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}     |    ${B1}     |    ${C1}     \n        -----------------\n2        ${A2}    |    ${B2}     |    ${C2}     \n        -----------------\n3        ${A3}    |    ${B3}     |    ${C3}     `);
 				}
 				break;
 			default:
 				return message.channel.send("Something went wrong :(");
-				break;
+				
 		}
 
 		//return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1         ${A1}     |     ${B1}     |     ${C1}     \n        -----------------\n2         ${A2}    |     ${B2}     |     ${C2}     \n        -----------------\n3         ${A3}    |     ${B3}     |     ${C3}     `);
