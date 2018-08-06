@@ -58,7 +58,6 @@ const roasts = [
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
 ];
-
 client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
