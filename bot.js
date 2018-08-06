@@ -207,7 +207,7 @@ client.on("message", message => {
 					A1 = "O";
 					player = 1;
 					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}      |   ${B1}      |   ${C1}      \n        -----------------\n2        ${A2}     |    ${B2}      |    ${C2}      \n        -----------------\n3        ${A3}     |    ${B3}      |    ${C3}      `);				}
-				break;
+				
 			case slice = "A2":
 				if(player == 1){
 					A2 = "X";
@@ -217,7 +217,7 @@ client.on("message", message => {
 					A2 = "O";
 					player = 1;
 					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}      |   ${B1}      |   ${C1}      \n        -----------------\n2        ${A2}     |    ${B2}      |    ${C2}      \n        -----------------\n3        ${A3}     |    ${B3}      |    ${C3}      `);				}
-				break;
+				
 			case slice = "A3":
 				if(player == 1){
 					A3 = "X";
@@ -227,7 +227,7 @@ client.on("message", message => {
 					A3 = "O";
 					player = 1;
 					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}      |   ${B1}      |   ${C1}      \n        -----------------\n2        ${A2}     |    ${B2}      |    ${C2}      \n        -----------------\n3        ${A3}     |    ${B3}      |    ${C3}      `);				}
-				break;
+				
 			case slice = "B1":
 				if(player == 1){
 					B1 = "X";
@@ -236,7 +236,7 @@ client.on("message", message => {
 					B1 = "O";
 					player = 1;
 					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}      |   ${B1}      |   ${C1}      \n        -----------------\n2        ${A2}     |    ${B2}      |    ${C2}      \n        -----------------\n3        ${A3}     |    ${B3}      |    ${C3}      `);				}
-				break;
+				
 			case slice = "B2":
 				if(player == 1){
 					B2 = "X";
@@ -246,7 +246,7 @@ client.on("message", message => {
 					B2 = "O";
 					player = 1;
 					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}      |   ${B1}      |   ${C1}      \n        -----------------\n2        ${A2}     |    ${B2}      |    ${C2}      \n        -----------------\n3        ${A3}     |    ${B3}      |    ${C3}      `);				}
-				break;
+				
 			case slice = "B3":
 				if(player == 1){
 					B3 = "X";
@@ -255,7 +255,7 @@ client.on("message", message => {
 					B3 = "O";
 					player = 1;
 					return message.channel.send(`Tic-Tac-Toe  <:roast_circle:474755210485563404>\n\n        A          B         C\n\n1        ${A1}      |   ${B1}      |   ${C1}      \n        -----------------\n2        ${A2}     |    ${B2}      |    ${C2}      \n        -----------------\n3        ${A3}     |    ${B3}      |    ${C3}      `);				}
-				break;
+				
 			case slice = "C1":
 				if(player == 1){
 					C1 = "X";
