@@ -191,7 +191,6 @@ client.on("message", message => {
 			else if (i.value == 15) messages = 15; // Level 3 
 			if (!isNaN(messages)) { // If messages IS STILL empty, run this.
 				db.add(`userLevel_${message.author.id + message.guild.id}`, 1).then(o => { // This returns the updated object of userLevel_ID. 
-					console.log(messages);
 					return message.channel.send(`You sent ${messages} messages, so you leveled up! You are now level ${o.value}`) // Send their updated level to the channel.
 	
 				})
