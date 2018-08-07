@@ -98,7 +98,7 @@ client.on("guildDelete", guild => {
     console.log("Roast-Bot left a server named: " + guild.name);
 })
 client.on("message", message => {
-	/*
+	
 	//Database
 	if(message.author.bot) return;
 	if(message.guild) {
@@ -108,10 +108,10 @@ client.on("message", message => {
 			user: message.author.id, guild: message.guild.id, points: 0, level: 1
 		  });
 		}
-		let currentPoints = client.points.getProp(key, "points");
+		let currentPoints = client.points.get(key, "points");
 		client.points.setProp(key, "points", ++currentPoints);
 		const curLevel = Math.floor(0.1 * Math.sqrt(currentPoints));
-		if (client.points.getProp(key, "level") < curLevel) {
+		if (client.points.get(key, "level") < curLevel) {
 			message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
 		}
 		client.points.setProp (key, "level", curLevel);
@@ -120,7 +120,7 @@ client.on("message", message => {
 	if (message.content === "r!points") {
 		return message.channel.send(`You currently have ${client.points.getProp(key, "points")}, and are level ${client.points.getProp(key, "level")}!`);
 	}
-	*/
+	
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
