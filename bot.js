@@ -109,12 +109,12 @@ client.on("message", message => {
 		  });
 		}
 		let currentPoints = client.points.get(key, "points");
-		client.points.setProp(key, "points", ++currentPoints);
+		client.points.set(key, "points", ++currentPoints);
 		const curLevel = Math.floor(0.1 * Math.sqrt(currentPoints));
 		if (client.points.get(key, "level") < curLevel) {
 			message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
 		}
-		client.points.setProp (key, "level", curLevel);
+		client.points.set(key, "level", curLevel);
 	}
 
 	if (message.content === "r!points") {
