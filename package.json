@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "discord.js": "^11.3.2",
+    "enmap": "^3.0.2",
     "quick.db": "^6.3.2",
     "request": "2.81.0"
   }
