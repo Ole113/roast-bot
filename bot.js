@@ -111,9 +111,28 @@ client.on("message", message => {
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, ++currentPoints, "points");
 		const curLevel = 1;
-		if(currentPoints == 5){
-			return message.channel.send("Level up your now level 2");
+		if(currentPoints == 10){
+			return message.channel.send("Level up, your now level 1: Roast-Noob!");
+		}else if(currentPoints == 15){
+			return message.channel.send("Level up, your now level 2: Roast-Learner!");
+		} else if(currentPoints == 25){
+			return message.channel.send("Level up, your now level 3: Mediocre Roaster!");
+		} else if(currentPoints == 50) {
+			return message.channel.send("Level up, your now level 4: Advanced Roaster!");
+		} else if(currentPoints == 100){
+			return message.channel.send("Level up, your now level 5: Roast-Master");
+		} else if(currentPoints == 200) {
+			return message.channel.send("Level up, your now level 6: Roast-Jesus");
+		} else if(currentPoints == 500) {
+			return message.channel.send("Level up, your now level 7: Roast-God");
+		} else if(currentPoints == 1000) {
+			return message.channel.send("Level up, your now level 8: Roast-Creator");
+		} else if(currentPoints == 5000) {
+			return message.channel.send("Level up, your now level 9: Roast-Champion");
+		} else if(currentPoints == 10000) {
+			return message.channel.send("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD");
 		}
+
 		client.points.set(key, curLevel, "level");
 	}
 	/*const key = `${message.guild.id}-${message.author.id}`;
