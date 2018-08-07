@@ -114,7 +114,7 @@ client.on("message", message => {
 		if (client.points.get(key, "level") < curLevel) {
 			message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
 		}
-		client.points.set(key, "level", curLevel);
+		client.points.set(key, curLevel, "level");
 	}
 
 	if (message.content === "r!points") {
