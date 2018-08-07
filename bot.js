@@ -112,7 +112,7 @@ client.on("message", message => {
 		client.points.set(key, "points", ++currentPoints);
 		const curLevel = Math.floor(0.1 * Math.sqrt(currentPoints));
 		if (client.points.get(key, "level") < curLevel) {
-			message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
+			return message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
 		}
 		client.points.set(key, curLevel, "level");
 	}
