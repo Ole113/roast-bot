@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
-const db = require("quick.db");
 const client = new Discord.Client();
+const Enmap = require("enmap");
+const Provide = require("enmap-sqlite");
 
 const roasts = [
 	{"roast":"Id offer you some gum but your smiles got plenty of it"},
@@ -96,6 +97,49 @@ client.on("guildDelete", guild => {
     console.log("Roast-Bot left a server named: " + guild.name);
 })
 client.on("message", message => {
+
+	//Database
+	client.points = new Enmap({provider: new Provider({name: "points"})});
+	if(message.author.bot) return;
+	if(message.guild) {
+		const key = `${message.guild.id}-${message.author.id}`;
+		if(!client.points.has(key)) {
+		  client.points.set(key, {
+			user: message.author.id, guild: message.guild.id, points: 0, level: 1
+		  });
+		}
+		let currentPoints = client.points.getProp(key, "points");
+		client.points.setProp(key, "points", ++currentPoints);
+		const curLevel = Math.floor(0.1 * Math.sqrt(currentPoints));
+		if (client.points.getProp(key, "level") < curLevel) {
+			message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
+		}
+		client.points.setProp (key, "level", curLevel);
+	}
+	if(message.content === "r!leaderboard") {
+		// Get a filtered list (for this guild only), and convert to an array while we're at it.
+		const filtered = client.points.filterArray( p => p.guild === message.guild.id );
+	  ​
+		// Sort it to get the top results... well... at the top. Y'know.
+		const sorted = filtered.sort((a, b) => a.points < b.points);
+	  ​
+		// Slice it, dice it, get the top 10 of it!
+		const top10 = sorted.splice(0, 10);
+	  ​
+		// Now shake it and show it! (as a nice embed, too!)
+		const embed = new Discord.RichEmbed()
+		  .setTitle("Leaderboard")
+		  .setAuthor(client.user.username, client.user.avatarURL)
+		  .setDescription("Our top 10 points leaders!")
+		  .setColor(0x00AE86);
+		for(const data of top10) {
+		  embed.addField(client.users.get(data.user).tag, `${data.points} points (level ${data.level})`);
+		}
+		return message.channel.send({embed});
+	  }
+	if (message.content === "r!points") {
+		return message.channel.send(`You currently have ${client.points.getProp(key, "points")}, and are level ${client.points.getProp(key, "level")}!`);
+	  }
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
@@ -181,7 +225,7 @@ client.on("message", message => {
 			return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
 		}
 
-	} 
+	}
 	
 	
 	/*
