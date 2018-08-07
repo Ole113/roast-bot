@@ -105,12 +105,12 @@ client.on("message", message => {
 		const key = `${message.guild.id}-${message.author.id}`;
 		if(!client.points.has(key)) {
 		  client.points.set(key, {
-			user: message.author.id, guild: message.guild.id, points: 0, level: 1
+			user: message.author.id, guild: message.guild.id, points: 0, level: 0
 		  });
 		}
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, ++currentPoints, "points");
-		const curLevel = 0.1;
+		const curLevel = 1;
 		if (client.points.get(key, "level") < curLevel) {
 			return message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
 		}
