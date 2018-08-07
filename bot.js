@@ -112,8 +112,9 @@ client.on("message", message => {
 		client.points.set(key, ++currentPoints, "points");
 		const curLevel = client.points.get(key, "level");
 		if(currentPoints == 10){
-			return message.channel.send("Level up, your now level 2: Roast-Noob!");
 			client.points.set(key, ++curLevel, "level")
+			return message.channel.send("Level up, your now level 2: Roast-Noob!");
+	
 		}else if(currentPoints == 15){
 			return message.channel.send("Level up, your now level 3: Roast-Learner!");
 		} else if(currentPoints == 25){
