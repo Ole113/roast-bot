@@ -112,24 +112,31 @@ client.on("message", message => {
 		client.points.set(key, ++currentPoints, "points");
 		let curLevel = client.points.get(key, "level");
 		if(currentPoints == 10){
-			client.points.set(key, ++curLevel, "level")
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 2: Roast-Noob!");
-	
 		}else if(currentPoints == 15){
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 3: Roast-Learner!");
 		} else if(currentPoints == 25){
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 4: Mediocre Roaster!");
 		} else if(currentPoints == 50) {
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 5: Advanced Roaster!");
 		} else if(currentPoints == 100){
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 6: Roast-Master");
 		} else if(currentPoints == 200) {
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 7: Roast-Jesus");
 		} else if(currentPoints == 500) {
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 8: Roast-God");
 		} else if(currentPoints == 1000) {
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now level 9: Roast-Champion");
 		} else if(currentPoints == 10000) {
+			client.points.set(key, ++curLevel, "level");
 			return message.channel.send("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD");
 		}
 
