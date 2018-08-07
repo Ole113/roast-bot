@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
 const Provider = require("enmap-sqlite");
+client.points = new Enmap({provider: new Provider({name: "points"})});
 
 const roasts = [
 	{"roast":"Id offer you some gum but your smiles got plenty of it"},
@@ -97,9 +98,8 @@ client.on("guildDelete", guild => {
     console.log("Roast-Bot left a server named: " + guild.name);
 })
 client.on("message", message => {
-/*
+
 	//Database
-	client.points = new Enmap({provider: new Provider({name: "points"})});
 	if(message.author.bot) return;
 	if(message.guild) {
 		const key = `${message.guild.id}-${message.author.id}`;
@@ -119,7 +119,7 @@ client.on("message", message => {
 
 	if (message.content === "r!points") {
 		return message.channel.send(`You currently have ${client.points.getProp(key, "points")}, and are level ${client.points.getProp(key, "level")}!`);
-	} */
+	}
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
