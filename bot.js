@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
-const Provide = require("enmap-sqlite");
+const Provider = require("enmap-sqlite");
 
 const roasts = [
 	{"roast":"Id offer you some gum but your smiles got plenty of it"},
