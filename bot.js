@@ -97,7 +97,7 @@ client.on("guildDelete", guild => {
     console.log("Roast-Bot left a server named: " + guild.name);
 })
 client.on("message", message => {
-
+/*
 	//Database
 	client.points = new Enmap({provider: new Provider({name: "points"})});
 	if(message.author.bot) return;
@@ -119,7 +119,7 @@ client.on("message", message => {
 
 	if (message.content === "r!points") {
 		return message.channel.send(`You currently have ${client.points.getProp(key, "points")}, and are level ${client.points.getProp(key, "level")}!`);
-	  }
+	} */
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
