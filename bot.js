@@ -118,7 +118,7 @@ client.on("message", message => {
 	}
 
 	if (message.content === "r!points") {
-		return message.channel.send(`You currently have ${client.points.getProp(key, "points")}, and are level ${client.points.getProp(key, "level")}!`);
+		return message.channel.send(`You currently have ${client.points.get(key, "points")}, and are level ${client.points.get(key, "level")}!`);
 	}
 	
     if(message.content === "r!help") {
