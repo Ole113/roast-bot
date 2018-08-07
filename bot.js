@@ -149,7 +149,7 @@ client.on("message", message => {
 	}*/
 	if (message.content === "r!level") {
 		const key = `${message.guild.id}-${message.author.id}`;
-		return message.channel.send(`You currently have ${client.points.get(key, "points")} points , and are level ${client.points.get(key, "level")}!`);
+		return message.channel.send(`You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
 	}
 	
     if(message.content === "r!help") {
@@ -167,9 +167,10 @@ client.on("message", message => {
 		.addField("r!meme, or r!meme #NUMBER_OF_MEME", "Sends a meme to the current channel.")
 		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\".")
+		.addField("XP-System", "Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! **r!level is in BETA** Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.6.0, for release notes join the Roast-Bot help server. ");
+		.setFooter("v1.7.0, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
 } else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
