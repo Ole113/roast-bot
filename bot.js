@@ -117,6 +117,7 @@ client.on("message", message => {
 
 		client.points.set(key, curLevel, "level");
 	}
+	let currentPoints = client.points.get(key, "points");
 	if(currentPoints == 5){
 		return message.reply("Your now level 2");
 	}
