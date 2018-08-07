@@ -114,12 +114,15 @@ client.on("message", message => {
 		if (client.points.get(key, "level") < curLevel) {
 			return message.reply(`You've leveled up to level **${curLevel}**! Congrats`);
 		}
+		if(client.points.get(key, "points") == 5){
+			return message.reply("Your now level 2");
+		}
 		client.points.set(key, curLevel, "level");
 	}
 
-	if (message.content === "r!points") {
+	if (message.content === "r!level") {
 		const key = `${message.guild.id}-${message.author.id}`;
-		return message.channel.send(`You currently have ${client.points.get(key, "points")}, and are level ${client.points.get(key, "level")}!`);
+		return message.channel.send(`You currently have ${client.points.get(key, "points")}points , and are level ${client.points.get(key, "level")}!`);
 	}
 	
     if(message.content === "r!help") {
