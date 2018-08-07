@@ -9,6 +9,7 @@
   "dependencies": {
     "discord.js": "^11.3.2",
     "enmap": "^3.0.2",
+    "enmap-sqlite": "^2.0.3",
     "quick.db": "^6.3.2",
     "request": "2.81.0"
   }
