@@ -101,7 +101,7 @@ client.on("message", message => {
 	
 	//Database
 	if(message.author.bot) return;
-	if(message.guild) {
+	if(message.content.startsWith("r!")) {
 		const key = `${message.guild.id}-${message.author.id}`;
 		if(!client.points.has(key)) {
 		  client.points.set(key, {
