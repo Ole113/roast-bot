@@ -105,7 +105,7 @@ client.on("message", message => {
 		const key = `${message.guild.id}-${message.author.id}`;
 		if(!client.points.has(key)) {
 		  client.points.set(key, {
-			user: message.author.id, guild: message.guild.id, points: 0, level: 1
+			user: message.author.id, guild: message.guild.id, points: 0, level: 0
 		  });
 		}
 		let currentPoints = client.points.get(key, "points");
