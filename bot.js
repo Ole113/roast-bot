@@ -118,6 +118,7 @@ client.on("message", message => {
 	}
 
 	if (message.content === "r!points") {
+		const key = `${message.guild.id}-${message.author.id}`;
 		return message.channel.send(`You currently have ${client.points.get(key, "points")}, and are level ${client.points.get(key, "level")}!`);
 	}
 	
