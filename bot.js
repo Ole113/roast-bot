@@ -145,7 +145,7 @@ client.on("message", message => {
 		const key = `${message.guild.id}-${message.author.id}`;
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, --currentPoints, "points");
-		return message.reply(`, You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
+		return message.reply(` You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
 	}
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
