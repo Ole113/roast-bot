@@ -142,8 +142,8 @@ client.on("message", message => {
 		client.points.set(key, curLevel, "level");
 	}
 	if (message.content === "r!level") {
-		client.points.set(key, --currentPoints, "points");
 		const key = `${message.guild.id}-${message.author.id}`;
+		client.points.set(key, --currentPoints, "points");
 		return message.reply(`, You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
 	}
     if(message.content === "r!help") {
