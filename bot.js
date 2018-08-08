@@ -59,6 +59,7 @@ const roasts = [
 	{"roast":"I thought bra's are meant for boobs not tissues"},
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"}
+  {"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."}
 ];
 client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
@@ -179,7 +180,7 @@ client.on("message", message => {
 		.setFooter("Created By Ole113#2421");
 		return message.channel.send(bot_embed);
 	} else if(message.content === "r!roast"){
-        const random_roasts = Math.ceil(Math.random() * 54);
+        const random_roasts = Math.ceil(Math.random() * 55);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
 		if(message.content.startsWith("r!roast #")){
