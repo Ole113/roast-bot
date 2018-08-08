@@ -111,19 +111,19 @@ client.on("message", message => {
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, ++currentPoints, "points");
 		let curLevel = client.points.get(key, "level");
-		if(currentPoints == 10){
+		if(currentPoints == 10) {
 			client.points.set(key, ++curLevel, "level");
 			return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>");
-		}else if(currentPoints == 15){
+		}else if(currentPoints == 15 ) {
 			client.points.set(key, ++curLevel, "level");
 			return message.reply("Level up, your now level 3: Roast-Learner! <:roast_circle:474755210485563404>");
-		} else if(currentPoints == 25){
+		} else if(currentPoints == 25) {
 			client.points.set(key, ++curLevel, "level");
 			return message.reply("Level up, your now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 50) {
 			client.points.set(key, ++curLevel, "level");
 			return message.reply("Level up, your now level 5: Advanced Roaster! <:roast_circle:474755210485563404>");
-		} else if(currentPoints == 100){
+		} else if(currentPoints == 100) {
 			client.points.set(key, ++curLevel, "level");
 			return message.reply("Level up, your now level 6: Roast-Master! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 200) {
