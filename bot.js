@@ -93,7 +93,7 @@ client.on("guildMemberRemove", member => {
 });
 client.on("guildCreate", guild => {
     console.log("Roast Bot joined a new server named: " + guild.name);
-})
+});
 client.on("guildDelete", guild => {
     console.log("Roast-Bot left a server named: " + guild.name);
 })
@@ -113,39 +113,39 @@ client.on("message", message => {
 		let curLevel = client.points.get(key, "level");
 		if(currentPoints == 10){
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 2: Roast-Noob!");
+			return message.reply("Level up, your now level 2: Roast-Noob!");
 		}else if(currentPoints == 15){
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 3: Roast-Learner!");
+			return message.reply("Level up, your now level 3: Roast-Learner!");
 		} else if(currentPoints == 25){
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 4: Mediocre Roaster!");
+			return message.reply("Level up, your now level 4: Mediocre Roaster!");
 		} else if(currentPoints == 50) {
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 5: Advanced Roaster!");
+			return message.reply("Level up, your now level 5: Advanced Roaster!");
 		} else if(currentPoints == 100){
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 6: Roast-Master");
+			return message.reply("Level up, your now level 6: Roast-Master");
 		} else if(currentPoints == 200) {
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 7: Roast-Jesus");
+			return message.reply("Level up, your now level 7: Roast-Jesus");
 		} else if(currentPoints == 500) {
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 8: Roast-God");
+			return message.reply("Level up, your now level 8: Roast-God");
 		} else if(currentPoints == 1000) {
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now level 9: Roast-Champion");
+			return message.reply("Level up, your now level 9: Roast-Champion");
 		} else if(currentPoints == 10000) {
 			client.points.set(key, ++curLevel, "level");
-			return message.channel.send("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD");
+			return message.reply("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD");
 		}
 		client.points.set(key, curLevel, "level");
 	}
 	if (message.content === "r!level") {
+		client.points.set(key, --currentPoints, "points");
 		const key = `${message.guild.id}-${message.author.id}`;
-		return message.channel.send(`You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
+		return message.reply(`, You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
 	}
-	
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
@@ -166,7 +166,7 @@ client.on("message", message => {
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
 		.setFooter("v1.7.0, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
-} else if(message.content === "r!bot"){
+	} else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
@@ -188,10 +188,8 @@ client.on("message", message => {
 			return message.channel.send(roasts[number_int - 1].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`)
 		}
 		const random = Math.ceil(Math.random() * 54);
-
 		const word = message.content;
 		const reply = word.slice(8, word.length);
-
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 	} else if(message.content === "r!invite") {
     	message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
