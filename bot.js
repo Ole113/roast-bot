@@ -147,7 +147,6 @@ client.on("message", message => {
 		client.points.set(key, --currentPoints, "points");
 		return message.reply(` You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
 	}
-
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
