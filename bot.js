@@ -58,7 +58,7 @@ const roasts = [
 	{"roast":"Who lit the fuse on your tampon?"},
 	{"roast":"I thought bra's are meant for boobs not tissues"},
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
-	{"roast":"The last time I saw a face like yours I fed it a banana"}
+	{"roast":"The last time I saw a face like yours I fed it a banana"},
   {"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."}
 ];
 client.on("ready", () => {
