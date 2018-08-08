@@ -113,31 +113,31 @@ client.on("message", message => {
 		let curLevel = client.points.get(key, "level");
 		if(currentPoints == 10){
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 2: Roast-Noob!");
+			return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>");
 		}else if(currentPoints == 15){
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 3: Roast-Learner!");
+			return message.reply("Level up, your now level 3: Roast-Learner! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 25){
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 4: Mediocre Roaster!");
+			return message.reply("Level up, your now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 50) {
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 5: Advanced Roaster!");
+			return message.reply("Level up, your now level 5: Advanced Roaster! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 100){
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 6: Roast-Master");
+			return message.reply("Level up, your now level 6: Roast-Master! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 200) {
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 7: Roast-Jesus");
+			return message.reply("Level up, your now level 7: Roast-Jesus! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 500) {
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 8: Roast-God");
+			return message.reply("Level up, your now level 8: Roast-God! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 1000) {
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now level 9: Roast-Champion");
+			return message.reply("Level up, your now level 9: Roast-Champion! <:roast_circle:474755210485563404>");
 		} else if(currentPoints == 10000) {
 			client.points.set(key, ++curLevel, "level");
-			return message.reply("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD");
+			return message.reply("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD! <:roast_circle:474755210485563404>");
 		}
 		client.points.set(key, curLevel, "level");
 	}
@@ -145,7 +145,7 @@ client.on("message", message => {
 		const key = `${message.guild.id}-${message.author.id}`;
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, --currentPoints, "points");
-		return message.reply(` You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}!`);
+		return message.reply(` You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}! <:roast_circle:474755210485563404>`);
 	}
     if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
