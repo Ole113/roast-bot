@@ -217,10 +217,6 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
-		
-		message.channel.bulkDelete(number).then(() => {
-			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
-		});
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>");
 		} else if(number > 100){
@@ -230,7 +226,9 @@ client.on("message", message => {
 		} else if(number == ""){
 			return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
 		}
-
+		message.channel.bulkDelete(number).then(() => {
+			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
+		});
 	}
 });
 //message.reply
