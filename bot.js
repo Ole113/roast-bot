@@ -226,7 +226,7 @@ client.on("message", message => {
 		} else if(number == ""){
 			return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
 		}
-		message.channel.bulkDelete(number - 1).then(() => {
+		message.channel.bulkDelete(number + 2).then(() => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
 	}
