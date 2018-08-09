@@ -154,6 +154,13 @@ client.on("message", message => {
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, --currentPoints, "points");
 		return message.reply(` You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}! <:roast_circle:474755210485563404>`);
+	/*
+	*
+	*   Things to add to r!help:
+	* ----------------------------
+	*  
+	*
+	*/
 	} else if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
@@ -168,17 +175,19 @@ client.on("message", message => {
 		.addField("r!server", "Info about your server.")
 		.addField("r!meme, or r!meme #NUMBER_OF_MEME", "Sends a meme to the current channel.")
 		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
+		.addField("r!say", "To use this command use `r!say ` and then what you want Roast-Bot to say.")
 		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\". If you dont want to use the log dont make a channel named welcome-leave-log.")
 		.addField("XP-System", "Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! **r!level is in BETA** Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
 		.setFooter("v1.7.4, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
-			/*
+	/*
 	*
 	*   Things to add to r!bot:
 	* ----------------------------
 	*  Add more stats in the future.
+	*
 	*/
 	} else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
@@ -193,7 +202,7 @@ client.on("message", message => {
 		return message.channel.send(bot_embed);
 	/*
 	*
-	*   Things to add to r!roast:
+	*   Things to add to r!roast, r!roast @, r!roast #:
 	* ----------------------------
 	*  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
 	*
@@ -202,18 +211,33 @@ client.on("message", message => {
         const random_roasts = Math.ceil(Math.random() * 55);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
+		const random = Math.ceil(Math.random() * 54);
+		const word = message.content;
+		const reply = word.slice(8, word.length);
 		if(message.content.startsWith("r!roast #")){
 			let word1 = message.content;
 			let number1 = word1.slice(9, word1.length);
 			let number_int = parseInt(number1);
 			return message.channel.send(roasts[number_int - 1].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`)
 		}
-		const random = Math.ceil(Math.random() * 54);
-		const word = message.content;
-		const reply = word.slice(8, word.length);
+
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
+	/*
+	*
+	*   Things to add to r!invite:
+	* ----------------------------
+	*  
+	*
+	*/	
 	} else if(message.content === "r!invite") {
-    	return message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
+		return message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
+			/*
+	*
+	*   Things to add to r!server:
+	* ----------------------------
+	*  Add more stats.
+	*
+	*/	
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
@@ -226,6 +250,13 @@ client.on("message", message => {
 		.addField("You Joined:", message.member.joinedAt)
 		.addField("Total Members:", message.guild.memberCount);
 		return message.channel.send(server_embed);
+	/*
+	*
+	*   Things to add to r!meme:
+	* ----------------------------
+	*  
+	*
+	*/	
 	} else if(message.content.startsWith("r!meme")) {
 		const random_memes = Math.ceil(Math.random() * 123);
 		if(message.content.startsWith("r!meme #")){
@@ -256,6 +287,13 @@ client.on("message", message => {
 		message.channel.bulkDelete(number + 1).then(() => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
+	/*
+	*
+	*   Things to add to r!say:
+	* ----------------------------
+	*  Make it so bots cannot use r!say.
+	*
+	*/	
 	} else if(message.content.startsWith("r!say ")){
 		const word = message.content;
 		const say = word.slice(6, word.length);
