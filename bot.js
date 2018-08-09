@@ -116,17 +116,17 @@ client.on("guildMemberRemove", member => {
 *
 *   Things to add to guildCreate/Delete:
 *  -------------------------------------
-*   Make it so it will log how many users are in the servers that it joins.
+*   DONE:	Make it so it will log how many users are in the servers that it joins.
 *
 */
 client.on("guildCreate", guild => {
-    console.log("Roast Bot joined a new server named: " + guild.name);
+	console.log("Roast Bot joined a new server named: " + guild.name);
+	console.log(`# of people in ${guild.name} is ${message.guild.memberCount} people`);
 });
 client.on("guildDelete", guild => {
-    console.log("Roast-Bot left a server named: " + guild.name);
+	console.log("Roast-Bot left a server named: " + guild.name);
 })
 client.on("message", message => {
-	
 	/*
 	*
 	*   Things to add to Database:
