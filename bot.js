@@ -121,7 +121,7 @@ client.on("guildMemberRemove", member => {
 */
 client.on("guildCreate", guild => {
 	console.log("Roast Bot joined a new server named: " + guild.name);
-	console.log(`# of people in ${guild.name} is ${message.guild.memberCount} people`);
+	console.log(`# of people in ${guild.name} is ${guild.memberCount} people`);
 });
 client.on("guildDelete", guild => {
 	console.log("Roast-Bot left a server named: " + guild.name);
