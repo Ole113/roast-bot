@@ -95,8 +95,7 @@ const roasts = [
 	{"roast": "The only thing that goes erect when I'm near you is my middle finger."},
 	{"roast": "Stop bullying fat people, they have enough on their plate."},
 	{"roast": "If I were your mirror I would commit suicide."},
-	{"roast": "Being a dick to everyone won\'t make yours any bigger."},
-	{"roast":"If you had one more brain cell, it would be lonely."}
+	{"roast": "Being a dick to everyone won\'t make yours any bigger."}
 ];
 /*
 *
@@ -277,10 +276,10 @@ client.on("message", message => {
 	*
 	*/
 	} else if(message.content === "r!roast"){
-        const random_roasts = Math.ceil(Math.random() * 77);
+        const random_roasts = Math.ceil(Math.random() * 76);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
-		const random = Math.ceil(Math.random() * 77);
+		const random = Math.ceil(Math.random() * 76);
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 		if(message.content.startsWith("r!roast #")){
