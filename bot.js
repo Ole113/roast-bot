@@ -59,7 +59,7 @@ const roasts = [
 	{"roast":"I thought bra's are meant for boobs not tissues"},
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"},
-  {"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."}
+  	{"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."}
 ];
 client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
@@ -142,13 +142,19 @@ client.on("message", message => {
 		}
 		client.points.set(key, curLevel, "level");
 	}
+	/*
+	*
+	*   Things to add to r!level:
+	* ----------------------------
+	*  
+	*
+	*/
 	if (message.content === "r!level") {
 		const key = `${message.guild.id}-${message.author.id}`;
 		let currentPoints = client.points.get(key, "points");
 		client.points.set(key, --currentPoints, "points");
 		return message.reply(` You currently have ${client.points.get(key, "points")} XP, and are level ${client.points.get(key, "level")}! <:roast_circle:474755210485563404>`);
-	}
-    if(message.content === "r!help") {
+	} else if(message.content === "r!help") {
 		let help_icon = client.user.displayAvatarURL;
 		let help_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
@@ -168,6 +174,12 @@ client.on("message", message => {
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
 		.setFooter("v1.7.4, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
+			/*
+	*
+	*   Things to add to r!bot:
+	* ----------------------------
+	*  Add more stats in the future.
+	*/
 	} else if(message.content === "r!bot"){
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
@@ -179,6 +191,13 @@ client.on("message", message => {
 		.addField("Created On:", client.user.createdAt)
 		.setFooter("Created By Ole113#2421");
 		return message.channel.send(bot_embed);
+	/*
+	*
+	*   Things to add to r!roast:
+	* ----------------------------
+	*  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
+	*
+	*/
 	} else if(message.content === "r!roast"){
         const random_roasts = Math.ceil(Math.random() * 55);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
@@ -194,7 +213,7 @@ client.on("message", message => {
 		const reply = word.slice(8, word.length);
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 	} else if(message.content === "r!invite") {
-    	message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
+    	return message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
     } else if(message.content === "r!server"){
 		let server_icon = message.guild.iconURL;
 		let server_embed = new Discord.RichEmbed()
@@ -214,7 +233,14 @@ client.on("message", message => {
 			let number2 = word2.slice(8, word2.length);
 			let number_int1 = parseInt(number2);
 			return message.channel.send(`Meme #${number_int1} <:roast_circle:474755210485563404>`, {files: [`Images/meme${number_int1}.PNG`]})
-		} else{ return message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>`, {files: [`Images/meme${random_memes}.PNG`]})};	
+		} else{ return message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>`, {files: [`Images/meme${random_memes}.PNG`]})};
+	/*
+	*
+	*   Things to add to r!clear:
+	* ----------------------------
+	*  Make it so it deletes the exact number of messages.
+	*
+	*/	
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
@@ -230,7 +256,11 @@ client.on("message", message => {
 		message.channel.bulkDelete(number + 1).then(() => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
-	}
+	} else if(message.content.startsWith("r!say ")){
+		const word = message.content;
+		const say = word.slice(6, word.length);
+		return message.channel.send(say);
+	};
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
