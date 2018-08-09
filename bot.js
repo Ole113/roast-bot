@@ -219,7 +219,7 @@ client.on("message", message => {
 			let number1 = word1.slice(9, word1.length);
 			let number_int = parseInt(number1);
 			return message.channel.send(roasts[number_int - 1].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`);
-		} else if(reply == user.bot){
+		} else if(message.content.mentions == user.bot){
 			return message.channel.send("Nice try but bots are too powerfull for you to roast :( <:roast_circle:474755210485563404>");
 		}
 
