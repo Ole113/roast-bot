@@ -3,7 +3,13 @@ const client = new Discord.Client();
 const Enmap = require("enmap");
 const Provider = require("enmap-sqlite");
 client.points = new Enmap({provider: new Provider({name: "points"})});
-
+/*
+*
+*   Things to add to Roasts:
+* ----------------------------
+*  Add more Roasts from both Roast Apps.
+*
+*/
 const roasts = [
 	{"roast":"Id offer you some gum but your smiles got plenty of it"},
 	{"roast":"Repeat After me: semen is not hair gel"},
@@ -61,6 +67,13 @@ const roasts = [
 	{"roast":"The last time I saw a face like yours I fed it a banana"},
   	{"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."}
 ];
+/*
+*
+*   Things to add to Bot being on:
+*  -------------------------------
+*   Log how many users Roast-Bot serves.
+*
+*/
 client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
@@ -99,6 +112,13 @@ client.on("guildMemberRemove", member => {
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
 });
+/*
+*
+*   Things to add to guildCreate/Delete:
+*  -------------------------------------
+*   Make it so it will log how many users are in the servers that it joins.
+*
+*/
 client.on("guildCreate", guild => {
     console.log("Roast Bot joined a new server named: " + guild.name);
 });
