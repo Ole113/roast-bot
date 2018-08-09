@@ -313,14 +313,14 @@ client.on("message", message => {
 		const number = word.slice(7, word.length);
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>");
-		} else if(number > 100){
+		} else if(number >= 100){
 			return message.channel.send("The max number of messages you can delete is 100 :( <:roast_circle:474755210485563404>");
 		} else if(!message.member.hasPermission("MANAGE_MESSAGES")){
 			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast_circle:474755210485563404>");
 		} else if(number == ""){
 			return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
 		}
-		message.channel.bulkDelete(number + 1).then(() => {
+		message.channel.bulkDelete(number).then(() => {
 			return message.channel.send(`Cleared ${number} messages. <:roast_circle:474755210485563404>`)
 		});
 	/*
