@@ -132,7 +132,7 @@ client.on("message", message => {
 	*   Things to add to Database:
 	*  ----------------------------
 	*  Look into free vps that work with enmap.
-	*  Custom prefix
+	*  Custom prefix.
 	*  Custom Roast adding.
 	*  Custom Meme adding.
 	*
