@@ -212,8 +212,8 @@ client.on("message", message => {
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
 		const random = Math.ceil(Math.random() * 54);
-		//const word = message.content;
-		const reply = message.content.mentions;
+		const word = message.content;
+		const reply = word.slice(8, word.length);
 		if(message.content.startsWith("r!roast #")){
 			let word1 = message.content;
 			let number1 = word1.slice(9, word1.length);
