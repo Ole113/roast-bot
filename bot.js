@@ -1,3 +1,12 @@
+/*
+*
+*  Ideas to add to Roast-Bot:
+* ----------------------------
+*  Tic-Tac-Toe Game:
+*  Learn more about collectors and use those.
+*  https://discordjs.guide/#/popular-topics/collectors
+*
+*/
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
@@ -65,7 +74,29 @@ const roasts = [
 	{"roast":"I thought bra's are meant for boobs not tissues"},
 	{"roast":"Twinkle twinkle little slut, You like dick inside your butt"},
 	{"roast":"The last time I saw a face like yours I fed it a banana"},
-  	{"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."}
+	{"roast":"Roses are red, violets are blue. I have five fingers and the middle one is for you."},
+	{"roast": "I'd like to kick you in the teeth but why improve your looks?"},
+	{"roast": "At least there's one good thing about your body. It isn't as ugly as your face."},
+	{"roast": "Your the reason the gene pool needs a lifeguard."},
+	{"roast": "Your not yourself today, I noticed the improvement immediately."},
+	{"roast": "You\'re the reason your dad drinks."},
+	{"roast": "Is your butt jealous of the amount of shit that just came out of your mouth?"},
+	{"roast": "You\'d be suicidal if you felt as bad as you look."},
+	{"roast": "Your lips keep moving but I don\'t speak stupid."},
+	{"roast": "Calling you an idiot would be an insult to all stupid people."},
+	{"roast": "Brains aren\'t everything, in fact in your case their nothing."},
+	{"roast": "I know your not as stupid as you look, Nobody could be!"},
+	{"roast": "Did you parents have any children that lived?"},
+	{"roast": "You\’re kind of like Rapunzel except instead of letting down your hair, you let down everyone in your life."},
+	{"roast": "You have more dick in your personality than you do in your pants."},
+	{"roast": "I\’m sorry your dad beat you instead of cancer."},
+	{"roast": "You should put a condom on your head, because if you’re going to act like a dick you better dress like one, too."},
+	{"roast": "You\'re so fat you need cheat codes to play Wii Fit."},
+	{"roast": "The only thing that goes erect when I'm near you is my middle finger."},
+	{"roast": "Stop bullying fat people, they have enough on their plate."},
+	{"roast": "If I were your mirror I would commit suicide."},
+	{"roast": "Being a dick to everyone won\'t make yours any bigger."},
+	{"roast":"If you had one more brain cell, it would be lonely."}
 ];
 /*
 *
@@ -216,7 +247,7 @@ client.on("message", message => {
 		.addField("XP-System", "Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! **r!level is in BETA** Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.7.4, for release notes join the Roast-Bot help server. ");
+		.setFooter("v1.7.6, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
 	/*
 	*
@@ -234,6 +265,8 @@ client.on("message", message => {
 	    .setThumbnail(bot_icon)
 		.addField("Bot Name:", client.user.username)
 		.addField("Created On:", client.user.createdAt)
+		.addField("Server Count:", client.guilds.size)
+		//.addField("Total Users:", )
 		.setFooter("Created By Ole113#2421");
 		return message.channel.send(bot_embed);
 	/*
@@ -244,10 +277,10 @@ client.on("message", message => {
 	*
 	*/
 	} else if(message.content === "r!roast"){
-        const random_roasts = Math.ceil(Math.random() * 55);
+        const random_roasts = Math.ceil(Math.random() * 77);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
-		const random = Math.ceil(Math.random() * 54);
+		const random = Math.ceil(Math.random() * 77);
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 		if(message.content.startsWith("r!roast #")){
