@@ -66,6 +66,13 @@ client.on("ready", () => {
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
+/*
+*
+*   Things to add to welcome-leave log:
+* ----------------------------
+*  Add it so users image is smaller and isnt the thumbnail.
+*
+*/
 client.on("guildMemberAdd", member => {
 	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
 	if (!welcomeleavechannel) return;
@@ -100,7 +107,16 @@ client.on("guildDelete", guild => {
 })
 client.on("message", message => {
 	
-	//Database
+	/*
+	*
+	*   Things to add to Database:
+	*  ----------------------------
+	*  Look into free vps that work with enmap.
+	*  Custom prefix
+	*  Custom Roast adding.
+	*  Custom Meme adding.
+	*
+	*/
 	if(message.author.bot) return;
 	if(message.content.startsWith("r!")) {
 		const key = `${message.guild.id}-${message.author.id}`;
@@ -145,7 +161,7 @@ client.on("message", message => {
 	/*
 	*
 	*   Things to add to r!level:
-	* ----------------------------
+	*  ---------------------------
 	*  
 	*
 	*/
@@ -157,7 +173,7 @@ client.on("message", message => {
 	/*
 	*
 	*   Things to add to r!help:
-	* ----------------------------
+	*  --------------------------
 	*  
 	*
 	*/
@@ -231,7 +247,7 @@ client.on("message", message => {
 	*/	
 	} else if(message.content === "r!invite") {
 		return message.channel.send("Invite Link: https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
-			/*
+	/*
 	*
 	*   Things to add to r!server:
 	* ----------------------------
