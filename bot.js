@@ -137,6 +137,7 @@ const roasts = [
 *
 */
 client.on("ready", () => {
+	console.log("-------------------------------------------------")
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
     client.user.setActivity("r!help", { type: "PLAYING" })	   
