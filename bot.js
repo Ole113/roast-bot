@@ -87,15 +87,47 @@ const roasts = [
 	{"roast": "Brains aren\'t everything, in fact in your case their nothing."},
 	{"roast": "I know your not as stupid as you look, Nobody could be!"},
 	{"roast": "Did you parents have any children that lived?"},
-	{"roast": "You\’re kind of like Rapunzel except instead of letting down your hair, you let down everyone in your life."},
+	{"roast": "You\'re kind of like Rapunzel except instead of letting down your hair, you let down everyone in your life."},
 	{"roast": "You have more dick in your personality than you do in your pants."},
-	{"roast": "I\’m sorry your dad beat you instead of cancer."},
-	{"roast": "You should put a condom on your head, because if you’re going to act like a dick you better dress like one, too."},
+	{"roast": "I\'m sorry your dad beat you instead of cancer."},
+	{"roast": "You should put a condom on your head, because if you\'re going to act like a dick you better dress like one, too."},
 	{"roast": "You\'re so fat you need cheat codes to play Wii Fit."},
 	{"roast": "The only thing that goes erect when I'm near you is my middle finger."},
 	{"roast": "Stop bullying fat people, they have enough on their plate."},
 	{"roast": "If I were your mirror I would commit suicide."},
-	{"roast": "Being a dick to everyone won\'t make yours any bigger."}
+	{"roast": "Being a dick to everyone won\'t make yours any bigger."},
+	{"roast": "Your face could scare the shit out of a toilet."},
+	{"roast": "They say people get what they deserve. In your case it\'s a participation trophy."},
+	{"roast": "Anyone willing to fuck you is just too lazy to masturbate."},
+	{"roast": "Your so stupid I don\'t have the time or the crayons to explain this to you."},
+	{"roast": "Your face looks like something I would draw with my non dominant hand."},
+	{"roast": "If my dog had your face I would shave his ass and teach him to walk backwards."},
+	{"roast": "If your IQ was multipled by anything it would still be 0."},
+	{"roast": "At least Hitler killed himself."},
+	{"roast": "I\'d agree with you but then we\'d both be wrong."},
+	{"roast": "When you were born your mom threw you out the window and the window threw you back."},
+	{"roast": "Your about as usefully as Anne Franks drumset."},
+	{"roast": "Did your parents ever ask you to run away from home?"},
+	{"roast": "I would burn you but burning trash is bad for the environment."},
+	{"roast": "I haven\'t seen you run that fast since Twinkies went on sale!"},
+	{"roast": "You were so ugly that when you were born the doctor put tinted windows on your incubator."},
+	{"roast": "Everything that comes out of your mouth is a lie, everything that goes in is a cock."},
+	{"roast": "I heard you received a brain transplant but it rejected your body."},
+	{"roast": "I might as well call you Bride to Terabithia because you make children cry."},
+	{"roast": "The only reason your partner likes your dick is because they were taught to enjoy the little things in life."},
+	{"roast": "Someone once said your as pretty as a picture... I agree I would love to hang you."},
+	{"roast": "Your like Mondays, everyone hates you."},
+	{"roast": "The 80\'s called, they want their haircut back."},
+	{"roast": "You must\'ve been born at a pound because your a son of a bitch."},
+	{"roast": "It\'s better to let someone think you are an idiot then to open your mouth and prove it."},
+	{"roast": "I guess you prove that even god makes mistakes sometimes."},
+	{"roast": "I\'m jealous of people that don\'t know you!"},
+	{"roast": "You\'re so dumb that you got hit by a parked car."},
+	{"roast": "I bet your brain feels as good as new, seeing that you never use it."},
+	{"roast": "What\'s the difference between you and eggs? Eggs get laid and you don\'t."},
+	{"roast": "If you\'re gonna be a smartass, first you have to be smart. Otherwise you\'re just an ass."},
+	{"roast": "At least when I do a handstand my stomach doesn\'t hit me in the face."},
+	{"roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it."},
 ];
 /*
 *
@@ -265,6 +297,8 @@ client.on("message", message => {
 		.addField("Bot Name:", client.user.username)
 		.addField("Created On:", client.user.createdAt)
 		.addField("Server Count:", client.guilds.size)
+		.addField("Total Number of Roasts:", "108")
+		.addField("Total Number of Memes:", "123")
 		//.addField("Total Users:", )
 		.setFooter("Created By Ole113#2421");
 		return message.channel.send(bot_embed);
@@ -276,10 +310,10 @@ client.on("message", message => {
 	*
 	*/
 	} else if(message.content === "r!roast"){
-        const random_roasts = Math.ceil(Math.random() * 76);
+        const random_roasts = Math.ceil(Math.random() * 108);
 		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
     } else if(message.content.startsWith("r!roast ")){
-		const random = Math.ceil(Math.random() * 76);
+		const random = Math.ceil(Math.random() * 108);
 		const word = message.content;
 		const reply = word.slice(8, word.length);
 		if(message.content.startsWith("r!roast #")){
