@@ -182,8 +182,10 @@ client.on("guildMemberRemove", member => {
 *
 */
 client.on("guildCreate", guild => {
+	console.log("-------------------------------------------------")
 	console.log("Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people`);
+	console.log("-------------------------------------------------")
 });
 client.on("guildDelete", guild => {
 	console.log("Roast-Bot left a server named: " + guild.name);
@@ -197,7 +199,8 @@ client.on("message", message => {
 	*  Custom prefix.
 	*  Custom Roast adding.
 	*  Custom Meme adding.
-	*
+	*  When you level up stil send the command that they did but then do the level up thing.
+	*  Make it so people cannot spam Roast-Bot commands to get more XP.
 	*/
 	if(message.author.bot) return;
 	if(message.content.startsWith("r!")) {
