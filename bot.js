@@ -149,7 +149,7 @@ client.on("ready", () => {
 *
 */
 client.on("guildMemberAdd", member => {
-	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
+	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
@@ -162,7 +162,7 @@ client.on("guildMemberAdd", member => {
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
 client.on("guildMemberRemove", member => {
-	let welcomeleavechannel = member.guild.channels.find("name", "welcome-leave-log");
+	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
