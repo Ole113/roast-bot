@@ -278,7 +278,7 @@ client.on("message", message => {
 		.addField("XP-System", "Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! **r!level is in BETA** Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.7.6, for release notes join the Roast-Bot help server. ");
+		.setFooter("v1.7.9, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
 	/*
 	*
