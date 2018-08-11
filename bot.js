@@ -9,7 +9,6 @@
 */
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const urban = require("Roast-Bot/urban.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -418,9 +417,7 @@ client.on("message", message => {
 		const word = message.content;
 		const say = word.slice(7, word.length);
 		return message.channel.send("http://api.urbandictionary.com/v0/define?term=A");
-	} else if(message.content.startsWith("r!urban")){
-		return(urban);
-	}
+	};
 });
 //message.reply
 client.login(process.env.BOT_TOKEN);
