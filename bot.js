@@ -12,7 +12,6 @@ const client = new Discord.Client();
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
-const Sequelize = require('sequelize');
 /*
 *
 *   Things to add to Roasts:
