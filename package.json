@@ -1,7 +1,7 @@
 {
   "name": "roast-bot",
   "description": "A bot to roast people on discord",
-  "version": "1.4.0",
+  "version": "1.8.0",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
@@ -11,6 +11,8 @@
     "enmap": "^3.0.2",
     "enmap-sqlite": "^2.0.3",
     "quick.db": "^6.3.2",
-    "request": "2.81.0"
+    "request": "2.81.0",
+    "sequelize": "^4.38.0",
+    "sqlite3": "^4.0.2"
   }
 }
