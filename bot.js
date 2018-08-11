@@ -137,9 +137,10 @@ const roasts = [
 *
 */
 client.on("ready", () => {
+	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
-	console.log("-------------------------------------------------")
+	console.log("-----------------------------------")
     client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
 /*
@@ -185,12 +186,12 @@ client.on("guildMemberRemove", member => {
 client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
-	console.log("-------------------------------------------------")
+	console.log("-----------------------------------")
 });
 client.on("guildDelete", guild => {
 	console.log("❌Roast-Bot left a server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`)
-	console.log("-------------------------------------------------")
+	console.log("-----------------------------------")
 })
 client.on("message", message => {
 	
