@@ -7,12 +7,16 @@
     "start": "node bot.js"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
     "enmap": "^3.0.2",
     "enmap-sqlite": "^2.0.3",
+    "querystring": "^0.2.0",
     "quick.db": "^6.3.2",
     "request": "2.81.0",
     "sequelize": "^4.38.0",
-    "sqlite3": "^4.0.2"
+    "snekfetch": "^4.0.4",
+    "sqlite3": "^4.0.2",
+    "urban": "^0.3.1"
   }
 }
