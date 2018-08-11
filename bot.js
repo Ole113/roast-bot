@@ -183,12 +183,12 @@ client.on("guildMemberRemove", member => {
 *
 */
 client.on("guildCreate", guild => {
-	console.log("Roast Bot joined a new server named: " + guild.name);
+	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
 	console.log("-------------------------------------------------")
 });
 client.on("guildDelete", guild => {
-	console.log("Roast-Bot left a server named: " + guild.name);
+	console.log("❌Roast-Bot left a server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`)
 	console.log("-------------------------------------------------")
 })
@@ -369,7 +369,7 @@ client.on("message", message => {
 	* ----------------------------
 	*  
 	*
-	*/	
+	*/
 	} else if(message.content.startsWith("r!meme")) {
 		const random_memes = Math.ceil(Math.random() * 123);
 		if(message.content.startsWith("r!meme #")){
