@@ -413,10 +413,6 @@ client.on("message", message => {
 		const word = message.content;
 		const say = word.slice(6, word.length);
 		return message.channel.send(say);
-	} else if(message.content.startsWith("r!urban")){
-		const word = message.content;
-		const say = word.slice(7, word.length);
-		return message.channel.send("http://api.urbandictionary.com/v0/define?term=" + say);
 	};
 });
 //message.reply
