@@ -9,7 +9,7 @@
 */
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const urban = require("urban.js");
+const urban = require("Roast-Bot/urban.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
