@@ -184,12 +184,12 @@ client.on("guildMemberRemove", member => {
 *
 */
 client.on("guildCreate", guild => {
-	console.log("✅ Roast Bot joined a new server named: " + guild.name);
+	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
 	console.log("-----------------------------------")
 });
 client.on("guildDelete", guild => {
-	console.log("❌ Roast-Bot left a server named: " + guild.name);
+	console.log("❌Roast-Bot left a server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`)
 	console.log("-----------------------------------")
 })
@@ -280,13 +280,15 @@ client.on("message", message => {
 		.setThumbnail(help_icon)
 		.addField("r!help", "List of Roast-Bot Commands.")
 		.addField("r!bot", "Learn more about Roast-Bot.")
-		.addField("r!roast @USER, r!roast, or r!roast #NUMBER_OF_ROAST", "Generate a random roast with the number of roast it was.")
+		.addField("r!roast @USER, r!roast, or r!roast #roastNumber", "Generate a random roast with the number of roast it was.")
 		.addField("r!invite", "Link to invite Roast-Bot to a server")
 		.addField("r!server", "Info about your server.")
-		.addField("r!meme, or r!meme #NUMBER_OF_MEME", "Sends a meme to the current channel.")
+		.addField("r!meme, or r!meme #memeNumber", "Sends a meme to the current channel.")
 		.addField("r!clear NUMBER", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
 		.addField("r!say", "To use this command use `r!say ` and then what you want Roast-Bot to say.")
-		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\". If you dont want to use the log dont make a channel named welcome-leave-log.")
+		.addBlankField()
+		.addField("Utilities:", "")
+		.addField("welcome-leave-log", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\". If you don't want to use the log just don't make a channel named welcome-leave-log.")
 		//.addField("XP-System", "Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! **r!level is in BETA** Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP")
 		.addBlankField()
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
