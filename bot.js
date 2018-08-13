@@ -9,6 +9,9 @@
 */
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const fs = require("fs");
+
+const urban_file = require("./urban.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -419,6 +422,10 @@ client.on("message", message => {
 		const word = message.content;
 		const say = word.slice(6, word.length);
 		return message.channel.send(say);
+	} else if(message.content.startsWith("r!urban ")) {
+		let args = message.content;
+		args.slice(8, args.length);
+		urban_file.run(client, message, args);
 	};
 });
 //message.reply
