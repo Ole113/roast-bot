@@ -345,7 +345,7 @@ client.on("message", message => {
 	*
 	*/	
 	} else if(message.content === "r!invite") {
-		return message.channel.send("**Invite Link:** \n\nhttps://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 <:roast_circle:474755210485563404>");
+		return message.channel.send("**Invite Link:** \n\nhttps://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8 \n\nRoast-Bot v1.8.0 <:roast_circle:474755210485563404>");
 	/*
 	*
 	*   Things to add to r!server:
