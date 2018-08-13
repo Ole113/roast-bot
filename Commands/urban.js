@@ -14,7 +14,7 @@ exports.run = async(client, message, args) => {
         .addBlankField()
         .setDescription(`**Definition:**\n*${res.definition}*\n\n**Example:**\n${res.example}`)
         .addField("Author:", res.author, true)
-        .addField("Rating:", `**Upvotes:** ${res.thumbsUp} :thumbsup: | **Downvotes:** ${res.thumbsDown} :thumbsdown:`)
+        .addField("Rating:", `**Upvotes: :thumbsup:** ${res.thumbsUp} | **Downvotes: :thumbsdown:** ${res.thumbsDown}`)
 
     /*if(res.tags.length > 0 && res.tags.length < 1024) {
         urban_embed.addField("Tags", res.tags.join(", "), true)
