@@ -347,7 +347,7 @@ client.on("message", message => {
 	} else if(message.content === "r!invite") {
 		let invite_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
-		.setTitle("_Invite Link_")
+		.setTitle("__Invite Link__")
 		.setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
 		.setFooter("Roast-Bot v1.8.0");
 		return message.channel.send(invite_embed);
