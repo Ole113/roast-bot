@@ -425,7 +425,7 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!urban")) {
 		let word = message.content;
 		let args = word.slice(8, word.length);
-		urban_file.run(client, message, args, tools);
+		urban_file.run(client, message, args);
 	};
 });
 //message.reply

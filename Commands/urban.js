@@ -1,7 +1,7 @@
 const urban = require("relevant-urban");
 const Discord = require("discord.js");
 
-exports.run = async(client, message, args, tools) => {
+exports.run = async(client, message, args) => {
     let res = await urban(args.join(" ")).catch(e => {
         return message.channel.send("**Sorry that word was not found :(**");
     });
