@@ -11,6 +11,7 @@
     "discord.js": "^11.3.2",
     "enmap": "^3.0.2",
     "enmap-sqlite": "^2.0.3",
+    "klasa": "^0.4.0",
     "querystring": "^0.2.0",
     "quick.db": "^6.3.2",
     "quick.log": "^1.2.1",
