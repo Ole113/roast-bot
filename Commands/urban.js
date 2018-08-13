@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 exports.run = async(client, message, args) => {
     let res = await urban(args).catch(e => {
-        return mesage.channel.send("**Word not found**")
+        return message.channel.send("**Word not found :( **")
     });
 
     const urban_embed = new Discord.RichEmbed()
