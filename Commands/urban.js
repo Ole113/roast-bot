@@ -10,7 +10,7 @@ exports.run = async(client, message, args) => {
         .setColor("#EB671D")
         .setTitle(res.word)
         .setURL(res.urbanURL)
-        .setDescription(`Definition:\n*${res.definition}*\n\n**Example:**\n${res.example}`)
+        .setDescription(`**Definition:**\n*${res.definition}*\n\n**Example:**\n${res.example}`)
         .addField("Author:", res.author, true)
         .addField("Rating:", `**Upvotes: :thumbsup:** ${res.thumbsUp} | **Downvotes: :thumbsdown:** ${res.thumbsDown}`);
 
