@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 exports.run = async(client, message, args) => {
-    let res = await urban(args.join(' ')).catch(e => {
+    let res = await urban(args).catch(e => {
         return mesage.channel.send("**Word not found**")
     });
 
