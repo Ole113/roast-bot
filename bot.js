@@ -310,7 +310,7 @@ client.on("message", message => {
 		.addField("Bot Name:", client.user.username)
 		.addField("Created On:", client.user.createdAt)
 		.addField("Server Count:", client.guilds.size)
-		.addField("Total Number of Roasts:", "108")
+		.addField("Total Number of Roasts:", "108", true)
 		.addField("Total Number of Memes:", "123", false)
 		//.addField("Total Users:", )
 		.setFooter("Created By Ole113#2421");
