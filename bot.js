@@ -422,10 +422,8 @@ client.on("message", message => {
 		const word = message.content;
 		const say = word.slice(6, word.length);
 		return message.channel.send(say);
-	} else if(message.content.startsWith("r!urban ")) {
-		let word = message.content;
-		let args = word.slice(8, word.length);
-		urban_file.run(client, message, args);
+	} else if(message.content.startsWith("r!urban")) {
+		urban_file.run(client, message);
 	};
 });
 //message.reply
