@@ -425,7 +425,7 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!urban ")) {
 		let args = message.content;
 		args.slice(8, args.length);
-		urban_file.run(client, message, args);
+		urban_file.run(client, message);
 	};
 });
 //message.reply
