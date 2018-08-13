@@ -2,7 +2,7 @@ const urban = require("relevant-urban");
 const Discord = require("discord.js");
 
 exports.run = async(client, message, args) => {
-    let res = await urban(args.join(" ")).catch(e => {
+    let res = await urban(args).catch(e => {
         return message.channel.send("**Sorry that word was not found :(**");
     });
 
@@ -14,9 +14,9 @@ exports.run = async(client, message, args) => {
     .addField("Author:", res.author, true)
     .addField("Rating:", `**Upvotes:** ${res.thumbsUp} | **Downvotes:** ${res.thumbsDown}`)
 
-    if(res.tags.length > 0 && res.tags.join(" ").length < 1024) {
+    /*if(res.tags.length > 0 && res.tags.length < 1024) {
         urban_embed.addField("Tags", res.tags.join(", "), true)
-    }
+    } */
 
     return message.channel.send(urban_embed);
 }
