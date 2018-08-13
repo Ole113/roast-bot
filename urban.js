@@ -15,9 +15,9 @@ exports.run = async(client, message, args, tools) => {
     .addField("Author", res.author, true)
     .addField("Rating", `**\`Upvotes: ${res.thumbsUp} | Downvotes: ${res.thumbsDown}\`**`)
 
-    if(res.tags.length > 0 && res.tags.join(" ").length < 1024) {
+    /*if(res.tags.length > 0 && res.tags.join(" ").length < 1024) {
         embed.addField("Tags", res.tags.join(", "), true)
-    }
+    }*/
 
     return message.channel.send(embed);
 } 
