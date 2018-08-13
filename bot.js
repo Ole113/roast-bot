@@ -311,7 +311,7 @@ client.on("message", message => {
 		.addField("Created On:", client.user.createdAt)
 		.addField("Server Count:", client.guilds.size)
 		.addField("Total Number of Roasts:", "108")
-		.addField("Total Number of Memes:", "123", true)
+		.addField("Total Number of Memes:", "123", false)
 		//.addField("Total Users:", )
 		.setFooter("Created By Ole113#2421");
 		return message.channel.send(bot_embed);
@@ -348,8 +348,9 @@ client.on("message", message => {
 		let invite_embed = new Discord.RichEmbed()
 		.setColor("#EB671D")
 		.setTitle("Invite Link:")
-		.setDescription("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
-		.setFooter("Roast-Bot v1.8.0 <:roast_circle:474755210485563404>");
+		.addBlankField()
+		.setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
+		.setFooter("Roast-Bot v1.8.0");
 		return message.channel.send(invite_embed);
 	/*
 	*
