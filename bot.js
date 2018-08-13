@@ -425,6 +425,10 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!urban")) {
 		let word = message.content;
 		let args = word.slice(8, word.length);
+
+		if(args == ""){
+			return message.channel.send("**Please enter something to search up**  <:roast_circle:474755210485563404>")
+		}
 		urban_file.run(client, message, args);
 	};
 });

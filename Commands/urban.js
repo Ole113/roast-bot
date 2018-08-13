@@ -4,9 +4,8 @@ const client = new Discord.Client();
 
 exports.run = async(client, message, args) => {
     let res = await urban(args).catch(e => {
-        if(!res) { return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**") }
-
-    })
+        return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**")
+    });
 
     const urban_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
