@@ -6,7 +6,6 @@ exports.run = async(client, message, args) => {
     let res = await urban(args);
     if(!res) return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**")
 
-
     const urban_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
         .setTitle(res.word)
