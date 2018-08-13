@@ -9,7 +9,7 @@ exports.run = async(client, message, args) => {
         return mesage.channel.send("**Word not found :(");
     });
 
-    const urban_embed = new Discord.MessageEmbed()
+    const urban_embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setTitle(res.word)
     .setURL(res.urbanURL)
