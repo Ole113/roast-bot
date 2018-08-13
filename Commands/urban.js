@@ -11,9 +11,10 @@ exports.run = async(client, message, args) => {
         .setColor("#EB671D")
         .setTitle(res.word)
         .setURL(res.urbanURL)
+        .addBlankField()
         .setDescription(`**Definition:**\n*${res.definition}*\n\n**Example:**\n${res.example}`)
         .addField("Author:", res.author, true)
-        .addField("Rating:", `**Upvotes:** ${res.thumbsUp} | **Downvotes:** ${res.thumbsDown}`)
+        .addField("Rating:", `**Upvotes:** ${res.thumbsUp} :thumbsup: | **Downvotes:** ${res.thumbsDown} :thumbsdown:`)
 
     /*if(res.tags.length > 0 && res.tags.length < 1024) {
         urban_embed.addField("Tags", res.tags.join(", "), true)
