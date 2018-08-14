@@ -22,5 +22,19 @@
     "snekfetch": "^4.0.4",
     "sqlite3": "^4.0.2",
     "urban": "^0.3.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ole113/Roast-Bot.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "Ole113",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ole113/Roast-Bot/issues"
+  },
+  "homepage": "https://github.com/Ole113/Roast-Bot#readme"
 }
