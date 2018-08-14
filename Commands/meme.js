@@ -2,7 +2,7 @@
 
 const Discord = require("discord.js");
 
-exports.run = async (client, message) => {
+exports.run = async (message) => {
     const random_memes = Math.ceil(Math.random() * 123);
     if(message.content.startsWith("r!meme #")){
         let word2 = message.content;
