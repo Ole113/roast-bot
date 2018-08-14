@@ -7,9 +7,8 @@
 */
 
 const Discord = require("discord.js");
-const client = new Discord.Client();
 
-exports.run = async(client, message) => {
+exports.run = async(message) => {
     let bot_icon = client.user.displayAvatarURL;
     let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")

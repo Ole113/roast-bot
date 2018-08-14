@@ -13,6 +13,7 @@ const fs = require("fs");
 
 const urban_file = require("./Commands/urban.js");
 const bot_file = require("./Commands/bot.js");
+const clear_file = require("./Commands/clear.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -371,29 +372,14 @@ client.on("message", message => {
 			let number_int1 = parseInt(number2);
 			return message.channel.send(`Meme #${number_int1} <:roast_circle:474755210485563404>`, {files: [`Images/meme${number_int1}.PNG`]})
 		} else{ return message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>`, {files: [`Images/meme${random_memes}.PNG`]})};
-	/*
-	*
-	*   Things to add to r!clear:
-	* ----------------------------
-	*  Make it so it deletes the exact number of messages.
-	*
-	*/	
+	
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
 		const int = Number(number);
-		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>");
-		} else if(int >= 100){
-			return message.channel.send("The max number of messages you can delete is 100 :( <:roast_circle:474755210485563404>");
-		} else if(!message.member.hasPermission("MANAGE_MESSAGES")){
-			return message.channel.send("Looks like you dont have the permissions to do that :( <:roast_circle:474755210485563404>");
-		} else if(int == "" || int == " "){
-			return message.channel.send("Incorrect usage of r!clear, please provide how many messages you want to be deleted. The correct usage is r!clear NUMBER. <:roast_circle:474755210485563404>");
-		}
-		message.channel.bulkDelete(int).then(() => {
-			return message.channel.send(`Cleared ${int} messages. <:roast_circle:474755210485563404>`)
-		});
+
+		clear_file.run(message, int);
+
 	/*
 	*
 	*   Things to add to r!say:
@@ -408,10 +394,10 @@ client.on("message", message => {
 	} else if(message.content.startsWith("r!urban")) {
 		let word = message.content;
 		let args = word.slice(8, word.length);
-
 		if(args == ""){
 			return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>")
 		}
+
 		urban_file.run(message, args);
 	};
 });
