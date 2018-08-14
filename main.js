@@ -16,6 +16,8 @@ const bot_file = require("./Commands/bot.js");
 const clear_file = require("./Commands/clear.js");
 const server_file = require("./Commands/server.js");
 const invite_file = require("./Commands/invite.js");
+const help_file = require("./Commands/help.js");
+const roast_file = require("./Commands/roast.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -270,38 +272,8 @@ client.on("message", message => {
 	}
 	*/
 
-
-	/*
-	*
-	*   Things to add to r!help:
-	*  --------------------------
-	*  
-	*
-	*/
 	if(message.content === "r!help") {
-		let help_icon = client.user.displayAvatarURL;
-		let help_embed = new Discord.RichEmbed()
-		.setColor("#EB671D")
-		.setTitle("Roast-Bot Help:")
-		.addBlankField()
-		.setThumbnail(help_icon)
-		.addField("***Commands:***\n\nr!help", "List of Roast-Bot Commands.")
-		.addField("r!bot", "Learn more about Roast-Bot.")
-		.addField("r!roast *@USER*, r!roast, or r!roast *#roastNumber*", "Generate a random roast with the number of roast it was.")
-		.addField("r!invite", "Link to invite Roast-Bot to a server")
-		.addField("r!server", "Info about your server.")
-		.addField("r!meme, or r!meme *#memeNumber*", "Sends a meme to the current channel.")
-		.addField("r!clear *NUMBER*", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
-		.addField("r!say", "To use this command use `r!say ` and then what you want Roast-Bot to say.")
-		.addField("r!urban *whatToSearch*", "Search up anything on the Urban Dictionary! **Please be aware `r!urban` is still in Beta.**")
-		.addBlankField()
-		.addField("***Utilities:***\n\nwelcome-leave-log:", "To use the Roast-Bot welcome-leave-log make a channel named \"welcome-leave-log\". If you don't want to use the log just don't make a channel named welcome-leave-log.")
-		//.addField("XP-System", "Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! **r!level is in BETA** Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP")
-		.addBlankField()
-		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
-		.setFooter("v1.8.7, for release notes join the Roast-Bot help server. ");
-		return message.channel.send(help_embed);
-
+		help_file.run(message);
 	} else if(message.content === "r!bot"){
 		bot_file.run(client, message);
 	/*
@@ -311,22 +283,8 @@ client.on("message", message => {
 	*  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
 	*
 	*/
-	} else if(message.content === "r!roast"){
-        const random_roasts = Math.ceil(Math.random() * 108);
-		return message.channel.send(roasts[random_roasts - 1].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
-    } else if(message.content.startsWith("r!roast ")){
-		const random = Math.ceil(Math.random() * 108);
-		const word = message.content;
-		const reply = word.slice(8, word.length);
-		if(message.content.startsWith("r!roast #")){
-			let word1 = message.content;
-			let number1 = word1.slice(9, word1.length);
-			let number_int = parseInt(number1);
-			return message.channel.send(roasts[number_int - 1].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`);
-		}
-
-		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-
+	}else if(message.content.startsWith("r!roast")){
+		roast_file.run(message);
 	} else if(message.content === "r!invite") {
 		invite_file.run(message);
     } else if(message.content === "r!server"){
