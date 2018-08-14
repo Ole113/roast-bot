@@ -25,9 +25,16 @@ A simple discord bot make with discord.js and hosted on heroku.<br><br><br>
 *r!urban whatToSearch*: Search up anything on the Urban Dictionary! **Please be aware `r!urban` is still in Beta.**
 
 
+
+
+
 **Roast-Bot Utilities:**
 
 *welcome-leave-log*: To use the Roast-Bot welcome-leave-log make a channel named "welcome-leave-log". If you don't want to use the log just don't make a channel named welcome-leave-log.
+
+
+
+
 
 
 
