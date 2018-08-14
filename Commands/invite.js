@@ -12,6 +12,6 @@ exports.run = async (message) => {
         .setColor("#EB671D")
         .setTitle("***Invite Link***  <:roast_circle:474755210485563404>")
         .setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
-        .setFooter("Roast-Bot v1.8.7");
+        .setFooter("Roast-Bot v1.8.9");
     return message.channel.send(invite_embed);
 }
