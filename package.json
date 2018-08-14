@@ -2,9 +2,9 @@
   "name": "roast-bot",
   "description": "A bot to roast people on discord",
   "version": "1.8.0",
-  "main": "bot.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node main.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",

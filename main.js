@@ -12,6 +12,7 @@ const client = new Discord.Client();
 const fs = require("fs");
 
 const urban_file = require("./Commands/urban.js");
+const bot_file = require("./Commands/bot.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -297,28 +298,9 @@ client.on("message", message => {
 		.addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D")
 		.setFooter("v1.8.7, for release notes join the Roast-Bot help server. ");
 		return message.channel.send(help_embed);
-	/*
-	*
-	*   Things to add to r!bot:
-	* ----------------------------
-	*  Add more stats in the future.
-	*
-	*/
+
 	} else if(message.content === "r!bot"){
-        let bot_icon = client.user.displayAvatarURL;
-        let bot_embed = new Discord.RichEmbed()
-        .setColor("#EB671D")
-		.setTitle("<:roast_circle:474755210485563404> Bot Information:")
-		.addBlankField()
-	    .setThumbnail(bot_icon)
-		.addField("Bot Name:", client.user.username)
-		.addField("Created On:", client.user.createdAt)
-		.addField("Server Count:", client.guilds.size)
-		.addField("Total Number of Roasts:", "108", true)
-		.addField("Total Number of Memes:", "123", true)
-		//.addField("Total Users:", )
-		.setFooter("Created By Ole113#2421");
-		return message.channel.send(bot_embed);
+		bot_file.run(client, message);
 	/*
 	*
 	*   Things to add to r!roast, r!roast @, r!roast #:
