@@ -7,6 +7,7 @@
 */
 
 const Discord = require("discord.js");
+const client = new Discord.Client();
 
 exports.run = async(message) => {
     let bot_icon = client.user.displayAvatarURL;
