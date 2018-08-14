@@ -14,7 +14,6 @@ const MongoClient = require('mongodb').MongoClient;
 
 const MONGO_URL = URL;
 
-
 MongoClient.connect(MONGO_URL, (err, db) => {
     if (err) {
         return console.log(err);
