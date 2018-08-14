@@ -14,6 +14,8 @@ const fs = require("fs");
 const urban_file = require("./Commands/urban.js");
 const bot_file = require("./Commands/bot.js");
 const clear_file = require("./Commands/clear.js");
+const server_file = require("./Commands/server.js");
+const invite_file = require("./Commands/invite.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -324,39 +326,11 @@ client.on("message", message => {
 		}
 
 		return message.channel.send(reply + ", " + roasts[random - 1].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-	/*
-	*
-	*   Things to add to r!invite:
-	* ----------------------------
-	*  
-	*
-	*/	
+
 	} else if(message.content === "r!invite") {
-		let invite_embed = new Discord.RichEmbed()
-		.setColor("#EB671D")
-		.setTitle("***Invite Link***  <:roast_circle:474755210485563404>")
-		.setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
-		.setFooter("Roast-Bot v1.8.7");
-		return message.channel.send(invite_embed);
-	/*
-	*
-	*   Things to add to r!server:
-	* ----------------------------
-	*  Add more stats.
-	*
-	*/	
+		invite_file.run(message);
     } else if(message.content === "r!server"){
-		let server_icon = message.guild.iconURL;
-		let server_embed = new Discord.RichEmbed()
-		.setColor("#EB671D")
-		.setTitle("Server Information:")
-		.addBlankField()
-		.setThumbnail(server_icon)
-		.addField("Server Name:", message.guild.name)
-		.addField("Created On:", message.guild.createdAt)
-		.addField("You Joined:", message.member.joinedAt)
-		.addField("Total Members:", message.guild.memberCount);
-		return message.channel.send(server_embed);
+		server_file.run(message);
 	/*
 	*
 	*   Things to add to r!meme:
