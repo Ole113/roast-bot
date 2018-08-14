@@ -17,6 +17,7 @@ const server_file = require("./Commands/server.js");
 const invite_file = require("./Commands/invite.js");
 const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
+const meme_file = require("./Commands/meme.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -162,18 +163,10 @@ client.on("message", message => {
 	
 	}
 	*/
-
 	if(message.content === "r!help") {
 		help_file.run(client, message);
 	} else if(message.content === "r!bot"){
 		bot_file.run(client, message);
-	/*
-	*
-	*   Things to add to r!roast, r!roast @, r!roast #:
-	* ----------------------------
-	*  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
-	*
-	*/
 	}else if(message.content.startsWith("r!roast")){
 		roast_file.run(message);
 	} else if(message.content === "r!invite") {
@@ -188,14 +181,7 @@ client.on("message", message => {
 	*
 	*/
 	} else if(message.content.startsWith("r!meme")) {
-		const random_memes = Math.ceil(Math.random() * 123);
-		if(message.content.startsWith("r!meme #")){
-			let word2 = message.content;
-			let number2 = word2.slice(8, word2.length);
-			let number_int1 = parseInt(number2);
-			return message.channel.send(`Meme #${number_int1} <:roast_circle:474755210485563404>`, {files: [`Images/meme${number_int1}.PNG`]})
-		} else{ return message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>`, {files: [`Images/meme${random_memes}.PNG`]})};
-	
+		meme_file.run(message);
 	} else if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);

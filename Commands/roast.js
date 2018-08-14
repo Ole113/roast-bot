@@ -1,8 +1,8 @@
 /*
 *
-*   Things to add to r!roast:
+*   Things to add to r!roast, r!roast @, r!roast #:
 * ----------------------------
-*  More roasts
+*  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
 *
 */
 
