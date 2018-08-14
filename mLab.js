@@ -1,1 +1,2 @@
-const mLab = require("mongolab-data-api")("mibGkayB-6avS1d89zaKFVHCLEZB5i8O");
+const mLabKey_file = require("mLabKey.json");
+const mLab = require("mongolab-data-api")(API_KEY);
