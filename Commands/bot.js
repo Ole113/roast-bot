@@ -9,13 +9,13 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-exports.run = async(message) => {
-    //let bot_icon = client.user.displayAvatarURL;
+exports.run = async(client, message) => {
+    let bot_icon = client.user.displayAvatarURL;
     let bot_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
         .setTitle("<:roast_circle:474755210485563404> Bot Information:")
         .addBlankField()
-        //.setThumbnail(bot_icon)
+        .setThumbnail(bot_icon)
         .addField("Bot Name:", client.user.username)
         .addField("Created On:", client.user.createdAt)
         .addField("Server Count:", client.guilds.size)
