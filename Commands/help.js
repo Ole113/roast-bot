@@ -7,7 +7,7 @@
 
 const Discord = require("discord.js");
 
-exports.run = async (message) => {
+exports.run = async (client, message) => {
     let help_icon = client.user.displayAvatarURL;
     let help_embed = new Discord.RichEmbed()
         .setColor("#EB671D")

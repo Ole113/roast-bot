@@ -164,7 +164,7 @@ client.on("message", message => {
 	*/
 
 	if(message.content === "r!help") {
-		help_file.run(message);
+		help_file.run(client, message);
 	} else if(message.content === "r!bot"){
 		bot_file.run(client, message);
 	/*
