@@ -1,8 +1,15 @@
+/*
+*
+*   Things to add to r!urban:
+* ----------------------------
+*  Remove brackets with message.content.replace(whatever the syntax is);
+*
+*/
+
 const urban = require("relevant-urban");
 const Discord = require("discord.js");
-const client = new Discord.Client();
 
-exports.run = async(client, message, args) => {
+exports.run = async(message, args) => {
     let res = await urban(args).catch(e => {
         return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**")
     });
