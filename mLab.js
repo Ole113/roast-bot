@@ -9,28 +9,61 @@
 *  Make it so people cannot spam Roast-Bot commands to get more XP.
 *
 */
-const mLabHidden_file = require("mLabKey.json");
-const MongoClient = require('mongodb').MongoClient;
+const Discord = require("discord.js")
+const mlab = require("mongolab-data-api")(API_KEY);
+const client = new Discord.Client();
+const mLabHidden_file = require("mLabHidden.json");
 
-const MONGO_URL = URL;
-
-MongoClient.connect(MONGO_URL, (err, db) => {
-    if (err) {
-        return console.log(err);
+exports.run = async(message) => {
+client.on('message', message => {
+    if (message.content.startsWith("r!")) {
+        var options = {
+            database: 'roast-bot-ole113',
+            collectionName: member.guild.id,
+            query: `{"id": ${message.member.id} }`
+        };
+        mLab.listDocuments(options, function (err, data) { member = data });
+        member.exp += 1;
+        options = {
+            database: 'roast-bot-ole113',
+            collectionName: member.guild.id,
+            query: `{"id": ${message.member.id} }`,
+            document: member
+        };
+        mlab.updateDocuments(options, function () {
+            console.log(`${message.member.nickname} gained 25 exp`)
+        });
     }
-
-    // Do something with db here, like inserting a record
-    db.collection('notes').insertOne(
-        {
-            title: 'Hello MongoDB',
-            text: 'Hopefully this works!'
-        },
-        function (err, res) {
-            if (err) {
-                db.close();
-                return console.log(err);
-            }
-            db.close();
-        }
-    )
 });
+client.on("guildCreate", guild => {
+    var options = {
+        database: "roast-bot-ole113",
+        collectionName: guild.id,
+        documents: []
+    };
+    guild.members.forEach(function (member) {
+        options.documents.push({
+            id: member.id,
+            exp: 0
+        });
+    });
+    options.documents.push({
+        id: guild.id,
+        queue: []
+    });
+    options.documents.push()
+    mLab.insertDocuments(options)
+    console.log("Joined a server")
+});
+client.on("guildDelete", guild => {
+    guild.members.forEach(function (member) {
+        var options = {
+            database: "roast-bot-ole113",
+            collectionName: guild.id
+        }
+        mLab.deleteDocuments(options, function (err, data) {
+            console.log("Left a server");
+        });
+    });
+});
+}
