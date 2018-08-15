@@ -21,6 +21,8 @@ const meme_file = require("./Commands/meme.js");
 const mLab_file = require("./mLab.js");
 mLab_file.run(message);
 const test = require("./node_modules/mongolab-data-api");
+var mLab = require('mongolab-data-api')(API_KEY);
+const mLabHidden_file = require("mLabHidden.json");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
