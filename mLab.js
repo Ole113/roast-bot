@@ -13,7 +13,7 @@ const Discord = require("discord.js")
 const client = new Discord.Client();
 var mLab = require('mongolab-data-api')(API_KEY);
 const mLabHidden_file = require("mLabHidden.json");
-
+/*
 exports.run = async(message) => {
 client.on('message', message => {
     if (message.content.startsWith("r!")) {
@@ -67,3 +67,4 @@ client.on("guildDelete", guild => {
     });
 });
 }
+*/
