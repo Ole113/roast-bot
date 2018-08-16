@@ -9,11 +9,11 @@
 const Discord = require("discord.js");
 
 exports.run = async (message, int) => {
-
+    const word = message.content;
+    const number = word.slice(7, word.length);
+    const int = Number(number);
     if (message.content.startsWith("r!clear")) {
-        const word = message.content;
-        const number = word.slice(7, word.length);
-        const int = Number(number);
+
         if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>");
         } else if (int >= 100) {
