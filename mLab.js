@@ -9,6 +9,7 @@
 *  Make it so people cannot spam Roast-Bot commands to get more XP.
 *
 */
+/*
 const Discord = require("discord.js")
 const client = new Discord.Client();
 //const test = API_KEY;
@@ -66,3 +67,4 @@ exports.run = async () => {
         });
     });
 }
+*/
