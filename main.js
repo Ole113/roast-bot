@@ -100,6 +100,9 @@ client.on("message", message => {
 	server_file.run(message);
 	meme_file.run(message);
 	say_file.run(message);
+	const word = message.content;
+	const number = word.slice(7, word.length);
+	const int = Number(number);
 	clear_file.run(message, int);
 	if(message.content.startsWith("r!urban")) {
 		let word = message.content;

@@ -10,9 +10,6 @@ const Discord = require("discord.js");
 
 exports.run = async (message, int) => {
     if (message.content.startsWith("r!clear")) {
-        const word = message.content;
-        const number = word.slice(7, word.length);
-        const int = Number(number);
         clear_file.run(message, int);
         if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             return message.channel.send("Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>");
