@@ -8,7 +8,7 @@
 
 const Discord = require("discord.js");
 
-exports.run = async (message, int) => {
+exports.run = async (message) => {
     const word = message.content;
     const number = word.slice(7, word.length);
     const int = Number(number);
