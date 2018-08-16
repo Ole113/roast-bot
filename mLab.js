@@ -12,7 +12,7 @@
 const Discord = require("discord.js")
 const client = new Discord.Client();
 //const test = API_KEY;
-const mLabHidden_file = require("./mLabHidden.json");
+//const mLabHidden_file = require("./mLabHidden.json");
 var mLab = require('mongolab-data-api')("mibGkayB-6avS1d89zaKFVHCLEZB5i8O");
 
 exports.run = async () => {
