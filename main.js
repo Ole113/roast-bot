@@ -40,7 +40,7 @@ client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-    client.user.setActivity("r!help | r!urban is here!", { type: "PLAYING" })	   
+    client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
 /*
 *
@@ -100,7 +100,7 @@ client.on("message", message => {
 	server_file.run(message);
 	meme_file.run(message);
 	say_file.run(message);
-	clear_file.run(message, int);
+	clear_file.run(message);
 	if(message.content.startsWith("r!urban")) {
 		let word = message.content;
 		let args = word.slice(8, word.length);
