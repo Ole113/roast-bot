@@ -39,7 +39,7 @@ client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-    client.user.setActivity("r!help", { type: "PLAYING" })	   
+    client.user.setActivity("r!help | r!urban is here!", { type: "PLAYING" })	   
 });
 /*
 *
@@ -92,30 +92,18 @@ client.on("guildDelete", guild => {
 	console.log("-----------------------------------")
 })
 client.on("message", message => {
-	if(message.content === "r!help") {
-		help_file.run(client, message);
-	} else if(message.content === "r!bot"){
-		bot_file.run(client, message);
-	}else if(message.content.startsWith("r!roast")){
-		roast_file.run(message);
-	} else if(message.content === "r!invite") {
-		invite_file.run(message);
-    } else if(message.content === "r!server"){
-		server_file.run(message);
-	} else if(message.content.startsWith("r!meme")) {
-		meme_file.run(message);
-	} else if(message.content.startsWith("r!clear")){
+	help_file.run(client, message);
+	bot_file.run(client, message);
+	roast_file.run(message);
+	invite_file.run(message);
+	server_file.run(message);
+	meme_file.run(message);
+
+	if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
 		const int = Number(number);
 		clear_file.run(message, int);
-	/*
-	*
-	*   Things to add to r!say:
-	* ----------------------------
-	*  Make it so bots cannot use r!say.
-	*
-	*/	
 	} else if(message.content.startsWith("r!say ")){
 		const word = message.content;
 		const say = word.slice(6, word.length);
@@ -126,7 +114,6 @@ client.on("message", message => {
 		if(args == ""){
 			return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>")
 		}
-
 		urban_file.run(message, args);
 	};
 
