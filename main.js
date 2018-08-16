@@ -20,7 +20,7 @@ const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const mLab_file = require("./mLab.js");
-const mLabHidden_file = require("./mLabHidden.json");
+//const mLabHidden_file = require("./mLabHidden.json");
 
 mLab_file.run(message);
 //const Enmap = require("enmap");
