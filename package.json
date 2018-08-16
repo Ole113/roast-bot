@@ -21,7 +21,8 @@
     "sequelize": "^4.38.0",
     "snekfetch": "^4.0.4",
     "sqlite3": "^4.0.2",
-    "urban": "^0.3.1"
+    "urban": "^0.3.1",
+    "mongolab-data-api": "^1.1.6"
   },
   "devDependencies": {},
   "repository": {

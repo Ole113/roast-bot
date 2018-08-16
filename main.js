@@ -19,11 +19,8 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
-//const mLab_file = require("./mLab.js");
-//mLab_file.run(message);
-//const test = require("./node_modules/mongolab-data-api");
-//var mLab = require('mongolab-data-api')(API_KEY);
-//const mLabHidden_file = require("mLabHidden.json");
+const mLab_file = require("./mLab.js");
+mLab_file.run(message);
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
@@ -101,14 +98,7 @@ client.on("message", message => {
 	meme_file.run(message);
 	say_file.run(message);
 	clear_file.run(message);
-	if(message.content.startsWith("r!urban")) {
-		let word = message.content;
-		let args = word.slice(8, word.length);
-		if(args == ""){
-			return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>")
-		}
-		urban_file.run(message, args);
-	};
+	urban_file.run(message);
 
 	/*
 	*
@@ -178,5 +168,4 @@ client.on("message", message => {
 	}
 	*/
 });
-//message.reply
 client.login(process.env.BOT_TOKEN);
