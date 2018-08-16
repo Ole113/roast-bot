@@ -22,7 +22,7 @@ const say_file = require("./Commands/say.js");
 const mLab_file = require("./mLab.js");
 //const mLabHidden_file = require("./mLabHidden.json");
 
-mLab_file.run(message);
+mLab_file.run();
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
