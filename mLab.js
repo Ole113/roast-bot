@@ -11,7 +11,7 @@
 */
 const Discord = require("discord.js")
 const client = new Discord.Client();
-const test = API_TOKEN;
+const test = API_KEY;
 const mLabHidden_file = require("./mLabHidden.json");
 var mLab = require('mongolab-data-api')(test);
 //mibGkayB-6avS1d89zaKFVHCLEZB5i8O
