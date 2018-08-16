@@ -18,6 +18,7 @@ const invite_file = require("./Commands/invite.js");
 const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
+const say_file = require("./Commands/say.js");
 //const mLab_file = require("./mLab.js");
 //mLab_file.run(message);
 //const test = require("./node_modules/mongolab-data-api");
@@ -98,16 +99,12 @@ client.on("message", message => {
 	invite_file.run(message);
 	server_file.run(message);
 	meme_file.run(message);
-
+	say_file.run(message);
 	if(message.content.startsWith("r!clear")){
 		const word = message.content;
 		const number = word.slice(7, word.length);
 		const int = Number(number);
 		clear_file.run(message, int);
-	} else if(message.content.startsWith("r!say ")){
-		const word = message.content;
-		const say = word.slice(6, word.length);
-		return message.channel.send(say);
 	} else if(message.content.startsWith("r!urban")) {
 		let word = message.content;
 		let args = word.slice(8, word.length);
