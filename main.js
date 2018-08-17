@@ -6,6 +6,7 @@
 *  Learn more about collectors and use those.
 *  https://discordjs.guide/#/popular-topics/collectors
 *
+*  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
 */
 const Discord = require("discord.js");
 const client = new Discord.Client();
