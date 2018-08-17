@@ -12,6 +12,9 @@ exports.run = async (message) => {
     if (message.content.startsWith("r!say ")) {
         const word = message.content;
         const say = word.slice(6, word.length);
+        if(say == ""){
+           return message.channel.send("Please provide what you want Roast-Bot to say.");
+        }
         return message.channel.send(say);
     }
 }
