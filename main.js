@@ -20,9 +20,8 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
-//const mLabHidden_file = require("./mLabHidden.json");
-//mLab_file.run();
-
+const xpAdd_file = require("./XP-System/xpAdd");
+xpAdd_file.run();
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
