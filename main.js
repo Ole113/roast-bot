@@ -26,17 +26,10 @@ const xpAdd_file = require("./XP-System/xpAdd");
 //mongoose.connect("mongodb://localhost/XP-System");
 const Enmap = require("enmap");
 const EnmapMongo = require("enmap-mongo");
-const myColl = new Enmap({ provider: new EnmapMongo({ name: "xp" })});
-const level = new EnmapMongo({ 
-	name: "xp",
-	dbName: "XP-System",
-	user: "Admin",
-	pass: "psswrd",
-	host: 'localhost',
-	port: 27017
-  });
+const EnmapMongo = require('enmap-mongo');
+Object.assign(client, Enmap.multi(["db", "settings"], EnmapMongo, { dbName: 'XP-System', url: "mongodb+srv://Admin:aelb2580@roast-bot-ole113-npqi1.gcp.mongodb.net/test?retryWrites=true" }));
 
-  
+
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
