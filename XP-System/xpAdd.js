@@ -7,7 +7,7 @@
 const Discord = require("discord.js");
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/XP-System");
+mongoose.connect("mongodb://localhost/XP-System");
 exports.run = async () => {
 
 }
