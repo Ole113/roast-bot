@@ -21,15 +21,15 @@ const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const xpAdd_file = require("./XP-System/xpAdd");
-xpAdd_file.run();
+//xpAdd_file.run();
 //const mongoose = require("mongoose");
 //mongoose.connect("mongodb://localhost/XP-System");
-const Enmap = require("enmap");
-const EnmapMongo = require('enmap-mongo');
-Object.assign(client, Enmap.multi(["db", "settings"], EnmapMongo, { 
-	dbName: 'roast-bot-ole113', 
-	url: "mongodb+srv://Admin:psswrd@roast-bot-ole113-npqi1.gcp.mongodb.net/test?retryWrites=true" 
-}));
+//const Enmap = require("enmap");
+//const EnmapMongo = require('enmap-mongo');
+//Object.assign(client, Enmap.multi(["db", "settings"], EnmapMongo, { 
+	//dbName: 'roast-bot-ole113', 
+	//url: "mongodb+srv://Admin:psswrd@roast-bot-ole113-npqi1.gcp.mongodb.net/test?retryWrites=true" 
+//}));
 
 
 //const Enmap = require("enmap");
