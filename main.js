@@ -31,10 +31,12 @@ const level = new EnmapMongo({
 	name: "xp",
 	dbName: "XP-System",
 	user: "Admin",
-	pass: "aelb2580",
+	pass: "psswrd",
 	host: 'localhost',
 	port: 27017
   });
+
+  
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
