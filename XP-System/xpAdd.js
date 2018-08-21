@@ -10,8 +10,7 @@ const mongoose = require("mongoose");
 //mongoose.connect("mongodb://localhost:27017/XP-System");
 
 const mongodb = require("mongodb");
-var x = new Mongo("localhost:27017");
-var db = x.getDB("XP-System");
+var db = connect("localhost:27017/XP-System");
 exports.run = async () => {
 
 }
