@@ -27,8 +27,8 @@ const xpAdd_file = require("./XP-System/xpAdd");
 const Enmap = require("enmap");
 const EnmapMongo = require('enmap-mongo');
 Object.assign(client, Enmap.multi(["db", "settings"], EnmapMongo, { 
-	dbName: 'XP-System', 
-	url: "mongodb+srv://Admin:aelb2580@roast-bot-ole113-npqi1.gcp.mongodb.net/test?retryWrites=true" 
+	dbName: 'roast-bot-ole113', 
+	url: "mongodb+srv://Admin:psswrd@roast-bot-ole113-npqi1.gcp.mongodb.net/test?retryWrites=true" 
 }));
 
 
