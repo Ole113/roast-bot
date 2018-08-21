@@ -22,9 +22,19 @@ const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const xpAdd_file = require("./XP-System/xpAdd");
 //xpAdd_file.run();
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/XP-System");
-
+//const mongoose = require("mongoose");
+//mongoose.connect("mongodb://localhost/XP-System");
+const Enmap = require("enmap");
+const EnmapMongo = require("enmap-mongo");
+const myColl = new Enmap({ provider: new EnmapMongo({ name: "xp" })});
+const level = new EnmapMongo({ 
+	name: "xp",
+	dbName: "XP-System",
+	user: "Admin",
+	pass: "aelb2580",
+	host: 'localhost',
+	port: 27017
+  });
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
