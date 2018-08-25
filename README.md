@@ -1,4 +1,4 @@
-![roast_bot_image](https://user-images.githubusercontent.com/36930869/44614129-7311f300-a7dc-11e8-9e06-843ee727e508.jpg)
+![roast-bot_image png](https://user-images.githubusercontent.com/36930869/44614153-d8fe7a80-a7dc-11e8-98f3-c3e83a29b266.PNG)
 # Roast-Bot
 Roast-Bot is a discord bot make with discord.js and hosted on heroku.<br><br><br>
 <a href="https://discordbots.org/bot/461361233644355595" >
