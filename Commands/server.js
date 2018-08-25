@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 
 exports.run = async (message) => {
     if(message.content == "r!server help"){
-        return message.channel.send("**r!server help:**\n\n`r!server` tells you information about your server. The information that it provides is: Number of people in server, Server name, the date you joined, and the date the server was created.\n\n*Example:\n\n*USER: r!server\nRoast-Bot: Server Name....\nDate the server was created....\nDate you joined....\nNumber of people in the server....\n\n`r!server` will still work even if you put 1 or more space after the “server”.  It will not work however if you put 1 or more spaces and then a character that isn’t a space.")
+        return message.channel.send("**r!server help:**\n\n`r!server` tells you information about your server. The information that it provides is: Number of people in server, Server name, the date you joined, and the date the server was created.\n\n*Example:\n\n*USER: r!server\nRoast-Bot: Server Name....\nDate the server was created....\nDate you joined....\nNumber of people in the server....\n\n`r!server` will still work even if you put 1 or more space after the “server”.  It will not work however if you put 1 or more spaces and then a character that isn’t a space. \n\n\n  If your still having trouble with r!clear NUMBER please join the support server and ask in #roast-bot-help. \n\n\n\nServer Invite Link: https://discordapp.com/invite/9y8yV42")
     }
     if (message.content == "r!server") {
         let server_icon = message.guild.iconURL;
