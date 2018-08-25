@@ -1,3 +1,4 @@
+<img src="Images/roast_bot_image.jpg" alt="Roast-Bot Logo"/>
 # Roast-Bot
 Roast-Bot is a discord bot make with discord.js and hosted on heroku.<br><br><br>
 <a href="https://discordbots.org/bot/461361233644355595" >
