@@ -9,7 +9,7 @@
 const Discord = require("discord.js");
 
 roasts = [
-	{ "roast": "Id offer you some gum but your smiles got plenty of it." },
+	{"number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
 	{ "roast": "Repeat After me: semen is not hair gel." },
 	{ "roast": "Your body fat is about as evenly distributed as wealth in the US economy." },
 	{ "roast": "Your like dobby from harry potter, only people wont be sad when you die in the seventh book." },

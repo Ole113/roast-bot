@@ -2,7 +2,7 @@
 *
 *   Things to add to r!server:
 * ----------------------------
-*  Add more stats.
+*  Add more stats such as how many text channels their are and how many voice.
 *
 */
 

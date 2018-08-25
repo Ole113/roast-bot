@@ -9,7 +9,7 @@ const Discord = require("discord.js");
 
 exports.run = async (message) => {
     if (message.content.startsWith("r!meme")) {
-        const random_memes = Math.ceil(Math.random() * 123);
+        const random_memes = Math.ceil(Math.random() * 131);
         if (message.content.startsWith("r!meme #")) {
             let word2 = message.content;
             let number2 = word2.slice(8, word2.length);
