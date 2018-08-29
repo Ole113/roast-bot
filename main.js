@@ -9,7 +9,7 @@
 *  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
 *
 *  Add a r!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
-*/
+*/ 
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
