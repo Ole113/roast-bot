@@ -22,8 +22,6 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/XP_LEVEL");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
