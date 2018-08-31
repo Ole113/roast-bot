@@ -17,7 +17,7 @@ exports.run = async (client, message) => {
             .setThumbnail(help_icon)
             .addField("***Commands:***\n\nr!help", "List of Roast-Bot Commands.")
             .addField("r!bot", "Learn more about Roast-Bot.")
-            .addField("r!roast *@USER*, r!roast, or r!roast *#roastNumber*", "Generate a random roast with the number of roast it was.")
+            .addField("r!roast *@user*, r!roast, or r!roast *#roastNumber*", "Generate a random roast with the number of roast it was.")
             .addField("r!invite", "Link to invite Roast-Bot to a server.")
             .addField("r!server", "Info about your server.")
             .addField("r!meme, or r!meme *#memeNumber*", "Sends a meme to the current channel.")
