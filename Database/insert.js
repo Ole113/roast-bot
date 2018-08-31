@@ -1,5 +1,7 @@
+
 const mysql = require("mysql");
 
+exports.run = async () => {
 var connection = mysql.createConnection({
     host: "localhost",
     user: "Russ",
@@ -7,3 +9,4 @@ var connection = mysql.createConnection({
     database: "xp_system"
 })
 database.connect();
+}
