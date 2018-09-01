@@ -2,6 +2,8 @@
 const mysql = require("mysql");
 
 exports.run = async () => {
+
+try{
 var connection = mysql.createConnection({
     host: "localhost",
     user: "admin",
@@ -9,12 +11,8 @@ var connection = mysql.createConnection({
     database: "roast-bot-db"
 })
 connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
-  });
-  
-  connection.end();
-  
+}
+catch(error){
+    console.log(error);
+}
 }
