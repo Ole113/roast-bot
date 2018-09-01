@@ -7,6 +7,7 @@ try{
 var connection = mysql.createConnection({
     host: "ElbelHP",
     port: "3306",
+    socket: "MySQL",
     user: "root",
     password: "Bestadminevr113",
     database: "roast-bot-db"
