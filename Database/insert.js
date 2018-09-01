@@ -5,10 +5,10 @@ exports.run = async () => {
 
 try{
 var connection = mysql.createConnection({
-    host: "127.0.0.1",
-    port: "6060",
-    user: "admin",
-    password: "Vector$bestGGun1158",
+    host: "ElbelHP",
+    port: "3306",
+    user: "root",
+    password: "Bestadminevr113",
     database: "roast-bot-db"
 });
 connection.connect();
