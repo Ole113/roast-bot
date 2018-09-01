@@ -8,5 +8,5 @@ var connection = mysql.createConnection({
     password: "Vector$bestGGun1158",
     database: "roast-bot-db"
 })
-database.connect();
+connection.connect();
 }
