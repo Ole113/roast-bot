@@ -108,7 +108,7 @@ roasts = [
 	{ "number": 97, "roast": "What\'s the difference between you and eggs? Eggs get laid and you don\'t." },
 	{ "number": 98, "roast": "If you\'re gonna be a smartass, first you have to be smart. Otherwise you\'re just an ass." },
 	{ "number": 99, "roast": "At least when I do a handstand my stomach doesn\'t hit me in the face." },
-	{ "number": 100, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
+	{ "number": 100,"roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
 ];
 
 exports.run = async (message) => {
