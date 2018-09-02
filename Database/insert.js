@@ -5,9 +5,8 @@ exports.run = async () => {
 
 try{
 var connection = mysql.createConnection({
-    host: "ElbelHP",
+    host: "localhost",
     port: "3306",
-    socket: "MySQL",
     user: "root",
     password: "Bestadminevr113",
     database: "roast-bot-db"
