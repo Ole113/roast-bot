@@ -24,15 +24,6 @@ const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const insert_file = require("./Database/insert.js");
 
-var express = require("express");
-var app = express();
-
-app.use(express.static("public"));
-app.set("view engine", "jade");
-
-app.listen(3000, function() {
-    console.log("Listening on port 3000.")
-});
 //insert_file.run(); 
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
