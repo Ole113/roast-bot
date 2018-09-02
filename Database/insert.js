@@ -1,19 +1,9 @@
+var express = require("express");
+var app = express();
 
-const mysql = require("mysql");
+app.use(express.static("public"));
+app.set("view engine", "jade");
 
-exports.run = async () => {
-
-try{
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: "3306",
-    user: "root",
-    password: "Bestadminevr113",
-    database: "roast-bot-db"
-});
-connection.connect();
-}
-catch(error){
-    console.log(error);
-}
-}
+app.listen(3000, function() {
+    console.log("Listening on port 3000.")
+})
