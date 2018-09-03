@@ -10,7 +10,7 @@ const urban = require("relevant-urban");
 const Discord = require("discord.js");
 
 exports.run = async (message) => {
-    if (message.content.startsWith("r!urban")) {
+    if (message.content.toLowerCase().startsWith("r!urban")) {
         let word = message.content;
         let args = word.slice(8, word.length);
         if (args == "") {
