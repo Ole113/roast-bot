@@ -8,6 +8,9 @@
 const Discord = require("discord.js");
 
 exports.run = async (message) => {
+    if(message.content.toLowerCase() == "r!meme help"){
+        return message.channel.send("coming soon")
+    }
     if (message.content.toLowerCase().startsWith("r!meme")) {
         const random_memes = Math.ceil(Math.random() * 131);
         if (message.content.toLowerCase().startsWith("r!meme #")) {

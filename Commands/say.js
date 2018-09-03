@@ -13,7 +13,7 @@ exports.run = async (message) => {
         return message.channel.send("Please provide what you want Roast-Bot to say. The correct usage is `r!say whatToSay`. ");
     }
     if(message.content.toLowerCase() == "r!say help") {
-        return message.channel.send("add r!say help");
+        return message.channel.send("coming soon");
     }
     if (message.content.toLowerCase().startsWith("r!say ")) {
         const word = message.content;
