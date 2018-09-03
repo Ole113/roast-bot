@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 exports.run = async (client, message) => {
-    if(message.content == "r!bot help"){
+    if(message.content.toLowerCase() == "r!bot help"){
         return message.channel.send("comming soon")
     }
     if (message.content.toLowerCase() == "r!bot") {
