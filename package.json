@@ -23,6 +23,7 @@
     "mssql": "^4.1.0",
     "mysql": "^2.16.0",
     "node-mssql": "0.0.1",
+    "pg": "^7.4.3",
     "querystring": "^0.2.0",
     "quick.db": "^6.3.2",
     "quick.log": "^1.2.1",

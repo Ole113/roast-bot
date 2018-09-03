@@ -13,7 +13,7 @@ exports.run = async (client, message) => {
     if(message.content == "r!bot help"){
         return message.channel.send("comming soon")
     }
-    if (message.content == "r!bot") {
+    if (message.content.toLowerCase() == "r!bot") {
         let bot_icon = client.user.displayAvatarURL;
         let bot_embed = new Discord.RichEmbed()
             .setColor("#EB671D")
