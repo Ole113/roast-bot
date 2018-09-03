@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node main.js"
   },
+  "engines": {
+    "node": "^8.11.3"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
@@ -34,8 +37,7 @@
     "sequelize": "^4.38.0",
     "snekfetch": "^4.0.4",
     "sqlite3": "^4.0.2",
-    "urban": "^0.3.1",
-    "node": "^8.11.3"
+    "urban": "^0.3.1"
   },
   "devDependencies": {},
   "repository": {
