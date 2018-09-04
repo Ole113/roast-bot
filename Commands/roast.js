@@ -3,7 +3,8 @@
 *   Things to add to r!roast, r!roast @, r!roast #:
 * ----------------------------
 *  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
-*
+*  Make it so you can do r!roast @USER #roastNumber
+*  Fix "TypeError: Cannot read property 'roast' of undefined" bug.
 */
 
 const Discord = require("discord.js");
@@ -89,7 +90,6 @@ roasts = [
 	{ "number": 78, "roast": "I\'d agree with you but then we\'d both be wrong." },
 	{ "number": 79, "roast": "When you were born your mom threw you out the window and the window threw you back." },
 	{ "number": 80, "roast": "Your about as usefully as Anne Franks drumset." },
-	{ "number": 81, "roast": "Did your parents ever ask you to run away from home?" },
 	{ "number": 82, "roast": "I would burn you but burning trash is bad for the environment." },
 	{ "number": 83, "roast": "I haven\'t seen you run that fast since Twinkies went on sale!" },
 	{ "number": 84, "roast": "You were so ugly that when you were born the doctor put tinted windows on your incubator." },
