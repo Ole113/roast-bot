@@ -9,6 +9,8 @@
 *  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
 *
 *  Add a r!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
+*  Make it so when it has try catch block for commands if will eventaully send errors to db. 
+*
 */ 
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -94,16 +96,20 @@ client.on("guildDelete", guild => {
 	console.log("-----------------------------------")
 })
 client.on("message", message => {
-	help_file.run(client, message);
-	bot_file.run(client, message);
-	roast_file.run(message);
-	invite_file.run(message);
-	server_file.run(message);
-	meme_file.run(message);
-	say_file.run(message);
-	clear_file.run(message);
-	urban_file.run(message);
-
+	try{
+		help_file.run(client, message);
+		bot_file.run(client, message);
+		roast_file.run(message);
+		invite_file.run(message);
+		server_file.run(message);
+		meme_file.run(message);
+		say_file.run(message);
+		clear_file.run(message);
+		urban_file.run(message);
+	}
+	catch(error) {
+		console.log("Something went wrong :(");
+	};
 	/*
 	*
 	*   Things to add to Database:
