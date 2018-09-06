@@ -108,7 +108,7 @@ client.on("message", message => {
 		urban_file.run(message);
 	}
 	catch(error) {
-		console.log("Something went wrong :(");
+		console.log("Something went wrong :( " + error);
 	};
 	/*
 	*
