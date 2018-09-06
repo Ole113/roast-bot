@@ -31,7 +31,7 @@ const tset = require("./Cassandra/data.js");
 //const Enmap = require("enmap");
 //const Provider = require("enmap-sqlite");
 //client.points = new Enmap({provider: new Provider({name: "points"})});
-tset.run();
+//tset.run();
 /*
 *
 *   Things to add to Bot being on:
