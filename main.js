@@ -24,6 +24,8 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
+const Cass = require("./Cassandra/main.js");
+Cass.run();
 //const insert_file = require("./Database/insert.js");
 
 //insert_file.run(); 

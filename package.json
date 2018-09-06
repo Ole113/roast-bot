@@ -11,6 +11,7 @@
     "npm": "^5.6.0"
   },
   "dependencies": {
+    "cassandra-driver": "^3.5.0",
     "discord.js": "^11.3.2",
     "relevant-urban": "^2.0.0",
     "request": "2.81.0"
