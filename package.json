@@ -14,7 +14,8 @@
     "cassandra-driver": "^3.5.0",
     "discord.js": "^11.3.2",
     "relevant-urban": "^2.0.0",
-    "request": "2.81.0"
+    "request": "2.81.0",
+    "node": "^10.9.0"
   },
   "devDependencies": {},
   "repository": {
