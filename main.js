@@ -25,6 +25,7 @@ const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const Cassandra_main = require("./Database/main.js");
+
 Cassandra_main.run();
 
 //const Enmap = require("enmap");
