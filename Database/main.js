@@ -1,5 +1,5 @@
 const cassandra = require("cassandra-driver");
-const CasClient = new cassandra.Client({ contactPoints: ["127.0.0.1"], keyspace: "roastbotxp" });
+const CasClient = new cassandra.Client({ contactPoints: ["127.0.0.1:9042"], keyspace: "roastbotxp" });
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
