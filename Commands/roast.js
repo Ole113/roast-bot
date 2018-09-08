@@ -90,6 +90,7 @@ roasts = [
 	{ "number": 78, "roast": "I\'d agree with you but then we\'d both be wrong." },
 	{ "number": 79, "roast": "When you were born your mom threw you out the window and the window threw you back." },
 	{ "number": 80, "roast": "Your about as usefully as Anne Franks drumset." },
+	{ "number": 81, "roast": "If I wanted to kill myself I'd climb your ego and jump to your IQ."},
 	{ "number": 82, "roast": "I would burn you but burning trash is bad for the environment." },
 	{ "number": 83, "roast": "I haven\'t seen you run that fast since Twinkies went on sale!" },
 	{ "number": 84, "roast": "You were so ugly that when you were born the doctor put tinted windows on your incubator." },
