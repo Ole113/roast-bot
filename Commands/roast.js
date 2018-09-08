@@ -4,7 +4,6 @@
 * ----------------------------
 *  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
 *  Make it so you can do r!roast @USER #roastNumber
-*  Fix "TypeError: Cannot read property 'roast' of undefined" bug.
 */
 
 const Discord = require("discord.js");
