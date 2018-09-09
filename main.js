@@ -179,5 +179,4 @@ client.on("message", message => {
 	}
 	*/
 });
-const bot_token = require("test.json");
-client.login("BOT_TOKEN");
+client.login(process.env.BOT_TOKEN);
