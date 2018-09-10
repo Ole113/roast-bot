@@ -124,6 +124,9 @@ exports.run = async (message) => {
 				let word1 = message.content;
 				let number1 = word1.slice(9, word1.length);
 				let number_int = parseInt(number1);
+				if(number_int > roasts.length){
+					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length}`);
+				}
 				return message.channel.send(roasts[number_int].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`);
 			}
 
