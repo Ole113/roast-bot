@@ -114,10 +114,10 @@ roasts = [
 exports.run = async (message) => {
 	if (message.content.toLowerCase().startsWith("r!roast")) {
 		if (message.content.toLowerCase() === "r!roast") {
-			const random_roasts = Math.ceil(Math.random() * 101);
+			const random_roasts = Math.ceil(Math.random() * 100);
 			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith("r!roast ")) {
-			const random = Math.ceil(Math.random() * 101);
+			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
 			const reply = word.slice(8, word.length);
 			if (message.content.toLowerCase().startsWith("r!roast #")) {
