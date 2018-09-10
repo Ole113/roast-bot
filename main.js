@@ -97,20 +97,11 @@ client.on("guildDelete", guild => {
 	console.log("-----------------------------------")
 })
 client.on("message", message => {
-	try{
-		help_file.run(client, message);
-		bot_file.run(client, message);
-		roast_file.run(message);
-		invite_file.run(message);
-		server_file.run(message);
-		meme_file.run(message);
-		say_file.run(message);
-		clear_file.run(message);
-		urban_file.run(message);
-	}
-	catch(error) {
-		console.log("Something went wrong :( " + error);
-	};
+
+	help_file.run(client, message), bot_file.run(client, message), roast_file.run(message), invite_file.run(message), server_file.run(message), meme_file.run(message), say_file.run(message), clear_file.run(message), urban_file.run(message).catch(error => {
+		console.log(error);
+	});
+
 	/*
 	*
 	*   Things to add to Database:
