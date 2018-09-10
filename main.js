@@ -98,9 +98,15 @@ client.on("guildDelete", guild => {
 })
 client.on("message", message => {
 
-	help_file.run(client, message), bot_file.run(client, message), roast_file.run(message), invite_file.run(message), server_file.run(message), meme_file.run(message), say_file.run(message), clear_file.run(message), urban_file.run(message).catch(error => {
-		console.log("Something Went Wrong :(");
-	});
+	help_file.run(client, message);
+	bot_file.run(client, message);
+	roast_file.run(message);
+	invite_file.run(message);
+	server_file.run(message);
+	meme_file.run(message);
+	say_file.run(message);
+	clear_file.run(message);
+	urban_file.run(message);
 
 	/*
 	*
