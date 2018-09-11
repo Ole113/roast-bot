@@ -24,6 +24,7 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
+const hidden_file = require("./hidden.json");
 const Cassandra_main = require("./Database/main.js");
 
 //Cassandra_main.run();
@@ -176,4 +177,4 @@ client.on("message", message => {
 	}
 	*/
 });
-client.login(process.env.BOT_TOKEN);
+client.login(hidden_file.BOT_TOKEN);
