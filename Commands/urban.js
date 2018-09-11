@@ -2,7 +2,6 @@
 *
 *   Things to add to r!urban:
 * ----------------------------
-*  Remove brackets with message.content.replace(whatever the syntax is);
 *  Make it so if the word is not found it will only say Word not found and wont send the other info of undefined.
 */
 
