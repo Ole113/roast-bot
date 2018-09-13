@@ -38,7 +38,7 @@ const say_file = require("./Commands/say.js");
 *  -------------------------------
 *   Log how many users Roast-Bot serves.
 *
-*/
+*/ 
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
