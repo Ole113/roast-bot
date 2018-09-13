@@ -177,4 +177,4 @@ client.on("message", message => {
 	}
 	*/
 });
-client.login(hidden_file.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
