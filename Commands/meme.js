@@ -8,12 +8,12 @@
 const Discord = require("discord.js");
 
 exports.run = async (message) => {
-    if(message.content.toLowerCase() == "r!meme help"){
+    if(message.content.toLowerCase() == "rb!meme help"){
         return message.channel.send("coming soon")
     }
-    if (message.content.toLowerCase().startsWith("r!meme")) {
+    if (message.content.toLowerCase().startsWith("rb!meme")) {
         const random_memes = Math.ceil(Math.random() * 159);
-        if (message.content.toLowerCase().startsWith("r!meme #")) {
+        if (message.content.toLowerCase().startsWith("rb!meme #")) {
             let word2 = message.content;
             let number2 = word2.slice(8, word2.length);
             let number_int1 = parseInt(number2);
