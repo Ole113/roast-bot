@@ -78,6 +78,6 @@ client.on("message", message => {
 	say_file.run(message);
 	clear_file.run(message);
 	urban_file.run(message);
-	dbMain_file.run(message);
+	//dbMain_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);

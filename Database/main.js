@@ -1,4 +1,4 @@
-const Enmap = require("enmap");
+/*const Enmap = require("enmap");
 const xpLevel = new Enmap({name: "xp-level"});
 const bsp = require("better-sqlite-pool");
 
@@ -13,7 +13,7 @@ exports.run = async (message) => {
 	*  When you level up stil send the command that they did but then do the level up thing.
 	*  Make it so people cannot spam Roast-Bot commands to get more XP.
 	*
-	*/
+	
 	xpLevel.defer.then( () => {
 		if(message.author.bot) return;
 		if(message.content.startsWith("rb!")) {
@@ -62,7 +62,7 @@ exports.run = async (message) => {
 		*  ---------------------------
 		*  
 		*
-		*/
+		
 		if (message.content === "rb!level") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			let currentPoints = xpLevel.get(key, "points");
@@ -72,3 +72,4 @@ exports.run = async (message) => {
 		}
 	  });
 }
+*/

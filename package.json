@@ -11,12 +11,13 @@
     "npm": "^5.6.0"
   },
   "dependencies": {
+    "better-sqlite-pool": "^0.1.2",
     "discord.js": "^11.4.2",
     "enmap": "^4.2.0",
     "node": "8.11.4",
+    "node-gyp": "^3.8.0",
     "relevant-urban": "^2.0.0",
-    "request": "2.81.0",
-    "better-sqlite-pool": "^0.1.2"
+    "request": "2.81.0"
   },
   "devDependencies": {},
   "repository": {
