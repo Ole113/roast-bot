@@ -13,9 +13,9 @@ exports.run = async (message) => {
     }
     if (message.content.toLowerCase().startsWith("rb!meme")) {
         const random_memes = Math.ceil(Math.random() * 159);
-        if (message.content.toLowerCase().startsWith("rb!meme #")) {
+        if (message.content.toLowerCase().startsWith("rb!meme ")) {
             let word2 = message.content;
-            let number2 = word2.slice(8, word2.length);
+            let number2 = word2.slice(7, word2.length);
             let number_int1 = parseInt(number2);
             if(number_int1 > 159){
                 return message.channel.send("Sorry that meme couldn't be found :(");
