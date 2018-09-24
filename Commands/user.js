@@ -10,7 +10,7 @@ const client = new Discord.Client();
 
 exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
-        return message.channel.send(message.author.createdAt);
+        return message.channel.send(message.author.createdAt.toString());
     }
         /*
         let user_embed = new Discord.RichEmbed()
