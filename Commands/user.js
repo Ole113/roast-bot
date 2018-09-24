@@ -11,7 +11,7 @@ const client = new Discord.Client();
 exports.run = async (message) => {
     
     function status() {
-        if(message.author.equals(online)) {
+        if(message.author.equals("online")) {
             return "Online";
         }
     }
