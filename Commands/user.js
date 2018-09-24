@@ -15,8 +15,10 @@ exports.run = async (message) => {
         } else {
             return message.channel.send("No Nitro");
         }
+        /*
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
         .setTitle(message.user);
+        */
     }
 }
