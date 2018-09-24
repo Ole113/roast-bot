@@ -14,11 +14,11 @@ exports.run = async (message) => {
 
         var status = "default";
         switch(message.author.presence.status) {
-            case "online":
+            case online:
                 status = "<:online:493897919641026590> <:roast_circle:474755210485563404> Online";
-            case "offline":
+            case offline:
                 status = "<:online:493897919641026590> <:roast_circle:474755210485563404>Offline";
-            case "idle":
+            case idle:
                 status = "Idle";
             //case "dnd":
                 //status = "Do Not Disturb";
