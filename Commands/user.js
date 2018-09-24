@@ -16,7 +16,7 @@ exports.run = async (message) => {
         .setTitle(`${message.author.username}'s Stats:`)
         .setThumbnail(message.author.displayAvatarURL)
         .addField("Account created at: ", message.author.createdAt.toString())
-        .addField("Current Presense ", message.author.status);
+        .addField("Current Presense ", message.author.status.toString());
         //return message.channel.send(message.author.createdAt.toString());
         return message.channel.send(user_embed);
     }
