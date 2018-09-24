@@ -25,4 +25,5 @@ exports.run = async (message) => {
             return message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>`, { files: [`Images/meme${random_memes}.PNG`] })
         };
     }
+
 }

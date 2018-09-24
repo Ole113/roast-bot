@@ -15,6 +15,7 @@ exports.run = async (client, message) => {
             .setTitle("Roast-Bot Help:")
             .addBlankField()
             .setThumbnail(help_icon)
+            .addField("***v2.1.0 Command Change:***", "v2.1.0 changed how to use r!meme and r!roast, instead of includding the \"#\" you can now do it without it and just put the number of meme/roast you want. Example: r!meme 12, returns meme #12")
             .addField("***Commands:***\n\nr!help", "List of Roast-Bot Commands.")
             .addField("r!bot", "Learn more about Roast-Bot.")
             .addField("r!roast *@user*, r!roast, or r!roast *#roastNumber*", "Generate a random roast with the number of roast it was.")
