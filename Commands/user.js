@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
 
-        if(member.user.premium == true) {
+        if(message.user.premium == true) {
             return message.channel.send("Has Nitro");
         } else {
             return message.channel.send("No Nitro");
