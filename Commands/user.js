@@ -6,12 +6,13 @@
 */
 
 const Discord = require("discord.js");
+const client = new Discord.Client();
 
 exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
 
         if(true == true) {
-            return message.channel.send(user.createdAt);
+            return message.channel.send(client.user.createdAt);
         } else {
             return message.channel.send("No Nitro");
         }
