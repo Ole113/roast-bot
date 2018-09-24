@@ -16,12 +16,16 @@ exports.run = async (message) => {
         switch(message.author.presence.status) {
             case "online":
                 status = "Online";
+                break;
             case "offline":
                 status = "Offline";
+                break;
             case "idle":
                 status = "Idle";
+                break;
             case "dnd":
                 status = "Do Not Disturb";
+                break;
         }
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
