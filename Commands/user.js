@@ -20,8 +20,8 @@ exports.run = async (message) => {
                 status = "<:online:493897919641026590> <:roast_circle:474755210485563404>Offline";
             case "idle":
                 status = "Idle";
-            case "dnd":
-                status = "Do Not Disturb";
+            //case "dnd":
+                //status = "Do Not Disturb";
         }
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
