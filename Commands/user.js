@@ -15,13 +15,13 @@ exports.run = async (message) => {
         var status = "default";
         switch(message.author.presence.status) {
             case online:
-                status = "<:online:493897919641026590> <:roast_circle:474755210485563404> Online";
+                status = "Online";
             case offline:
-                status = "<:online:493897919641026590> <:roast_circle:474755210485563404>Offline";
+                status = "Offline";
             case idle:
                 status = "Idle";
-            //case "dnd":
-                //status = "Do Not Disturb";
+            case dnd:
+                status = "Do Not Disturb";
         }
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
