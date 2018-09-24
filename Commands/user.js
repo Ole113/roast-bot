@@ -14,7 +14,8 @@ exports.run = async (message) => {
         .setColor("#EB671D")
         .setTitle(`${message.author.username}'s Stats:`)
         .setThumbnail(message.author.displayAvatarURL)
-        .addField(`Account created at: ${message.author.createdAt}`);
+        .addField("Account created at: ", message.author.createdAt.toString())
+        .addField("Current Presense ", message.author.presence.toString());
         //return message.channel.send(message.author.createdAt.toString());
         return message.channel.send(user_embed);
     }
