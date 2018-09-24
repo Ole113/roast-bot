@@ -10,12 +10,14 @@ const client = new Discord.Client();
 
 exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
-        return message.channel.send(message.author.createdAt.toString());
-    }
-        /*
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
-        .setTitle(message.user);
-        */
+        .setTitle(`${message.author.username}'s Stats:`)
+        .setThumbnail(message.author.displayAvatarURL)
+        .addField(`Account created at: ${message.author.createdAt}`);
+        //return message.channel.send(message.author.createdAt.toString());
+        return message.channel.send(user_embed);
+    }
+
     
 }
