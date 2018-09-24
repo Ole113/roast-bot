@@ -11,7 +11,7 @@ exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
 
         if(true == true) {
-            return message.channel.send(member.user.createdAt);
+            return message.channel.send(user.createdAt);
         } else {
             return message.channel.send("No Nitro");
         }
