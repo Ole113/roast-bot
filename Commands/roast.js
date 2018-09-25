@@ -112,17 +112,17 @@ roasts = [
 ];
 
 exports.run = async (message) => {
-	if (message.content.toLowerCase().startsWith("r!roast")) {
-		if (message.content.toLowerCase() === "r!roast") {
+	if (message.content.toLowerCase().startsWith("rb!roast")) {
+		if (message.content.toLowerCase() === "rb!roast") {
 			const random_roasts = Math.ceil(Math.random() * 100);
 			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith("r!roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
-			const reply = word.slice(8, word.length);
-			if (message.content.toLowerCase().startsWith("r!roast #")) {
+			const reply = word.slice(9, word.length);
+			if (message.content.toLowerCase().startsWith("rb!roast #")) {
 				let word1 = message.content;
-				let number1 = word1.slice(9, word1.length);
+				let number1 = word1.slice(10, word1.length);
 				let number_int = parseInt(number1);
 				if(number_int > roasts.length - 1){
 					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length - 1}`);
