@@ -13,7 +13,7 @@ exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
 
         if(message.content.toLowerCase().startsWith("rb!user ")) {
-            return message.channel.send(message.mentions.first().id);
+            return message.channel.send(message.mentions.users.first().id);
         }
         var status = "default";
         switch(message.author.presence.status) {
