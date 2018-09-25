@@ -10,9 +10,18 @@ const client = new Discord.Client();
 
 exports.run = async (message) => {
     if(message.content.toLowerCase().startsWith("rb!user")) {
-        var userlist = message.mentions.users; // Saving userlist to a variable
-userlist.forEach(function(user){
-console.log(user); // This should log every mentioned user
+        var muser = message.mentions.users;
+        muser.forEach(function(user){
+            let user_embed = new Discord.RichEmbed()
+            .setColor("#EB671D")
+            .setTitle(`${user.username}'s Stats:`)
+            .setThumbnail(user.displayAvatarURL)
+            .addField("Account created at: ", user.createdAt.toString())
+            .addField("User Id:", user.id)
+            .addField("Current Game:", game)
+            .addField("Current Presense:", status);
+            
+            return message.channel.send(user_embed);
 });
     }
     if(message.content.toLowerCase() == "rb!user") {
@@ -49,7 +58,6 @@ console.log(user); // This should log every mentioned user
         .addField("Current Game:", game)
         .addField("Current Presense:", status);
 
-        //return message.channel.send(message.author.createdAt.toString());
         return message.channel.send(user_embed);
     }
 
