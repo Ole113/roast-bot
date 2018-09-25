@@ -13,7 +13,10 @@ exports.run = async (message) => {
     if(message.content.toLowerCase() == "rb!user") {
 
         if(message.content.toLowerCase().startsWith("rb!user ")) {
-            return message.channel.send(message.mentions.users.first().id);
+            var userlist = message.mentions.users; // Saving userlist to a variable
+userlist.forEach(function(user){
+    console.log(user); // This should log every mentioned user
+});
         }
         var status = "default";
         switch(message.author.presence.status) {
