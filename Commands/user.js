@@ -9,15 +9,15 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 exports.run = async (message) => {
-    
+    if(message.content.toLowerCase().startsWith("rb!user")) {
+        var userlist = message.mentions.users; // Saving userlist to a variable
+userlist.forEach(function(user){
+console.log(user); // This should log every mentioned user
+});
+    }
     if(message.content.toLowerCase() == "rb!user") {
 
-        if(message.content.toLowerCase().startsWith("rb!user ")) {
-            var userlist = message.mentions.users; // Saving userlist to a variable
-userlist.forEach(function(user){
-    console.log(user); // This should log every mentioned user
-});
-        }
+
         var status = "default";
         switch(message.author.presence.status) {
             case "online":
