@@ -15,7 +15,7 @@ exports.run = async (message) => {
         var status = "default";
         switch(message.author.presence.status) {
             case "online":
-                status = "Online";
+                status = "<:online:493954025100804138>  Online";
                 break;
             case "offline":
                 status = "Offline";
