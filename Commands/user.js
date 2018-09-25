@@ -29,8 +29,10 @@ exports.run = async (message) => {
     var game = 0;
     if(message.author.presence.game == null) {
         game = "None";
+        break;
     } else {
         game = message.author.presence.game;
+        break;
     }
     
     if(message.content.toLowerCase() == "rb!user") {
@@ -46,7 +48,7 @@ exports.run = async (message) => {
         .addField("Current Presense:", status);
 
         return message.channel.send(user_embed);
-    } else if(message.content.toLowerCase().startsWith("rb!user")) {
+    } else if(message.content.toLowerCase().startsWith("rb!user @")) {
         var muser = message.mentions.users;
         muser.forEach(function(user){
             let user_embed = new Discord.RichEmbed()
