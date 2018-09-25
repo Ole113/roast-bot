@@ -15,16 +15,16 @@ exports.run = async (message) => {
         var status = "default";
         switch(message.author.presence.status) {
             case "online":
-                status = "<:online:493954025100804138>  Online";
+                status = "<:online:493891715678339089>  Online";
                 break;
             case "offline":
-                status = "Offline";
+                status = "<:invisible:493897783179214858>  Offline";
                 break;
             case "idle":
-                status = "Idle";
+                status = "<:idle:493892777944285194>  Idle";
                 break;
             case "dnd":
-                status = "Do Not Disturb";
+                status = "<:dnd:493892741613355008>  Do Not Disturb";
                 break;
         }
         let user_embed = new Discord.RichEmbed()
