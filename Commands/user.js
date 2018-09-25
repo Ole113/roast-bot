@@ -12,6 +12,9 @@ exports.run = async (message) => {
     
     if(message.content.toLowerCase() == "rb!user") {
 
+        if(message.content.toLowerCase().startsWith("rb!user ")) {
+            return message.channels.send(message.mentions.users.first.id);
+        }
         var status = "default";
         switch(message.author.presence.status) {
             case "online":
