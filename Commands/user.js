@@ -8,7 +8,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-var status = "default";
+
+exports.run = async (message) => {
+
+
+    var status = "default";
 switch(message.author.presence.status) {
     case "online":
         status = "<:online:493891715678339089>  Online";
@@ -30,11 +34,21 @@ if(message.author.presence.game == null) {
 } else {
     game = message.author.presence.game;
 }
-
-exports.run = async (message) => {
-
-
-    
+if(message.content.toLowerCase().startsWith("rb!user @")) {
+    var muser = message.mentions.users;
+    muser.forEach(function(user){
+        let user_embed = new Discord.RichEmbed()
+        .setColor("#EB671D")
+        .setTitle(`${user.username}'s Stats:`)
+        .setThumbnail(user.displayAvatarURL)
+        .addField("Account created at: ", user.createdAt.toString())
+        .addField("User Id:", user.id)
+        .addField("Current Game:", game)
+        .addField("Current Presense:", status);
+        
+        return message.channel.send(user_embed);
+    });
+}
     if(message.content.toLowerCase() == "rb!user") {
 
 
@@ -48,19 +62,5 @@ exports.run = async (message) => {
         .addField("Current Presense:", status);
 
         return message.channel.send(user_embed);
-    } else if(message.content.toLowerCase().startsWith("rb!user @")) {
-        var muser = message.mentions.users;
-        muser.forEach(function(user){
-            let user_embed = new Discord.RichEmbed()
-            .setColor("#EB671D")
-            .setTitle(`${user.username}'s Stats:`)
-            .setThumbnail(user.displayAvatarURL)
-            .addField("Account created at: ", user.createdAt.toString())
-            .addField("User Id:", user.id)
-            .addField("Current Game:", game)
-            .addField("Current Presense:", status);
-            
-            return message.channel.send(user_embed);
-        });
     }
 }
