@@ -116,7 +116,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() === "rb!roast") {
 			const random_roasts = Math.ceil(Math.random() * 100);
 			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase().startsWith("r!roast ")) {
+		} else if (message.content.toLowerCase().startsWith("rb!roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
 			const reply = word.slice(9, word.length);
