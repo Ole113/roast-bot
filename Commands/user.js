@@ -44,7 +44,7 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
         .addField("Account created at: ", user.createdAt.toString())
         .addField("User Id:", user.id)
         .addField("Current Game:", game)
-        .addField("Bot:", user.bot)
+        .addField("Bot:", user.bot.toString())
         .addField("Current Presense:", status);
          status = "default";
         game = 0;
@@ -62,7 +62,7 @@ if(message.content.toLowerCase() == "rb!user") {
         .addField("Account created at: ", message.author.createdAt.toString())
         .addField("User Id:", message.author.id)
         .addField("Current Game:", game)
-        .addField("Bot:", user.bot)
+        .addField("Bot:", message.author.bot)
         .addField("Current Presense:", status);
         status = "default";
         game = 0;
