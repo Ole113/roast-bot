@@ -115,6 +115,9 @@ exports.run = async (message) => {
 
 	var hasNumber = /\d/;
 
+	if(message.content.toLowerCase() == "rb!roast help") {
+		return message.channel.send("**r!roast help:**\n\n`r!roast` has 3 different ways that it can be used. The three ways are:\n**r!roast**\n**r!roast #roastNumber**\n**r!roast @USER**\n\n***r!roast*** generates a random roast. It's as simple as that. All you have to do is `r!roast`\n\nExample:\nUSER: r!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***r!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: r!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***r!roast @USER*** is the last way to use r!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: r!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `r!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+	}
 	if (message.content.toLowerCase().startsWith("rb!roast")) {
 		if (message.content.toLowerCase() === "r!roast") {
 			const random_roasts = Math.ceil(Math.random() * 100);

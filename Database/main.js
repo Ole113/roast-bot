@@ -68,7 +68,8 @@ exports.run = async (message) => {
 			let currentPoints = xpLevel.get(key, "points");
 			xpLevel.set(key, --currentPoints, "points");
 			return message.reply(` You currently have ${xpLevel.get(key, "points")} XP, and are level ${xpLevel.get(key, "level")}! <:roast_circle:474755210485563404>`);
-		
+		} else if(message.content.toLowerCase() == "rb!level help") {
+			return message.channel.send("**r!level help**\n\n`r!level` is how you check what your current level/XP is. XP is gained by using a `r!` command.  Levels are gained by gaining enough XP. For information on XP needed to level up look at the XP-System to part of `r!help`.\n\nExample:\nUSER: r!level\nRoast-Bot: @USER, You currently have 5 XP, and are level 1! <:roast_circle:474755210485563404>\n\nStill having trouble with `r!level` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 		}
 	  });
 }
