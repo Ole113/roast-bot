@@ -115,17 +115,17 @@ exports.run = async (message) => {
 
 	var hasNumber = /\d/;
 
-	if (message.content.toLowerCase().startsWith("r!roast")) {
+	if (message.content.toLowerCase().startsWith("rb!roast")) {
 		if (message.content.toLowerCase() === "r!roast") {
 			const random_roasts = Math.ceil(Math.random() * 100);
 			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase().startsWith("r!roast ")) {
+		} else if (message.content.toLowerCase().startsWith("rb!roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
-			const reply = word.slice(8, word.length);
-			if (message.content.toLowerCase().startsWith("r!roast ") & message.content.includes(1) || message.content.includes(2) || message.content.includes(3) || message.content.includes(4) || message.content.includes(5) || message.content.includes(6) || message.content.includes(7) || message.content.includes(8) || message.content.includes(9) || message.content.includes(0)){
+			const reply = word.slice(9, word.length);
+			if (message.content.toLowerCase().startsWith("rb!roast ") & message.content.includes(1) || message.content.includes(2) || message.content.includes(3) || message.content.includes(4) || message.content.includes(5) || message.content.includes(6) || message.content.includes(7) || message.content.includes(8) || message.content.includes(9) || message.content.includes(0)){
 				let word1 = message.content;
-				let number1 = word1.slice(9, word1.length);
+				let number1 = word1.slice(10, word1.length);
 				let number_int = parseInt(number1);
 				if(number_int > roasts.length - 1){
 					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length - 1}`);
