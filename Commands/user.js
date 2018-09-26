@@ -46,7 +46,7 @@ if(message.author.presence.game == null) {
         .addField("User Id:", users.id)
         //.addField("Current Game:", game)
         .addField("Bot:", users.bot.toString())
-        .addField("Current Presense:", message.mentions.users.presence.status);
+        .addField("Current Presense:", users.presence.status);
         return message.channel.send(user_embed);
 
     });
