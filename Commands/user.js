@@ -12,7 +12,7 @@ const client = new Discord.Client();
 exports.run = async (message) => {
 
 
-    var status = "default";
+    let status = "default";
 switch(message.author.presence.status) {
     case "online":
         status = "<:online:493891715678339089>  Online";
@@ -28,7 +28,7 @@ switch(message.author.presence.status) {
         break;
 }
 
-var game = 0;
+let game = 0;
 if(message.author.presence.game == null) {
     game = "None";
 } else {
@@ -52,7 +52,7 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
 } 
 if(message.content.toLowerCase() == "rb!user") {
 
-        var statuss = "default";
+        let statuss = "default";
 switch(message.author.presence.status) {
     case "online":
         statuss = "<:online:493891715678339089>  Online";
@@ -68,7 +68,7 @@ switch(message.author.presence.status) {
         break;
 }
 
-var gamee = 0;
+let gamee = 0;
 if(message.author.presence.game == null) {
     gamee = "None";
 } else {
