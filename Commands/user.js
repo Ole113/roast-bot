@@ -38,7 +38,7 @@ if(message.author.presence.game == null) {
     game = message.author.presence.game;
 }
     
-    muser.forEach(function(user){
+    muser.forEach(function(users){
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
         .setTitle(`${user.username}'s Stats:`)
@@ -47,7 +47,7 @@ if(message.author.presence.game == null) {
         .addField("User Id:", user.id)
         //.addField("Current Game:", game)
         .addField("Bot:", user.bot.toString())
-        .addField("Current Presense:", message.mentions.presence.status);
+        .addField("Current Presense:", message.mentions.users.presence.status);
         return message.channel.send(user_embed);
 
     });
