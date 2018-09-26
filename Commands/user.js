@@ -14,9 +14,10 @@ exports.run = async (message) => {
 
 
 if(message.content.toLowerCase().startsWith("rb!user ")) {
-    
-        let status = "default";
-switch(message.author.presence.status) {
+        var muser = message.mentions.users;
+
+        var status = "default";
+switch(muser.presence.status) {
     case "online":
         status = "<:online:493891715678339089>  Online";
         break;
@@ -31,14 +32,13 @@ switch(message.author.presence.status) {
         break;
 }
 
-let game = 0;
-if(message.author.presence.game == null) {
+var game = 0;
+if(muser.presence.game == null) {
     game = "None";
 } else {
     game = message.author.presence.game;
 }
     
-    var muser = message.mentions.users;
     muser.forEach(function(user){
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
@@ -53,31 +53,8 @@ if(message.author.presence.game == null) {
 
     });
 } 
-    /*
+
 if(message.content.toLowerCase() == "rb!user") {
-
-        let statuss = "default";
-switch(message.author.presence.status) {
-    case "online":
-        statuss = "<:online:493891715678339089>  Online";
-        break;
-    case "offline":
-        statuss = "<:invisible:493897783179214858>  Offline";
-        break;
-    case "idle":
-        statuss = "<:idle:493892777944285194>  Idle";
-        break;
-    case "dnd":
-        statuss = "<:dnd:493892741613355008>  Do Not Disturb";
-        break;
-}
-
-let gamee = 0;
-if(message.author.presence.game == null) {
-    gamee = "None";
-} else {
-    gamee = message.author.presence.game;
-}
 
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
@@ -85,10 +62,10 @@ if(message.author.presence.game == null) {
         .setThumbnail(message.author.displayAvatarURL)
         .addField("Account created at: ", message.author.createdAt.toString())
         .addField("User Id:", message.author.id)
-        .addField("Current Game:", gamee)
+        .addField("Current Game:", game)
         .addField("Bot:", message.author.bot)
-        .addField("Current Presense:", statuss);
+        .addField("Current Presense:", status);
         return message.channel.send(user_embed);
 
-    } */
+    }
 }
