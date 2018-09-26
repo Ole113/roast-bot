@@ -120,9 +120,9 @@ exports.run = async (message) => {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
 			const reply = word.slice(8, word.length);
-			if (message.content.toLowerCase().startsWith("rb!roast #")) {
+			if (message.content.toLowerCase().startsWith("rb!roast ")) {
 				let word1 = message.content;
-				let number1 = word1.slice(8, word1.length);
+				let number1 = word1.slice(9, word1.length);
 				let number_int = parseInt(number1);
 				if(number_int > roasts.length - 1){
 					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length - 1}`);
