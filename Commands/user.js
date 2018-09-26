@@ -15,7 +15,7 @@ exports.run = async (message) => {
 
 if(message.content.toLowerCase().startsWith("rb!user ")) {
         var muser = message.mentions.users;
-
+        /*
         var status = "default";
 switch(message.mentions.users.presence.status) {
     case "online":
@@ -30,8 +30,7 @@ switch(message.mentions.users.presence.status) {
     case "dnd":
         status = "<:dnd:493892741613355008>  Do Not Disturb";
         break;
-}
-
+} */
 var game = 0;
 if(muser.presence.game == null) {
     game = "None";
@@ -48,7 +47,7 @@ if(muser.presence.game == null) {
         .addField("User Id:", user.id)
         .addField("Current Game:", game)
         .addField("Bot:", user.bot.toString())
-        .addField("Current Presense:", status);
+        .addField("Current Presense:", message.mentions.users.presence.status);
         return message.channel.send(user_embed);
 
     });
