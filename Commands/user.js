@@ -12,7 +12,6 @@ const client = new Discord.Client();
 exports.run = async (message) => {
 
 
-
 if(message.content.toLowerCase().startsWith("rb!user ")) {
         var muser = message.mentions.users;
         
@@ -41,12 +40,12 @@ if(message.author.presence.game == null) {
     muser.forEach(function(users){
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
-        .setTitle(`${user.username}'s Stats:`)
-        .setThumbnail(user.displayAvatarURL)
-        .addField("Account created at: ", user.createdAt.toString())
-        .addField("User Id:", user.id)
+        .setTitle(`${users.username}'s Stats:`)
+        .setThumbnail(users.displayAvatarURL)
+        .addField("Account created at: ", users.createdAt.toString())
+        .addField("User Id:", users.id)
         //.addField("Current Game:", game)
-        .addField("Bot:", user.bot.toString())
+        .addField("Bot:", users.bot.toString())
         .addField("Current Presense:", message.mentions.users.presence.status);
         return message.channel.send(user_embed);
 
