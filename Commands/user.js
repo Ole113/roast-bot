@@ -17,7 +17,7 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
         var muser = message.mentions.users;
 
         var status = "default";
-switch(muser.presence.status) {
+switch(message.mentions.users.presence.status) {
     case "online":
         status = "<:online:493891715678339089>  Online";
         break;
