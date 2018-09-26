@@ -31,17 +31,26 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
                         statuss = "<:dnd:493892741613355008>  Do Not Disturb";
                         break;
         }
+        
+        var gamee = 0;
+        if(users.presence.game == null) {
+        gamee = "None";
+        } else {
+            gamee = users.presence.game;
+        }
+        
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
         .setTitle(`${users.username}'s Stats:`)
         .setThumbnail(users.displayAvatarURL)
         .addField("Account created at: ", users.createdAt.toString())
         .addField("User Id:", users.id)
-        //.addField("Current Game:", game)
+        .addField("Current Game:", gamee)
         .addField("Bot:", users.bot.toString())
         .addField("Current Presense:", statuss);
         return message.channel.send(user_embed);
-
+        
+        
     });
 } 
 
