@@ -119,8 +119,8 @@ exports.run = async (message) => {
 		} else if (message.content.toLowerCase().startsWith("rb!roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
-			const reply = word.slice(9, word.length);
-			if (message.content.toLowerCase().startsWith("rb!roast ")) {
+			const reply = word.slice(10, word.length);
+			if (message.content.toLowerCase().startsWith("rb!roast #")) {
 				let word1 = message.content;
 				let number1 = word1.slice(9, word1.length);
 				let number_int = parseInt(number1);
