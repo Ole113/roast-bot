@@ -46,14 +46,34 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
         .addField("Current Game:", game)
         .addField("Bot:", user.bot.toString())
         .addField("Current Presense:", status);
-         status = "default";
-        game = 0;
         return message.channel.send(user_embed);
 
     });
 } 
 if(message.content.toLowerCase() == "rb!user") {
 
+        var statuss = "default";
+switch(message.author.presence.status) {
+    case "online":
+        statuss = "<:online:493891715678339089>  Online";
+        break;
+    case "offline":
+        statuss = "<:invisible:493897783179214858>  Offline";
+        break;
+    case "idle":
+        statuss = "<:idle:493892777944285194>  Idle";
+        break;
+    case "dnd":
+        statuss = "<:dnd:493892741613355008>  Do Not Disturb";
+        break;
+}
+
+var gamee = 0;
+if(message.author.presence.game == null) {
+    gamee = "None";
+} else {
+    gamee = message.author.presence.game;
+}
 
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
@@ -61,11 +81,9 @@ if(message.content.toLowerCase() == "rb!user") {
         .setThumbnail(message.author.displayAvatarURL)
         .addField("Account created at: ", message.author.createdAt.toString())
         .addField("User Id:", message.author.id)
-        .addField("Current Game:", game)
+        .addField("Current Game:", gamee)
         .addField("Bot:", message.author.bot)
-        .addField("Current Presense:", status);
-        status = "default";
-        game = 0;
+        .addField("Current Presense:", statuss);
         return message.channel.send(user_embed);
 
     }
