@@ -45,10 +45,10 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
         .addField("User Id:", user.id)
         .addField("Current Game:", game)
         .addField("Current Presense:", status);
-        
-        return message.channel.send(user_embed);
-        status = "default";
+         status = "default";
         game = 0;
+        return message.channel.send(user_embed);
+
     });
 } 
 if(message.content.toLowerCase() == "rb!user") {
@@ -62,9 +62,9 @@ if(message.content.toLowerCase() == "rb!user") {
         .addField("User Id:", message.author.id)
         .addField("Current Game:", game)
         .addField("Current Presense:", status);
-
-        return message.channel.send(user_embed);
         status = "default";
         game = 0;
+        return message.channel.send(user_embed);
+
     }
 }
