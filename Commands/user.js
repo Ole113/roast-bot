@@ -1,8 +1,8 @@
 /*
 *
-*   Things to add to r!meme:
+*   Things to add to r!user:
 * ----------------------------
-*
+*  XP and level and how close they are to the next level.
 */
 
 const Discord = require("discord.js");
