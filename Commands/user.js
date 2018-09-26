@@ -47,6 +47,8 @@ if(message.content.toLowerCase().startsWith("rb!user ")) {
         .addField("Current Presense:", status);
         
         return message.channel.send(user_embed);
+        status = "default";
+        game = 0;
     });
 } 
 if(message.content.toLowerCase() == "rb!user") {
@@ -62,5 +64,7 @@ if(message.content.toLowerCase() == "rb!user") {
         .addField("Current Presense:", status);
 
         return message.channel.send(user_embed);
+        status = "default";
+        game = 0;
     }
 }
