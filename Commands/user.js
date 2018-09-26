@@ -53,6 +53,7 @@ if(message.author.presence.game == null) {
 
     });
 } 
+    /*
 if(message.content.toLowerCase() == "rb!user") {
 
         let statuss = "default";
@@ -89,5 +90,5 @@ if(message.author.presence.game == null) {
         .addField("Current Presense:", statuss);
         return message.channel.send(user_embed);
 
-    }
+    } */
 }
