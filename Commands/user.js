@@ -15,9 +15,9 @@ exports.run = async (message) => {
 
 if(message.content.toLowerCase().startsWith("rb!user ")) {
         var muser = message.mentions.users;
-        /*
+        
         var status = "default";
-switch(message.mentions.users.presence.status) {
+switch(message.author.presence.status) {
     case "online":
         status = "<:online:493891715678339089>  Online";
         break;
@@ -30,9 +30,9 @@ switch(message.mentions.users.presence.status) {
     case "dnd":
         status = "<:dnd:493892741613355008>  Do Not Disturb";
         break;
-} */
+}
 var game = 0;
-if(muser.presence.game == null) {
+if(message.author.presence.game == null) {
     game = "None";
 } else {
     game = message.author.presence.game;
@@ -45,7 +45,7 @@ if(muser.presence.game == null) {
         .setThumbnail(user.displayAvatarURL)
         .addField("Account created at: ", user.createdAt.toString())
         .addField("User Id:", user.id)
-        .addField("Current Game:", game)
+        //.addField("Current Game:", game)
         .addField("Bot:", user.bot.toString())
         .addField("Current Presense:", message.mentions.users.presence.status);
         return message.channel.send(user_embed);
