@@ -12,7 +12,10 @@ const client = new Discord.Client();
 exports.run = async (message) => {
 
 
-    let status = "default";
+
+if(message.content.toLowerCase().startsWith("rb!user ")) {
+    
+        let status = "default";
 switch(message.author.presence.status) {
     case "online":
         status = "<:online:493891715678339089>  Online";
@@ -34,7 +37,7 @@ if(message.author.presence.game == null) {
 } else {
     game = message.author.presence.game;
 }
-if(message.content.toLowerCase().startsWith("rb!user ")) {
+    
     var muser = message.mentions.users;
     muser.forEach(function(user){
         let user_embed = new Discord.RichEmbed()
