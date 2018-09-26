@@ -38,6 +38,21 @@ if(message.author.presence.game == null) {
 }
     
     muser.forEach(function(users){
+         var statuss = "default";
+         switch(users.presence.status) {
+                case "online":
+                        statuss = "<:online:493891715678339089>  Online";
+                        break;
+                case "offline":
+                        statuss = "<:invisible:493897783179214858>  Offline";
+                        break;
+                case "idle":
+                        statuss = "<:idle:493892777944285194>  Idle";
+                        break;
+                case "dnd":
+                        statuss = "<:dnd:493892741613355008>  Do Not Disturb";
+                        break;
+        }
         let user_embed = new Discord.RichEmbed()
         .setColor("#EB671D")
         .setTitle(`${users.username}'s Stats:`)
@@ -46,7 +61,7 @@ if(message.author.presence.game == null) {
         .addField("User Id:", users.id)
         //.addField("Current Game:", game)
         .addField("Bot:", users.bot.toString())
-        .addField("Current Presense:", users.presence.status);
+        .addField("Current Presense:", statuss);
         return message.channel.send(user_embed);
 
     });
