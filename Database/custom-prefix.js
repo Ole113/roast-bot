@@ -5,6 +5,9 @@ const bsp = require("better-sqlite-pool");
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
+		if(message.content.toLowerCase() == "rb!prefix") {
+			return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`)
+		}
 		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
 			
 			let content = message.content;
@@ -22,8 +25,6 @@ exports.run = async (message) => {
 			customPrefix.set(key, custom_prefix, "prefix")
 
 			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}*.`);
-		} else if(message.content.toLowerCase() == "r!") {
-			return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`)
 		}
 	});
 }
