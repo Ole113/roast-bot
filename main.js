@@ -22,7 +22,7 @@ const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
-const custom_prefix_file = require("./Database/custom-prefix.js");
+const custom_prefix_file = require("./Database/prefix.js");
 const test_file = require("./Commands/custom-prefix-test.js");
 
 client.on("ready", () => {
