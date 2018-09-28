@@ -21,9 +21,7 @@ exports.run = async (message) => {
 			
 			customPrefix.set(key, custom_prefix, "prefix")
 
-			if(message.content.toLowerCase() === "rb!prefix") {
-				return message.channel.send(`Default Prefix: r! and Custom Prefix: ${customPrefix.get(key, "prefix")}`);
-			}
+			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}`);
 			
 		}
 	});
