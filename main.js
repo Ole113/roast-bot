@@ -22,7 +22,6 @@ const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const dbMain_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
-const dbl_file = require("./dbl.js");
 const test_file = require("./Commands/test.js");
 
 client.on("ready", () => {
