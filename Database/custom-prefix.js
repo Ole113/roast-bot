@@ -25,7 +25,7 @@ exports.run = async (message) => {
 			if(message.content.toLowerCase() === "rb!prefix") {
 				const key = `${message.guild.id}-${message.author.id}`;
 				let currentPrefix = customPrefix.get(key, "prefix");
-				return message.channel.send(`Custom Prefix: ${customPrefix.get(key, "prefix")} .`);
+				return message.channel.send(`Custom Prefix: ${currentPrefix} .`);
 			}
 		}
 	});
