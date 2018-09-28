@@ -7,7 +7,7 @@
 *  Add a rb!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
 *  Make it so when it has try catch block for commands if will eventaully send errors to db. 
 *
-*/ 
+*/
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -24,13 +24,14 @@ const hidden_file = require("./hidden.json");
 const dbMain_file = require("./Database/main.js");
 const user_file = require("./Commands/user.js");
 const dbl_file = require("./dbl.js");
+const test_file = require("./Commands/test.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-    client.user.setActivity("rb!help", { type: "PLAYING" })	   
+	client.user.setActivity("rb!help", { type: "PLAYING" })
 });
 client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
@@ -56,5 +57,6 @@ client.on("message", message => {
 	urban_file.run(message);
 	dbMain_file.run(message);
 	user_file.run(message);
+	test_file.run(message);
 });
 client.login(hidden_file.BOT_TOKEN);

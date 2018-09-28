@@ -3,12 +3,7 @@ const xpLevel = new Enmap({name: "xp-level"});
 const bsp = require("better-sqlite-pool");
 
 exports.run = async () => {
-    /*
-    *   Things to add to xp-level
-    * -----------------------------
-    *   
-    * 
-    */
+
 	xpLevel.defer.then( () => {
 		if(message.author.bot) return;
 		if(message.content.toLowerCase().startsWith("rb!")) {
