@@ -20,7 +20,6 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
-const hidden_file = require("./hidden.json");
 const dbMain_file = require("./Database/main.js");
 const user_file = require("./Commands/user.js");
 const dbl_file = require("./dbl.js");
@@ -59,4 +58,4 @@ client.on("message", message => {
 	user_file.run(message);
 	test_file.run(message);
 });
-client.login(hidden_file.BOT_TOKEN);
+client.login(proccess.env.BOT_TOKEN);
