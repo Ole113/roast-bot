@@ -2,6 +2,7 @@
 *
 *   Things to add to r!urban:
 * ----------------------------
+*  Remove brackets with message.content.replace(whatever the syntax is);
 *  Make it so if the word is not found it will only say Word not found and wont send the other info of undefined.
 */
 
@@ -12,7 +13,7 @@ exports.run = async (message) => {
     if (message.content.toLowerCase() == "r!urban help") {
         return message.channel.send("**r!urban help**:\n\nUnlike some other commands r!urban only has 1 usage. To use r!urban you only need to specify one thing, what to search.\n\nExample:\n\nUSER: r!urban test\nRoast-Bot: \n*test*\nDefinition:\n1. the main cause of [explosions].\n2. any thing [dreaded] that your \"teachers\" say is \"good\" for you. soon after, you explode for no reason.\n3. what scientists do to make stuff explode.\n4. when a sheet of paper explodes into [flames].\n\nExample:\n\n1. test [sodium] and water.\n2. SAT is a test.\n3. [Monkeys].\n4. you brought your [lighter] to test.\nAuthor:\nmonn-unit\nRating:\nUpvotes: :thumbsup: 126 | Downvotes: :thumbsdown: 35*\n\nStill having trouble with r!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
     }
-    if (message.content.toLowerCase().startsWith("rb!urban")) {
+    if (message.content.toLowerCase().startsWith("r!urban")) {
         let word = message.content;
         let args = word.slice(8, word.length);
         if (args == "") {
@@ -29,6 +30,6 @@ exports.run = async (message) => {
             .addField("Author:", res.author, true)
             .addField("Rating:", `**Upvotes: :thumbsup:** ${res.thumbsUp} | **Downvotes: :thumbsdown:** ${res.thumbsDown}`);
 
-        return message.channel.send(urban_embed);
+        return message.channel.send({embed: urban_embed});
     }
 }

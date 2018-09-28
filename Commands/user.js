@@ -12,7 +12,7 @@ const client = new Discord.Client();
 exports.run = async (message) => {
 
 
-    if (message.content.toLowerCase().startsWith("rb!user ")) {
+    if (message.content.toLowerCase().startsWith("r!user ")) {
         var muser = message.mentions.users;
 
         muser.forEach(function (users) {
@@ -48,13 +48,13 @@ exports.run = async (message) => {
                 .addField("Current Game:", gamee)
                 .addField("Bot:", users.bot.toString())
                 .addField("Current Presense:", statuss);
-            return message.channel.send(user_embed);
+            return message.channel.send({embed: user_embed});
 
 
         });
     }
 
-    if (message.content.toLowerCase() == "rb!user") {
+    if (message.content.toLowerCase() == "r!user") {
         var status = "default";
         switch (message.author.presence.status) {
             case "online":
@@ -85,7 +85,7 @@ exports.run = async (message) => {
             .addField("Current Game:", game)
             .addField("Bot:", message.author.bot)
             .addField("Current Presense:", status);
-        return message.channel.send(user_embed);
+        return message.channel.send({embed: user_embed});
 
     }
 }

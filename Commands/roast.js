@@ -88,7 +88,7 @@ roasts = [
 	{ "number": 77, "roast": "At least Hitler killed himself." },
 	{ "number": 78, "roast": "I\'d agree with you but then we\'d both be wrong." },
 	{ "number": 79, "roast": "When you were born your mom threw you out the window and the window threw you back." },
-	{ "number": 80, "roast": "Your about as usefully as Anne Franks drumset." },
+	{ "number": 80, "roast": "You're about as useful as Anne Frank's drum set." },
 	{ "number": 81, "roast": "If I wanted to kill myself I'd climb your ego and jump to your IQ."},
 	{ "number": 82, "roast": "I would burn you but burning trash is bad for the environment." },
 	{ "number": 83, "roast": "I haven\'t seen you run that fast since Twinkies went on sale!" },
@@ -112,23 +112,20 @@ roasts = [
 ];
 
 exports.run = async (message) => {
-
-	var hasNumber = /\d/;
-
-	if(message.content.toLowerCase() == "rb!roast help") {
+	if(message.content.toLowerCase() == "r!roast help") {
 		return message.channel.send("**r!roast help:**\n\n`r!roast` has 3 different ways that it can be used. The three ways are:\n**r!roast**\n**r!roast #roastNumber**\n**r!roast @USER**\n\n***r!roast*** generates a random roast. It's as simple as that. All you have to do is `r!roast`\n\nExample:\nUSER: r!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***r!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: r!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***r!roast @USER*** is the last way to use r!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: r!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `r!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 	}
-	if (message.content.toLowerCase().startsWith("rb!roast")) {
+	if (message.content.toLowerCase().startsWith("r!roast")) {
 		if (message.content.toLowerCase() === "r!roast") {
 			const random_roasts = Math.ceil(Math.random() * 100);
 			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase().startsWith("rb!roast ")) {
+		} else if (message.content.toLowerCase().startsWith("r!roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
-			const reply = word.slice(9, word.length);
-			if (message.content.toLowerCase().startsWith("rb!roast ") & message.content.includes(1) || message.content.includes(2) || message.content.includes(3) || message.content.includes(4) || message.content.includes(5) || message.content.includes(6) || message.content.includes(7) || message.content.includes(8) || message.content.includes(9) || message.content.includes(0)){
+			const reply = word.slice(8, word.length);
+			if (message.content.toLowerCase().startsWith("r!roast #")) {
 				let word1 = message.content;
-				let number1 = word1.slice(10, word1.length);
+				let number1 = word1.slice(9, word1.length);
 				let number_int = parseInt(number1);
 				if(number_int > roasts.length - 1){
 					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length - 1}`);

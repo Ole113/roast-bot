@@ -16,7 +16,7 @@ exports.run = async (message) => {
 	*/
 	xpLevel.defer.then( () => {
 		if(message.author.bot) return;
-		if(message.content.startsWith("rb!")) {
+		if(message.content.toLowerCase().startsWith("r!")) {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(!xpLevel.has(key)) {
 			  xpLevel.set(key, {
@@ -63,7 +63,7 @@ exports.run = async (message) => {
 		*  
 		*
 		*/
-		if (message.content === "rb!level") {
+		if (message.content.toLowerCase() === "r!level") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			let currentPoints = xpLevel.get(key, "points");
 			xpLevel.set(key, --currentPoints, "points");

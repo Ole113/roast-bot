@@ -2,7 +2,6 @@
 *
 *  Ideas to add to Roast-Bot:
 * ----------------------------
-*
 *  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
 *
 *  Add a r!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
@@ -21,54 +20,30 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
+const hidden_file = require("./hidden.json");
 const dbMain_file = require("./Database/main.js");
 const user_file = require("./Commands/user.js");
-
-client.on("guildMemberAdd", member => {
-	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
-	if (!welcomeleavechannel) return;
-	let join_time = new Date();
-	let join_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has joined the server.")
-	.setColor("#EB671D")
-	.addField("Time:", join_time)
-	.addField("Tag:", member)
-	.setThumbnail(member.user.displayAvatarURL);
-	welcomeleavechannel.send(join_embed);
-	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
-});
-client.on("guildMemberRemove", member => {
-	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
-	let leave_time = new Date();
-	if (!welcomeleavechannel) return;
-	let leave_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has left the server, later aligator.")
-	.setColor("#EB671D")
-	.addField("Time:", leave_time)
-	.addField("Tag:", member)
-	.setThumbnail(member.user.displayAvatarURL);
-	welcomeleavechannel.send(leave_embed);
-	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
-});
+const dbl_file = require("./dbl.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
-	console.log("|      Roast-Bot-Beta is Ready    |");
+	console.log("Roast-Bot is Ready");
+	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-    client.user.setActivity("rb!help", { type: "PLAYING" })	   
+    client.user.setActivity("r!help", { type: "PLAYING" })	   
 });
-/* **Archived for main bot**
 client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
 	console.log("-----------------------------------")
+	dbl_file.run();
 });
 client.on("guildDelete", guild => {
 	console.log("❌Roast-Bot left a server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`)
 	console.log("-----------------------------------")
+	dbl_file.run();
 });
-*/
 client.on("message", message => {
 	help_file.run(client, message);
 	bot_file.run(client, message);
@@ -79,7 +54,7 @@ client.on("message", message => {
 	say_file.run(message);
 	clear_file.run(message);
 	urban_file.run(message);
+	dbMain_file.run(message);
 	user_file.run(message);
-	//dbMain_file.run(message);
 });
-client.login(process.env.BOT_TOKEN);
+client.login(hidden_file.BOT_TOKEN);
