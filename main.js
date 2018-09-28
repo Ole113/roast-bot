@@ -22,7 +22,6 @@ const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const dbMain_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
-const test_file = require("./Commands/test.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -55,6 +54,5 @@ client.on("message", message => {
 	urban_file.run(message);
 	dbMain_file.run(message);
 	user_file.run(message);
-	test_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
