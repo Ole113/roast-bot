@@ -16,6 +16,7 @@ exports.run = async (message) => {
 					user: message.author.id, guild: message.guild.id, prefix: "r!"
 				});
 			}
+			
 			let currentPrefix = customPrefix.get(key, "prefix");
 			customPrefix.set(key, custom_prefix, "prefix");
 			let curPrefix = customPrefix.get(key, "prefix");
@@ -25,6 +26,7 @@ exports.run = async (message) => {
 				let currentPrefix = customPrefix.get(key, "prefix");
 				return message.channel.send(`Custom Prefix: ${currentPrefix} .`);
 			}
+			
 		}
 	});
 }

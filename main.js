@@ -20,9 +20,9 @@ const help_file = require("./Commands/help.js");
 const roast_file = require("./Commands/roast.js");
 const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
-const dbMain_file = require("./Database/xp-level.js");
+const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
-
+const custom_prefix_file = require("./Database/custom-prefix.js");
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
@@ -52,7 +52,8 @@ client.on("message", message => {
 	say_file.run(message);
 	clear_file.run(message);
 	urban_file.run(message);
-	dbMain_file.run(message);
+	xp_level_file.run(message);
 	user_file.run(message);
+	custom_prefix_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
