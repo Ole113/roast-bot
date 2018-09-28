@@ -5,7 +5,7 @@ const bsp = require("better-sqlite-pool");
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-		if(message.content.toLowerCase().startsWith("r!prefix ")) {
+		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
 			
 			let content = message.content;
 			let custom_prefix = content.slice(9, content.length);
