@@ -9,4 +9,4 @@ exports.run = async (message) => {
             return message.channel.send(custom_prefix);
 
     }
-}
+} 
