@@ -5,10 +5,10 @@ const bsp = require("better-sqlite-pool");
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-		if(message.content.toLowerCase() == "rb!prefix") {
+		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
 			
-			//let content = message.content;
-			//let custom_prefix = content.slice(10, content.length);
+			let content = message.content;
+			let custom_prefix = content.slice(10, content.length);
 
 			let default_prefix = "r!";
 
@@ -19,7 +19,7 @@ exports.run = async (message) => {
 			  });
 			}
 			
-			return message.channel.send(`Custom Prefix: ${customPrefix.get(key, "prefix")} .`);
+			return message.channel.send(`Default Prefix: ${customPrefix.get(key, "prefix")} and Custom Prefix: ${custom_prefix}`);
 
 			/*
 			if(message.content.toLowerCase() === "rb!prefix") {
