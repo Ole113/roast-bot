@@ -5,27 +5,27 @@ const bsp = require("better-sqlite-pool");
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
+		if(message.content.toLowerCase() == "rb!prefix") {
 			
-			let content = message.content;
-			let custom_prefix = content.slice(10, content.length);
+			//let content = message.content;
+			//let custom_prefix = content.slice(10, content.length);
+
+			let default_prefix = "r!";
 
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(!customPrefix.has(key)) {
-				customPrefix.set(key, {
-					user: message.author.id, guild: message.guild.id, prefix: "r!"
-				});
+			  customPrefix.set(key, {
+				user: message.author.id, guild: message.guild.id, prefix: default_prefix
+			  });
 			}
 			
-			let currentPrefix = customPrefix.get(key, "prefix");
-			customPrefix.set(key, custom_prefix, "prefix");
-			let curPrefix = customPrefix.get(key, "prefix");
-			
+			return message.channel.send(`Custom Prefix: ${customPrefix.get(key, "prefix")} .`);
+
+			/*
 			if(message.content.toLowerCase() === "rb!prefix") {
 				const key = `${message.guild.id}-${message.author.id}`;
-				let currentPrefix = customPrefix.get(key, "prefix");
-				return message.channel.send(`Custom Prefix: ${currentPrefix} .`);
-			}
+				return message.channel.send(`Custom Prefix: ${customPrefix.get(key, "prefix")} .`);
+			} */
 			
 		}
 	});

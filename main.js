@@ -23,6 +23,7 @@ const say_file = require("./Commands/say.js");
 const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
 const custom_prefix_file = require("./Database/custom-prefix.js");
+
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
