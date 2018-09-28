@@ -19,7 +19,9 @@ exports.run = async (message) => {
 			  });
 			}
 			
-			return message.channel.send(`Default Prefix: ${customPrefix.get(key, "prefix")} and Custom Prefix: ${custom_prefix}`);
+			customPrefix.set(key, custom_prefix, "prefix")
+
+			return message.channel.send(`Default Prefix: r! and Custom Prefix: ${customPrefix.get(key, "prefix")}`);
 
 			/*
 			if(message.content.toLowerCase() === "rb!prefix") {
