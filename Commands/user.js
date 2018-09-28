@@ -1,6 +1,6 @@
 /*
 *
-*   Things to add to r!user:
+*   Things to add to rb!user:
 * ----------------------------
 *  XP and level and how close they are to the next level.
 */
@@ -12,7 +12,7 @@ const client = new Discord.Client();
 exports.run = async (message) => {
 
 
-    if (message.content.toLowerCase().startsWith("r!user ")) {
+    if (message.content.toLowerCase().startsWith("rb!user ")) {
         var muser = message.mentions.users;
 
         muser.forEach(function (users) {
@@ -54,7 +54,7 @@ exports.run = async (message) => {
         });
     }
 
-    if (message.content.toLowerCase() == "r!user") {
+    if (message.content.toLowerCase() == "rb!user") {
         var status = "default";
         switch (message.author.presence.status) {
             case "online":

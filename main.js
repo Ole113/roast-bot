@@ -2,9 +2,9 @@
 *
 *  Ideas to add to Roast-Bot:
 * ----------------------------
-*  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
+*  Add so if someone inputs a command wrong it will give an error message that says they can use rb!command help for more info.
 *
-*  Add a r!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
+*  Add a rb!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
 *  Make it so when it has try catch block for commands if will eventaully send errors to db. 
 *
 */ 
@@ -30,7 +30,7 @@ client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-    client.user.setActivity("r!help", { type: "PLAYING" })	   
+    client.user.setActivity("rb!help", { type: "PLAYING" })	   
 });
 client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
