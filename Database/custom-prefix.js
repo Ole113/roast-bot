@@ -8,7 +8,7 @@ exports.run = async (message) => {
 		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
 			
 			let content = message.content;
-			let custom_prefix = content.slice(9, content.length);
+			let custom_prefix = content.slice(10, content.length);
 
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(!customPrefix.has(key)) {
@@ -19,8 +19,6 @@ exports.run = async (message) => {
 			let currentPrefix = customPrefix.get(key, "prefix");
 			customPrefix.set(key, custom_prefix, "prefix");
 			let curPrefix = customPrefix.get(key, "prefix");
-
-			return message.channel.send(customPrefix);
 			
 			if(message.content.toLowerCase() === "rb!prefix") {
 				const key = `${message.guild.id}-${message.author.id}`;
