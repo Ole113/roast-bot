@@ -2,6 +2,10 @@ const Enmap = require("enmap");
 const customPrefix = new Enmap({name: "custom-prefix"});
 const bsp = require("better-sqlite-pool");
 
+const fs = require("fs");
+var content = fs.readFileSync("./Database/prefix.json");
+var jsonContent = JSON.parse(content);
+
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
@@ -28,7 +32,7 @@ exports.run = async (message) => {
 			}
 
 			customPrefix.set(key, custom_prefix, "prefix");
-
+			jsonContent.prefix = custom_prefix;
 			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}*.`);
 		}
 	});
