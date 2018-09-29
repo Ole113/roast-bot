@@ -28,8 +28,9 @@ exports.run = async (message) => {
 				user: message.author.id, guild: message.guild.id, prefix: default_prefix
 			  });
 			}
-			
-			prefix_file.prefix = custom_prefix;
+
+			//prefix_file.prefix = custom_prefix;
+			console.log(prefix_file.prefix);
 			customPrefix.set(key, custom_prefix, "prefix")
 			console.log(prefix_file.prefix);
 			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}*.`);
