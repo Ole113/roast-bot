@@ -18,7 +18,7 @@ exports.run = async (message) => {
 		if(message.content.toLowerCase().startsWith("r!prefix ") && message.member.hasPermission("ADMINISTRATOR")) {
 			
 			let content = message.content;
-			let custom_prefix = content.slice(10, content.length);
+			let custom_prefix = content.slice(9, content.length);
 
 			let default_prefix = "r!"; 
 
