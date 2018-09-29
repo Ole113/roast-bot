@@ -15,7 +15,7 @@ exports.run = async (message) => {
 				return message.channel.send("Looks like you haven't set a custom prefix yet! To set a custom prefix use `r!prefix <newPrefix>`.");
 			}
 		}
-		if(message.content.toLowerCase().startsWith("r!prefix ") && message.member.hasPermission("ADMINISTRATOR")) {
+		if(message.content.toLowerCase().startsWith("r!prefix ")) {
 			
 			let content = message.content;
 			let custom_prefix = content.slice(9, content.length);
@@ -32,8 +32,6 @@ exports.run = async (message) => {
 			customPrefix.set(key, custom_prefix, "prefix");
 			prefix_file.prefix = custom_prefix;
 			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}*.`);
-		} else if (!message.member.hasPermission("ADMINISTRATOR")) {
-       return message.channel.send("You need to be an admin to set Roast-Bot’s prefix :(");
-  }
+		}
 	});
 }
