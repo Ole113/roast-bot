@@ -18,7 +18,7 @@ exports.run = async (message) => {
     }
     if (message.content.toLowerCase().startsWith(prefix_file.prefix + "say ")) {
         const word = message.content;
-        const say = word.slice(6, word.length);
+        const say = word.slice(prefix_file.prefix.length + 4, word.length);
         return message.channel.send(say);
     }
     if (message.content.toLowerCase() == prefix_file.prefix + "test") {
