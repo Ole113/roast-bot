@@ -14,7 +14,7 @@ exports.run = async (message) => {
 			let content = message.content;
 			let custom_prefix = content.slice(10, content.length);
 
-			let default_prefix = "r!";
+			let default_prefix = "r!"; 
 
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(!customPrefix.has(key)) {
