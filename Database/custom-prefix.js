@@ -7,7 +7,11 @@ exports.run = async (message) => {
 		if(message.author.bot) return;
 		if(message.content.toLowerCase() == "rb!prefix") {
 			const key = `${message.guild.id}-${message.author.id}`;
-			return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`)
+			if(customPrefix.has(key)) {
+				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`);
+			} else if(!customPrefix.has(key)) {
+				return message.channel.send("Looks like you haven't set a custom prefix yet! To set a custom prefix use `r!prefix <newPrefix>`.");
+			}
 		}
 		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
 			
