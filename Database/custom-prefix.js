@@ -25,7 +25,7 @@ exports.run = async (message) => {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(!customPrefix.has(key)) {
 			  customPrefix.set(key, {
-				user: message.author.id, guild: message.guild.id, prefix: default_prefix
+				user: message.author.id, guild: message.guild.id, prefix: prefix_file.prefix
 			  });
 			}
 
