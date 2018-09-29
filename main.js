@@ -23,8 +23,7 @@ const say_file = require("./Commands/say.js");
 const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
 const custom_prefix_file = require("./Database/custom-prefix.js");
-//const test_file = require("./Commands/test.js");
-const prefix_file = require("./Database/prefix.json");
+const test_file = require("./Commands/test.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -58,11 +57,6 @@ client.on("message", message => {
 	xp_level_file.run(message);
 	user_file.run(message);
 	custom_prefix_file.run(message);
-	//test_file.run(message);
-
-	if(message.content.toLowerCase == prefix_file.prefix + "test") {
-        console.log(prefix_file.prefix);
-        return message.channel.send("Worked");
-    }
+	test_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
