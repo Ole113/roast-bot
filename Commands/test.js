@@ -1,7 +1,7 @@
-const prefix_file = require("../Database/prefix.js");
+const prefix_file = require("../Database/prefix.json");
 
 exports.run = async (message) => {
     if(message.content.toLowerCase == prefix_file.prefix + "test") {
-        return message.channel.send("YEEE it worked!!");
+        return message.channel.send("Worked");
     }
 }
