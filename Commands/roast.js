@@ -8,6 +8,8 @@
 
 const Discord = require("discord.js");
 
+const prefix_file = require("../Database/prefix.json");
+
 roasts = [
 	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
 	{ "number": 2, "roast": "Repeat After me: semen is not hair gel." },

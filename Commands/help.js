@@ -7,6 +7,8 @@
 
 const Discord = require("discord.js");
 
+const prefix_file = require("../Database/prefix.json");
+
 exports.run = async (client, message) => {
     if (message.content.toLowerCase() == prefix_file.prefix + "help") {
         let help_icon = client.user.displayAvatarURL;

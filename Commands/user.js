@@ -8,6 +8,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+const prefix_file = require("../Database/prefix.json");
 
 exports.run = async (message) => {
 

@@ -8,6 +8,8 @@
 
 const Discord = require("discord.js");
 
+const prefix_file = require("../Database/prefix.json");
+
 exports.run = async (message) => {
     const word = message.content;
     const number = word.slice(7, word.length);
