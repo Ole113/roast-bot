@@ -1,6 +1,6 @@
 /*
 *
-*   Things to add to rb!user:
+*   Things to add to r!user:
 * ----------------------------
 *  XP and level and how close they are to the next level.
 */

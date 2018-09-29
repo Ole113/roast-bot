@@ -7,23 +7,23 @@ Roast-Bot is a discord bot make with discord.js and hosted on AWS<br><br>Code on
 
 **Roast-Bot Commands:**
 
-*rb!help*: List of Roast-Bot Commands.
+*r!help*: List of Roast-Bot Commands.
 
-*rb!bot*:  Learn more about Roast-Bot.
+*r!bot*:  Learn more about Roast-Bot.
 
-*rb!roast @USER, rb!roast, or rb!roast #roastNumber*: Generate a random roast with the number of roast it was.
+*r!roast @USER, r!roast, or r!roast #roastNumber*: Generate a random roast with the number of roast it was.
 
-*rb!invite*: Link to invite Roast-Bot to a server.
+*r!invite*: Link to invite Roast-Bot to a server.
 
-*rb!server*: Info about your server.
+*r!server*: Info about your server.
 
-*rb!meme, or rb!meme #memeNumber*: Sends a meme to the current channel.
+*r!meme, or r!meme #memeNumber*: Sends a meme to the current channel.
 
-*rb!clear NUMBER*: Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**
+*r!clear NUMBER*: Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**
 
-*rb!say*: To use this command use `rb!say ` and then what you want Roast-Bot to say.
+*r!say*: To use this command use `r!say ` and then what you want Roast-Bot to say.
 
-*rb!urban whatToSearch*: Search up anything on the Urban Dictionary! **Please be aware `rb!urban` is still in Beta.**
+*r!urban whatToSearch*: Search up anything on the Urban Dictionary! **Please be aware `r!urban` is still in Beta.**
 <br><br>
 **Roast-Bot Utilities:**
 

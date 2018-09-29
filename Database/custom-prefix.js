@@ -7,7 +7,7 @@ const prefix_file = require("./prefix.json");
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-		if(message.content.toLowerCase() == "rb!prefix") {
+		if(message.content.toLowerCase() == "r!prefix") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(customPrefix.has(key)) {
 				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`);
@@ -15,7 +15,7 @@ exports.run = async (message) => {
 				return message.channel.send("Looks like you haven't set a custom prefix yet! To set a custom prefix use `r!prefix <newPrefix>`.");
 			}
 		}
-		if(message.content.toLowerCase().startsWith("rb!prefix ") && message.member.hasPermission("ADMINISTRATOR")) {
+		if(message.content.toLowerCase().startsWith("r!prefix ") && message.member.hasPermission("ADMINISTRATOR")) {
 			
 			let content = message.content;
 			let custom_prefix = content.slice(10, content.length);
