@@ -17,7 +17,7 @@ exports.run = async (message) => {
     }
     if (message.content.toLowerCase().startsWith("rb!urban")) {
         let word = message.content;
-        let args = word.slice(8, word.length);
+        let args = word.slice(prefix_file.prefix.length + 5, word.length);
         if (args == "") {
             return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>")
         }
