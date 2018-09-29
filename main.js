@@ -56,6 +56,5 @@ client.on("message", message => {
 	xp_level_file.run(message);
 	user_file.run(message);
 	custom_prefix_file.run(message);
-	test_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
