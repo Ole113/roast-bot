@@ -1,9 +1,9 @@
 /*
 *
-*   Things to add to r!roast, r!roast @, r!roast #:
+*   Things to add to rb!roast, rb!roast @, rb!roast #:
 * ----------------------------
 *  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
-*  Make it so you can do r!roast @USER #roastNumber
+*  Make it so you can do rb!roast @USER #roastNumber
 */
 
 const Discord = require("discord.js");
@@ -115,7 +115,7 @@ roasts = [
 
 exports.run = async (message) => {
 	if(message.content.toLowerCase() == prefix_file.prefix + "roast help") {
-		return message.channel.send("**r!roast help:**\n\n`r!roast` has 3 different ways that it can be used. The three ways are:\n**r!roast**\n**r!roast #roastNumber**\n**r!roast @USER**\n\n***r!roast*** generates a random roast. It's as simple as that. All you have to do is `r!roast`\n\nExample:\nUSER: r!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***r!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: r!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***r!roast @USER*** is the last way to use r!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: r!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `r!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+		return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 	}
 	if (message.content.toLowerCase().startsWith(prefix_file.prefix + "roast")) {
 		if (message.content.toLowerCase() == prefix_file.prefix + "roast") {

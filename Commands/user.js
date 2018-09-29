@@ -1,6 +1,6 @@
 /*
 *
-*   Things to add to r!user:
+*   Things to add to rb!user:
 * ----------------------------
 *  XP and level and how close they are to the next level.
 */
@@ -13,7 +13,7 @@ const prefix_file = require("../Database/prefix.json");
 exports.run = async (message) => {
 
     if (message.content.toLowerCase() == prefix_file.prefix + "user help") {
-        return message.channel.send("**r!user help**\n\n`r!user` has 2 ways that it can be used. The first being `r!user` which will return stats about you such as when your account was created, your presence(online, offline etc), user id, and your current game. The second way is `r!user @user`. This way returns the stats of whoever you tagged. The returned stats are the same.\n\nExample 1:\n\nUSER: r!user\nRoast-Bot: Account created on.... current game.... user id.... and so forth.\n\nExample 2:\n\nUSER: r!user @Roast-Bot\nRoast-Bot: Account created on.... current game.... user id.... and so forth.\n\n*Note:* You can also see multiple people’s stats by doing `r!user @user1 @user2` and so forth depending on how many people you want to tag.\n\n\nStill having trouble with `r!user` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+        return message.channel.send("**rb!user help**\n\n`rb!user` has 2 ways that it can be used. The first being `rb!user` which will return stats about you such as when your account was created, your presence(online, offline etc), user id, and your current game. The second way is `rb!user @user`. This way returns the stats of whoever you tagged. The returned stats are the same.\n\nExample 1:\n\nUSER: rb!user\nRoast-Bot: Account created on.... current game.... user id.... and so forth.\n\nExample 2:\n\nUSER: rb!user @Roast-Bot\nRoast-Bot: Account created on.... current game.... user id.... and so forth.\n\n*Note:* You can also see multiple people’s stats by doing `rb!user @user1 @user2` and so forth depending on how many people you want to tag.\n\n\nStill having trouble with `rb!user` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
     }
     if (message.content.toLowerCase().startsWith(prefix_file.prefix + "user ")) {
         var muser = message.mentions.users;
