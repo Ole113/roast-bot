@@ -125,7 +125,7 @@ exports.run = async (message) => {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
 			const reply = word.slice(prefix_file.prefix.length + 6, word.length);
-			if (message.content.toLowerCase().startsWith("rb!roast #")) {
+			if (message.content.toLowerCase().startsWith(prefix_file.prefix + "roast #")) {
 				let word1 = message.content;
 				let number1 = word1.slice(prefix_file.prefix.length + 7, word1.length);
 				let number_int = parseInt(number1);
