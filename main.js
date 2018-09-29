@@ -23,13 +23,14 @@ const say_file = require("./Commands/say.js");
 const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
 const custom_prefix_file = require("./Database/custom-prefix.js");
+const prefix_file = require("./Database/prefix.json");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-	client.user.setActivity("rb!help", { type: "PLAYING" })
+	client.user.setActivity(`${prefix_file.prefix}help`, { type: "PLAYING" })
 });
 client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
