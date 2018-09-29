@@ -2,7 +2,7 @@ const Enmap = require("enmap");
 const customPrefix = new Enmap({name: "custom-prefix"});
 const bsp = require("better-sqlite-pool");
 
-const prefix_file = require("./prefix.json");
+const prefix_file = require("./prefix.js");
 
 exports.run = async (message) => {
 	customPrefix.defer.then(() => {
