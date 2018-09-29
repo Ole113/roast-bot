@@ -1,7 +1,10 @@
-const prefix_file = require("../Database/prefix.json");
+const fs = require("fs");
+var content = fs.readFileSync("../Database/prefix.json");
+var jsonContent = JSON.parse(contents);
 
 exports.run = async (message) => {
-    if(message.content.toLowerCase == prefix_file.prefix + "test") {
+    console.log("Prefix:", jsonContent.prefix);
+    if(message.content.toLowerCase == jsonContent.prefix + "test") {
         return message.channel.send("Worked");
     }
 }
