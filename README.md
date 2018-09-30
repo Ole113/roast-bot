@@ -5,32 +5,43 @@ Roast-Bot is a discord bot make with discord.js and hosted on AWS<br><br>Code on
   <img src="https://discordbots.org/api/widget/461361233644355595.svg" alt="Roast-Bot" />
 </a>
 
+*100* Roasts, More than *200* Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
+
+<br><br><br>
 **Roast-Bot Commands:**
 
-*rb!help*: List of Roast-Bot Commands.
+*r!help*: List of Roast-Bot Commands.
 
-*rb!bot*:  Learn more about Roast-Bot.
+*r!bot*:  Learn more about Roast-Bot.
 
-*rb!roast @USER, rb!roast, or rb!roast #roastNumber*: Generate a random roast with the number of roast it was.
+*r!roast @USER, r!roast, or r!roast #roastNumber*: Generate a random roast with the number of roast it was.
 
-*rb!invite*: Link to invite Roast-Bot to a server.
+*r!invite*: Link to invite Roast-Bot to a server.
 
-*rb!server*: Info about your server.
+*r!server*: Info about your server.
 
-*rb!meme, or rb!meme #memeNumber*: Sends a meme to the current channel.
+*r!meme, or r!meme #memeNumber*: Sends a meme to the current channel.
 
-*rb!clear NUMBER*: Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**
+*r!clear NUMBER*: Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**
 
-*rb!say*: To use this command use `rb!say ` and then what you want Roast-Bot to say.
+*r!say*: To use this command use `r!say ` and then what you want Roast-Bot to say.
 
-*rb!urban whatToSearch*: Search up anything on the Urban Dictionary! **Please be aware `rb!urban` is still in Beta.**
-<br><br>
+*r!urban whatToSearch*: Search up anything on the Urban Dictionary! **Please be aware `r!urban` is still in Beta.**
+<br><br><br>
 **Roast-Bot Utilities:**
 
-*welcome-leave-log*: To use the Roast-Bot welcome-leave-log make a channel named "welcome-leave-log". If you don't want to use the log just don't make a channel named welcome-leave-log.
-<br><br><br><br>
+*Custom Prefix*: If you don't like Roast-Bot's prefix(r!) you can change it to anything you want by using `r!prefix <newPrefix>`. To view your prefix use `r!prefix`. The prefix by default is r!.
+
+*XP-System*: Everytime you use a Roast-Bot command your XP increases! Use r!level to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 10,000XP
+
 **Still Need Help, Have Questions, or Feedback?**
 
 Join the Roast-Bot Development Server:
 **https://discord.gg/fuDF42D**
-On the help server there is additional information reguarding how to use each command.
+
+*Commands Coming Soon:*
+Custom Roasts,
+Custom Memes,
+More Roasts,
+More Memes,
+and more!
