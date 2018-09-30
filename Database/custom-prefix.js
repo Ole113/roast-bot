@@ -18,7 +18,7 @@ exports.run = async (message) => {
 				return message.channel.send("Looks like you haven't set a custom prefix yet! To set a custom prefix use `rb!prefix <newPrefix>`.");
 			}
 		}
-		if(message.content.toLowerCase().startsWith("rb!prefix ")) {
+		if(message.content.toLowerCase().startsWith("rb!prefix ") || message.content.toLowerCase().startsWith(prefix_file.prefix + "prefix")) {
 			
 			let content = message.content;
 			let custom_prefix = content.slice(10, content.length);
