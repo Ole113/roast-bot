@@ -10,9 +10,9 @@ Roast-Bot is a discord bot make with discord.js and hosted on AWS<br><br>Code on
 <br><br><br>
 **Roast-Bot Commands:**
 
-*r!help*: List of Roast-Bot Commands.
+* *r!help*: List of Roast-Bot Commands.
 
-*r!bot*:  Learn more about Roast-Bot.
+* *r!bot*:  Learn more about Roast-Bot.
 
 *r!roast @USER, r!roast, or r!roast #roastNumber*: Generate a random roast with the number of roast it was.
 
