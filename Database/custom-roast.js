@@ -21,7 +21,7 @@ exports.run = async (message) => {
             }
             
             customRoast.set(key, custom_prefix, "prefix");
-				customRoast.set(key, ++number, "number");
+				//customRoast.set(key, ++number, "number");
             return message.channel.send(`Custom Roast is ${customRoast.get(key, "roast")}`)
         }
     });
