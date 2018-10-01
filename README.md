@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/36930869/44614153-d8fe7a80-a7dc-11e8-98f3-c3e83a29b266.PNG">
+  <img width="300" height="300" src="https://user-images.githubusercontent.com/36930869/44614153-d8fe7a80-a7dc-11e8-98f3-c3e83a29b266.PNG">
 </p>
 # Roast-Bot
 Roast-Bot is a discord bot make with discord.js and hosted on AWS<br><br>Code on this repo is for the Beta Roast-Bot and have usually not been pushed to the main bot yet.<br><br><br>
