@@ -1,5 +1,10 @@
 {
   "roast": "on",
   "meme": "on",
-  "say": "on"
+  "say": "on",
+  "user": "on",
+  "urban": "on",
+  "clear": "on",
+  "server": "on",
+  "bot": "on"
 }
