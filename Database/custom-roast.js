@@ -16,7 +16,7 @@ exports.run = async (message) => {
             const key = `${message.guild.id}-${message.author.id}`;
 			if(!customRoast.has(key)) {
 			  customRoast.set(key, {
-				user: message.author.id, guild: message.guild.id, number: 1, roast: custom_roast
+				user: message.author.id, guild: message.guild.id, number: 1, roast: 1;
 			  });
             }
             
