@@ -6,30 +6,36 @@ body {
 	text-align: left;
 	background-color: #1a1a1a;
 	width: 100%;
-	height: 50px;
+	height: 60px;
 	border-bottom: 1px #0d0d0d;
 }
 #top button {
-	padding-top: 15px;
+	margin-top: 5%;
 	border: none;
 	color: white;
-	font-size: 20px;
-	padding-left: 30px;
-    padding-right: 0;
-    background-color: transparent;
+	font-size: 14px;
+	padding-left: 7px;
+	padding-right: 0;
 }
-#mainTop img{
-	float: right;
-	margin-top: -4%;
-	margin-right: 40px;
-	border-radius: 50%;
+#top button:hover {
+    font-size: 16px;
+    font-weight: 1000;
 }
-#mainTop h1 {
-	float: right;
-	margin-top: -4%;
-	margin-right: 100px;
-	font-size: 25px;
-	color: white;
+#top img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: 4%;
+	margin-top: -5%;
+	width: 40px;
+	height: 40px;
+}
+#top h1 {
+    display: block;
+    margin-left: 55%;
+    margin-right: auto;
+    margin-top: -7%;
+    color: white;
 }
 #roastBotImg{
 	margin-top: 20%;
@@ -41,9 +47,10 @@ body {
 }
 #mainText{
 	text-align: center;
+	margin: 20px;
 	color: #333333;
 }
 #mainText a{
-    color: #0073e6;
-    text-decoration: none;
+	color: #0073e6;
+	text-decoration: none;
 }

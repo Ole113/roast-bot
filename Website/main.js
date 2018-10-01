@@ -4,14 +4,14 @@ window.onload = function() {
     const info = document.getElementById("info");
  
      info.addEventListener("click", function() {
-         alert(2)
+         //alert(2)
      });
      
      commandHelp.addEventListener("click", function() {
-         alert(2)
+         //alert(2)
      })
      
      commands.addEventListener("click", function() {
-         alert(2)
+         //alert(2)
      });
  }
