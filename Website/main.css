@@ -2,41 +2,6 @@ body {
 	padding: 0;
 	margin: 0;
 }
-#top{
-	text-align: left;
-	background-color: #1a1a1a;
-	width: 100%;
-	height: 60px;
-	border-bottom: 1px #0d0d0d;
-}
-#top button {
-	margin-top: 5%;
-	border: none;
-	color: white;
-	font-size: 14px;
-	padding-left: 7px;
-	padding-right: 0;
-}
-#top button:hover {
-	font-size: 16px;
-	font-weight: 1000;
-}
-#top img {
-	border-radius: 50%;
-	display: block;
-	margin-left: auto;
-	margin-right: 4%;
-	margin-top: -5%;
-	width: 40px;
-	height: 40px;
-}
-#top h1 {
-	display: block;
-	margin-left: 55%;
-	margin-right: auto;
-	margin-top: -7%;
-	color: white;
-}
 #roastBotImg{
 	margin-top: 20%;
 	display: block;
@@ -44,6 +9,14 @@ body {
 	margin-right: auto;
 	width: 50%;
 	border-radius: 50%;
+
+}
+@media (min-width: 1200px) {
+	#roastBotImg {
+		width: 450px;
+		height: 450px;
+		margin-top: 10%;
+	}
 }
 #mainText{
 	text-align: center;

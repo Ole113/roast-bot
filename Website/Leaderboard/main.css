@@ -4,3 +4,7 @@ body {
 body table, #main{
 	margin: 40px;
 }
+.table {
+	width: 50%;
+	margin: auto;
+}
