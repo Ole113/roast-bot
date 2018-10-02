@@ -18,33 +18,32 @@ body {
 	padding-right: 0;
 }
 #top button:hover {
-    font-size: 16px;
-    font-weight: 1000;
+	font-size: 16px;
+	font-weight: 1000;
 }
 #top img {
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: 4%;
+	border-radius: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: 4%;
 	margin-top: -5%;
 	width: 40px;
 	height: 40px;
 }
 #top h1 {
-    display: block;
-    margin-left: 55%;
-    margin-right: auto;
-    margin-top: -7%;
-    color: white;
+	display: block;
+	margin-left: 55%;
+	margin-right: auto;
+	margin-top: -7%;
+	color: white;
 }
 #roastBotImg{
 	margin-top: 20%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	width: 50%;
 	border-radius: 50%;
-	width: 300px;
-	height: 300px;
 }
 #mainText{
 	text-align: center;
@@ -52,6 +51,6 @@ body {
 	color: #333333;
 }
 #mainText a{
-	color: #0073e6;
+	color: #3399ff;
 	text-decoration: none;
 }
