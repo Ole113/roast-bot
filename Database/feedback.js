@@ -10,11 +10,14 @@ exports.run = async (message) => {
    }
 	 customPrefix.defer.then(() => {
    		if(message.author.bot) return;
+		 
 		if(message.content.toLowerCase().startsWith(prefix_file.prefix + "feedback ")) {
     
-      let content = message.content;
-      let userFeedback = content.slice(prefix_file.prefix.length + 9, content.length);
+      			let content = message.content;
+      			let userFeedback = content.slice(prefix_file.prefix.length + 9, content.length);
     
+			let feedbackNumber = feedback.get(key, "feedback");
+			
 			const key = `${message.guild.id}-${message.author.id}`;
       
 			if(!feedback.has(key)) {
@@ -24,9 +27,9 @@ exports.run = async (message) => {
 			}
 
 			feedback.set(key, userFeedback, "feedbackMessage");
-      feedback.set(key, ++feedbackNumber, "feedbackNumber");
+      			feedback.set(key, ++feedbackNumber, "feedbackNumber");
       
-      return message.channel.send("Feedback has been sent!");
+      			return message.channel.send("Feedback has been sent!");
 		}
-   }
+	}
 }
