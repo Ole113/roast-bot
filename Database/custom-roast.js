@@ -14,7 +14,7 @@ exports.run = async (message) => {
 		
 	    if(!customRoast.has(key)) {
 		customRoast.set(key, {
-			user: message.author.id, guild: message.guild.id, number: 2, roast: 1
+			user: message.author.id, guild: message.guild.id, number: 0, roast: 1
 		});
             }
 		
@@ -26,8 +26,12 @@ exports.run = async (message) => {
 
             
             customRoast.set(key, custom_roast, "roast");
-	    customRoast.set(key, --number, "number");
-            return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`)
+	    customRoast.set(key, ++number, "number");
+	    if(customRoast.get(key, "number") < 3) {
+            	return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
+	    } else {
+		return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
+	    }
         }
     });
 }
