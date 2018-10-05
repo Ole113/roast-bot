@@ -17,7 +17,7 @@ exports.run = async (message) => {
 
 			if (!feedback.has(key)) {
 				feedback.set(key, {
-					user: message.author.id, guild: message.guild.id, feedbackNumber: 2, feedbackMessage: ""
+					user: message.author.id, guild: message.guild.id, feedbackNumber: 0, feedbackMessage: ""
 				});
 			}
 
@@ -27,7 +27,7 @@ exports.run = async (message) => {
 			let feedbackNumber = feedback.get(key, "feedback");
 
 			feedback.set(key, userFeedback, "feedbackMessage");
-			feedback.set(key, --feedbackNumber, "feedbackNumber");
+			feedback.set(key, ++feedbackNumber, "feedbackNumber");
 
 			return message.channel.send(`Feedback has been sent!`);
 		}
