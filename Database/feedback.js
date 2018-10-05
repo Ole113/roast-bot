@@ -17,7 +17,7 @@ exports.run = async (message) => {
 
 			if (!feedback.has(key)) {
 				feedback.set(key, {
-					user: message.author.id, guild: message.guild.id, feedbackNumber: 1, feedbackMessage: ""
+					user: message.author.id, guild: message.guild.id, feedbackNumber: 2, feedbackMessage: ""
 				});
 			}
 
@@ -27,9 +27,9 @@ exports.run = async (message) => {
 			let feedbackNumber = feedback.get(key, "feedback");
 
 			feedback.set(key, userFeedback, "feedbackMessage");
-			feedback.set(key, ++feedbackNumber, "feedbackNumber");
+			feedback.set(key, --feedbackNumber, "feedbackNumber");
 
-			return message.channel.send("Feedback has been sent!");
+			return message.channel.send(`Feedback has been sent! This is your *feedback.get(key, "feedbackNumber")*. You have *feedback.get(key, "feedbackNumber")* more custom roasts. To get unlimited upgrade for only $1.50.`);
 		}
 	});
 }
