@@ -8,7 +8,7 @@ exports.run = async (message) => {
 	if (message.content.toLowerCase() == prefix_file.prefix + "feedback help") {
 		return message.channel.send("coming soon");
 	}
-	customPrefix.defer.then(() => {
+	feedback.defer.then(() => {
 		if (message.author.bot) return;
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "feedback ")) {
