@@ -29,7 +29,7 @@ exports.run = async (message) => {
 			feedback.set(key, userFeedback, "feedbackMessage");
 			feedback.set(key, --feedbackNumber, "feedbackNumber");
 
-			return message.channel.send(`Feedback has been sent! This is your *feedback.get(key, "feedbackNumber")*. You have *feedback.get(key, "feedbackNumber")* more custom roasts. To get unlimited upgrade for only $1.50.`);
+			return message.channel.send(`Feedback has been sent! This is your *${feedback.get(key, "feedbackNumber")}*. You have *${feedback.get(key, "feedbackNumber")}* more custom roasts. To get unlimited upgrade for only $1.50.`);
 		}
 	});
 }
