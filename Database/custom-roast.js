@@ -13,6 +13,8 @@ exports.run = async (message) => {
             let content = message.content;
             let custom_roast = content.slice(prefix_file.prefix.length + 3, content.length);
 
+	    let number = customRoast.get(key, "number");	
+	
             const key = `${message.guild.id}-${message.author.id}`;
 			if(!customRoast.has(key)) {
 			  customRoast.set(key, {
