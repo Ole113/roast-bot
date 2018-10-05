@@ -12,19 +12,19 @@ exports.run = async (message) => {
 		if (message.author.bot) return;
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "feedback ")) {
-
+			
 			const key = `${message.guild.id}-${message.author.id}`;
-
-			let content = message.content;
-			let userFeedback = content.slice(prefix_file.prefix.length + 9, content.length);
-
-			let feedbackNumber = feedback.get(key, "feedback");
 
 			if (!feedback.has(key)) {
 				feedback.set(key, {
 					user: message.author.id, guild: message.guild.id, feedbackNumber: 1, feedbackMessage: ""
 				});
 			}
+
+			let content = message.content;
+			let userFeedback = content.slice(prefix_file.prefix.length + 9, content.length);
+
+			let feedbackNumber = feedback.get(key, "feedback");
 
 			feedback.set(key, userFeedback, "feedbackMessage");
 			feedback.set(key, ++feedbackNumber, "feedbackNumber");

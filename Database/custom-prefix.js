@@ -10,7 +10,7 @@ exports.run = async (message) => {
   }
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-		if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.content.toLowerCase() == "r!prefix") {
+		if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.content.toLowerCase() == "rb!prefix") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(customPrefix.has(key)) {
 				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`);
