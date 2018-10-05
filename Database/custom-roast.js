@@ -18,6 +18,11 @@ exports.run = async (message) => {
 		});
             }
 		
+	    if(message.content.toLowerCase() == prefix_file.prefix + "cr") {
+		let random_number = Math.random() * customRoast.get(key, "number");
+		return message.channel.send(`${customRoast.get(key, "roast")} \n Meme #${customRoast.get(key, "number")}`);
+	    }
+		
             let content = message.content;
             let custom_roast = content.slice(prefix_file.prefix.length + 3, content.length);
 
@@ -31,11 +36,6 @@ exports.run = async (message) => {
             	return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
 	    } else {
 		return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
-	    }
-		
-	    if(message.content.toLowerCase() == prefix_file.prefix + "cr") {
-		let random_number = Math.random() * customRoast.get(key, "number");
-		return message.channel.send(`${customRoast.get(key, "roast")} \n Meme #${customRoast.get(key, "number")}`);
 	    }
         }
     });
