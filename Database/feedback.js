@@ -13,12 +13,12 @@ exports.run = async (message) => {
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "feedback ")) {
 
+			const key = `${message.guild.id}-${message.author.id}`;
+
 			let content = message.content;
 			let userFeedback = content.slice(prefix_file.prefix.length + 9, content.length);
 
 			let feedbackNumber = feedback.get(key, "feedback");
-
-			const key = `${message.guild.id}-${message.author.id}`;
 
 			if (!feedback.has(key)) {
 				feedback.set(key, {
