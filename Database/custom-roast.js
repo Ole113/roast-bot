@@ -32,6 +32,11 @@ exports.run = async (message) => {
 	    } else {
 		return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
 	    }
+		
+	    if(message.content.toLowerCase() == prefix_file.prefix + "cr") {
+		let random_number = Math.random() * customRoast.get(key, "number");
+		return message.channel.send(`${customRoast.get(key, "roast")} \n Meme #${customRoast.get(key, "number")}`);
+	    }
         }
     });
 }
