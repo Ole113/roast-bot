@@ -24,6 +24,7 @@ const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
 const custom_prefix_file = require("./Database/custom-prefix.js");
 const prefix_file = require("./Database/prefix.json");
+const feedback_file = require("./Database/feedback.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -56,6 +57,7 @@ client.on("message", message => {
 	urban_file.run(message);
 	xp_level_file.run(message);
 	user_file.run(message);
+  feedback_file.run(message);
 	custom_prefix_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
