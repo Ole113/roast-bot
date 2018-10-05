@@ -27,7 +27,7 @@ exports.run = async (message) => {
             
             customRoast.set(key, custom_roast, "roast");
 	    customRoast.set(key, --number, "number");
-            return message.channel.send(`Custom Roast is ${customRoast.get(key, "roast")}`)
+            return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`)
         }
     });
 }
