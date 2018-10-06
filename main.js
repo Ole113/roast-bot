@@ -34,6 +34,32 @@ client.on("ready", () => {
 	console.log("-----------------------------------")
 	client.user.setActivity(`${prefix_file.prefix}help`, { type: "PLAYING" })
 });
+client.on("guildMemberAdd", member => {
+	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
+	if (!welcomeleavechannel) return;
+	let join_time = new Date();
+	let join_embed = new Discord.RichEmbed()
+	.setTitle(member.user.username + " has joined the server.")
+	.setColor("#EB671D")
+	.addField("Time:", join_time)
+	.addField("Tag:", member)
+	.setThumbnail(member.user.displayAvatarURL);
+	welcomeleavechannel.send(join_embed);
+	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
+});
+client.on("guildMemberRemove", member => {
+	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
+	let leave_time = new Date();
+	if (!welcomeleavechannel) return;
+	let leave_embed = new Discord.RichEmbed()
+	.setTitle(member.user.username + " has left the server, later aligator.")
+	.setColor("#EB671D")
+	.addField("Time:", leave_time)
+	.addField("Tag:", member)
+	.setThumbnail(member.user.displayAvatarURL);
+	welcomeleavechannel.send(leave_embed);
+	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
+});
 client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
