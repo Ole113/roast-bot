@@ -1,12 +1,25 @@
 body {
-	
+	color: #404040;
 }
-body p {
-    margin: 40px;
+body #mainText {
+	margin: 40px;
+}
+body h4 {
+	text-align: center;
 }
 @media (min-width: 1200px) {
 	body p {
-        margin-left: 200px;
-        margin-right: 200px;
-    }
+		margin-left: 200px;
+		margin-right: 200px;
+	}
+}
+#footer {
+	background-color: #f2f2f2;
+	width: 100%;
+	height: 125px;
+	opacity: 0.5;
+}
+#footer p {
+	text-align: center;
+	padding-top: 40px;
 }

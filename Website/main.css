@@ -1,6 +1,7 @@
 body {
 	padding: 0;
 	margin: 0;
+	color: #404040;
 }
 #roastBotImg{
 	margin-top: 20%;
@@ -29,13 +30,14 @@ body {
 #footer {
 	background-color: #f2f2f2;
 	width: 100%;
-	height: 200px;
+	height: 125px;
 	opacity: 0.5;
 }
 #footer p {
 	text-align: center;
-	padding: 5%;
+	padding-top: 40px;
 }
+/*
 #images {
 	width: 50%;
 	margin-left: auto;
@@ -52,3 +54,4 @@ body {
 	width: 42px;
 	height: 42px;
 }
+*/

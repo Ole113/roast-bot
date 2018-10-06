@@ -1,5 +1,5 @@
 body {
-	
+	color: #404040;
 }
 body table, #main{
 	margin: 40px;
@@ -7,4 +7,14 @@ body table, #main{
 .table {
 	width: 50%;
 	margin: auto;
+}
+#footer {
+	background-color: #f2f2f2;
+	width: 100%;
+	height: 125px;
+	opacity: 0.5;
+}
+#footer p {
+	text-align: center;
+	padding-top: 40px;
 }
