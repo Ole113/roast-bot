@@ -27,6 +27,17 @@ body {
 	color: #3399ff;
 	text-decoration: none;
 }
+@media (min-width: 1200px) {
+	#discord_wigit{
+		width: 500px;
+		height: 550px;
+	}
+}
+@media (min-width: 0px) and (max-width: 767px) {
+	#discord_wigit {
+		width: 250px;
+	}
+}
 #footer {
 	background-color: #f2f2f2;
 	width: 100%;
