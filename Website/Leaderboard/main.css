@@ -1,13 +1,22 @@
 body {
 	color: #404040;
 }
-body table, #main{
-	margin: 40px;
+#main {
+	text-align: center;
 }
-.table {
-	width: 50%;
-	margin: auto;
+@media (min-width: 1200px) {
+	.table {
+		width: 50%;
+		margin: auto;
+	}
 }
+@media (min-width: 0px) and (max-width: 767px) {
+	.table {
+		width: 175px;
+		margin: auto;
+	}
+}
+
 #footer {
 	background-color: #f2f2f2;
 	width: 100%;

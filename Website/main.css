@@ -38,6 +38,16 @@ body {
 		width: 250px;
 	}
 }
+@media (min-width: 0px) and (max-width: 767px) {
+	#dbl_wigit{
+		width: 250px;
+	}
+}
+@media (min-width: 1200px) {
+	#dbl_wigit{
+		width: 400px;
+	}
+}
 #footer {
 	background-color: #f2f2f2;
 	width: 100%;
