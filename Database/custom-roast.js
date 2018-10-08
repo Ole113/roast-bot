@@ -4,14 +4,19 @@ const bsp = require("better-sqlite-pool");
 
 const prefix_file = require("./prefix.json");
 
+const custom_roasts = [
+	{"number": 1, "roast": ""},
+	{"number": 2, "roast": ""}
+];
+
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
 
 		if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-			return message.channel.send(`${roast[0]} and the roast number is ${customRoast.get(key, "number")}`);
+			return message.channel.send(`${custom_roasts[0]} and the roast number is ${customRoast.get(key, "number")}`);
 		}
-		
+
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
@@ -21,11 +26,6 @@ exports.run = async (message) => {
 					user: message.author.id, guild: message.guild.id, number: 0, roast: 1
 				});
 			}
-
-			const custom_roasts = [
-				{"number": 1, "roast": ""},
-				{"number": 2, "roast": ""}
-			];
 
 			let content = message.content;
 			let custom_roast = content.slice(prefix_file.prefix.length + 3, content.length);
