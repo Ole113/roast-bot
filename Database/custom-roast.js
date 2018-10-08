@@ -8,14 +8,14 @@ exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
 
+		if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
+			return message.channel.send(`${roast[0]} and the roast number is ${customRoast.get(key, "number")}`);
+		}
+		
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
 
-			if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-				return message.channel.send(`${roast[0]} and the roast number is ${customRoast.get(key, "number")}`);
-			}
-			
 			if (!customRoast.has(key)) {
 				customRoast.set(key, {
 					user: message.author.id, guild: message.guild.id, number: 0, roast: 1
