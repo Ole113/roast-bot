@@ -13,8 +13,10 @@ exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
 
-		if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-			return message.channel.send(`${custom_roasts[0].roast}`);
+		if (message.content.toLowerCase() == prefix_file.prefix + "cr ") {
+			let content = message.content;
+			let number = content.slice(prefix_file.prefix.length + 3, content.length);
+			return message.channel.send(`${custom_roasts[Number(number)].roast}`);
 		}
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr ")) {
