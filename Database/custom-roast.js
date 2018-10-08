@@ -12,6 +12,10 @@ exports.run = async (message) => {
 
 			const key = `${message.guild.id}-${message.author.id}`;
 
+			if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
+				return message.channel.send(`${roast[0]} and the roast number is ${customRoast.get(key, "number")}`);
+			}
+			
 			if (!customRoast.has(key)) {
 				customRoast.set(key, {
 					user: message.author.id, guild: message.guild.id, number: 0, roast: 1
@@ -37,9 +41,6 @@ exports.run = async (message) => {
 			} else {
 				return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
 			}
-		} else if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-			let roast = customRoast.get(key, "roast");
-			return message.channel.send(`${roast[0]} and the roast number is ${customRoast.get(key, "number")}`);
 		}
 	});
 }
