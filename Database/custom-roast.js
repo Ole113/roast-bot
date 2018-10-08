@@ -18,21 +18,26 @@ exports.run = async (message) => {
 				});
 			}
 
-
+			const custom_roasts = [
+				{"number": 1, "roast": ""},
+				{"number": 2, "roast": ""}
+			];
 
 			let content = message.content;
 			let custom_roast = content.slice(prefix_file.prefix.length + 3, content.length);
 
 			let number = customRoast.get(key, "number");
+			let roast = customRoast.get(key, "roast");
 
 			if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-				let random_number = Math.random() * customRoast.get(key, "number");
-				return message.channel.send(`${customRoast.get(key, "roast")} \n Meme #${customRoast.get(key, "number")}`);
+				return message.channel.send(`test`);
 			}
 
-			customRoast.set(key, custom_roast, "roast");
-			customRoast.set(key, ++number, "number");
+
 			if (customRoast.get(key, "number") < 3) {
+				customRoast.set(key, custom_roast, "roast");
+				customRoast.set(key, ++number, "number");
+				custom_roasts[number] = roast;
 				return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
 			} else {
 				return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
