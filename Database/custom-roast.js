@@ -29,11 +29,6 @@ exports.run = async (message) => {
 			let number = customRoast.get(key, "number");
 			let roast = customRoast.get(key, "roast");
 
-			if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-				return message.channel.send(`test`);
-			}
-
-
 			if (customRoast.get(key, "number") < 3) {
 				customRoast.set(key, custom_roast, "roast");
 				customRoast.set(key, ++number, "number");
@@ -42,6 +37,8 @@ exports.run = async (message) => {
 			} else {
 				return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
 			}
+		} else if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
+			return message.channel.send(`test`);
 		}
 	});
 }
