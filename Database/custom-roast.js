@@ -5,7 +5,7 @@ const bsp = require("better-sqlite-pool");
 const prefix_file = require("./prefix.json");
 
 const custom_roasts = [
-	{"number": 1, "roast": ""},
+	{"number": 1, "roast": "blank"},
 	{"number": 2, "roast": ""}
 ];
 
@@ -31,12 +31,11 @@ exports.run = async (message) => {
 			let custom_roast = content.slice(prefix_file.prefix.length + 3, content.length);
 
 			let number = customRoast.get(key, "number");
-			let roast = customRoast.get(key, "roast");
 
 			if (customRoast.get(key, "number") < 3) {
 				customRoast.set(key, custom_roast, "roast");
 				customRoast.set(key, ++number, "number");
-				custom_roasts[0].roast = roast;
+				custom_roasts[0].roast = customRoast.get(key, "roast");
 				return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
 			} else {
 				return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
