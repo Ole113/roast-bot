@@ -14,7 +14,7 @@ exports.run = async (message) => {
 		if (message.author.bot) return;
 
 		if (message.content.toLowerCase() == prefix_file.prefix + "cr") {
-			return message.channel.send(`${custom_roasts[0]} and the roast number is ${customRoast.get(key, "number")}`);
+			return message.channel.send(`${custom_roasts[0]}`);
 		}
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr ")) {
