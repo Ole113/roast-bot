@@ -16,7 +16,7 @@ exports.run = async (message) => {
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr #")) {
 			let content = message.content;
-			let number = Number(content.slice(prefix_file.prefix.length + 4, content.length));
+			let number = content.slice(prefix_file.prefix.length + 4, content.length);
 			return message.channel.send(`${custom_roasts[number + 1].roast}`);
 		}
 
