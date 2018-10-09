@@ -14,22 +14,24 @@ exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
 
+		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #")) {
+			let content = message.content;
+			let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
+			let number_int = parseInt(content_slice);
+			custom_roasts[number_int - 1] = "test";
+			return message.channel.send(`Custom roast #${number_int} was removed successfully!`);
+		}
+
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast #")) {
 			let content = message.content;
 			let number = content.slice(prefix_file.prefix.length + 8, content.length);
 			let number_int = parseInt(number);
 			if(number_int > 3 || number_int < 1) {
 				return message.channel.send("Sorry, that custom roast couldn't be found.");
-			}
+			}		
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
 		}
-		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #")) {
-			let content = message.content;
-		    	let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
-			let number_int = parseInt(content_slice);
-			custom_roasts[number_int - 1] = "You haven't set this custom roasts yet! Use `r!cr help` to learn how to.";
-			return message.channel.send(`Custom roast #${number_int} was removed successfully!`);
-		}
+
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
