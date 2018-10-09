@@ -5,9 +5,9 @@ const bsp = require("better-sqlite-pool");
 const prefix_file = require("./prefix.json");
 
 const custom_roasts = [
-	{"number": 1, "roast": "You haven't set any custom roasts yet! Use `r!cr help` to learn how to."},
-	{"number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."},
-	{"number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."}
+	{"number": 1, "roast": "You haven't set any custom roasts yet! Use `r!cr help` to learn how to"},
+	{"number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to"},
+	{"number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to"}
 ];
 
 exports.run = async (message) => {
