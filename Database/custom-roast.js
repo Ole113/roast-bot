@@ -28,7 +28,7 @@ exports.run = async (message) => {
 		    	let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
 			let number_int = parseInt(content_slice);
 			custom_roasts[number_int - 1] = "You haven't set this custom roasts yet! Use `r!cr help` to learn how to.";
-			return message.channel.send(`Custom roast #${number_int} was removed successfully! ${number_int - 1}`);
+			return message.channel.send(`Custom roast #${number_int} was removed successfully! ${custom_roasts[number_int - 1]}`);
 
 		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast ")) {
