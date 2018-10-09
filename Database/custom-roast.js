@@ -14,9 +14,9 @@ exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
 
-		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr #")) {
+		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast #")) {
 			let content = message.content;
-			let number = content.slice(prefix_file.prefix.length + 4, content.length);
+			let number = content.slice(prefix_file.prefix.length + 8, content.length);
 			let number_int = parseInt(number);
 			if(number_int > 3) {
 				return message.channel.send("Sorry, that custom roast couldn't be found.");
@@ -24,7 +24,7 @@ exports.run = async (message) => {
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
 		}
 
-		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr ")) {
+		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
 
@@ -35,7 +35,7 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let custom_roast = content.slice(prefix_file.prefix.length + 3, content.length);
+			let custom_roast = content.slice(prefix_file.prefix.length + 7, content.length);
 
 			let number = customRoast.get(key, "number");
 
