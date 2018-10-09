@@ -19,7 +19,9 @@ exports.run = async (message) => {
 			let number = content.slice(prefix_file.prefix.length + 4, content.length);
 			let number_int = parseInt(number);
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
-		}
+		} else if(custom_roasts.length > 3) {
+     return message.channel.send("Sorry we couldnt find that custom roast. ");
+}
 
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "cr ")) {
 
