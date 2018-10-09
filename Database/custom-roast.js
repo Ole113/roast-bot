@@ -5,9 +5,9 @@ const bsp = require("better-sqlite-pool");
 const prefix_file = require("./prefix.json");
 
 const custom_roasts = [
-	{"number": 1, "roast": "You haven't set any custom roasts yet! Use `r!cr help` to learn how to"},
-	{"number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to"},
-	{"number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to"}
+	{"number": 1, "roast": "You haven't set any custom roasts yet! Use `r!cr help` to learn how to."},
+	{"number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."},
+	{"number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."}
 ];
 
 exports.run = async (message) => {
@@ -18,7 +18,7 @@ exports.run = async (message) => {
 			let content = message.content;
 			let number = content.slice(prefix_file.prefix.length + 8, content.length);
 			let number_int = parseInt(number);
-			if(number_int > 3) {
+			if(number_int > 3 || number_int < 1) {
 				return message.channel.send("Sorry, that custom roast couldn't be found.");
 			}
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
