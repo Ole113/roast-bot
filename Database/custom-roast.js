@@ -23,7 +23,7 @@ exports.run = async (message) => {
 			}
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
 		}
-		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #") {
+		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #")) {
 			let content = message.content;
 		    	let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
 			let number_int = parseInt(content_slice);
