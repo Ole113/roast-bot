@@ -23,7 +23,14 @@ exports.run = async (message) => {
 			}
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
 		}
+		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #") {
+			let content = message.content;
+		    	let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
+			let number_int = parseInt(content_slice);
+			custom_roasts[number_int] = "You haven't set this custom roasts yet! Use `r!cr help` to learn how to.";
+			return message.channel.send(`Custom roast #${number_int} was removed successfully!`);
 
+		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
