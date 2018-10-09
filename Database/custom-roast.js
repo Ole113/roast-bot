@@ -19,7 +19,7 @@ exports.run = async (message) => {
 			let number = content.slice(prefix_file.prefix.length + 4, content.length);
 			let number_int = parseInt(number);
 			if(number_int > 3) {
-				return message.channel.send("That custom roast couldnt be found.");
+				return message.channel.send("Sorry, that custom roast couldn't be found.");
 			}
 			return message.channel.send(`${custom_roasts[number_int - 1].roast}`);
 		}
