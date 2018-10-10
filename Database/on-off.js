@@ -15,7 +15,7 @@ exports.run = async (message) => {
 			onOff.set(key, {
 				user: message.author.id, guild: message.guild.id, "roast": "on", "meme": "on", "say": "on", "user": "on", "urban": "on", "clear": "on", "server": "on", "bot": "on"
 			});
-			
+		}	
 		if(message.content.toLowerCase().startsWith(prefix_file.prefix + "on")) {
 			const roast = onOff.get(key, "roast");
 			const meme = onOff.get(key, "meme");
