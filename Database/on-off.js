@@ -17,7 +17,7 @@ exports.run = async (message) => {
 				user: message.author.id, guild: message.guild.id, "roast": "on", "meme": "on", "say": "on", "user": "on", "urban": "on", "clear": "on", "server": "on", "bot": "on"
 			});
 		}	
-		if(message.content.toLowerCase().startsWith(prefix_file.prefix + "on")) {
+		if(message.content.toLowerCase().startsWith(prefix_file.prefix + "off")) {
 			const roast = onOff.get(key, "roast");
 			const meme = onOff.get(key, "meme");
 			const say = onOff.get(key, "say");
@@ -28,9 +28,12 @@ exports.run = async (message) => {
 			const bot = onOff.get(key, "bot");
 
 			let content = message.content;
-			let command = content.slice(prefix_file.prefix.length + 3, content.length);
-			
-			return message.channel.send(`Prefix was ${command}`);
+			let command = content.slice(prefix_file.prefix.length + 4, content.length);
+			if(command.startsWith("roast")) {
+      onOff_file.roast = "off";
+          return message.channel.send(onOff_file.roast);
+      }
+			//return message.channel.send(`Prefix was ${command}`);
 		}
 	});
 }
