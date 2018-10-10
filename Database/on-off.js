@@ -1,3 +1,4 @@
+
 const Enmap = require("enmap");
 const onOff = new Enmap({name: "on-off"});
 const bsp = require("better-sqlite-pool");
@@ -31,5 +32,5 @@ exports.run = async (message) => {
 			
 			return message.channel.send(`Prefix was ${command}`);
 		}
-	} 
+	});
 }
