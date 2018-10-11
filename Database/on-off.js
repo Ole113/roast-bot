@@ -19,27 +19,27 @@ exports.run = async (message) => {
 		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "off")) {
 
-			let content = message.content;
-			let command = content.slice(prefix_file.prefix.length + 4, content.length);
-			if (command.startsWith("roast")) {
+			let contentt = message.content;
+			let commandd = content.slice(prefix_file.prefix.length + 4, contentt.length);
+			if (commandd.startsWith("roast")) {
 				onOff_file.roast = "off";
 				return message.channel.send("Roast command has been turn off. User `r!on roast` to turn it back on.");
-			} else if (command.startsWith("meme")) {
+			} else if (commandd.startsWith("meme")) {
 				onOff_file.meme = "off";
 				return message.channel.send("Meme command has been turned off. Use `r!on meme` to turn it back on.");
-			} else if (command.startsWith("say")) {
+			} else if (commandd.startsWith("say")) {
 				onOff_file.say = "off";
 				return message.channel.send("Say command has been turned off. Use `r!on say` to turn it back on.");
-			} else if (command.startsWith("user")) {
+			} else if (commandd.startsWith("user")) {
 				onOff_file.user = "off";
 				return message.channel.send("User command has been turned off. Use `r!on user` to turn it back on.");
-			} else if (command.startsWith("clear")) {
+			} else if (commandd.startsWith("clear")) {
 				onOff_file.clear = "off";
 				return message.channel.send("Clear command has been turned off. Use `r!on clear` to turn it back on.");
-			} else if (command.startsWith("server")) {
+			} else if (commandd.startsWith("server")) {
 				onOff_file.server = "off";
 				return message.channel.send("Server command has been turned off. Use `r!on server` to turn it back on.");
-			} else if (command.startsWith("bot")) {
+			} else if (commandd.startsWith("bot")) {
 				onOff_file.bot = "off";
 				return message.channel.send("Bot command has been turned off. Use `r!on bot` to turn it back on.");
 			} else {

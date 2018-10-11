@@ -33,7 +33,7 @@ client.on("ready", () => {
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-	client.user.setActivity(`${prefix_file.prefix}help`, { type: "PLAYING" })
+	client.user.setActivity(`${prefix_file.prefix}help | https://ole113.github.io/Roast-Bot/`, { type: "PLAYING" })
 });
 client.on("guildMemberAdd", member => {
 	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
