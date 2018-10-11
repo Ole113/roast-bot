@@ -27,7 +27,6 @@ const prefix_file = require("./Database/prefix.json");
 const feedback_file = require("./Database/feedback.js");
 const custom_roast_file = require("./Database/custom-roast.js");
 const on_off_file = require("./Database/on-off.js");
-const test_file = require("./Commands/test.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -90,6 +89,5 @@ client.on("message", message => {
 	custom_prefix_file.run(message);
 	custom_roast_file.run(message);
 	on_off_file.run(message);
-	test_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
