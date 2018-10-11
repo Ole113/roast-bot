@@ -27,6 +27,7 @@ const prefix_file = require("./Database/prefix.json");
 const feedback_file = require("./Database/feedback.js");
 const custom_roast_file = require("./Database/custom-roast.js");
 const on_off_file = require("./Database/on-off.js");
+const test_file = require("./Commands/test.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -40,11 +41,11 @@ client.on("guildMemberAdd", member => {
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has joined the server.")
-	.setColor("#EB671D")
-	.addField("Time:", join_time)
-	.addField("Tag:", member)
-	.setThumbnail(member.user.displayAvatarURL);
+		.setTitle(member.user.username + " has joined the server.")
+		.setColor("#EB671D")
+		.addField("Time:", join_time)
+		.addField("Tag:", member)
+		.setThumbnail(member.user.displayAvatarURL);
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
@@ -53,11 +54,11 @@ client.on("guildMemberRemove", member => {
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
-	.setTitle(member.user.username + " has left the server, later aligator.")
-	.setColor("#EB671D")
-	.addField("Time:", leave_time)
-	.addField("Tag:", member)
-	.setThumbnail(member.user.displayAvatarURL);
+		.setTitle(member.user.username + " has left the server, later aligator.")
+		.setColor("#EB671D")
+		.addField("Time:", leave_time)
+		.addField("Tag:", member)
+		.setThumbnail(member.user.displayAvatarURL);
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
 });
@@ -85,9 +86,10 @@ client.on("message", message => {
 	urban_file.run(message);
 	xp_level_file.run(message);
 	user_file.run(message);
-    	feedback_file.run(message);
+	feedback_file.run(message);
 	custom_prefix_file.run(message);
-    	custom_roast_file.run(message);
+	custom_roast_file.run(message);
 	on_off_file.run(message);
+	test_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);
