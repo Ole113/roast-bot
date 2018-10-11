@@ -74,6 +74,7 @@ client.on("guildDelete", guild => {
 	dbl_file.run();
 });
 client.on("message", message => {
+	on_off_file.run(message);
 	help_file.run(client, message);
 	bot_file.run(client, message);
 	roast_file.run(message);
@@ -88,6 +89,5 @@ client.on("message", message => {
 	feedback_file.run(message);
 	custom_prefix_file.run(message);
 	custom_roast_file.run(message);
-	on_off_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);

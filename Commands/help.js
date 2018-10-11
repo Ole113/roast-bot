@@ -10,6 +10,7 @@ const Discord = require("discord.js");
 const prefix_file = require("../Database/prefix.json");
 
 exports.run = async (client, message) => {
+    if (message.author.bot) return;
     if (message.content.toLowerCase() == prefix_file.prefix + "help") {
         let help_icon = client.user.displayAvatarURL;
         let help_embed = new Discord.RichEmbed()
