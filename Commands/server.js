@@ -29,5 +29,7 @@ exports.run = async (message) => {
         return message.channel.send({embed: server_embed});
     } else if(on_off_file.server == "off") {
         return message.channel.send("This command has been turned off.");   
+    } else {
+        return;
     }
 }
