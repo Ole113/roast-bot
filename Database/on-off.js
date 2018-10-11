@@ -29,8 +29,8 @@ exports.run = async (message) => {
 
 			let content = message.content;
 			let command = content.slice(prefix_file.prefix.length + 4, content.length);
-			switch (command.startsWith()) {
-				case "roast":
+			switch (command.startsWith(c)) {
+				case c == "roast":
 					onOff_file.roast = "off";
 					return message.channel.send(onOff_file.roast);
 			}
