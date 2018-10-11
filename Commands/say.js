@@ -7,6 +7,7 @@
 
 const Discord = require("discord.js");
 const prefix_file = require("../Database/prefix.json");
+const test = require("../Database/on-off.json");
 
 exports.run = async (message) => {
     if (message.author.bot) return;
@@ -20,5 +21,8 @@ exports.run = async (message) => {
         const word = message.content;
         const say = word.slice(prefix_file.prefix.length + 4, word.length);
         return message.channel.send(say);
+    }
+    if(message.content.toLowerCase().startsWith(prefix_file.prefix + "test") && test.meme == "on") {
+        return message.channel.send(`${test.meme} is turned on yay`);
     }
 }
