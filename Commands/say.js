@@ -24,5 +24,7 @@ exports.run = async (message) => {
     }
     if(message.content.toLowerCase().startsWith(prefix_file.prefix + "test") && test.meme == "on") {
         return message.channel.send(`${test.meme} is turned on yay`);
+    } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "test") && test.meme == "off") {
+        return message.channel.send(`${test.meme} is turned off yeep`)
     }
 }
