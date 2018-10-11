@@ -14,18 +14,10 @@ exports.run = async (message) => {
 
 		if (!onOff.has(key)) {
 			onOff.set(key, {
-				guild: message.guild.id, "roast": "on", "meme": "on", "say": "on", "user": "on", "urban": "on", "clear": "on", "server": "on", "bot": "on"
+				guild: message.guild.id
 			});
 		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "off")) {
-			const roast = onOff.get(key, "roast");
-			const meme = onOff.get(key, "meme");
-			const say = onOff.get(key, "say");
-			const user = onOff.get(key, "user");
-			const urban = onOff.get(key, "urban");
-			const clear = onOff.get(key, "clear");
-			const server = onOff.get(key, "server");
-			const bot = onOff.get(key, "bot");
 
 			let content = message.content;
 			let command = content.slice(prefix_file.prefix.length + 4, content.length);
@@ -54,5 +46,35 @@ exports.run = async (message) => {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
 			}
 		}
+		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "on")) {
+
+			let content = message.content;
+			let command = content.slice(prefix_file.prefix.length + 3, content.length);
+			if (command.startsWith("roast")) {
+				onOff_file.roast = "on";
+				return message.channel.send("Roast command has been turn on. User `r!on roast` to turn it back on.");
+			} else if (command.startsWith("meme")) {
+				onOff_file.meme = "on";
+				return message.channel.send("Meme command has been turned on. Use `r!on meme` to turn it back on.");
+			} else if (command.startsWith("say")) {
+				onOff_file.say = "on";
+				return message.channel.send("Say command has been turned on. Use `r!on say` to turn it back on.");
+			} else if (command.startsWith("user")) {
+				onOff_file.user = "on";
+				return message.channel.send("User command has been turned on. Use `r!on user` to turn it back on.");
+			} else if (command.startsWith("clear")) {
+				onOff_file.clear = "on";
+				return message.channel.send("Clear command has been turned on. Use `r!on clear` to turn it back on.");
+			} else if (command.startsWith("server")) {
+				onOff_file.server = "on";
+				return message.channel.send("Server command has been turned on. Use `r!on server` to turn it back on.");
+			} else if (command.startsWith("bot")) {
+				onOff_file.bot = "on";
+				return message.channel.send("Bot command has been turned on. Use `r!on bot` to turn it back on.");
+			} else {
+				return message.channel.send("That command doesn't exist or that command isn't available to be turned on.");
+			}
+		}
+		
 	});
 }
