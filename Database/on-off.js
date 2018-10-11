@@ -33,7 +33,7 @@ exports.run = async (message) => {
 			} else if (commandd.startsWith("user")) {
 				onOff_file.user = "off";
 				return message.channel.send("User command has been turned off. Use `r!on user` to turn it back on.");
-			} else if (command.startsWith("urban")) {
+			} else if (commandd.startsWith("urban")) {
 				onOff_file.user = "off";
 				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back on.")
 			} else if (commandd.startsWith("clear")) {
