@@ -14,7 +14,7 @@ exports.run = async (message) => {
 
 		if (!onOff.has(key)) {
 			onOff.set(key, {
-				user: message.author.id, guild: message.guild.id, "roast": "on", "meme": "on", "say": "on", "user": "on", "urban": "on", "clear": "on", "server": "on", "bot": "on"
+				guild: message.guild.id, "roast": "on", "meme": "on", "say": "on", "user": "on", "urban": "on", "clear": "on", "server": "on", "bot": "on"
 			});
 		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "off")) {
@@ -29,10 +29,29 @@ exports.run = async (message) => {
 
 			let content = message.content;
 			let command = content.slice(prefix_file.prefix.length + 4, content.length);
-			switch (command.startsWith(c)) {
-				case c == "roast":
-					onOff_file.roast = "off";
-					return message.channel.send(onOff_file.roast);
+			if (command.startsWith("roast")) {
+				onOff_file.roast = "off";
+				return message.channel.send("Roast command has been turn off. User `r!on roast` to turn it back on.");
+			} else if (command.startsWith("meme")) {
+				onOff_file.meme = "off";
+				return message.channel.send("Meme command has been turned off. Use `r!on meme` to turn it back on.");
+			} else if (command.startsWith("say")) {
+				onOff_file.say = "off";
+				return message.channel.send("Say command has been turned off. Use `r!on say` to turn it back on.");
+			} else if (command.startsWith("user")) {
+				onOff_file.user = "off";
+				return message.channel.send("User command has been turned off. Use `r!on user` to turn it back on.");
+			} else if (command.startsWith("clear")) {
+				onOff_file.clear = "off";
+				return message.channel.send("Clear command has been turned off. Use `r!on clear` to turn it back on.");
+			} else if (command.startsWith("server")) {
+				onOff_file.server = "off";
+				return message.channel.send("Server command has been turned off. Use `r!on server` to turn it back on.");
+			} else if (command.startsWith("bot")) {
+				onOff_file.bot = "off";
+				return message.channel.send("Bot command has been turned off. Use `r!on bot` to turn it back on.");
+			} else {
+				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
 			}
 		}
 	});
