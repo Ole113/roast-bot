@@ -6,6 +6,7 @@
 */
 
 const Discord = require("discord.js");
+
 const prefix_file = require("../Database/prefix.json");
 const on_off_file = require("../Database/on-off.json");
 
@@ -24,5 +25,4 @@ exports.run = async (message) => {
     } else if(on_off_file.say == "off") {
         return message.channel.send("This command has been turned off.");   
     }
-
 }
