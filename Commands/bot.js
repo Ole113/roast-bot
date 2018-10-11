@@ -31,7 +31,7 @@ exports.run = async (client, message) => {
             //.addField("Total Users:", )
             .setFooter("Created By Ole113#2421");
         return message.channel.send({embed: bot_embed});
-    } else if(on_off_file.say == "off") {
+    } else if(on_off_file.bot == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }
