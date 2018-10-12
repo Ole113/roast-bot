@@ -23,16 +23,16 @@ exports.run = async (message) => {
 				return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>");
 			}else if(currentPoints == 15 ) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 3: Roast-Learnerb! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 3: Roast-Learner! <:roast_circle:474755210485563404>");
 			} else if(currentPoints == 25) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 4: Mediocre Roasterb! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>");
 			} else if(currentPoints == 50) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 5: Advanced Roasterb! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 5: Advanced Roaster! <:roast_circle:474755210485563404>");
 			} else if(currentPoints == 100) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 6: Roast-Masterb! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 6: Roast-Master! <:roast_circle:474755210485563404>");
 			} else if(currentPoints == 200) {
 				xpLevel.set(key, ++curLevel, "level");
 				return message.reply("Level up, your now level 7: Roast-Jesus! <:roast_circle:474755210485563404>");
