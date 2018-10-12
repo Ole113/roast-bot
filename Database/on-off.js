@@ -12,7 +12,7 @@ exports.run = async (message) => {
 
 		const key = `${message.guild.id}-${message.author.id}`;
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "off") || message.content.toLowerCase().startsWith(prefix_file.prefix + "on") && !message.member.hasPermission("ADMINISTRATOR")) {
-			return message.channel.send("Sorry, you need to be an admin to turn command on/off. <:roast_circle:474755210485563404>");
+			return message.channel.send("Sorry, you need to be an admin to turn this command on/off. <:roast_circle:474755210485563404>");
 		}
 		if (!onOff.has(key)) {
 			onOff.set(key, {
