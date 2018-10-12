@@ -35,7 +35,7 @@ exports.run = async (message) => {
 				on_off_file.user = "off";
 				return message.channel.send("User command has been turned off. Use `r!on user` to turn it back on.");
 			} else if (commandd.startsWith("urban")) {
-				on_off_file.user = "off";
+				on_off_file.urban = "off";
 				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back on.")
 			} else if (commandd.startsWith("clear")) {
 				on_off_file.clear = "off";
@@ -67,7 +67,7 @@ exports.run = async (message) => {
 				on_off_file.user = "on";
 				return message.channel.send("User command has been turned on. Use `r!on user` to turn it back off.");
 			} else if (command.startsWith("urban")) {
-				on_off_file.user = "on";
+				on_off_file.urban = "on";
 				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back off.")
 			} else if (command.startsWith("clear")) {
 				on_off_file.clear = "on";
@@ -82,6 +82,5 @@ exports.run = async (message) => {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
 			}
 		}
-		
 	});
 }
