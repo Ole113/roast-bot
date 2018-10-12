@@ -11,7 +11,7 @@ exports.run = async (message) => {
 		if (message.author.bot) return;
 
 		const key = `${message.guild.id}-${message.author.id}`;
-		if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+		if (!message.member.hasPermission("MANAGE_MESSAGES") && message.content.toLowerCase().startsWith(prefix_file.prefix + "off")) {
 			return message.channel.send("Sorry, you need to be an admin to turn this command on/off. <:roast_circle:474755210485563404>");
 		}
 		if (!onOff.has(key)) {
