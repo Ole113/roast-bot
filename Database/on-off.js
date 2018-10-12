@@ -11,7 +11,9 @@ exports.run = async (message) => {
 		if (message.author.bot) return;
 
 		const key = `${message.guild.id}-${message.author.id}`;
-
+		if (message.author.hasPermission("ADMINISTRATOR")) {
+			return message.channel.send("You are an admin.");
+		}
 		if (!onOff.has(key)) {
 			onOff.set(key, {
 				guild: message.guild.id
