@@ -28,7 +28,7 @@ exports.run = async (message) => {
             .addField("You Joined:", message.member.joinedAt)
             .addField("Total Members:", message.guild.memberCount);
         return message.channel.send({embed: server_embed});
-    } else if(on_off_file.server == "off") {
+    } else if(on_off_file.server == "off" && on_off_file.server != "on") {
         return message.channel.send("This command has been turned off.");   
     }
 }
