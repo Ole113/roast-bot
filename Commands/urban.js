@@ -35,7 +35,7 @@ exports.run = async (message) => {
             .addField("Rating:", `**Upvotes: :thumbsup:** ${res.thumbsUp} | **Downvotes: :thumbsdown:** ${res.thumbsDown}`);
 
         return message.channel.send({embed: urban_embed});
-    } else if(on_off_file.urban == "off") {
+    } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "urban") && on_off_file.urban == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }

@@ -28,7 +28,7 @@ exports.run = async (message) => {
         } else {
             return message.channel.send(`Meme #${random_memes} <:roast_circle:474755210485563404>`, { files: [`Images/meme${random_memes}.PNG`] })
         };
-    } else if(on_off_file.meme == "off") {
+    } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "meme") && on_off_file.meme == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }

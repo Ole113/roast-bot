@@ -56,7 +56,7 @@ exports.run = async (message) => {
 
 
         });
-    } else if(on_off_file.user == "off") {
+    } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "user ") && on_off_file.user == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 
@@ -93,7 +93,7 @@ exports.run = async (message) => {
             .addField("Current Presense:", status);
         return message.channel.send({embed: user_embed});
 
-    } else if(on_off_file.user == "off") {
+    } else if(message.content.toLowerCase() == prefix_file.prefix + "user" && on_off_file.user == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }

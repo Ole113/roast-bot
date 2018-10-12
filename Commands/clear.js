@@ -32,7 +32,7 @@ exports.run = async (message) => {
         message.channel.bulkDelete(int).then(() => {
             return message.channel.send(`Cleared ${int} messages. <:roast_circle:474755210485563404>`)
         });
-    } else if(on_off_file.clear == "off") {
+    } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "clear") && on_off_file.clear == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }

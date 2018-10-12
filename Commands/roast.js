@@ -139,7 +139,7 @@ exports.run = async (message) => {
 
 			return message.channel.send(reply + ", " + roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
-	} else if(on_off_file.roast == "off") {
+	} else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "roast") && on_off_file.roast == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }

@@ -22,7 +22,7 @@ exports.run = async (message) => {
         const word = message.content;
         const say = word.slice(prefix_file.prefix.length + 4, word.length);
         return message.channel.send(say);
-    } else if(on_off_file.say == "off") {
+    } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "say ") && on_off_file.say == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }
