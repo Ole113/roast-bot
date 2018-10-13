@@ -35,7 +35,7 @@ exports.run = async (message) => {
 				});
 			}
 
-			customPrefix.set(key, customPrefix, "prefix");
+			customPrefix.set(key, customPrefixx, "prefix");
 			prefixFile.prefix = customPrefixx;
 			return message.channel.send(`Custom Prefix set to *${customPrefixx}*.`);
 		}
