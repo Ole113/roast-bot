@@ -13,9 +13,13 @@ const custom_roasts = [
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
+		const random_croast = 1;
 		if (message.content.toLowerCase() == prefix_file.prefix + "croast") {
-			const random_croast = Math.ceil(Math.random() * 3);
-			return message.channel.send(custom_roasts[random_croast - 1].roast + `\n **Roast #${random_croast}** <:roast_circle:474755210485563404>`);
+			random_croast++;
+			if(random_croast > 3) {
+				random_croast = 1;
+			}
+			return message.channel.send(custom_roasts[random_croast - 1].roast + `\n **Custom Roast #${random_croast}** <:roast_circle:474755210485563404>`);
 		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #")) {
 			let content = message.content;
