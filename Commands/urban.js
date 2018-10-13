@@ -23,7 +23,7 @@ exports.run = async (message) => {
         if (args == "") {
             return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>")
         }
-        let res = await urban(args).catch(e => {
+        let res = await urban(args).catch((e) => {
             return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**")
         });
         const urban_embed = new Discord.RichEmbed()
@@ -38,4 +38,4 @@ exports.run = async (message) => {
     } else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "urban") && on_off_file.urban == "off") {
         return message.channel.send("This command has been turned off.");   
     }
-}
+};

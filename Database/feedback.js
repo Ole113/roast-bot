@@ -32,4 +32,4 @@ exports.run = async (message) => {
 			return message.channel.send(`Feedback has been sent!`);
 		}
 	});
-}
+};

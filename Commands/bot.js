@@ -35,4 +35,4 @@ exports.run = async (client, message) => {
     } else if(message.content.toLowerCase() == prefix_file.prefix + "bot" && on_off_file.bot == "off") {
         return message.channel.send("This command has been turned off.");   
     }
-}
+};

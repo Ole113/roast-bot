@@ -33,7 +33,7 @@ const bot_precense = [
 	"On-Off now live! r!off commandName",
 	"Custom Roasts now live! r!croast help",
 	"Use r!feedback messasge to send feedback"
-]
+];
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
@@ -74,13 +74,11 @@ client.on("guildCreate", guild => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
 	console.log("-----------------------------------")
-	dbl_file.run();
 });
 client.on("guildDelete", guild => {
 	console.log("❌Roast-Bot left a server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`)
 	console.log("-----------------------------------")
-	dbl_file.run();
 });
 client.on("message", message => {
 	on_off_file.run(message);
