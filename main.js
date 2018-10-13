@@ -28,12 +28,21 @@ const feedback_file = require("./Database/feedback.js");
 const custom_roast_file = require("./Database/custom-roast.js");
 const on_off_file = require("./Database/on-off.js");
 
+const bot_precense = [
+	"https://ole113.github.io/Roast-Bot/",
+	"On-Off now live! r!off commandName",
+	"Custom Roasts now live! r!croast help",
+	"Use r!feedback messasge to send feedback"
+]
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot is Ready");
 	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
 	console.log("-----------------------------------")
-	client.user.setActivity(`${prefix_file.prefix}help | https://ole113.github.io/Roast-Bot/`, { type: "PLAYING" })
+	setInterval(() => {
+		let random = Math.floor(Math.random() * 4);
+		client.user.setActivity(`${prefix_file.prefix}help | ${bot_precense[random]}`, { type: "PLAYING" })
+	}, 5000);
 });
 client.on("guildMemberAdd", member => {
 	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
