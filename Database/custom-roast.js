@@ -13,11 +13,14 @@ const custom_roasts = [
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
+
 		var random_croast = 1;
+
 		if (message.content.toLowerCase() == prefix_file.prefix + "croast") {
-			random_croast++;
 			if(random_croast > 3) {
 				random_croast = 1;
+			} else {
+				random_croast++;
 			}
 			return message.channel.send(custom_roasts[random_croast - 1].roast + `\n **Custom Roast #${random_croast}** <:roast_circle:474755210485563404>`);
 		}
@@ -28,7 +31,6 @@ exports.run = async (message) => {
 			custom_roasts[number_int - 1].roast = "You haven't set any custom roasts yet! Use `r!cr help` to learn how to.";
 			return message.channel.send(`Custom roast #${number_int} was removed successfully!`);
 		}
-
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast #")) {
 			let content = message.content;
 			let number = content.slice(prefix_file.prefix.length + 8, content.length);
