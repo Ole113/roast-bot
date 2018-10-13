@@ -13,7 +13,7 @@ const custom_roasts = [
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
-		const random_croast = 1;
+		var random_croast = 1;
 		if (message.content.toLowerCase() == prefix_file.prefix + "croast") {
 			random_croast++;
 			if(random_croast > 3) {
