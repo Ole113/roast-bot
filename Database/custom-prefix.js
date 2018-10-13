@@ -24,7 +24,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase().startsWith("rb!prefix ") || message.content.toLowerCase().startsWith(prefixFile.prefix + "prefix ")) {
 
 			let content = message.content;
-			let customPrefixx = content.slice(prefixFile.prefix.length + 7, content.length);
+			let customPrefixx = content.slice(10, content.length);
 
 			let defaultPrefix = "rb!";
 
