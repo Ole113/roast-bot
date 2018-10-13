@@ -18,7 +18,7 @@ exports.run = async (message) => {
 			let content = message.content;
 			let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
 			let number_int = parseInt(content_slice);
-			custom_roasts[number_int - 1] = "test";
+			custom_roasts[number_int - 1].roast = "You haven't set any custom roasts yet! Use `r!cr help` to learn how to.";
 			return message.channel.send(`Custom roast #${number_int} was removed successfully!`);
 		}
 
