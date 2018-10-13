@@ -13,7 +13,10 @@ const custom_roasts = [
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
-
+		if (message.content.toLowerCase() == prefix_file.prefix + "croast") {
+			let random = Math.floor(Math.random() * 2);
+			return message.channel.send(`${custom_roasts[random - 1].roast}\nCustom Roast #${random - 1}`)
+		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #")) {
 			let content = message.content;
 			let content_slice = content.slice(prefix_file.prefix.length + 15, content.length);
