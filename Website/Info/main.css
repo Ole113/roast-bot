@@ -2,7 +2,10 @@ body {
 	color: #404040;
 }
 body #mainText {
-	margin: 40px;
+	margin-left: 15%;
+}
+#rbv{
+	text-align: center;
 }
 body h4 {
 	text-align: center;
