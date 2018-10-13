@@ -18,12 +18,12 @@ exports.run = async (client, message) => {
         return message.channel.send("**rb!bot help:**\n\n`rb!bot` tells information about Roast-Bot. The information includes: Bot name, created on , Roast-Bot server count, total number of roasts, and total number of memes.\n\nExample:\n\nUSER: rb!bot\nRoast-Bot:\nBot Information:\n\nBot Name:\nRoast-Bot\nCreated On:\nWed Jun 27 2018 02:44:49 GMT+0000 (UTC)\nServer Count:\n328\nTotal Number of Roasts:\n100\nTotal Number of Memes:\n131\n\nCreated By Ole113#2421\n\n\nNote: Stats are from 08/26/2018 and are not current, use rb!bot for current stats.")
     }
     if (message.content.toLowerCase() == prefixFile.prefix + "bot" && onOffFile.bot == "on") {
-        let bot_icon = client.user.displayAvatarURL;
-        let bot_embed = new Discord.RichEmbed()
+        let botIcon = client.user.displayAvatarURL;
+        let botEmbed = new Discord.RichEmbed()
             .setColor("#EB671D")
             .setTitle("<:roast_circle:474755210485563404> Bot Information:")
             .addBlankField()
-            .setThumbnail(bot_icon)
+            .setThumbnail(botIcon)
             .addField("Bot Name:", client.user.username)
             .addField("Created On:", client.user.createdAt)
             .addField("Server Count:", client.guilds.size)
@@ -31,7 +31,7 @@ exports.run = async (client, message) => {
             .addField("Total Number of Memes:", "217", true)
             //.addField("Total Users:", )
             .setFooter("Created By Ole113#2421");
-        return message.channel.send({embed: bot_embed});
+        return message.channel.send({embed: botEmbed});
     } else if(message.content.toLowerCase() == prefixFile.prefix + "bot" && onOffFile.bot == "off") {
         return message.channel.send("This command has been turned off.");   
     }

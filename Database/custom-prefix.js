@@ -24,7 +24,7 @@ if(message.content.toLowerCase() == prefixFile.prefix + "prefix" || message.cont
 		if(message.content.toLowerCase().startsWith("rb!prefix ") || message.content.toLowerCase().startsWith(prefixFile.prefix + "prefix ")) {
 			
 			let content = message.content;
-			let custom_prefix = content.slice(prefixFile.prefix.length + 7, content.length);
+			let customPrefix = content.slice(prefixFile.prefix.length + 7, content.length);
 
 			let default_prefix = "rb!"; 
 
@@ -35,8 +35,8 @@ if(message.content.toLowerCase() == prefixFile.prefix + "prefix" || message.cont
 			  });
 			}
 
-			customPrefix.set(key, custom_prefix, "prefix");
-			prefixFile.prefix = custom_prefix;
+			customPrefix.set(key, customPrefix, "prefix");
+			prefixFile.prefix = customPrefix;
 			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}*.`);
 		}
 	});

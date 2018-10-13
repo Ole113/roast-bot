@@ -121,8 +121,8 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "on") {
 		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
-			const random_roasts = Math.ceil(Math.random() * 100);
-			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
+			const randomRoasts = Math.ceil(Math.random() * 100);
+			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
@@ -130,11 +130,11 @@ exports.run = async (message) => {
 			if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast #")) {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
-				let number_int = parseInt(number1);
-				if(number_int > roasts.length - 1){
-					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length - 1}`);
+				let numberInt = parseInt(number1);
+				if(numberInt > roasts.length - 1){
+					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
-				return message.channel.send(roasts[number_int].roast + `\n **Roast #${number_int}** <:roast_circle:474755210485563404>`);
+				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 			}
 
 			return message.channel.send(reply + ", " + roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);

@@ -43,7 +43,7 @@ exports.run = async (message) => {
                 gamee = users.presence.game;
             }
 
-            let user_embed = new Discord.RichEmbed()
+            let userEmbed = new Discord.RichEmbed()
                 .setColor("#EB671D")
                 .setTitle(`${users.username}'s Stats:`)
                 .setThumbnail(users.displayAvatarURL)
@@ -52,7 +52,7 @@ exports.run = async (message) => {
                 .addField("Current Game:", gamee)
                 .addField("Bot:", users.bot.toString())
                 .addField("Current Presense:", statuss);
-            return message.channel.send({embed: user_embed});
+            return message.channel.send({embed: userEmbed});
 
 
         });
@@ -82,7 +82,7 @@ exports.run = async (message) => {
         } else {
             game = message.author.presence.game;
         }
-        let user_embed = new Discord.RichEmbed()
+        let userEmbed = new Discord.RichEmbed()
             .setColor("#EB671D")
             .setTitle(`${message.author.username}'s Stats:`)
             .setThumbnail(message.author.displayAvatarURL)
@@ -91,7 +91,7 @@ exports.run = async (message) => {
             .addField("Current Game:", game)
             .addField("Bot:", message.author.bot)
             .addField("Current Presense:", status);
-        return message.channel.send({embed: user_embed});
+        return message.channel.send({embed: userEmbed});
 
     } else if(message.content.toLowerCase() == prefixFile.prefix + "user" && onOffFile.user == "off") {
         return message.channel.send("This command has been turned off.");   

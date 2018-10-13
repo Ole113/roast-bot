@@ -26,7 +26,7 @@ exports.run = async (message) => {
         let res = await urban(args).catch((e) => {
             return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**")
         });
-        const urban_embed = new Discord.RichEmbed()
+        const urbanEmbed = new Discord.RichEmbed()
             .setColor("#EB671D")
             .setTitle(res.word)
             .setURL(res.urbanURL)
@@ -34,7 +34,7 @@ exports.run = async (message) => {
             .addField("Author:", res.author, true)
             .addField("Rating:", `**Upvotes: :thumbsup:** ${res.thumbsUp} | **Downvotes: :thumbsdown:** ${res.thumbsDown}`);
 
-        return message.channel.send({embed: urban_embed});
+        return message.channel.send({embed: urbanEmbed});
     } else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "urban") && onOffFile.urban == "off") {
         return message.channel.send("This command has been turned off.");   
     }
