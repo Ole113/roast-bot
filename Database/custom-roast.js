@@ -14,7 +14,7 @@ exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) return;
 		if (message.content.toLowerCase() == prefix_file.prefix + "croast") {
-			const random_croast = Math.ceil(Math.random() * 2);
+			const random_croast = Math.ceil(Math.random() * 3);
 			return message.channel.send(custom_roasts[random_croast - 1].roast + `\n **Roast #${random_croast}** <:roast_circle:474755210485563404>`);
 		}
 		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "croast delete #")) {
