@@ -11,7 +11,7 @@ const Discord = require("discord.js");
 const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
 
-roasts = [
+const roasts = [
 	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
 	{ "number": 2, "roast": "Repeat After me: semen is not hair gel." },
 	{ "number": 3, "roast": "Your body fat is about as evenly distributed as wealth in the US economy." },

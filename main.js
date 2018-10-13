@@ -11,21 +11,21 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const urban_file = require("./Commands/urban.js");
-const bot_file = require("./Commands/bot.js");
-const clear_file = require("./Commands/clear.js");
-const server_file = require("./Commands/server.js");
-const invite_file = require("./Commands/invite.js");
-const help_file = require("./Commands/help.js");
-const roast_file = require("./Commands/roast.js");
-const meme_file = require("./Commands/meme.js");
-const say_file = require("./Commands/say.js");
-const xp_level_file = require("./Database/xp-level.js");
-const user_file = require("./Commands/user.js");
-const custom_prefixFile = require("./Database/custom-prefix.js");
+const urbanFile = require("./Commands/urban.js");
+const botFile = require("./Commands/bot.js");
+const clearFile = require("./Commands/clear.js");
+const serverFile = require("./Commands/server.js");
+const inviteFile = require("./Commands/invite.js");
+const helpFile = require("./Commands/help.js");
+const roastFile = require("./Commands/roast.js");
+const memeFile = require("./Commands/meme.js");
+const sayFile = require("./Commands/say.js");
+const xpLevelFile = require("./Database/xp-level.js");
+const userFile = require("./Commands/user.js");
+const customPrefixFile = require("./Database/custom-prefix.js");
 const prefixFile = require("./Database/prefix.json");
-const feedback_file = require("./Database/feedback.js");
-const custom_roast_file = require("./Database/custom-roast.js");
+const feedbackFile = require("./Database/feedback.js");
+const customRoastFile = require("./Database/custom-roast.js");
 const onOffFile = require("./Database/on-off.js");
 
 const bot_precense = [
@@ -43,7 +43,7 @@ client.on("ready", () => {
 		client.user.setActivity(`${prefixFile.prefix}help | ${bot_precense[random]}`, { type: "PLAYING" })
 	}, 20000);
 });
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", (member) => {
 	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
@@ -56,7 +56,7 @@ client.on("guildMemberAdd", member => {
 	welcomeleavechannel.send(join_embed);
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
-client.on("guildMemberRemove", member => {
+client.on("guildMemberRemove", (member) => {
 	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
@@ -69,31 +69,31 @@ client.on("guildMemberRemove", member => {
 	welcomeleavechannel.send(leave_embed);
 	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
 });
-client.on("guildCreate", guild => {
+client.on("guildCreate", (guild) => {
 	console.log("✔️Roast Bot joined a new server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`);
 	console.log("-----------------------------------")
 });
-client.on("guildDelete", guild => {
+client.on("guildDelete", (guild) => {
 	console.log("❌Roast-Bot left a server named: " + guild.name);
 	console.log(`# of people in ${guild.name} is ${guild.memberCount} people.`)
 	console.log("-----------------------------------")
 });
-client.on("message", message => {
+client.on("message", (message) => {
 	onOffFile.run(message);
-	help_file.run(client, message);
-	bot_file.run(client, message);
-	roast_file.run(message);
-	invite_file.run(message);
-	server_file.run(message);
-	meme_file.run(message);
-	say_file.run(message);
-	clear_file.run(message);
-	urban_file.run(message);
-	xp_level_file.run(message);
-	user_file.run(message);
-	feedback_file.run(message);
-	custom_prefixFile.run(message);
-	custom_roast_file.run(message);
+	helpFile.run(client, message);
+	botFile.run(client, message);
+	roastFile.run(message);
+	inviteFile.run(message);
+	serverFile.run(message);
+	memeFile.run(message);
+	sayFile.run(message);
+	clearFile.run(message);
+	urbanFile.run(message);
+	xpLevelFile.run(message);
+	userFile.run(message);
+	feedbackFile.run(message);
+	customPrefixFile.run(message);
+	customRoastFile.run(message);
 });
 client.login(process.env.BOT_TOKEN);
