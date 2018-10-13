@@ -22,11 +22,11 @@ const meme_file = require("./Commands/meme.js");
 const say_file = require("./Commands/say.js");
 const xp_level_file = require("./Database/xp-level.js");
 const user_file = require("./Commands/user.js");
-const custom_prefix_file = require("./Database/custom-prefix.js");
-const prefix_file = require("./Database/prefix.json");
+const custom_prefixFile = require("./Database/custom-prefix.js");
+const prefixFile = require("./Database/prefix.json");
 const feedback_file = require("./Database/feedback.js");
 const custom_roast_file = require("./Database/custom-roast.js");
-const on_off_file = require("./Database/on-off.js");
+const onOffFile = require("./Database/on-off.js");
 
 const bot_precense = [
 	"https://ole113.github.io/Roast-Bot/",
@@ -36,12 +36,11 @@ const bot_precense = [
 ];
 client.on("ready", () => {
 	console.log("-----------------------------------")
-	console.log("Roast-Bot is Ready");
-	console.log("Number of servers Roast-Bot is in: " + client.guilds.size);
+	console.log("Roast-Bot-Beta is Ready");
 	console.log("-----------------------------------")
 	setInterval(() => {
 		let random = Math.floor(Math.random() * 4);
-		client.user.setActivity(`${prefix_file.prefix}help | ${bot_precense[random]}`, { type: "PLAYING" })
+		client.user.setActivity(`${prefixFile.prefix}help | ${bot_precense[random]}`, { type: "PLAYING" })
 	}, 20000);
 });
 client.on("guildMemberAdd", member => {
@@ -81,7 +80,7 @@ client.on("guildDelete", guild => {
 	console.log("-----------------------------------")
 });
 client.on("message", message => {
-	on_off_file.run(message);
+	onOffFile.run(message);
 	help_file.run(client, message);
 	bot_file.run(client, message);
 	roast_file.run(message);
@@ -94,7 +93,7 @@ client.on("message", message => {
 	xp_level_file.run(message);
 	user_file.run(message);
 	feedback_file.run(message);
-	custom_prefix_file.run(message);
+	custom_prefixFile.run(message);
 	custom_roast_file.run(message);
 });
 client.login(process.env.BOT_TOKEN);

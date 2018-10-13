@@ -2,16 +2,16 @@ const Enmap = require("enmap");
 const feedback = new Enmap({ name: "feedback" });
 const bsp = require("better-sqlite-pool");
 
-const prefix_file = require("./prefix.json");
+const prefixFile = require("./prefix.json");
 
 exports.run = async (message) => {
-	if (message.content.toLowerCase() == prefix_file.prefix + "feedback help") {
+	if (message.content.toLowerCase() == prefixFile.prefix + "feedback help") {
 		return message.channel.send("coming soon");
 	}
 	feedback.defer.then(() => {
 		if (message.author.bot) return;
 
-		if (message.content.toLowerCase().startsWith(prefix_file.prefix + "feedback ")) {
+		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "feedback ")) {
 			
 			const key = `${message.guild.id}-${message.author.id}`;
 
@@ -22,7 +22,7 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let userFeedback = content.slice(prefix_file.prefix.length + 9, content.length);
+			let userFeedback = content.slice(prefixFile.prefix.length + 9, content.length);
 
 			let feedbackNumber = feedback.get(key, "feedback");
 

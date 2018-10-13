@@ -2,7 +2,7 @@ const Enmap = require("enmap");
 const customPrefix = new Enmap({name: "custom-prefix"});
 const bsp = require("better-sqlite-pool");
 
-const prefix_file = require("./prefix.json");
+const prefixFile = require("./prefix.json");
 
 exports.run = async (message) => {
    if(message.content.toLowerCase() == "rb!prefix help") {
@@ -10,10 +10,10 @@ exports.run = async (message) => {
   }
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-			if (!message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith(prefix_file.prefix + "prefix")) {
+			if (!message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith(prefixFile.prefix + "prefix")) {
 			return message.channel.send("Sorry, you need to be an admin to set your servers custom prefix. <:roast_circle:474755210485563404>");
 		}	
-if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.content.toLowerCase() == "rb!prefix") {
+if(message.content.toLowerCase() == prefixFile.prefix + "prefix" || message.content.toLowerCase() == "rb!prefix") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(customPrefix.has(key)) {
 				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`);
@@ -21,10 +21,10 @@ if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.con
 				return message.channel.send("Looks like you haven't set a custom prefix yet! To set a custom prefix use `rb!prefix <newPrefix>`.");
 			}
 		}
-		if(message.content.toLowerCase().startsWith("rb!prefix ") || message.content.toLowerCase().startsWith(prefix_file.prefix + "prefix ")) {
+		if(message.content.toLowerCase().startsWith("rb!prefix ") || message.content.toLowerCase().startsWith(prefixFile.prefix + "prefix ")) {
 			
 			let content = message.content;
-			let custom_prefix = content.slice(prefix_file.prefix.length + 7, content.length);
+			let custom_prefix = content.slice(prefixFile.prefix.length + 7, content.length);
 
 			let default_prefix = "rb!"; 
 
@@ -36,7 +36,7 @@ if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.con
 			}
 
 			customPrefix.set(key, custom_prefix, "prefix");
-			prefix_file.prefix = custom_prefix;
+			prefixFile.prefix = custom_prefix;
 			return message.channel.send(`Custom Prefix set to *${customPrefix.get(key, "prefix")}*.`);
 		}
 	});

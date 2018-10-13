@@ -8,8 +8,8 @@
 
 const Discord = require("discord.js");
 
-const prefix_file = require("../Database/prefix.json");
-const on_off_file = require("../Database/on-off.json");
+const prefixFile = require("../Database/prefix.json");
+const onOffFile = require("../Database/on-off.json");
 
 roasts = [
 	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
@@ -116,20 +116,20 @@ roasts = [
 
 exports.run = async (message) => {
 	if (message.author.bot) return;
-	if(message.content.toLowerCase() == prefix_file.prefix + "roast help") {
+	if(message.content.toLowerCase() == prefixFile.prefix + "roast help") {
 		return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 	}
-	if (message.content.toLowerCase().startsWith(prefix_file.prefix + "roast") && on_off_file.roast == "on") {
-		if (message.content.toLowerCase() == prefix_file.prefix + "roast") {
+	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "on") {
+		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
 			const random_roasts = Math.ceil(Math.random() * 100);
 			return message.channel.send(roasts[random_roasts].roast + `\n **Roast #${random_roasts}** <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase().startsWith(prefix_file.prefix + "roast ")) {
+		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
-			const reply = word.slice(prefix_file.prefix.length + 6, word.length);
-			if (message.content.toLowerCase().startsWith(prefix_file.prefix + "roast #")) {
+			const reply = word.slice(prefixFile.prefix.length + 6, word.length);
+			if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast #")) {
 				let word1 = message.content;
-				let number1 = word1.slice(prefix_file.prefix.length + 7, word1.length);
+				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let number_int = parseInt(number1);
 				if(number_int > roasts.length - 1){
 					return message.channel.send(`Sorry there isn't a Roast #${number_int}, the number of Roasts is ${roasts.length - 1}`);
@@ -139,7 +139,7 @@ exports.run = async (message) => {
 
 			return message.channel.send(reply + ", " + roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
-	} else if(message.content.toLowerCase().startsWith(prefix_file.prefix + "roast") && on_off_file.roast == "off") {
+	} else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "off") {
         return message.channel.send("This command has been turned off.");   
     }
 }
