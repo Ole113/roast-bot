@@ -10,7 +10,10 @@ exports.run = async (message) => {
   }
 	customPrefix.defer.then(() => {
 		if(message.author.bot) return;
-		if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.content.toLowerCase() == "rb!prefix") {
+			if (!message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith(prefix_file.prefix + "prefix")) {
+			return message.channel.send("Sorry, you need to be an admin to set your servers custom prefix. <:roast_circle:474755210485563404>");
+		}	
+if(message.content.toLowerCase() == prefix_file.prefix + "prefix" || message.content.toLowerCase() == "rb!prefix") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if(customPrefix.has(key)) {
 				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`);
