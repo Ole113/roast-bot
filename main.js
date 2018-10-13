@@ -42,7 +42,7 @@ client.on("ready", () => {
 	setInterval(() => {
 		let random = Math.floor(Math.random() * 4);
 		client.user.setActivity(`${prefix_file.prefix}help | ${bot_precense[random]}`, { type: "PLAYING" })
-	}, 5000);
+	}, 10000);
 });
 client.on("guildMemberAdd", member => {
 	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
