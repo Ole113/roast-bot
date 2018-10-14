@@ -10,6 +10,7 @@ const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
+const customRoastFile = require("../Database/custom-roast.js");
 
 const roasts = [
 	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
@@ -121,7 +122,10 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "on") {
 		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
-			const randomRoasts = Math.ceil(Math.random() * 100);
+			const randomRoasts = Math.ceil(Math.random() * 103);
+			if (randomRoasts > 100) {
+				return message.channel.send(`${customRoastFile.customRoasts[randomRoasts - 101].roasts} Custom Roast #${randomRoasts - 101}`);
+			}
 			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
 			const random = Math.ceil(Math.random() * 100);
