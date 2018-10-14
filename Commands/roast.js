@@ -124,7 +124,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
 			const randomRoasts = Math.ceil(Math.random() * 103);
 			if (randomRoasts > 100) {
-				return message.channel.send(`${customRoastFile.customRoasts[randomRoasts - 101].roasts} Custom Roast #${randomRoasts - 101}`);
+				return message.channel.send(`${customRoastFile.customRoasts[randomRoasts - 101].roast} Custom Roast #${randomRoasts - 101}`);
 			}
 			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
