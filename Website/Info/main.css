@@ -10,12 +10,6 @@ body #mainText {
 body h4 {
 	text-align: center;
 }
-@media (min-width: 1200px) {
-	body p {
-		margin-left: 200px;
-		margin-right: 200px;
-	}
-}
 #footer {
 	background-color: #f2f2f2;
 	width: 100%;
