@@ -93,7 +93,7 @@ const roasts = [
 	{ "number": 78, "roast": "I\'d agree with you but then we\'d both be wrong." },
 	{ "number": 79, "roast": "When you were born your mom threw you out the window and the window threw you back." },
 	{ "number": 80, "roast": "You're about as useful as Anne Frank's drum set." },
-	{ "number": 81, "roast": "If I wanted to kill myself I'd climb your ego and jump to your IQ."},
+	{ "number": 81, "roast": "If I wanted to kill myself I'd climb your ego and jump to your IQ." },
 	{ "number": 82, "roast": "I would burn you but burning trash is bad for the environment." },
 	{ "number": 83, "roast": "I haven\'t seen you run that fast since Twinkies went on sale!" },
 	{ "number": 84, "roast": "You were so ugly that when you were born the doctor put tinted windows on your incubator." },
@@ -112,20 +112,22 @@ const roasts = [
 	{ "number": 97, "roast": "What\'s the difference between you and eggs? Eggs get laid and you don\'t." },
 	{ "number": 98, "roast": "If you\'re gonna be a smartass, first you have to be smart. Otherwise you\'re just an ass." },
 	{ "number": 99, "roast": "At least when I do a handstand my stomach doesn\'t hit me in the face." },
-	{ "number": 100,"roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
+	{ "number": 100, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
 ];
 
 exports.run = async (message) => {
 	if (message.author.bot) return;
-	if(message.content.toLowerCase() == prefixFile.prefix + "roast help") {
+	if (message.content.toLowerCase() == prefixFile.prefix + "roast help") {
 		return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "on") {
 		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
-			const randomRoasts = Math.ceil(Math.random() * 103);
+			const randomRoasts = Math.ceil(Math.random() * 100);
+			/*
 			if (randomRoasts > 20) {
 				return message.channel.send(`${customRoastFile.customRoasts[1].roast} Custom Roast #${randomRoasts - 101}`);
 			}
+			*/
 			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
 			const random = Math.ceil(Math.random() * 100);
@@ -135,7 +137,7 @@ exports.run = async (message) => {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let numberInt = parseInt(number1);
-				if(numberInt > roasts.length - 1){
+				if (numberInt > roasts.length - 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
@@ -143,7 +145,7 @@ exports.run = async (message) => {
 
 			return message.channel.send(reply + ", " + roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
-	} else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "off") {
-        return message.channel.send("This command has been turned off.");   
-    }
+	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "off") {
+		return message.channel.send("This command has been turned off.");
+	}
 }
