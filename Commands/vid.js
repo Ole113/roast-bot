@@ -16,4 +16,5 @@ exports.run = async (message) => {
     }
 if(message.content.toLowerCase() == prefixFile.prefix + "vid") {
     return message.channel.send("../vid1.gif");
+    }
 }
