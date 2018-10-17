@@ -28,7 +28,7 @@ exports.run = async (message) => {
 
 			feedback.set(key, userFeedback, "feedbackMessage");
 			feedback.set(key, ++feedbackNumber, "feedbackNumber");
-      message.delete(0);
+      message.delete();
 			return message.channel.send(`Feedback has been sent!`);
 		}
 	});
