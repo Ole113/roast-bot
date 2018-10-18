@@ -15,6 +15,6 @@ exports.run = async (message) => {
         return message.channel.send("coming soon");
     }
 if(message.content.toLowerCase() == prefixFile.prefix + "vid") {
-    return message.channel.send(`Video #${1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid1.gifs`] });
+    return message.channel.send(`Video #${1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid1.gif`] });
     }
 }
