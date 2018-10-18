@@ -16,6 +16,6 @@ exports.run = async (message) => {
     }
 if(message.content.toLowerCase() == prefixFile.prefix + "vid") {
     let randomNumber = Math.floor(Math.random() * 7);
-    return message.channel.send(`Video #${randomNumber + 1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber}.gif`] });
+    return message.channel.send(`Video #${randomNumber + 1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber + 1}.gif`] });
     }
 }
