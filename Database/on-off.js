@@ -48,7 +48,7 @@ exports.run = async (message) => {
 			} else if (commandd.toLowerCase().startsWith("bot")) {
 				onOffFile.bot = "off";
 				return message.channel.send("Bot command has been turned off. Use `r!on bot` to turn it back on.");
-			} else if (commandd.toLowerCase.startsWith("vid")) {
+			} else if (commandd.toLowerCase().startsWith("vid")) {
 				onOffFile.vid = "off";
 				return message.channel.send("Video command has been turned off. Use `r!on vid` to turn it back on.");
 			} else {
