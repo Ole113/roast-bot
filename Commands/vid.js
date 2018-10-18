@@ -16,8 +16,8 @@ exports.run = async (message) => {
         return message.channel.send("coming soon");
     }
     if (message.content.toLowerCase() == prefixFile.prefix + "vid" && onOffFile.vid == "on") {
-        let randomNumber = Math.floor(Math.random() * 7);
-        return message.channel.send(`Video #${randomNumber} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber + 1}.gif`] });
+        let randomNumber = Math.floor(Math.random() * 7 + 1);
+        return message.channel.send(`Video #${randomNumber} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber}.gif`] });
     } else if(message.content.toLowerCase() == prefixFile.prefix + "vid" && onOffFile.vid == "off") {
         return message.channel.send("This command has been turned off.");   
     }
@@ -28,8 +28,8 @@ exports.run = async (message) => {
         if(vidNumberInt > 7 || vidNumberInt <= 0) {
             return message.channel.send("Sorry that video couldn't be found. <:roast_circle:474755210485563404>");
         }
-        return message.channel.send(`Video #${vidNumberInt} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumberInt + 1}.gif`] });
+        return message.channel.send(`Video #${vidNumberInt} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumberInt}.gif`] });
     } else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "vid #") && onOffFile.vid == "off") {
-        return message.channel.send("This command has been turned off.");   
+        return message.channel.send("This command has been turned off.");
     }
 }
