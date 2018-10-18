@@ -20,31 +20,31 @@ exports.run = async (message) => {
 			let curLevel = xpLevel.get(key, "level");
 			if (currentPoints == 10) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>. 10/15 XP for level 5.");
+				return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>.\n\n10/15 XP for level 5.");
 			} else if (currentPoints == 15) {
 				xpLevel.set(key, ++curLevel, "level");
 				return message.reply("Level up, your now level 3: Roast-Learner! <:roast_circle:474755210485563404>.\n\n15/25 XP for level 4.");
 			} else if (currentPoints == 25) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>\n\n25/50 XP for level 5.");
 			} else if (currentPoints == 50) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 5: Advanced Roaster! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 5: Advanced Roaster! <:roast_circle:474755210485563404>\n\n50/100 XP for level 6.");
 			} else if (currentPoints == 100) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 6: Roast-Master! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 6: Roast-Master! <:roast_circle:474755210485563404>\n\n100/200 XP for level 7.");
 			} else if (currentPoints == 200) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 7: Roast-Jesus! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 7: Roast-Jesus! <:roast_circle:474755210485563404>\n\n200/500 XP for level 8.");
 			} else if (currentPoints == 500) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 8: Roast-God! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 8: Roast-God! <:roast_circle:474755210485563404>\n\n500/1000 XP for level 9.");
 			} else if (currentPoints == 1000) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 9: Roast-Champion! <:roast_circle:474755210485563404>");
-			} else if (currentPoints == 10000) {
+				return message.reply("Level up, your now level 9: Roast-Champion! <:roast_circle:474755210485563404>\n\n1000/5000 XP for level 10.");
+			} else if (currentPoints == 5000) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now max level, level 10. Join the support server to get to submit and custom roast to be added to Roast-Bot. Invite Link: https://discord.gg/NvVX6VD! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now max level, level 10. Congrats!");
 			}
 			xpLevel.set(key, curLevel, "level");
 		}
