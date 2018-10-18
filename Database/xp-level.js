@@ -20,10 +20,10 @@ exports.run = async (message) => {
 			let curLevel = xpLevel.get(key, "level");
 			if (currentPoints == 10) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 2: Roast-Noob! <:roast_circle:474755210485563404>. 10/15 XP for level 5.");
 			} else if (currentPoints == 15) {
 				xpLevel.set(key, ++curLevel, "level");
-				return message.reply("Level up, your now level 3: Roast-Learner! <:roast_circle:474755210485563404>");
+				return message.reply("Level up, your now level 3: Roast-Learner! <:roast_circle:474755210485563404>.\n\n15/25 XP for level 4.");
 			} else if (currentPoints == 25) {
 				xpLevel.set(key, ++curLevel, "level");
 				return message.reply("Level up, your now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>");

@@ -16,7 +16,7 @@ exports.run = async (message) => {
     }
     if (message.content.toLowerCase() == prefixFile.prefix + "vid") {
         let randomNumber = Math.floor(Math.random() * 7);
-        return message.channel.send(`Video #${randomNumber} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber}.gif`] });
+        return message.channel.send(`Video #${randomNumber + 1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber + 1}.gif`] });
     }
     if (message.content.startsWith(prefixFile.prefix + "vid #")) {
         let content = message.content;
@@ -25,6 +25,6 @@ exports.run = async (message) => {
         if(vidNumberInt > 7 || vidNumberInt <= 0) {
             return message.channel.send("Sorry that video couldn't be found. <:roast_circle:474755210485563404>");
         }
-        return message.channel.send(`Video #${vidNumberInt} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumberInt}.gif`] });
+        return message.channel.send(`Video #${vidNumberInt + 1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumberInt + 1}.gif`] });
     }
 }
