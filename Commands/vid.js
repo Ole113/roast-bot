@@ -21,6 +21,7 @@ exports.run = async (message) => {
     if (message.content.startsWith(prefixFile.prefix + "vid #")) {
         let content = message.content;
         let vidNumber = content.slice(prefixFile.prefix + 5, content.length);
-        return message.channel.send(`Video #${vidNumber + 1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumber + 1}.gif`] });
+        let vidNumberInt = Number(vidNumber);
+        return message.channel.send(`Video #${vidNumberInt + 1} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumberInt + 1}.gif`] });
     }
 }
