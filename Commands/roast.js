@@ -10,8 +10,7 @@ const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
-import { customRoasts } from "../Database/custom-roast";
-import { MessageEmbedImage } from "discord.js";
+import { customRoasts } from "../Database/custom-roast.js";
 
 const roasts = [
 	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
