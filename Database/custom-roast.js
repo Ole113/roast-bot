@@ -9,6 +9,7 @@ const customRoasts = [
 	{"number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."},
 	{"number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."}
 ];
+export { customRoasts };
 
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
