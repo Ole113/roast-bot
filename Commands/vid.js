@@ -8,6 +8,7 @@
 const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
+const onOffFile = require("../Database/on-off.json");
 
 exports.run = async (message) => {
     if (message.author.bot) return;
