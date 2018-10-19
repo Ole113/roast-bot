@@ -56,4 +56,4 @@ exports.run = async (message) => {
 		}
 	});
 }
-module.exports.customRoasts = "customRoasts";
+module.exports = { customRoasts };

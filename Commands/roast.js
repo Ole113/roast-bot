@@ -144,6 +144,6 @@ exports.run = async (message) => {
 		return message.channel.send("This command has been turned off.");
 	}
 	if(message.content == "rb!test") {
-		return message.channel.send(customRoasts.customRoasts[0]);
+		return message.channel.send(customRoastFile.customRoasts[0]);
 	}
 }
