@@ -4,7 +4,7 @@ const bsp = require("better-sqlite-pool");
 
 const prefixFile = require("./prefix.json");
 
-const customRoasts = [
+exports.customRoasts = [
 	{"number": 1, "roast": "You haven't set any custom roasts yet! Use `r!cr help` to learn how to."},
 	{"number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."},
 	{"number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to."}
@@ -17,7 +17,7 @@ exports.run = async (message) => {
 			let content = message.content;
 			let contentSlice = content.slice(prefixFile.prefix.length + 15, content.length);
 			let numberInt = parseInt(contentSlice);
-			customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `r!cr help` to learn how to.";
+			exports.customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `r!cr help` to learn how to.";
 			return message.channel.send(`Custom roast #${numberInt} was removed successfully!`);
 		}
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast #")) {
@@ -27,7 +27,7 @@ exports.run = async (message) => {
 			if(numberInt > 3 || numberInt < 1) {
 				return message.channel.send("Sorry, that custom roast couldn't be found.");
 			}		
-			return message.channel.send(`${customRoasts[numberInt - 1].roast}`);
+			return message.channel.send(`${exports.customRoasts[numberInt - 1].roast}`);
 		}
 
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast ")) {
@@ -47,7 +47,7 @@ exports.run = async (message) => {
 
 			if (customRoast.get(key, "number") < 3) {
 				customRoast.set(key, customRoast, "roast");
-				customRoasts[number].roast = customRoast.get(key, "roast");
+				exports.customRoasts[number].roast = customRoast.get(key, "roast");
 				customRoast.set(key, ++number, "number");
 				return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
 			} else {
@@ -56,4 +56,3 @@ exports.run = async (message) => {
 		}
 	});
 }
-exports = { customRoasts };
