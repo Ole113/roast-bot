@@ -56,4 +56,3 @@ exports.run = async (message) => {
 		}
 	});
 }
-module.exports = { customRoasts };
