@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
-import { customRoasts } from "../Database/custom-roast.js";
+const customRoastFile = require("../Database/custom-roast.js");
 
 const roasts = [
 	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
@@ -144,6 +144,6 @@ exports.run = async (message) => {
 		return message.channel.send("This command has been turned off.");
 	}
 	if(message.content == "rb!test") {
-		return message.channel.send(customRoasts[0]);
+		return message.channel.send(customRoasts.customRoasts[0]);
 	}
 }
