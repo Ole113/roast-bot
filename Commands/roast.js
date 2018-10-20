@@ -124,12 +124,12 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
 			const randomRoasts = Math.ceil(Math.random() * 100 + customRoastFile.length);
 			if (randomRoasts > 100) {
-				return message.channel.send(customRoastFile[randomRoasts - 100].roast);
+				return message.channel.send(customRoastFile[randomRoasts - 100].roast + `\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
-			const random = Math.ceil(Math.random() * 100);
+			const random = Math.ceil(Math.random() * 100 + customRoastFile.length);
 			const word = message.content;
 			const reply = word.slice(prefixFile.prefix.length + 6, word.length);
 			if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast #")) {
@@ -139,9 +139,14 @@ exports.run = async (message) => {
 				if (numberInt > roasts.length - 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
+				if (random > 100) {
+					return message.channel.send(customRoastFile[random - 100].roast + `\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
+				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 			}
-
+			if (random > 100) {
+				return message.channel.send(`${reply}, ${customRoastFile[random - 100].roast}\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
+			}
 			return message.channel.send(reply + ", " + roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
 	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "off") {
