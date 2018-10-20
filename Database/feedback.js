@@ -12,7 +12,7 @@ exports.run = async (message) => {
 		if (message.author.bot) return;
 
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "feedback ")) {
-			
+
 			const key = `${message.guild.id}-${message.author.id}`;
 
 			if (!feedback.has(key)) {
@@ -28,8 +28,8 @@ exports.run = async (message) => {
 
 			feedback.set(key, userFeedback, "feedbackMessage");
 			feedback.set(key, ++feedbackNumber, "feedbackNumber");
-      		message.delete();
-			return message.channel.send(`Feedback has been sent!`);
+			message.delete();
+			return message.channel.send("Feedback has been sent!");
 		}
 	});
 };

@@ -20,15 +20,15 @@ exports.run = async (message) => {
         if (message.content.toLowerCase().startsWith(prefixFile.prefix + "meme #")) {
             let word2 = message.content;
             let number2 = word2.slice(prefixFile.prefix.length + 6, word2.length);
-            let number_int1 = parseInt(number2);
-            if(number_int1 > 273){
+            let numberInt1 = parseInt(number2);
+            if(numberInt1 > 273){
                 return message.channel.send("Sorry that meme couldn't be found :(");
             }
-            return message.channel.send(`Meme #${number_int1} <:roast_circle:474755210485563404>`, { files: [`Images/meme${number_int1}.PNG`] })
+            return message.channel.send(`Meme #${numberInt1} <:roast_circle:474755210485563404>`, { files: [`Images/meme${numberInt1}.PNG`] })
         } else {
             return message.channel.send(`Meme #${randomMemes} <:roast_circle:474755210485563404>`, { files: [`Images/meme${randomMemes}.PNG`] })
         };
     } else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "meme") && onOffFile.meme === "off") {
         return message.channel.send("This command has been turned off.");   
     }
-}
+};

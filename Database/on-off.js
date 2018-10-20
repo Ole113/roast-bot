@@ -40,7 +40,7 @@ exports.run = async (message) => {
 				return message.channel.send("User command has been turned off. Use `r!on user` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("urban")) {
 				onOffFile.urban = "off";
-				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back on.")
+				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("clear")) {
 				onOffFile.clear = "off";
 				return message.channel.send("Clear command has been turned off. Use `r!on clear` to turn it back on.");
@@ -93,4 +93,4 @@ exports.run = async (message) => {
 			}
 		}
 	});
-}
+};

@@ -55,5 +55,5 @@ exports.run = async (message) => {
 			}
 		}
 	});
-}
+};
 exports.customRoastFile = customRoasts;
