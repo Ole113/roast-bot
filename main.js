@@ -27,7 +27,7 @@ const prefixFile = require("./Database/prefix.json");
 const feedbackFile = require("./Database/feedback.js");
 const customRoastFile = require("./Database/custom-roast.js");
 const onOffFile = require("./Database/on-off.js");
-const vid_file = require("./Commands/vid.js");
+const vidFile = require("./Commands/vid.js");
 
 const botPrecense = [
 	"https://ole113.github.io/Roast-Bot/",
@@ -41,7 +41,7 @@ client.on("ready", () => {
 	console.log("-----------------------------------")
 	setInterval(() => {
 		let random = Math.floor(Math.random() * 4);
-		client.user.setActivity(`${prefixFile.prefix}help | ${botPrecense[random]}`, { type: "PLAYING" })
+		client.user.setActivity(`${prefixFile.prefix}help | ${botPrecense[random]}`, { type: "PLAYING" });
 	}, 20000);
 });
 client.on("guildMemberAdd", (member) => {
@@ -86,7 +86,7 @@ client.on("message", (message) => {
 	feedbackFile.run(message);
 	customPrefixFile.run(message);
 	customRoastFile.run(message);
-	vid_file.run(message);
+	vidFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);

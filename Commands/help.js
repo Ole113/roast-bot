@@ -40,4 +40,4 @@ exports.run = async (client, message) => {
             .setFooter("v2.3.0, for release notes join the Roast-Bot help server. ");
         return message.channel.send({ embed: helpEmbed });
     }
-}
+};

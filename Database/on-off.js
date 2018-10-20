@@ -75,7 +75,7 @@ exports.run = async (message) => {
 				return message.channel.send("User command has been turned on. Use `r!on user` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("urban")) {
 				onOffFile.urban = "on";
-				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back off.")
+				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("clear")) {
 				onOffFile.clear = "on";
 				return message.channel.send("Clear command has been turned on. Use `r!on clear` to turn it back off.");

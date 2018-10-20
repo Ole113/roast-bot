@@ -21,10 +21,10 @@ exports.run = async (message) => {
         let word = message.content;
         let args = word.slice(prefixFile.prefix.length + 5, word.length);
         if (args === "") {
-            return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>")
+            return message.channel.send("**Please enter something to search up.**  <:roast_circle:474755210485563404>");
         }
         let res = await urban(args).catch((e) => {
-            return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**")
+            return message.channel.send("**Word not found :(  <:roast_circle:474755210485563404>**");
         });
         const urbanEmbed = new Discord.RichEmbed()
             .setColor("#EB671D")

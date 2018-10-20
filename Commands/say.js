@@ -25,4 +25,4 @@ exports.run = async (message) => {
     } else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "say ") && onOffFile.say === "off") {
         return message.channel.send("This command has been turned off.");   
     }
-}
+};
