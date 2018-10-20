@@ -136,8 +136,8 @@ exports.run = async (message) => {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let numberInt = parseInt(number1);
-				if (random > 100) {
-					return message.channel.send(customRoastFile[random - 100].roast + `\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
+				if (numberInt > 100) {
+					return message.channel.send(customRoastFile[numberInt - 100].roast + `\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
 				}
 				if (numberInt > roasts.length - 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
