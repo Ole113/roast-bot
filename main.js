@@ -27,7 +27,7 @@ const prefixFile = require("./Database/prefix.json");
 const feedbackFile = require("./Database/feedback.js");
 const customRoastFile = require("./Database/custom-roast.js");
 const onOffFile = require("./Database/on-off.js");
-const vid_file = require ("./Commands/vid.js");
+const vid_file = require("./Commands/vid.js");
 
 const bot_precense = [
 	"https://ole113.github.io/Roast-Bot/",
@@ -45,7 +45,7 @@ client.on("ready", () => {
 	}, 20000);
 });
 client.on("guildMemberAdd", (member) => {
-	let welcomeleavechannel = member.guild.channels.find(c => c.name ==== "welcome-leave-log");
+	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
 	if (!welcomeleavechannel) return;
 	let join_time = new Date();
 	let join_embed = new Discord.RichEmbed()
@@ -58,7 +58,7 @@ client.on("guildMemberAdd", (member) => {
 	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
 client.on("guildMemberRemove", (member) => {
-	let welcomeleavechannel = member.guild.channels.find(c => c.name ==== "welcome-leave-log");
+	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
 	let leave_time = new Date();
 	if (!welcomeleavechannel) return;
 	let leave_embed = new Discord.RichEmbed()
@@ -96,7 +96,7 @@ client.on("message", (message) => {
 	feedbackFile.run(message);
 	customPrefixFile.run(message);
 	customRoastFile.run(message);
-vid_file.run(message);
+	vid_file.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
