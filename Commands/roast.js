@@ -19,7 +19,7 @@ const roasts = [
 	{ "number": 4, "roast": "Your like dobby from harry potter, only people wont be sad when you die in the seventh book." },
 	{ "number": 5, "roast": "If I asked you about your cock it wouldnt be a very long conversation." },
 	{ "number": 6, "roast": "You have the kinds of looks that make people talk about your personality." },
-	{ "number": 7, "roast": "You look like what happens when you press random on the charecter creation menu." },
+	{ "number": 7, "roast": "You look like the result of pressing random on the character creation menu." },
 	{ "number": 8, "roast": "You look like the after picture of a meth ad." },
 	{ "number": 9, "roast": "Even the shower doesn't want to see you naked." },
 	{ "number": 10, "roast": "I bet you wear a nose ring because no one wants to put one on your finger." },
@@ -136,11 +136,11 @@ exports.run = async (message) => {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let numberInt = parseInt(number1);
-				if (numberInt > roasts.length - 1) {
-					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
-				}
 				if (random > 100) {
 					return message.channel.send(customRoastFile[random - 100].roast + `\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
+				}
+				if (numberInt > roasts.length - 1) {
+					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 			}
