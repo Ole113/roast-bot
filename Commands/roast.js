@@ -122,8 +122,12 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "on") {
 		if (message.content.toLowerCase() == prefixFile.prefix + "roast") {
-			const randomRoasts = Math.ceil(Math.random() * 100);
-			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+			const randomRoasts = Math.ceil(Math.random() * 100 + customRoastFile.length);
+			if (randomRoasts > 100) {
+				return message.channel.send(customRoastFile[randomRoasts - 100].roast);
+			} else {
+				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+			}
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
 			const random = Math.ceil(Math.random() * 100);
 			const word = message.content;
@@ -142,8 +146,5 @@ exports.run = async (message) => {
 		}
 	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast == "off") {
 		return message.channel.send("This command has been turned off.");
-	}
-	if(message.content == "rb!test") {
-		return message.channel.send(customRoastFile[0].roast);
 	}
 }
