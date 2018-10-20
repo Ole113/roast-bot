@@ -41,12 +41,12 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let customRoast = content.slice(prefixFile.prefix.length + 7, content.length);
+			let customRoastSlice = content.slice(prefixFile.prefix.length + 7, content.length);
 
 			let number = customRoast.get(key, "number");
 
 			if (customRoast.get(key, "number") < 3) {
-				customRoast.set(key, customRoast, "roast");
+				customRoast.set(key, customRoastSlice, "roast");
 				customRoasts[number].roast = customRoast.get(key, "roast");
 				customRoast.set(key, ++number, "number");
 				return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
