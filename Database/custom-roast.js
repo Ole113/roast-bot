@@ -12,7 +12,7 @@ const customRoasts = [
 
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
-		if (message.author.bot) return;
+		if (message.author.bot) { return; }
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast delete #")) {
 			let content = message.content;
 			let contentSlice = content.slice(prefixFile.prefix.length + 15, content.length);

@@ -13,7 +13,7 @@ const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
 
 exports.run = async (message) => {
-    if (message.author.bot) return;
+    if (message.author.bot) { return; }
     if (message.content.toLowerCase() === prefixFile.prefix + "urban help") {
         return message.channel.send("**rb!urban help**:\n\nUnlike some other commands rb!urban only has 1 usage. To use rb!urban you only need to specify one thing, what to search.\n\nExample:\n\nUSER: rb!urban test\nRoast-Bot: \n*test*\nDefinition:\n1. the main cause of [explosions].\n2. any thing [dreaded] that your \"teachers\" say is \"good\" for you. soon after, you explode for no reason.\n3. what scientists do to make stuff explode.\n4. when a sheet of paper explodes into [flames].\n\nExample:\n\n1. test [sodium] and water.\n2. SAT is a test.\n3. [Monkeys].\n4. you brought your [lighter] to test.\nAuthor:\nmonn-unit\nRating:\nUpvotes: :thumbsup: 126 | Downvotes: :thumbsdown: 35*\n\nStill having trouble with rb!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
     }

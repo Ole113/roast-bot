@@ -9,7 +9,7 @@ exports.run = async (message) => {
 		return message.channel.send("coming soon");
 	}
 	feedback.defer.then(() => {
-		if (message.author.bot) return;
+		if (message.author.bot) { return; }
 
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "feedback ")) {
 

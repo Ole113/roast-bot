@@ -11,7 +11,7 @@ const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
 
 exports.run = async (message) => {
-    if (message.author.bot) return;
+    if (message.author.bot) { return; }
     if (message.content.toLowerCase() === prefixFile.prefix + "vid help") {
         return message.channel.send("coming soon");
     }

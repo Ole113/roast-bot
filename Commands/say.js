@@ -11,7 +11,7 @@ const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
 
 exports.run = async (message) => {
-    if (message.author.bot) return;
+    if (message.author.bot) { return; }
     if(message.content.toLowerCase() === prefixFile.prefix + "say" || message.content.toLowerCase() === prefixFile.prefix + "say  "){
         return message.channel.send("Please provide what you want Roast-Bot to say. The correct usage is `rb!say whatToSay`. ");
     }

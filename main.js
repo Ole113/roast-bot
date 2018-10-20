@@ -55,12 +55,11 @@ client.on("guildMemberAdd", (member) => {
 		.addField("Tag:", member)
 		.setThumbnail(member.user.displayAvatarURL);
 	welcomeleavechannel.send(joinEmbed);
-	console.log(`${member.user.username} has joined the ${member.guild} Discord.`);
 });
 client.on("guildMemberRemove", (member) => {
 	let welcomeleavechannel = member.guild.channels.find((c) => c.name === "welcome-leave-log");
 	let leaveTime = new Date();
-	if (!welcomeleavechannel) return;
+	if (!welcomeleavechannel) { return; }
 	let leaveEmbed = new Discord.RichEmbed()
 		.setTitle(member.user.username + " has left the server, later aligator.")
 		.setColor("#EB671D")
@@ -68,7 +67,6 @@ client.on("guildMemberRemove", (member) => {
 		.addField("Tag:", member)
 		.setThumbnail(member.user.displayAvatarURL);
 	welcomeleavechannel.send(leaveEmbed);
-	console.log(`${member.user.username} has left the ${member.guild} Discord.`);
 });
 client.on("message", (message) => {
 	onOffFile.run(message);

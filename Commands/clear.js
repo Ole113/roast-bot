@@ -12,7 +12,7 @@ const prefixFile = require("../Database/prefix.json");
 const onOffFile = require("../Database/on-off.json");
 
 exports.run = async (message) => {
-    if (message.author.bot) return;
+    if (message.author.bot) { return; }
     const word = message.content;
     const number = word.slice(prefixFile.prefix.length + 5, word.length);
     const int = Number(number);

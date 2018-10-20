@@ -7,7 +7,7 @@ const prefixFile = require("./prefix.json");
 exports.run = async (message) => {
 
 	xpLevel.defer.then(() => {
-		if (message.author.bot) return;
+		if (message.author.bot) { return; }
 		if (message.content.toLowerCase().startsWith("rb!")) {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if (!xpLevel.has(key)) {
