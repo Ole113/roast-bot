@@ -63,6 +63,7 @@ exports.run = async (message) => {
 		} else if (message.content.toLowerCase() == prefixFile.prefix + "level help") {
 			return message.channel.send("**rb!level help**\n\n`rb!level` is how you check what your current level/XP is. XP is gained by using a `rb!` command.  Levels are gained by gaining enough XP. For information on XP needed to level up look at the XP-System to part of `rb!help`.\n\nExample:\nUSER: rb!level\nRoast-Bot: @USER, You currently have 5 XP, and are level 1! <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!level` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 		}
+		/*
 		if(message.content.toLowerCase() == prefixFile.prefix + "leaderboard") {
 			// Get a filtered list (for this guild only), and convert to an array while we're at it.
 			const filtered = client.xpLevel.filter( p => p.guild === message.guild.id ).array();
@@ -82,7 +83,8 @@ exports.run = async (message) => {
 			for(const data of top10) {
 			  embed.addField(client.xpLevel.get(data.user).tag, `${data.points} points (level ${data.level})`);
 			}
-			return message.channel.send( { leaderboardEmbed} );
+			return message.channel.send( { leaderboardEmbed } );
 		  }
+		  */
 	});
 }
