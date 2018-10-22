@@ -125,19 +125,19 @@ const roasts = [
 	{ "number": 110, "roast": "I can’t help imagining how much awesomer the world would be if your dad had just pulled out."},
 	{ "number": 111, "roast": "Good story, but in what chapter do you shut the fuck up?"},
 	{ "number": 112, "roast": "I was pro life. Then I met you."},
-	{ "number": 112, "roast": "I’d tell you to go fuck yourself, but that would be cruel and unusual punishment."},
-	{ "number": 112, "roast": "You stare at frozen juice cans because they say, \"concentrate\"."},
-	{ "number": 112, "roast": "You have the perfect face for radio."},
-	{ "number": 112, "roast": "You’re so ugly you make blind kids cry."},
-	{ "number": 112, "roast": "Nice shirt, what brand is it? Clearance?"},
-	{ "number": 112, "roast": "Don’t you need a license to be that ugly?"},
-	{ "number": 112, "roast": "One more wrinkle and you’d pass for a prune."},
-	{ "number": 112, "roast": "You’re so dumb, your dog teaches you tricks."},
-	{ "number": 112, "roast": "You’re the reason they invented double doors!"},
-	{ "number": 112, "roast": "Hold on, I’ll go find you a tampon."},
-	{ "number": 112, "roast": "You prefer three left turns to one right turn."},
-	{ "number": 112, "roast": "You conserve toilet paper by using both sides."},
-	{ "number": 112, "roast": "What did you have for breakfast? Bitch Flakes?"}
+	{ "number": 113, "roast": "I’d tell you to go fuck yourself, but that would be cruel and unusual punishment."},
+	{ "number": 114, "roast": "You stare at frozen juice cans because they say, \"concentrate\"."},
+	{ "number": 115, "roast": "You have the perfect face for radio."},
+	{ "number": 116, "roast": "You’re so ugly you make blind kids cry."},
+	{ "number": 117, "roast": "Nice shirt, what brand is it? Clearance?"},
+	{ "number": 118, "roast": "Don’t you need a license to be that ugly?"},
+	{ "number": 119, "roast": "One more wrinkle and you’d pass for a prune."},
+	{ "number": 120, "roast": "You’re so dumb, your dog teaches you tricks."},
+	{ "number": 121, "roast": "You’re the reason they invented double doors!"},
+	{ "number": 122, "roast": "Hold on, I’ll go find you a tampon."},
+	{ "number": 123, "roast": "You prefer three left turns to one right turn."},
+	{ "number": 124, "roast": "You conserve toilet paper by using both sides."},
+	{ "number": 125, "roast": "What did you have for breakfast? Bitch Flakes?"}
 ];
 
 exports.run = async (message) => {
