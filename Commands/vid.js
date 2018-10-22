@@ -19,7 +19,7 @@ exports.run = async (message) => {
         let randomNumber = Math.floor(Math.random() * 7 + 1);
         return message.channel.send(`Video #${randomNumber} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${randomNumber}.gif`] });
     } else if(message.content.toLowerCase() === prefixFile.prefix + "vid" && onOffFile.vid === "off") {
-        return message.channel.send("This command has been turned off.");   
+        return message.channel.send("This command has been turned off by an administrator.");      
     }
     if (message.content.startsWith(prefixFile.prefix + "vid #") && onOffFile.vid === "on") {
         let content = message.content;
@@ -30,6 +30,6 @@ exports.run = async (message) => {
         }
         return message.channel.send(`Video #${vidNumberInt} <:roast_circle:474755210485563404>`, { files: [`Videos/vid${vidNumberInt}.gif`] });
     } else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "vid #") && onOffFile.vid === "off") {
-        return message.channel.send("This command has been turned off.");
+        return message.channel.send("This command has been turned off by an administrator.");   
     }
 };

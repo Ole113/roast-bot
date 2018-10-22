@@ -115,26 +115,26 @@ const roasts = [
 	{ "number": 100, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
 	{ "number": 101, "roast": "God made you as an example of what not to do."},
 	{ "number": 102, "roast": "You're proof that God has a sense of humor."},
-	{ "number": 103, "roast": "You’re so fat you could sell shade."},
-	{ "number": 104, "roast": "You’ll never be the man your mother is."},
+	{ "number": 103, "roast": "You\'re so fat you could sell shade."},
+	{ "number": 104, "roast": "You\'ll never be the man your mother is."},
 	{ "number": 105, "roast": "Which sexual position produces the ugliest children? Ask your mother."},
 	{ "number": 106, "roast": "I thought of you today. It reminded me to take the garbage out."},
-	{ "number": 107, "roast": "You’re so ugly when you look in the mirror, your reflection looks away."},
-	{ "number": 108, "roast": "Gay? I’m straighter than the pole your mom dances on."},
+	{ "number": 107, "roast": "You\'re so ugly when you look in the mirror, your reflection looks away."},
+	{ "number": 108, "roast": "Gay? I\'m straighter than the pole your mom dances on."},
 	{ "number": 109, "roast": "I just stepped in something that was smarter than you… and smelled better too."},
-	{ "number": 110, "roast": "I can’t help imagining how much awesomer the world would be if your dad had just pulled out."},
+	{ "number": 110, "roast": "I can\'t help imagining how much awesomer the world would be if your dad had just pulled out."},
 	{ "number": 111, "roast": "Good story, but in what chapter do you shut the fuck up?"},
 	{ "number": 112, "roast": "I was pro life. Then I met you."},
-	{ "number": 113, "roast": "I’d tell you to go fuck yourself, but that would be cruel and unusual punishment."},
+	{ "number": 113, "roast": "I\'d tell you to go fuck yourself, but that would be cruel and unusual punishment."},
 	{ "number": 114, "roast": "You stare at frozen juice cans because they say, \"concentrate\"."},
 	{ "number": 115, "roast": "You have the perfect face for radio."},
-	{ "number": 116, "roast": "You’re so ugly you make blind kids cry."},
+	{ "number": 116, "roast": "You\'re so ugly you make blind kids cry."},
 	{ "number": 117, "roast": "Nice shirt, what brand is it? Clearance?"},
-	{ "number": 118, "roast": "Don’t you need a license to be that ugly?"},
-	{ "number": 119, "roast": "One more wrinkle and you’d pass for a prune."},
-	{ "number": 120, "roast": "You’re so dumb, your dog teaches you tricks."},
-	{ "number": 121, "roast": "You’re the reason they invented double doors!"},
-	{ "number": 122, "roast": "Hold on, I’ll go find you a tampon."},
+	{ "number": 118, "roast": "Don\'t you need a license to be that ugly?"},
+	{ "number": 119, "roast": "One more wrinkle and you\'d pass for a prune."},
+	{ "number": 120, "roast": "You\'re so dumb, your dog teaches you tricks."},
+	{ "number": 121, "roast": "You\'re the reason they invented double doors!"},
+	{ "number": 122, "roast": "Hold on, I\'ll go find you a tampon."},
 	{ "number": 123, "roast": "You prefer three left turns to one right turn."},
 	{ "number": 124, "roast": "You conserve toilet paper by using both sides."},
 	{ "number": 125, "roast": "What did you have for breakfast? Bitch Flakes?"}
@@ -187,6 +187,6 @@ exports.run = async (message) => {
 			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
 	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "off") {
-		return message.channel.send("This command has been turned off.");
+		return message.channel.send("This command has been turned off by an administrator.");   
 	}
 };

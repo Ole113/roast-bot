@@ -33,6 +33,6 @@ exports.run = async (message) => {
             return message.channel.send(`Cleared ${int} messages. <:roast_circle:474755210485563404>`);
         });
     } else if(message.content.toLowerCase().startsWith(prefixFile.prefix + "clear") && onOffFile.clear === "off") {
-        return message.channel.send("This command has been turned off.");   
+        return message.channel.send("This command has been turned off by an administrator.");      
     }
 };

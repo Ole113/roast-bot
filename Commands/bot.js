@@ -27,12 +27,12 @@ exports.run = async (client, message) => {
             .addField("Bot Name:", client.user.username)
             .addField("Created On:", client.user.createdAt)
             .addField("Server Count:", client.guilds.size)
-            .addField("Total Number of Roasts:", "100", true)
-            .addField("Total Number of Memes:", "217", true)
-            //.addField("Total Users:", )
+            .addField("Total Number of Roasts:", "125", true)
+            .addField("Total Number of Memes:", "305", true)
+            .addField("Registered Users:", "3000")
             .setFooter("Created By Ole113#2421");
-        return message.channel.send({embed: botEmbed});
+        return message.channel.send({ embed: botEmbed });
     } else if(message.content.toLowerCase() === prefixFile.prefix + "bot" && onOffFile.bot === "off") {
-        return message.channel.send("This command has been turned off.");   
+        return message.channel.send("This command has been turned off by an administrator.");   
     }
 };
