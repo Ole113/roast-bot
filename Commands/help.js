@@ -40,6 +40,7 @@ exports.run = async (client, message) => {
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
 
         return message.channel.send({ embed: helpEmbed }).then(async (reactions) => {
+            /*
             await reactions.react("⏪");
             await reactions.react("◀");
             await reactions.react("▶");
@@ -49,8 +50,30 @@ exports.run = async (client, message) => {
             
             const filter = (reaction) => reaction.emoji.name === "◀";
             const collector = message.createReactionCollector(filter);
-            collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
-            collector.on('end', collected => console.log(`Collected ${collected.size} items`));
+            collector.on("collect", r => console.log(`Collected ${r.emoji.name}`));
+            collector.on("end", collected => console.log(`Collected ${collected.size} items`));
+            */
+            message.react("👍").then(() => message.react("👎"));
+
+            const filter = (reaction, user) => {
+                return ["👍", "👎"].includes(reaction.emoji.name) && user.id === message.author.id;
+            };
+
+            message.awaitReactions(filter, { max: 1, time: 60000, errors: ["time"] })
+                .then(collected => {
+                    const reaction = collected.first();
+
+                    if (reaction.emoji.name === "👍") {
+                        message.reply("you reacted with a thumbs up.");
+                    }
+                    else {
+                        message.reply("you reacted with a thumbs down.");
+                    }
+                })
+                .catch(collected => {
+                    console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+                    message.reply("you didn\"t react with neither a thumbs up, nor a thumbs down.");
+                });
         });
     }
 };
