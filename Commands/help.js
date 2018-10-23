@@ -55,11 +55,11 @@ exports.run = async (client, message) => {
             */
             await reactions.react('👍').then(() => reactions.react('👎'));
 
-            const filter = (reaction, user) => {
-                return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+            const filter = (reaction) => {
+                return ['👍', '👎'].includes(reaction.emoji.name);
             };
 
-            message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+            reactions.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
                 .then(collected => {
                     const reaction = collected.first();
 
