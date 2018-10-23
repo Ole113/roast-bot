@@ -7,7 +7,7 @@ Roast-Bot<br><br>Roast-Bot is a discord bot make with discord.js and hosted on A
   <img src="https://discordbots.org/api/widget/461361233644355595.svg" alt="Roast-Bot" />
 </a>
 
-*100* Roasts, More than *200* Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
+*125* Roasts, More than *300* Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
 </p>
 
 
