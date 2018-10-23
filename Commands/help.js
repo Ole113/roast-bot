@@ -39,5 +39,9 @@ exports.run = async (client, message) => {
             .addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\n")
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
         return message.channel.send({ embed: helpEmbed });
+        message.react(\:rewind:);
+        message.react(\:arrow_backward:);
+        message.react(\:arrow_forward:);
+        message.react(\:fast_forward:);
     }
 };
