@@ -39,7 +39,7 @@ exports.run = async (client, message) => {
             .addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\n")
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
 
-        return message.channel.send({ embed: helpEmbed }).then(async (reactions) => {
+        return message.channel.send({ embed: helpEmbed }).then(async (reactions, embedEdit) => {
 
             await reactions.react("⏪");
             await reactions.react("◀");
