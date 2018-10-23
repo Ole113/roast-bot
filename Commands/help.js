@@ -43,6 +43,8 @@ exports.run = async (client, message) => {
         reactions.react("⏪");
         reactions.react("◀");
         reactions.react("▶");
+
+reactions.react("⏩");
         reactions.react("⏹");
         reactions.react("🔢");
         });
