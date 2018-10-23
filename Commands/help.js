@@ -46,8 +46,10 @@ exports.run = async (client, message) => {
             await reactions.react("⏩");
             await reactions.react("⏹");
             await reactions.react("🔢");
-            if(reactions.get("▶" ).count > 1) {
-                reaction.get("▶").count--;
+            
+            let count = reactions.get("▶").count;
+            if(count > 1) {
+                count--;
                 return message.channel.send(`The reaction was recorded and count = ${reaction.get("▶").count}`);
             }
         });
