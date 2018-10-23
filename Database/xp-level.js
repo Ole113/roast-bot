@@ -12,7 +12,7 @@ exports.run = async (message) => {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if (!xpLevel.has(key)) {
 				xpLevel.set(key, {
-					user: message.author.id, guild: message.guild.id, points: 0, level: 1
+					user: message.author.id, points: 0, level: 1
 				});
 			}
 			let currentPoints = xpLevel.get(key, "points");

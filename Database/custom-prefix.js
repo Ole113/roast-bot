@@ -16,7 +16,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() === prefixFile.prefix + "prefix" || message.content.toLowerCase() === "rb!prefix") {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if (customPrefix.has(key)) {
-				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*.`);
+				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*`);
 			} else if (!customPrefix.has(key)) {
 				return message.channel.send("Looks like you haven't set a custom prefix yet! To set a custom prefix use `rb!prefix <newPrefix>`.");
 			}
@@ -37,7 +37,7 @@ exports.run = async (message) => {
 
 			customPrefix.set(key, customPrefixx, "prefix");
 			prefixFile.prefix = customPrefixx;
-			return message.channel.send(`Custom Prefix set to *${customPrefixx}*.`);
+			return message.channel.send(`Custom Prefix set to *${customPrefixx}*`);
 		}
 	});
 };
