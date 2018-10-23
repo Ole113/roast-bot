@@ -47,10 +47,10 @@ exports.run = async (client, message) => {
             await reactions.react("⏹");
             await reactions.react("🔢");
             
-            const filter = (reaction) => reaction.emoji.name === "▶";
-            message.awaitReactions(filter)
-              .then(collected => console.log(`Collected ${collected.size} reactions`))
-              .catch(console.error);
+            const filter = (reaction) => reaction.emoji.name === "◀";
+            const collector = message.createReactionCollector(filter);
+            collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
+            collector.on('end', collected => console.log(`Collected ${collected.size} items`));
         });
     }
 };
