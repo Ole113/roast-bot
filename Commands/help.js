@@ -53,8 +53,7 @@ exports.run = async (client, message) => {
             collector.on("collect", r => console.log(`Collected ${r.emoji.name}`));
             collector.on("end", collected => console.log(`Collected ${collected.size} items`));
             */
-            await reactions.react("👍");
-            await reactions.react("👎");
+            await reactions.react("👍").then(reactions.react("👎"));
 
             const filter = (reaction, user) => {
                 return ["👍", "👎"].includes(reaction.emoji.name) && user.id === message.author.id;
