@@ -47,11 +47,10 @@ exports.run = async (client, message) => {
             await reactions.react("⏹");
             await reactions.react("🔢");
             
-            let count = reactions.get("▶").count;
-            if(count > 1) {
-                count--;
-                return message.channel.send(`The reaction was recorded and count = ${reaction.get("▶").count}`);
-            }
+            const filter = (reaction) => reaction.emoji.name === "▶";
+            message.awaitReactions(filter)
+              .then(collected => console.log(`Collected ${collected.size} reactions`))
+              .catch(console.error);
         });
     }
 };
