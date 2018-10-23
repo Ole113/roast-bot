@@ -57,7 +57,7 @@ exports.run = async (client, message) => {
                     const reaction = collected.first();
 
                     if (reaction.emoji.name === "▶") {
-                        helpEmbed.addField("Test field");
+                        helpEmbed.addField("Test field", "tset field");
                         embedEdit.edit({ embed: helpEmbed });
                     }
                 });
