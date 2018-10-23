@@ -40,14 +40,14 @@ exports.run = async (client, message) => {
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
 
         return message.channel.send({ embed: helpEmbed }).then(async (reactions) => {
-            
+
             await reactions.react("⏪");
             await reactions.react("◀");
             await reactions.react("▶");
             await reactions.react("⏩");
             await reactions.react("⏹");
             await reactions.react("🔢");
-            
+
             const filter = (reaction) => {
                 return ["⏪", "◀", "▶", "⏩", "⏹", "🔢"].includes(reaction.emoji.name);
             };
@@ -56,10 +56,11 @@ exports.run = async (client, message) => {
                 .then(collected => {
                     const reaction = collected.first();
 
-                    if (reaction.emoji.name === "◀") {
-                        message.reply('you reacted with a thumbs up.');
+                    if (reaction.emoji.name === "▶") {
+                        helpEmbed.addField("Test field");
+                        embedEdit.edit({ embed: helpEmbed });
                     }
-                })
+                });
         });
     }
 };
