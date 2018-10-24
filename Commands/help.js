@@ -39,7 +39,7 @@ exports.run = async (client, message) => {
             .addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\n")
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
 
-        return message.channel.send({ embed: helpEmbed }).then(async (reactions, embedEdit) => {
+        return message.channel.send({ embed: helpEmbed }).then(async (reactions, helpEmbed) => {
 
             await reactions.react("⏪");
             await reactions.react("◀");
@@ -59,7 +59,7 @@ exports.run = async (client, message) => {
                     if (reaction.emoji.name === "▶") {
 let secondPage = new Discord.RichEmbed()
                         secondPage.addField("Test field", "tset field");
-                       embedEdit.edit({ embed: secondPage });
+                       helpEmbed.edit({ embed: secondPage });
                     }
                 });
         });
