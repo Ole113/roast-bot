@@ -28,6 +28,7 @@ const feedbackFile = require("./Database/feedback.js");
 const customRoastFile = require("./Database/custom-roast.js");
 const onOffFile = require("./Database/on-off.js");
 const vidFile = require("./Commands/vid.js");
+const pollFile = require("./Commands/poll.js");
 
 const botPrecense = [
 	"https://ole113.github.io/Roast-Bot/",
@@ -85,6 +86,7 @@ client.on("message", (message) => {
 	customPrefixFile.run(message);
 	customRoastFile.run(message);
 	vidFile.run(message);
+	pollFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
