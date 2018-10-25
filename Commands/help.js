@@ -54,12 +54,12 @@ exports.run = async (client, message) => {
 
             reactions.awaitReactions(filter)
                 .then(collected => {
-                    const reaction = collected.first();
+                    const reactionTwo = collected.first();
 
-                    if (reaction.emoji.name === "▶") {
+                    if (reactionTwo.emoji.name === "▶") {
                     
                     let secondPage = new Discord.RichEmbed()
-                        .addField("Test field", "tset field");
+                        .addField("Test field", "tset field")
                         reactions.edit("test", secondPage);
 
                     }
