@@ -39,7 +39,42 @@ exports.run = async (client, message) => {
             .addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\n")
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
 
-        return message.channel.send({ embed: helpEmbed }).then(async (reactions, helpEmbed) => {
+        return message.channel.send({ embed: helpEmbed })
+        .then(msg => msg.react('✅'))
+        .then(mReaction => mReaction.message.react('❎') )
+        .then(mReaction => {
+
+            
+            // createReactionCollector - responds on each react, AND again at the end.
+            const collector = mReaction.message
+                .createReactionCollector(reactionFilter, { time: 15000 });
+        
+            // set collector events
+            collector.on('collect', r => {
+                // immutably copy embed's Like field to new obj
+                let embedLikeField = Object.assign({}, embed.fields[0]);
+        
+                // update 'field' with new value
+                embedLikeField.value = '<3 <3 <3';
+        
+                // create new embed with old title & description, new field
+                const newEmbed = new Discord.RichEmbed({
+                    title: embed.title,
+                    description: embed.description,
+                    fields: [ embedLikeField ]
+                });
+        
+                // edit message with new embed
+                // NOTE: can only edit messages you author
+                r.message.edit(newEmbed)
+                .then(newMsg => console.log(`new embed added`))
+                .catch(console.log);
+            });
+            collector.on('end', collected => console.log(`Collected ${collected.size} reactions`));
+        })
+        /*
+        .catch(console.log);
+        .then(async (reactions, helpEmbed) => {
 
             await reactions.react("⏪");
             await reactions.react("◀");
@@ -57,11 +92,12 @@ exports.run = async (client, message) => {
                     const reaction = collected.first();
 
                     if (reaction.emoji.name === "▶") {
-let secondPage = new Discord.RichEmbed()
+                    let secondPage = new Discord.RichEmbed()
                         secondPage.addField("Test field", "tset field");
                        helpEmbed.edit(secondPage);
                     }
                 });
         });
+        */
     }
 };
