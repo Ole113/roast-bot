@@ -51,7 +51,7 @@ exports.run = async (client, message) => {
             const filter = (reaction) => {
                 return ["⏪", "◀", "▶", "⏩", "⏹", "🔢"].includes(reaction.emoji.name);
             };
-
+            console.log(reaction);
             reactions.awaitReactions(filter)
                 .then(collected => {
                     const reactionTwo = collected.first();
@@ -65,8 +65,11 @@ exports.run = async (client, message) => {
                     }
                     console.log(collected.size);
                     console.log(collected)
+                    console.log(reaction);
+                    console.log(reactions);
+
                 });
-        }).catch(e => { 
+        }).catch(e => {
             console.log(e);
         });
     }
