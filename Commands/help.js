@@ -50,8 +50,9 @@ exports.run = async (client, message) => {
 
             const filter = (reaction) => {
                 return ["⏪", "◀", "▶", "⏩", "⏹", "🔢"].includes(reaction.emoji.name);
+console.log(reaction);
             };
-            console.log(reaction);
+           
             reactions.awaitReactions(filter)
                 .then(collected => {
                     const reactionTwo = collected.first();
