@@ -57,9 +57,11 @@ exports.run = async (client, message) => {
                     const reaction = collected.first();
 
                     if (reaction.emoji.name === "▶") {
+                    
                     let secondPage = new Discord.RichEmbed()
-                        secondPage.addField("Test field", "tset field");
+                        .addField("Test field", "tset field");
                         reactions.edit(secondPage);
+
                     }
                 });
         }).catch(e => {
