@@ -61,6 +61,8 @@ exports.run = async (client, message) => {
                         secondPage.addField("Test field", "tset field");
                         embed.edit(secondPage);
                     }
+                }).catch(e => {
+                    console.log(e);
                 });
         });
     }
