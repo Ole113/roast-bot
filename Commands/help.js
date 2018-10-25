@@ -60,7 +60,7 @@ exports.run = async (client, message) => {
                     
                     let secondPage = new Discord.RichEmbed()
                         .addField("Test field", "tset field");
-                        reactions.edit(secondPage);
+                        reactions.edit("test", secondPage);
 
                     }
                     console.log(collected.size);
