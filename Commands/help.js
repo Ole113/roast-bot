@@ -46,8 +46,8 @@ exports.run = async (client, message) => {
 
             
             // createReactionCollector - responds on each react, AND again at the end.
-            const collector = mReaction.message
-                .createReactionCollector(reactionFilter, { time: 15000 });
+            const filter = mReaction.message
+                .createReactionCollector(filter, { time: 15000 });
         
             // set collector events
             collector.on('collect', r => {
