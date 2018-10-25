@@ -63,6 +63,7 @@ exports.run = async (client, message) => {
                         reactions.edit(secondPage);
 
                     }
+                    console.log(collected);
                 });
         }).catch(e => {
             console.log(e);
