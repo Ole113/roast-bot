@@ -66,7 +66,7 @@ exports.run = async (client, message) => {
                     console.log(collected.size);
                     console.log(collected)
                 });
-        }).catch(e => {
+        }).catch(e => { 
             console.log(e);
         });
     }
