@@ -54,12 +54,12 @@ exports.run = async (client, message) => {
         reactions.awaitReactions(filter)
             .then(async (collected) => {
 
-                if (reactionTwo.emoji.name === "▶") {
+                if (collected.emoji.name === "▶") {
                     return message.channel.send("Successfuly voted for Yes!");
                     message.delete(1000);
                 }
             
             });
-    });
+        });
     }
 };
