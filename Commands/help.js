@@ -47,18 +47,15 @@ exports.run = async (client, message) => {
         await reactions.react("🔢");
 
         const filter = (reaction) => {
-            console.log(reaction);
             return ["⏪", "◀", "▶", "⏩", "⏹", "🔢"].includes(reaction.emoji.name);
         };
 
         reactions.awaitReactions(filter)
             .then(async (collected) => {
-
-                if (collected.emoji.name === "▶") {
+                if (reactions.emoji.name === "▶") {
                     return message.channel.send("Successfuly voted for Yes!");
-                    message.delete(1000);
+                    message.delete(1500);
                 }
-            
             });
         });
     }
