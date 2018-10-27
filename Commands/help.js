@@ -38,40 +38,28 @@ exports.run = async (client, message) => {
             .addBlankField()
             .addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\n")
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
-
         return message.channel.send({ embed: helpEmbed }).then(async (reactions) => {
+        await reactions.react("⏪");
+        await reactions.react("◀");
+        await reactions.react("▶");
+        await reactions.react("⏩");
+        await reactions.react("⏹");
+        await reactions.react("🔢");
 
-            await reactions.react("⏪");
-            await reactions.react("◀");
-            await reactions.react("▶");
-            await reactions.react("⏩");
-            await reactions.react("⏹");
-            await reactions.react("🔢");
+        const filter = (reaction) => {
+            console.log(reaction);
+            return ["⏪", "◀", "▶", "⏩", "⏹", "🔢"].includes(reaction.emoji.name);
+        };
 
-            const filter = (reaction) => {
-                return ["⏪", "◀", "▶", "⏩", "⏹", "🔢"].includes(reaction.emoji.name);
-console.log(reaction);
-            };
-           
-            reactions.awaitReactions(filter)
-                .then(collected => {
-                    const reactionTwo = collected.first();
+        reactions.awaitReactions(filter)
+            .then(async (collected) => {
 
-                    if (reactionTwo.emoji.name === "▶") {
-                    
-                    let secondPage = new Discord.RichEmbed()
-                        .addField("Test field", "tset field")
-                        reactionTwo.edit(secondPage);
-
-                    }
-                    console.log(collected.size);
-                    console.log(collected)
-                    console.log(reaction);
-                    console.log(reactions);
-
-                });
-        }).catch(e => {
-            console.log(e);
-        });
+                if (reactionTwo.emoji.name === "▶") {
+                    return message.channel.send("Successfuly voted for Yes!");
+                    message.delete(1000);
+                }
+            
+            });
+    });
     }
 };
