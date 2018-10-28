@@ -28,7 +28,7 @@ exports.run = async (client, message) => {
             .addField("Created On:", client.user.createdAt)
             .addField("Server Count:", client.guilds.size)
             .addField("Total Number of Roasts:", "125", true)
-            .addField("Total Number of Memes:", "305", true)
+            .addField("Total Number of Memes:", "353", true)
             .addField("Registered Users:", "3000")
             .setFooter("Created By Ole113#2421");
         return message.channel.send({ embed: botEmbed });
