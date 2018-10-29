@@ -32,7 +32,7 @@ const pollFile = require("./commands/poll.js");
 const websiteFile = require("./commands/website.js");
 
 const botPrecense = [
-	"https://ole113.github.io/Roast-Bot/",
+	"http://roast-bot.com",
 	"On-Off now live! r!off commandName",
 	"Custom Roasts now live! r!croast help",
 	"Use r!feedback messasge to send feedback"
