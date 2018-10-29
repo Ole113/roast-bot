@@ -11,7 +11,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const botFile = require("./commands/bot");
+const botFile = require("./commands/bot.js");
 const clearFile = require("./commands/clear.js");
 const serverFile = require("./commands/server.js");
 const inviteFile = require("./commands/invite.js");
@@ -72,7 +72,7 @@ client.on("guildMemberRemove", (member) => {
 });
 client.on("message", (message) => {
 	onOffFile.run(message);
-	//helpFile.run(client, message);
+	helpFile.run(client, message);
 	botFile.run(client, message);
 	roastFile.run(message);
 	inviteFile.run(message);
