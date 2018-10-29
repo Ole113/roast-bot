@@ -11,24 +11,25 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const urbanFile = require("./Commands/urban.js");
-const botFile = require("./Commands/bot.js");
-const clearFile = require("./Commands/clear.js");
-const serverFile = require("./Commands/server.js");
-const inviteFile = require("./Commands/invite.js");
-const helpFile = require("./Commands/help.js");
-const roastFile = require("./Commands/roast.js");
-const memeFile = require("./Commands/meme.js");
-const sayFile = require("./Commands/say.js");
-const xpLevelFile = require("./Database/xp-level.js");
-const userFile = require("./Commands/user.js");
-const customPrefixFile = require("./Database/custom-prefix.js");
-const prefixFile = require("./Database/prefix.json");
-const feedbackFile = require("./Database/feedback.js");
-const customRoastFile = require("./Database/custom-roast.js");
-const onOffFile = require("./Database/on-off.js");
-const vidFile = require("./Commands/vid.js");
-const pollFile = require("./Commands/poll.js");
+const urbanFile = require("./commands/urban.js");
+const botFile = require("./commands/bot.js");
+const clearFile = require("./commands/clear.js");
+const serverFile = require("./commands/server.js");
+const inviteFile = require("./commands/invite.js");
+const helpFile = require("./commands/help.js");
+const roastFile = require("./commands/roast.js");
+const memeFile = require("./commands/meme.js");
+const sayFile = require("./commands/say.js");
+const xpLevelFile = require("./database/xp-level.js");
+const userFile = require("./commands/user.js");
+const customPrefixFile = require("./database/custom-prefix.js");
+const prefixFile = require("./database/prefix.json");
+const feedbackFile = require("./database/feedback.js");
+const customRoastFile = require("./database/custom-roast.js");
+const onOffFile = require("./database/on-off.js");
+const vidFile = require("./commands/vid.js");
+const pollFile = require("./commands/poll.js");
+const websiteFile = require("./commands/website.js");
 
 const botPrecense = [
 	"https://ole113.github.io/Roast-Bot/",
@@ -87,6 +88,7 @@ client.on("message", (message) => {
 	customRoastFile.run(message);
 	vidFile.run(message);
 	pollFile.run(message);
+	websiteFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
