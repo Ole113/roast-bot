@@ -28,6 +28,7 @@ exports.run = async (client, message) => {
             .addField("r!say", "To use this command use `r!say ` and then what you want Roast-Bot to say.")
             .addField("r!urban *whatToSearch*", "Search up anything on the Urban Dictionary!")
             .addField("r!user, or r!user *@user*", "r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!")
+            .addField("r!website", "The link to the Roast-Bot website!")
             .addField("r!feedback *feedbackMsg*", "`r!feedback` sends your feedback to me so I can improve Roast-Bot! If you ever are using Roast-Bot and a command isn't working or something else is wrong you can also report them here.")
             .addBlankField()
             .addField("***Utilities:***\n\nXP-System", "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP")
