@@ -11,7 +11,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const urbanFile = require("./commands/urban.js");
 const botFile = require("./commands/bot.js");
 const clearFile = require("./commands/clear.js");
 const serverFile = require("./commands/server.js");
@@ -20,6 +19,7 @@ const helpFile = require("./commands/help.js");
 const roastFile = require("./commands/roast.js");
 const memeFile = require("./commands/meme.js");
 const sayFile = require("./commands/say.js");
+const urbanFile = require("./commands/urban");
 const xpLevelFile = require("./database/xp-level.js");
 const userFile = require("./commands/user.js");
 const customPrefixFile = require("./database/custom-prefix.js");
@@ -72,7 +72,7 @@ client.on("guildMemberRemove", (member) => {
 });
 client.on("message", (message) => {
 	onOffFile.run(message);
-	helpFile.run(client, message);
+	//helpFile.run(client, message);
 	botFile.run(client, message);
 	roastFile.run(message);
 	inviteFile.run(message);
