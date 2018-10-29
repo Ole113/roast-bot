@@ -38,7 +38,9 @@ exports.run = async (client, message) => {
             .addBlankField()
             .addField("Roast-Bot Development Server:", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\n")
             .setFooter("v2.2.0, for release notes join the Roast-Bot help server. ");
-        return message.channel.send({ embed: helpEmbed }).then(async (message) => {
+        return message.channel.send({ embed: helpEmbed })
+        /*
+        .then(async (message) => {
             message.react('👍').then(() => message.react('👎'));
 
             const filter = (reaction, user) => {
@@ -60,5 +62,6 @@ exports.run = async (client, message) => {
                     console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
                     message.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
                 });
+                */
     }
 };
