@@ -11,7 +11,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const botFile = require("./commands/bot.js");
+const botFile = require("../Roast-Bot/commands/bot.js");
 const clearFile = require("./commands/clear.js");
 const serverFile = require("./commands/server.js");
 const inviteFile = require("./commands/invite.js");
