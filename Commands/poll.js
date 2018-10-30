@@ -14,7 +14,7 @@ exports.run = async (message) => {
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
         let page = 1;
         const pageForward = (reaction) => reaction.emoji.name === "▶";
-        const
+        const pageBackward = (reaction) => reaction.emoji.name === "◀";
         const pageOneEmbed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
             color: 15427357,
@@ -40,7 +40,9 @@ exports.run = async (message) => {
             .then(mReaction => mReaction.message.react("🔢"))
             .then(mReaction => {
                 const collectorPageForward = mReaction.message
-                    .createReactionCollector(pageForward, { time: 15000 });
+                    .createReactionCollector(pageForward);
+                const collectorPageBackward = mReaction.message
+                    .createReactionCollector(pageBackward);
 
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: embed.title,
