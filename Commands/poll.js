@@ -15,7 +15,7 @@ exports.run = async (message) => {
 
         const embed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
-            color: EB671D,
+            color: 15427357,
             fields: [
                 {name: "Commands:***\n\nr!help", value: "List of Roast-Bot Commands."},
                 {name: "r!roast *@user*, r!roast, or r!roast *roastNumber*", value: "Generate a random roast with the number of roast it was."},
