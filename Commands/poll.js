@@ -87,17 +87,21 @@ exports.run = async (message) => {
                 });
                 collectorPageForward.on("collect", r => {
                     if (page == 1) {
+                        page++;
                         r.message.edit(pageTwoEmbed);
                     }
                 });
                 collectorPageBackward.on("collect", r => {
                     if (page == 2) {
+                        page--;
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
                     } else if (page == 3) {
+                        page--;
                         r.message.edit(pageTwoEmbed);
                     } else if (page == 4) {
+                        page--;
                         r.message.edit(pageThreeEmbed);
                     }
                 });
