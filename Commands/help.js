@@ -40,13 +40,13 @@ exports.run = async (client, message) => {
             //.then(mReaction => mReaction.message.react("🔢"))
             .then(async mReaction => {
                 await mReaction.react("⏮");
-                await mReaction.message.react("⏪");
-                await mReaction.message.react("◀");
-                await mReaction.message.react("⏹");
-                await mReaction.message.react("▶");
-                await mReaction.message.react("⏩");
-                await mReaction.message.react("⏭");
-                await mReaction.message.react("🔢");
+                await mReaction.react("⏪");
+                await mReaction.react("◀");
+                await mReaction.react("⏹");
+                await mReaction.react("▶");
+                await mReaction.react("⏩");
+                await mReaction.react("⏭");
+                await mReaction.react("🔢");
                 const collectorPageForward = mReaction.message
                     .createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message
