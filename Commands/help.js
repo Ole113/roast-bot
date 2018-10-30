@@ -30,19 +30,19 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            .then(msg => msg.react("⏮"))
-            .then(msgReaction => msgReaction.message.react("⏪"))
-            .then(mmReaction => mmReaction.message.react("◀"))
-            .then(mmmReaction => mmmReaction.message.react("⏹"))
-            .then(mmmReaction => mmmReaction.message.react("▶"))
-            .then(mReaction => mReaction.message.react("⏩"))
-            .then(mmmmReaction => mmmmReaction.message.react("⏭"))
-            .then(mReaction => mReaction.message.react("🔢"))
+            //.then(msg => msg.react("⏮"))
+            //.then(msgReaction => msgReaction.message.react("⏪"))
+            //.then(mmReaction => mmReaction.message.react("◀"))
+            //.then(mmmReaction => mmmReaction.message.react("⏹"))
+            //.then(mmmReaction => mmmReaction.message.react("▶"))
+            //.then(mReaction => mReaction.message.react("⏩"))
+            //.then(mmmmReaction => mmmmReaction.message.react("⏭"))
+            //.then(mReaction => mReaction.message.react("🔢"))
             .then(async mReaction => {
                 const collectorPageForward = mReaction.message
-                    .createReactionCollector(pageForward);
+                    mReaction.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message
-                    .createReactionCollector(pageBackward);
+                    mReaction.createReactionCollector(pageBackward);
 
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
@@ -85,16 +85,16 @@ exports.run = async (client, message) => {
                         text: "Page 4 of 4."
                     }
                 });
-                collectorPageForward.on("collect", r => {
+                collectorPageForward.on("collect", (r) => {
                     if (page == 1) {
                         page++;
                         r.message.edit(pageTwoEmbed);
                     }
                 });
-                collectorPageBackward.on("collect", (r, mmmReaction) => {
+                collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        mmmReaction.remove(message.author);
+                        mReaction.remove(message.author);
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
