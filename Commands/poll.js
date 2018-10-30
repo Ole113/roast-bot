@@ -2,7 +2,7 @@
 *
 *   Things to add to r!poll:
 * ----------------------------
-*
+*⏩◀️⏮⏭▶️⏪🔢⏹
 */
 
 const Discord = require("discord.js");
