@@ -20,7 +20,7 @@ exports.run = async (message) => {
     let page = 1;
     
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
-        const reactionFilter = (reaction) => reaction.emoji.name === "arrow_forward";
+        const reactionFilter = (reaction) => reaction.emoji.name === "⏮";
         
         const embed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
@@ -41,8 +41,8 @@ exports.run = async (message) => {
         .then(msg => msg.react("⏮"))
         //.then(mReaction => mReaction.message.react("◀️"))
         //.then(mmReaction => mmReaction.message.react(""))
-        .then(mmmReaction => mmmReaction.message.react("arrow_forward"))
-        .then(mmmmReaction => mmmmReaction.message.react("⏭"))
+        //.then(mmmReaction => mmmReaction.message.react("arrow_forward"))
+        //.then(mmmmReaction => mmmmReaction.message.react("⏭"))
         .then(mReaction => {
             const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
