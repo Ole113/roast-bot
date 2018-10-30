@@ -10,9 +10,11 @@ const Discord = require("discord.js");
 const prefixFile = require("../Database/prefix.json");
 
 exports.run = async (message) => {
+    let page = 1;
+    
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
         const reactionFilter = (reaction, user) => reaction.emoji.name === "✅";
-
+        
         const embed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
             color: 15427357,
@@ -36,36 +38,34 @@ exports.run = async (message) => {
             }
         });
         
-        // add reaction emoji to message
         message.channel.send(embed)
         .then(msg => msg.react("✅"))
         .then(mReaction => mReaction.message.react("❎") )
         .then(mReaction => {
-            // createReactionCollector - responds on each react, AND again at the end.
-            const collector = mReaction.message
+            const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
-        
-            // set collector events
-            collector.on("collect", r => {
-                // immutably copy embed"s Like field to new obj
-                let embedField0 = Object.assign({}, embed.fields[0]);
-        
-                // update "field" with new value
-                embedField0.name = "r!server";
-                embedField0.value = "Info about your server.";
-        
-                // create new embed with old title & description, new field
-                const newEmbed = new Discord.RichEmbed({
+            
+            if(page == 1) {
+            collectorPageUp.on("collect", r => {
+                const pageTwoEmbed = new Discord.RichEmbed({
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "test name", value: "test value"}
+                        {name: "test name page 2", value: "test value"}
                     ]
                 });
-        
-                // edit message with new embed
-                // NOTE: can only edit messages you author
-                r.message.edit(newEmbed)
+                
+                r.message.edit(pageTwoEmbed)
+            } else if(page == 2) {
+                const pageThreeEmbed = new Discord.RichEmbed({
+                    title: embed.title,
+                    color: 15427357,
+                    fields: [ 
+                        {name: "test name page 3", value: "test value"}
+                    ]
+                });
+                r.message.edit(pageThreeEmbed)
+            }
             });
         });
     }
