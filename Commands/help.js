@@ -31,14 +31,22 @@ exports.run = async (client, message) => {
         });
         message.channel.send(pageOneEmbed)
             .then(msg => msg.react("⏮"))
-            .then(msgReaction => msgReaction.message.react("⏪"))
-            .then(mmReaction => mmReaction.message.react("◀"))
-            .then(mmmReaction => mmmReaction.message.react("⏹"))
-            .then(mmmReaction => mmmReaction.message.react("▶"))
-            .then(mReaction => mReaction.message.react("⏩"))
-            .then(mmmmReaction => mmmmReaction.message.react("⏭"))
-            .then(mReaction => mReaction.message.react("🔢"))
-            .then(mReaction => {
+            //.then(msgReaction => msgReaction.message.react("⏪"))
+            //.then(mmReaction => mmReaction.message.react("◀"))
+            //.then(mmmReaction => mmmReaction.message.react("⏹"))
+            //.then(mmmReaction => mmmReaction.message.react("▶"))
+            //.then(mReaction => mReaction.message.react("⏩"))
+            //.then(mmmmReaction => mmmmReaction.message.react("⏭"))
+            //.then(mReaction => mReaction.message.react("🔢"))
+            .then(async mReaction => {
+                mReaction.message.react("⏮");
+                mReaction.message.react("⏪");
+                mReaction.message.react("◀");
+                mReaction.message.react("⏹");
+                mReaction.message.react("▶");
+                mReaction.message.react("⏩");
+                mReaction.message.react("⏭");
+                mReaction.message.react("🔢");
                 const collectorPageForward = mReaction.message
                     .createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message
@@ -106,10 +114,6 @@ exports.run = async (client, message) => {
                         r.message.edit(pageThreeEmbed);
                     }
                 });
-
-
-
-
             });
     }
     /*
