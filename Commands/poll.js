@@ -2,14 +2,7 @@
 *
 *   Things to add to r!poll:
 * ----------------------------
-* ⏩
-* ◀️
-* ⏮
-* ⏭
-* ▶️
-* ⏪
-* 🔢
-* ⏹
+*
 */
 
 const Discord = require("discord.js");
@@ -19,9 +12,10 @@ const prefixFile = require("../Database/prefix.json");
 exports.run = async (message) => {
 
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
-        const reactionFilter = (reaction) => reaction.emoji.name === "▶";
-
-        const embed = new Discord.RichEmbed({
+        let page = 1;
+        const pageForward = (reaction) => reaction.emoji.name === "▶";
+        const
+        const pageOneEmbed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
             color: 15427357,
             fields: [
@@ -35,7 +29,7 @@ exports.run = async (message) => {
                 text: "Page 1 of 4."
             }
         });
-        message.channel.send(embed)
+        message.channel.send(pageOneEmbed)
             .then(msg => msg.react("⏮"))
             .then(msgReaction => msgReaction.message.react("⏪"))
             .then(mmReaction => mmReaction.message.react("◀"))
@@ -45,8 +39,8 @@ exports.run = async (message) => {
             .then(mmmmReaction => mmmmReaction.message.react("⏭"))
             .then(mReaction => mReaction.message.react("🔢"))
             .then(mReaction => {
-                const collectorPageUp = mReaction.message
-                    .createReactionCollector(reactionFilter, { time: 15000 });
+                const collectorPageForward = mReaction.message
+                    .createReactionCollector(pageForward, { time: 15000 });
 
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: embed.title,
@@ -62,39 +56,53 @@ exports.run = async (message) => {
                     }
                 });
 
-                collectorPageUp.on("collect", r => {
-                    r.message.edit(pageTwoEmbed)
+                const pageThreeEmbed = new Discord.RichEmbed({
+                    title: embed.title,
+                    color: 15427357,
+                    fields: [
+                        { name: "\n\nr!bot", value: "More info about Roast-Bot." },
+                        { name: "r!feedback *feedbackMsg*", value: "`r!feedback` sends your feedback to me so I can improve Roast-Bot! If you are ever using Roast-Bot and a command isn't working or something else is wrong you can also report them here!" },
+                        { name: "r!website", value: "The link to the Roast-Bot website!" }
+                    ],
+                    footer: {
+                        text: "Page 3 of 4"
+                    }
                 });
 
-                /* else if(page == 2) {
-                    const pageThreeEmbed = new Discord.RichEmbed({
-                        title: embed.title,
-                        color: 15427357,
-                        fields: [ 
-                            {name: "\n\nr!bot", value: "More info about Roast-Bot."},
-                            {name: "r!feedback *feedbackMsg*", value: "`r!feedback` sends your feedback to me so I can improve Roast-Bot! If you are ever using Roast-Bot and a command isn't working or something else is wrong you can also report them here!"},
-                            {name: "r!website", value "The link to the Roast-Bot website!"}
-                        ],
-                        footer: {
-                            text: "Page 3 of 4.
-                        }
-                    });
-                    
-                    const pageFourEmbed = new Discord.RichEmbed({
-                        title: embed.title,
-                        color: 15427357,
-                        fields: [ 
-                            {name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP"},
-                            {name: "On-Off", value: "If you want to turn any command on/off just use `r!off commandName` to turn the command off. To turn a command back on use `r!on commandName`. *Note:* `r!help` and `r!invite` cannot be turned off."},
-                            //{name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(r!) you can change it to anything you want by using `r!prefix newPrefix`. To view your prefix use `r!prefix`. The prefix by default is r!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `r!prefix newPrefix`. If you forget your prefix you can always change it with `r!prefix newPrefix` or view it with `r!prefix`."},
-                            {name: "\n\n***Command Help:***", value "If your still having trouble using a command you can use `r!commandName help` for more detailed help. If you still don't understand please join the support server."},
-                            {name: "Roast-Bot Development Server", value: "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.2.0, for release notes join the Roast-Bot help server."}
-                        ],
-                        footer: {
-                            text: "Page 4 of 4."
-                        }
-                    });
-                } */
+                const pageFourEmbed = new Discord.RichEmbed({
+                    title: embed.title,
+                    color: 15427357,
+                    fields: [
+                        { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
+                        { name: "On-Off", value: "If you want to turn any command on/off just use `r!off commandName` to turn the command off. To turn a command back on use `r!on commandName`. *Note:* `r!help` and `r!invite` cannot be turned off." },
+                        //{name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(r!) you can change it to anything you want by using `r!prefix newPrefix`. To view your prefix use `r!prefix`. The prefix by default is r!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `r!prefix newPrefix`. If you forget your prefix you can always change it with `r!prefix newPrefix` or view it with `r!prefix`."},
+                        { name: "\n\n***Command Help:***", value: "If your still having trouble using a command you can use `r!commandName help` for more detailed help. If you still don't understand please join the support server." },
+                        { name: "Roast-Bot Development Server", value: "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.2.0, for release notes join the Roast-Bot help server." }
+                    ],
+                    footer: {
+                        text: "Page 4 of 4."
+                    }
+                });
+                collectorPageForward.on("collect", r => {
+                    if (page == 1) {
+                        r.message.edit(pageTwoEmbed);
+                    }
+                });
+                collectorPageBackward.on("collect", r => {
+                    if (page == 2) {
+                        r.message.edit(pageOneEmbed);
+                    } else if (page == 1) {
+                        return message.channel.send("You can't go backwards if your at page 1.");
+                    } else if (page == 3) {
+                        r.message.edit(pageTwoEmbed);
+                    } else if (page == 4) {
+                        r.message.edit(pageThreeEmbed);
+                    }
+                });
+
+
+
+
             });
     }
 }
