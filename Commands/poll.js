@@ -2,7 +2,14 @@
 *
 *   Things to add to r!poll:
 * ----------------------------
-*⏩◀️⏮⏭▶️⏪🔢⏹
+* ⏩
+* ◀️
+* ⏮
+* ⏭
+* ▶️
+* ⏪
+* 🔢
+* ⏹
 */
 
 const Discord = require("discord.js");
@@ -13,7 +20,7 @@ exports.run = async (message) => {
     let page = 1;
     
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
-        const reactionFilter = (reaction, user) => reaction.emoji.name === "✅";
+        const reactionFilter = (reaction) => reaction.emoji.name === "▶️";
         
         const embed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
@@ -31,8 +38,11 @@ exports.run = async (message) => {
         });
         page++;
         message.channel.send(embed)
-        .then(msg => msg.react("✅"))
-        .then(mReaction => mReaction.message.react("❎") )
+        .then(msg => msg.react("⏮"))
+        .then(mReaction => mReaction.message.react("◀️"))
+        .then(mmReaction => mmReaction.message.react("⏹"))
+        .then(mmmReaction => mmmReaction.message.react("▶️"))
+        .then(mmmmReaction => mmmmReaction.message.react("⏭"))
         .then(mReaction => {
             const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
@@ -42,7 +52,7 @@ exports.run = async (message) => {
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "r!user, or r!user *@user*", value: "r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!"},
+                        {name: "\n\nr!user, or r!user *@user*", value: "r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!"},
                         {name: "r!say *whatToSay*", value: "To use this command use `r!say ` and then what you want Roast-Bot to say."},
                         {name: "r!clear *NUMBER*", value: "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**"},
                         {name: "r!server", value: "Info about your server."}
@@ -59,7 +69,7 @@ exports.run = async (message) => {
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "r!bot", value: "More info about Roast-Bot."},
+                        {name: "\n\nr!bot", value: "More info about Roast-Bot."},
                         {name: "r!feedback *feedbackMsg*", value: "`r!feedback` sends your feedback to me so I can improve Roast-Bot! If you are ever using Roast-Bot and a command isn't working or something else is wrong you can also report them here!"},
                         {name: "r!website", value "The link to the Roast-Bot website!"}
                     ],
@@ -72,7 +82,7 @@ exports.run = async (message) => {
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP"},
+                        {name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP"},
                         {name: "On-Off", value: "If you want to turn any command on/off just use `r!off commandName` to turn the command off. To turn a command back on use `r!on commandName`. *Note:* `r!help` and `r!invite` cannot be turned off."},
                         //{name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(r!) you can change it to anything you want by using `r!prefix newPrefix`. To view your prefix use `r!prefix`. The prefix by default is r!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `r!prefix newPrefix`. If you forget your prefix you can always change it with `r!prefix newPrefix` or view it with `r!prefix`."},
                         {name: "\n\n***Command Help:***", value "If your still having trouble using a command you can use `r!commandName help` for more detailed help. If you still don't understand please join the support server."},
