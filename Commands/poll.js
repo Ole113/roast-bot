@@ -59,7 +59,7 @@ exports.run = async (message) => {
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "test name", value: "test value"},
+                        {name: "test name", value: "test value"}
                     ]
                 });
         
