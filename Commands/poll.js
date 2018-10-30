@@ -42,7 +42,7 @@ exports.run = async (message) => {
         //.then(mReaction => mReaction.message.react(":arrow_forward"))
         //.then(mmReaction => mmReaction.message.react(""))
         //.then(mmmReaction => mmmReaction.message.react("arrow_forward"))
-        //.then(mmmmReaction => mmmmReaction.message.react("⏭"))
+        .then(mmmmReaction => mmmmReaction.message.react("⏭"))
         .then(mReaction => {
             const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
