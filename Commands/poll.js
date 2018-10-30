@@ -45,7 +45,6 @@ exports.run = async (message) => {
             const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
             
-            if(page == 2) {
             collectorPageUp.on("collect", r => {
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: embed.title,
@@ -60,19 +59,18 @@ exports.run = async (message) => {
                         text: "Page 2 of 5."
                     }
                 });
-                
+                r.message.edit(pageTwoEmbed)
             });
-            }
-            r.message.edit(pageTwoEmbed)
+            
             /* else if(page == 2) {
                 const pageThreeEmbed = new Discord.RichEmbed({
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "test name page 3", value: "test value"}
+                        {name: "r!bot", value: "More info about Roast-Bot."},
+                        {name: "r!feedback *feedbackMsg*", value: "`r!feedback` sends your feedback to me so I can improve Roast-Bot! If you are ever using Roast-Bot and a command isn't working or something else is wrong you can also report them here!"}
                     ]
                 });
-                r.message.edit(pageThreeEmbed)
             } */
         });
     }
