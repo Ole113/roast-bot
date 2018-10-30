@@ -11,21 +11,34 @@ const prefixFile = require("../Database/prefix.json");
 
 exports.run = async (message) => {
     if(message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
-        return message.channel.send("Poll started.").then(async (reactions) => {
+        return message.channel.send("Poll started.")
+        .then(async (reaction) => {
+            reaction.react('👍').then(() => reaction.react('👎'));
 
-            await reactions.react("◀");
-            await reactions.react("▶");
-
-            const filter = (reaction) => {
-                return ["◀", "▶"].includes(reaction.emoji.name);
+            const filter = (reactions) => {
+                return ['👍', '👎'].includes(reactions.emoji.name);
             };
-           
-            reactions.awaitReactions(filter)
+
+            reaction.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
                 .then(collected => {
-                    if (reactionTwo.emoji.name === "▶") {
-                        console.log("collected right");                    }
+                    const reaction = collected.first();
+
+                    if (reaction.emoji.name === '👍') {
+                        reaction.reply('you reacted with a thumbs up.');
+                    }
+                    else {
+                        reaction.reply('you reacted with a thumbs down.');
+                    }
+                })
+                .catch(collected => {
+                    console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+                    reaction.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
                 });
         });
+
+            //await reactions.react("◀");
+            //await reactions.react("▶");
+
 
     }
 }
