@@ -45,7 +45,7 @@ exports.run = async (message) => {
                     .createReactionCollector(pageBackward);
 
                 const pageTwoEmbed = new Discord.RichEmbed({
-                    title: embed.title,
+                    title: pageOneEmbed.title,
                     color: 15427357,
                     fields: [
                         { name: "\n\nr!user, or r!user *@user*", value: "r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!" },
@@ -59,7 +59,7 @@ exports.run = async (message) => {
                 });
 
                 const pageThreeEmbed = new Discord.RichEmbed({
-                    title: embed.title,
+                    title: pageOneEmbed.title,
                     color: 15427357,
                     fields: [
                         { name: "\n\nr!bot", value: "More info about Roast-Bot." },
