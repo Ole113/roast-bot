@@ -31,19 +31,26 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            .then(msg => msg.react("⏮"))
-            .then(msgReaction => msgReaction.message.react("⏪"))
-            .then(mmReaction => mmReaction.message.react("◀"))
-            .then(mmmReaction => mmmReaction.message.react("⏹"))
-            .then(mmmReaction => mmmReaction.message.react("▶"))
-            .then(mReaction => mReaction.message.react("⏩"))
-            .then(mmmmReaction => mmmmReaction.message.react("⏭"))
-            .then(mReaction => mReaction.message.react("🔢"))
+            //.then(msg => msg.react("⏮"))
+            //.then(msgReaction => msgReaction.message.react("⏪"))
+            //.then(mmReaction => mmReaction.message.react("◀"))
+            //.then(mmmReaction => mmmReaction.message.react("⏹"))
+            //.then(mmmReaction => mmmReaction.message.react("▶"))
+            //.then(mmmmReaction => mmmmReaction.message.react("⏩"))
+            //.then(mmmmmReaction => mmmmmReaction.message.react("⏭"))
+            //.then(mmmmmmReaction => mmmmmmReaction.message.react("🔢"))
             .then(async mReaction => {
+                await mReaction.react("⏪");
+                await mReaction.react("◀");
+                await mReaction.react("⏹");
+                await mReaction.react("▶");
+                await mReaction.react("⏩");
+                await mReaction.react("⏭");
+                await mReaction.react("🔢");
                 const collectorPageForward = mReaction.message
-                    .createReactionCollector(pageForward);
+                    mReaction.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message
-                    .createReactionCollector(pageBackward);
+                    mReaction.createReactionCollector(pageBackward);
 
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
@@ -86,7 +93,7 @@ exports.run = async (client, message) => {
                         text: "Page 4 of 4."
                     }
                 });
-                collectorPageForward.on("collect", (r) => {
+                mReaction.collectorPageForward.on("collect", (r) => {
                     if (page == 1) {
                         page++;
                         r.message.edit(pageTwoEmbed);
@@ -100,7 +107,7 @@ exports.run = async (client, message) => {
                         return message.channel.send("You are at the max number of pages.");
                     }
                 });
-                collectorPageBackward.on("collect", (r) => {
+                mReaction.collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
                         mmmReaction.remove(message.author);
