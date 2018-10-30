@@ -17,9 +17,9 @@ exports.run = async (message) => {
             .setColor("#EB671D")
             .setTitle("Roast-Bot Help:")
             .addBlankField()
-            .addField("Option 1: Yes")
-            .addField("Option 2: No")
-            .addField("Option 3: Maybe")
+            .addField("Option 1:", "Yes")
+            .addField("Option 2:", "No")
+            .addField("Option 3:", "Maybe")
             .setFooter("Vote by clicking on a reaction.")
 
         message.channel.send(pollEmbed)
@@ -38,7 +38,7 @@ exports.run = async (message) => {
                         .setColor("#EB671D")
                         .setTitle("Roast-Bot Help:")
                         .addBlankField()
-                        .addField("YESSS");
+                        .addField("YESSS", "worked")
 
                     r.message.edit(newEmbed);
                     //await reactions.react("◀");
