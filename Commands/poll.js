@@ -72,7 +72,7 @@ exports.run = async (message) => {
                 });
 
                 const pageFourEmbed = new Discord.RichEmbed({
-                    title: embed.title,
+                    title: pageOneEmbed.title,
                     color: 15427357,
                     fields: [
                         { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
