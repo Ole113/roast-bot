@@ -17,10 +17,9 @@ const Discord = require("discord.js");
 const prefixFile = require("../Database/prefix.json");
 
 exports.run = async (message) => {
-    let page = 1;
     
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "poll")) {
-        const reactionFilter = (reaction) => reaction.emoji.name === "⏮";
+        const reactionFilter = (reaction) => reaction.emoji.name === "▶";
         
         const embed = new Discord.RichEmbed({
             title: "Roast-Bot Help:",
@@ -36,13 +35,15 @@ exports.run = async (message) => {
                 text: "Page 1 of 4."
             }
         });
-        page++;
         message.channel.send(embed)
         .then(msg => msg.react("⏮"))
-        //.then(mReaction => mReaction.message.react(":arrow_forward"))
-        //.then(mmReaction => mmReaction.message.react(""))
-        //.then(mmmReaction => mmmReaction.message.react("arrow_forward"))
+        .then(msgReaction => msgReaction.message.react("⏪"))
+        .then(mmReaction => mmReaction.message.react("◀"))
+        .then(mmmReaction => mmmReaction.message.react("⏹"))
+        .then(mmmReaction => mmmReaction.message.react("▶"))
+        .then(mReaction => mReaction.message.react("⏩"))
         .then(mmmmReaction => mmmmReaction.message.react("⏭"))
+        .then(mReaction => mReaction.message.react("🔢"))
         .then(mReaction => {
             const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
