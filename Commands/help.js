@@ -39,7 +39,7 @@ exports.run = async (client, message) => {
             //.then(mmmmReaction => mmmmReaction.message.react("⏭"))
             //.then(mReaction => mReaction.message.react("🔢"))
             .then(async mReaction => {
-                await mReaction.message.react("⏮");
+                await mReaction.react("⏮");
                 await mReaction.message.react("⏪");
                 await mReaction.message.react("◀");
                 await mReaction.message.react("⏹");
