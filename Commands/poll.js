@@ -58,7 +58,7 @@ exports.run = async (message) => {
                 const newEmbed = new Discord.RichEmbed({
                     title: embed.title,
                     description: embed.description,
-                    fields: [ embedLikeField ]
+                    fields: [ embedField0 ]
                 });
         
                 // edit message with new embed
