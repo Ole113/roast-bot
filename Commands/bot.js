@@ -29,9 +29,9 @@ exports.run = async (client, message) => {
             .addField("Server Count:", client.guilds.size)
             .addField("Total Number of Roasts:", "125", true)
             .addField("Total Number of Memes:", "353", true)
-            .addField("Registered Users:", "3000")
-            .addField("Website", "http://roast-bot.com")
-            .addField("Number of Commands", "15")
+            .addField("Registered Users:", "7000")
+            .addField("Website:", "http://roast-bot.com")
+            .addField("Number of Commands:", "15")
             .setFooter("Created By Ole113#2421");
         return message.channel.send({ embed: botEmbed });
     } else if(message.content.toLowerCase() === prefixFile.prefix + "bot" && onOffFile.bot === "off") {
