@@ -30,17 +30,17 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            //.then(msg => msg.react("⏮"))
-            //.then(msgReaction => msgReaction.message.react("⏪"))
-            //.then(mmReaction => mmReaction.message.react("◀"))
-            //.then(mmmReaction => mmmReaction.message.react("⏹"))
-            //.then(mmmReaction => mmmReaction.message.react("▶"))
-            //.then(mReaction => mReaction.message.react("⏩"))
-            //.then(mmmmReaction => mmmmReaction.message.react("⏭"))
-            //.then(mReaction => mReaction.message.react("🔢"))
+            .then(msg => msg.react("⏮"))
+            .then(msgReaction => msgReaction.message.react("⏪"))
+            .then(mmReaction => mmReaction.message.react("◀"))
+            .then(mmmReaction => mmmReaction.message.react("⏹"))
+            .then(mmmReaction => mmmReaction.message.react("▶"))
+            .then(mReaction => mReaction.message.react("⏩"))
+            .then(mmmmReaction => mmmmReaction.message.react("⏭"))
+            .then(mReaction => mReaction.message.react("🔢"))
             .then(async mReaction => {
                 const collectorPageForward = mReaction.message
-                    mReaction.createReactionCollector(pageForward);
+                    .createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message
                     mReaction.createReactionCollector(pageBackward);
 
