@@ -40,7 +40,7 @@ exports.run = async (message) => {
         message.channel.send(embed)
         .then(msg => msg.react("⏮"))
         .then(mReaction => mReaction.message.react("◀️"))
-        .then(mmReaction => mmReaction.message.react("⏹"))
+        //.then(mmReaction => mmReaction.message.react(""))
         .then(mmmReaction => mmmReaction.message.react("▶️"))
         .then(mmmmReaction => mmmmReaction.message.react("⏭"))
         .then(mReaction => {
