@@ -51,12 +51,18 @@ exports.run = async (message) => {
                     title: embed.title,
                     color: 15427357,
                     fields: [ 
-                        {name: "test name page 2", value: "test value"}
-                    ]
+                        {name: "r!user, or r!user *@user*", value: "r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!"},
+                        {name: "r!say *whatToSay*", value: "To use this command use `r!say ` and then what you want Roast-Bot to say."},
+                        {name: "r!clear *NUMBER*", value: "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**"},
+                        {name: "r!server", value: "Info about your server."}
+                    ],
+                    footer: {
+                        text: "Page 2 of 5."
+                    }
                 });
                 
                 r.message.edit(pageTwoEmbed)
-            } else if(page == 2) {
+            }/* else if(page == 2) {
                 const pageThreeEmbed = new Discord.RichEmbed({
                     title: embed.title,
                     color: 15427357,
@@ -65,7 +71,7 @@ exports.run = async (message) => {
                     ]
                 });
                 r.message.edit(pageThreeEmbed)
-            }
+            } */
             });
         });
     }
