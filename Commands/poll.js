@@ -30,7 +30,7 @@ exports.run = async (message) => {
                     .createReactionCollector(reactionFilter, { time: 15000 });
 
                 collector.on("collect", r => {
-                    let embedLikeField = Object.assign({}, embed.fields.title);
+                    let embedLikeField = Object.assign({}, embed.fields.setTitle);
 
                     embedLikeField.value = "<3 <3 <3";
 
