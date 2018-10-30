@@ -13,6 +13,7 @@ exports.run = async (client, message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
         let page = 1;
+        let test = "one";
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
         const pageOneEmbed = new Discord.RichEmbed({
@@ -42,7 +43,7 @@ exports.run = async (client, message) => {
                 const collectorPageForward = mReaction.message
                     .createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message
-                    mReaction.createReactionCollector(pageBackward);
+                    .createReactionCollector(pageBackward);
 
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
@@ -94,7 +95,7 @@ exports.run = async (client, message) => {
                 collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        mReaction.remove(message.author);
+                        mReaction.message.remove(message.author);
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
