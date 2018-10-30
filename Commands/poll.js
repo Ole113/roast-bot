@@ -39,7 +39,7 @@ exports.run = async (message) => {
         page++;
         message.channel.send(embed)
         .then(msg => msg.react("⏮"))
-        .then(mReaction => mReaction.message.react("◀️"))
+        //.then(mReaction => mReaction.message.react("◀️"))
         //.then(mmReaction => mmReaction.message.react(""))
         .then(mmmReaction => mmmReaction.message.react("▶️"))
         .then(mmmmReaction => mmmmReaction.message.react("⏭"))
