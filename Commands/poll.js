@@ -62,6 +62,7 @@ exports.run = async (message) => {
                 });
                 
                 r.message.edit(pageTwoEmbed)
+            });
             }/* else if(page == 2) {
                 const pageThreeEmbed = new Discord.RichEmbed({
                     title: embed.title,
@@ -72,7 +73,6 @@ exports.run = async (message) => {
                 });
                 r.message.edit(pageThreeEmbed)
             } */
-            });
         });
     }
 }
