@@ -25,7 +25,7 @@ exports.run = async (client, message) => {
             .addField("r!server", "Info about your server.")
             .addField("r!meme, or r!meme *memeNumber*", "Sends a meme to the current channel.")
             .addField("r!clear *NUMBER*", "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
-            .addField("r!say", "To use this command use `r!say ` and then what you want Roast-Bot to say.")
+            .addField("r!say *whatToSay*", "To use this command use `r!say ` and then what you want Roast-Bot to say.")
             .addField("r!urban *whatToSearch*", "Search up anything on the Urban Dictionary!")
             .addField("r!user, or r!user *@user*", "r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!")
             .addField("r!feedback *feedbackMsg*", "`r!feedback` sends your feedback to me so I can improve Roast-Bot! If you ever are using Roast-Bot and a command isn't working or something else is wrong you can also report them here.")
