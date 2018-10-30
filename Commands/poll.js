@@ -37,7 +37,7 @@ exports.run = async (message) => {
                 text: "Page 1 of 5."
             }
         });
-        
+        page++;
         message.channel.send(embed)
         .then(msg => msg.react("✅"))
         .then(mReaction => mReaction.message.react("❎") )
@@ -45,7 +45,7 @@ exports.run = async (message) => {
             const collectorPageUp = mReaction.message
                 .createReactionCollector(reactionFilter, { time: 15000 });
             
-            if(page == 1) {
+            if(page == 2) {
             collectorPageUp.on("collect", r => {
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: embed.title,
@@ -61,9 +61,10 @@ exports.run = async (message) => {
                     }
                 });
                 
-                r.message.edit(pageTwoEmbed)
             });
-            }/* else if(page == 2) {
+            }
+            r.message.edit(pageTwoEmbed)
+            /* else if(page == 2) {
                 const pageThreeEmbed = new Discord.RichEmbed({
                     title: embed.title,
                     color: 15427357,
