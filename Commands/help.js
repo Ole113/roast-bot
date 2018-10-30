@@ -30,7 +30,7 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            .then(msg => msg.react("⏮"))
+            //.then(msg => msg.react("⏮"))
             //.then(msgReaction => msgReaction.message.react("⏪"))
             //.then(mmReaction => mmReaction.message.react("◀"))
             //.then(mmmReaction => mmmReaction.message.react("⏹"))
@@ -75,7 +75,7 @@ exports.run = async (client, message) => {
                         { name: "r!website", value: "The link to the Roast-Bot website!" }
                     ],
                     footer: {
-                        text: "Page 3 of 4"
+                        text: "Page 3 of 4."
                     }
                 });
 
