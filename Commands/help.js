@@ -47,9 +47,9 @@ exports.run = async (client, message) => {
                 await mReaction.react("⏩");
                 await mReaction.react("⏭");
                 await mReaction.react("🔢");
-                const collectorPageForward = mReaction.message
+                const collectorPageForward = message.reactions;
                     mReaction.createReactionCollector(pageForward);
-                const collectorPageBackward = mReaction.message
+                const collectorPageBackward = message.reactions;
                     mReaction.createReactionCollector(pageBackward);
 
                 const pageTwoEmbed = new Discord.RichEmbed({
