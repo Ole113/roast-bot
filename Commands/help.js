@@ -93,7 +93,7 @@ exports.run = async (client, message) => {
                         text: "Page 4 of 4."
                     }
                 });
-                mReaction.collectorPageForward.on("collect", (r) => {
+                collectorPageForward.on("collect", (r) => {
                     if (page == 1) {
                         page++;
                         r.message.edit(pageTwoEmbed);
@@ -107,10 +107,10 @@ exports.run = async (client, message) => {
                         return message.channel.send("You are at the max number of pages.");
                     }
                 });
-                mReaction.collectorPageBackward.on("collect", (r) => {
+                collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        mmmReaction.remove(message.author);
+                        mReaction.remove(message.author);
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
