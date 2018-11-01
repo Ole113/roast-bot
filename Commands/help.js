@@ -107,12 +107,15 @@ exports.run = async (client, message) => {
                     if (page == 1) {
                         page++;
                         r.message.edit(pageTwoEmbed);
+                        break;
                     } else if (page == 2) {
                         page++;
                         r.message.edit(pageThreeEmbed);
+                        break;
                     } else if (page == 3) {
                         page++;
                         r.message.edit(pageFourEmbed);
+                        break;
                     } else if (page == 4) {
                         return message.channel.send("You are at the max number of pages.");
                     }
