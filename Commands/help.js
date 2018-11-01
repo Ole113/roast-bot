@@ -102,66 +102,66 @@ exports.run = async (client, message) => {
                     if (page == 1) {
                         page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageTwoEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageTwoEmbed);
                     } else if (page == 2) {
                         page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageThreeEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageThreeEmbed);
                     } else if (page == 3) {
                         page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageFourEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageFourEmbed);
                     } else if (page == 4) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
+                        await r.remove(notbot);
                         return message.channel.send("You are at the max number of pages.");
                     }
                 });
-                collectorPageBackward.on("collect", (r) => {
+                collectorPageBackward.on("collect", async (r) => {
                     if (page == 2) {
                         page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageOneEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
+                        await r.remove(notbot);
                         return message.channel.send("You can't go backwards if your at page 1.");
                     } else if (page == 3) {
                         page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageTwoEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageTwoEmbed);
                     } else if (page == 4) {
                         page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageThreeEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageThreeEmbed);
                     }
                 });
-                collectorStop.on("collect", (r) => {
-                    mReaction.message.clearReactions();
-                    mReaction.delete();
-                    collectorStop.stop();
+                collectorStop.on("collect", async (r) => {
+                    await mReaction.message.clearReactions();
+                    await mReaction.delete();
+                    await collectorStop.stop();
                 });
                 collectorDoubleBackward.on("collect", (r) => {
                     if (page == 1 || page == 2) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
+                        await r.remove(notbot);
                         return message.channel.send("You can't skip backward that many pages.");
                     } else if (page == 3) {
                         page -= 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageOneEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageOneEmbed);
                     } else if (page == 4) {
                         page -= 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageTwoEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageTwoEmbed);
                     }
                 });
                 collectorDoubleForward.on("collect", (r) => {
@@ -171,11 +171,11 @@ exports.run = async (client, message) => {
                     } else if (page == 2) {
                         page += 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
-                        r.message.edit(pageFourEmbed);
+                        await r.remove(notbot);
+                        await r.message.edit(pageFourEmbed);
                     } else if (page == 3 || page == 4) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
-                        r.remove(notbot);
+                        await r.remove(notbot);
                         return message.channel.send("You can't skip forward that many pages.");
                     }
                 });
