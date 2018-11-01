@@ -17,7 +17,7 @@ exports.run = async (client, message) => {
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
         const doublePageForward = (reaction) => reaction.emoji.name === "⏭";
-        const doublePageBack = (reaction) => reaction.emoji.name === "⏪";
+        const doublePageBackward = (reaction) => reaction.emoji.name === "⏪";
         const stop = (reaction) => reaction.emoji.name === "⏹";
 
         const pageOneEmbed = new Discord.RichEmbed({
@@ -56,6 +56,10 @@ exports.run = async (client, message) => {
                     .createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message
                     .createReactionCollector(stop);
+                const collectorDoubleForward = mReaction.message
+                    .createReactionCollector(doublePageForward);
+                const collectorDoubleBackward = mReaction.message
+                    .createReactionCollector(doublePageBackward);
             
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
@@ -130,6 +134,28 @@ exports.run = async (client, message) => {
                 });
                 collectorStop.on("collect", (r) => {
                     mReaction.message.clearReactions();
+                });
+                collectorDoubleForward.on("collect", (r) => {
+                    if (page == 1)  {
+                        page += 2;
+                        r.message.edit(pageThreeEmbed);
+                    } else if (page == 2) {
+                        page += 2;
+                        r.message.edit(pageFourEmbed);
+                    } else if (page == 3 || page == 4) {
+                        return message.channel.send("You can't skip forward that many pages ahead.");
+                    }
+                });
+                collectorDoubleBackward.on("collect", (r) => {
+                    if (page == 1 || page == 2) {
+                        return message.channel.send("You can't skip backward that many pages ahead.");
+                    } else if (page == 3) {
+                        page -= 2;
+                        r.message.edit(pageOneEmbed);
+                    } else if (page == 4) {
+                        page -= 2;
+                        r.message.edit(pageTwoEmbed);
+                    }
                 });
             });
     }
