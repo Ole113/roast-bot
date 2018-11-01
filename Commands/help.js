@@ -101,7 +101,7 @@ exports.run = async (client, message) => {
                 collectorPageForward.on("collect", (r) => {
                     if (page == 1) {
                         page++;
-                        const notbot = messageReaction.users.filter(clientuser => clientuser !== client.user).first();
+                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         r.remove(notbot);
                         r.message.edit(pageTwoEmbed);
                     } else if (page == 2) {
