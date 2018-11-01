@@ -138,9 +138,11 @@ exports.run = async (client, message) => {
                     if (page == 1)  {
                         page += 2;
                         r.message.edit(pageThreeEmbed);
+                        break;
                     } else if (page == 2) {
                         page += 2;
                         r.message.edit(pageFourEmbed);
+                        break;
                     } else if (page == 3 || page == 4) {
                         return message.channel.send("You can't skip forward that many pages.");
                     }
