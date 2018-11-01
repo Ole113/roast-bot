@@ -112,7 +112,8 @@ exports.run = async (client, message) => {
                 collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        mReaction.message.clearReactions();
+                        mReaction.reactions.remove(message.author);
+                        //Reaction.message.clearReactions();
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
