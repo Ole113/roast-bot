@@ -133,17 +133,6 @@ exports.run = async (client, message) => {
                 collectorStop.on("collect", (r) => {
                     mReaction.message.clearReactions();
                 });
-                collectorDoubleForward.on("collect", (r) => {
-                    if (page == 1)  {
-                        page =+ 2;
-                        r.message.edit(pageThreeEmbed);
-                    } else if (page == 2) {
-                        page =+ 2;
-                        r.message.edit(pageFourEmbed);
-                    } else if (page == 3 || page == 4) {
-                        return message.channel.send("You can't skip forward that many pages.");
-                    }
-                });
                 collectorDoubleBackward.on("collect", (r) => {
                     if (page == 1 || page == 2) {
                         return message.channel.send("You can't skip backward that many pages.");
@@ -153,6 +142,17 @@ exports.run = async (client, message) => {
                     } else if (page == 4) {
                         page =- 2;
                         r.message.edit(pageTwoEmbed);
+                    }
+                });
+                collectorDoubleForward.on("collect", (r) => {
+                    if (page == 1)  {
+                        page =+ 2;
+                        r.message.edit(pageThreeEmbed);
+                    } else if (page == 2) {
+                        page =+ 2;
+                        r.message.edit(pageFourEmbed);
+                    } else if (page == 3 || page == 4) {
+                        return message.channel.send("You can't skip forward that many pages.");
                     }
                 });
             });
