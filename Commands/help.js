@@ -2,7 +2,7 @@
 *
 *   Things to add to r!help:
 * ----------------------------
-*
+*https://kmcgamer.github.io/programming/discordhelp/
 */
 
 const Discord = require("discord.js");
