@@ -41,15 +41,13 @@ exports.run = async (client, message) => {
             .then(mmmReaction => mmmReaction.message.react("▶"))
             .then(mmmmReaction => mmmmReaction.message.react("⏩"))
             .then(async mReaction => {
-                page = 1;
+                //page = 1;
                 /*
                 await mReaction.react("⏪");
                 await mReaction.react("◀");
                 await mReaction.react("⏹");
                 await mReaction.react("▶");
                 await mReaction.react("⏩");
-                await mReaction.react("⏭");
-                await mReaction.react("🔢");
                 */
                 const collectorPageForward = mReaction.message
                     .createReactionCollector(pageForward);
@@ -107,15 +105,12 @@ exports.run = async (client, message) => {
                     if (page == 1) {
                         page++;
                         r.message.edit(pageTwoEmbed);
-                        break;
                     } else if (page == 2) {
                         page++;
                         r.message.edit(pageThreeEmbed);
-                        break;
                     } else if (page == 3) {
                         page++;
                         r.message.edit(pageFourEmbed);
-                        break;
                     } else if (page == 4) {
                         return message.channel.send("You are at the max number of pages.");
                     }
@@ -123,7 +118,7 @@ exports.run = async (client, message) => {
                 collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        mReaction.reactions.remove(message.author);
+                        r.reactions.remove(message.author);
                         //mReaction.message.clearReactions();
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
