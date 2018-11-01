@@ -136,6 +136,7 @@ exports.run = async (client, message) => {
                     await mReaction.message.clearReactions();
                     await message.delete();
                     await collectorStop.stop();
+                    page = 1;
                 });
                 collectorDoubleBackward.on("collect", async (r) => {
                     if (page == 1 || page == 2) {
@@ -143,12 +144,14 @@ exports.run = async (client, message) => {
                         await r.remove(notbot);
                         return message.channel.send("You can't skip backward that many pages.");
                     } else if (page == 3) {
-                        page -= 2;
+                        page--;
+                        page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageOneEmbed);
                     } else if (page == 4) {
-                        page -= 2;
+                        page--;
+                        page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
@@ -156,10 +159,14 @@ exports.run = async (client, message) => {
                 });
                 collectorDoubleForward.on("collect", async (r) => {
                     if (page == 1)  {
-                        page += 2;
+                        page++;
+                        page++;
+                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                        await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
                     } else if (page == 2) {
-                        page += 2;
+                        page++;
+                        page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageFourEmbed);
