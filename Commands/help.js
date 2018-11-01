@@ -31,15 +31,16 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            //.then(msg => msg.react("⏮"))
-            //.then(msgReaction => msgReaction.message.react("⏪"))
-            //.then(mmReaction => mmReaction.message.react("◀"))
-            //.then(mmmReaction => mmmReaction.message.react("⏹"))
-            //.then(mmmReaction => mmmReaction.message.react("▶"))
-            //.then(mmmmReaction => mmmmReaction.message.react("⏩"))
-            //.then(mmmmmReaction => mmmmmReaction.message.react("⏭"))
-            //.then(mmmmmmReaction => mmmmmmReaction.message.react("🔢"))
+            .then(msg => msg.react("⏮"))
+            .then(msgReaction => msgReaction.message.react("⏪"))
+            .then(mmReaction => mmReaction.message.react("◀"))
+            .then(mmmReaction => mmmReaction.message.react("⏹"))
+            .then(mmmReaction => mmmReaction.message.react("▶"))
+            .then(mmmmReaction => mmmmReaction.message.react("⏩"))
+            .then(mmmmmReaction => mmmmmReaction.message.react("⏭"))
+            .then(mmmmmmReaction => mmmmmmReaction.message.react("🔢"))
             .then(async mReaction => {
+                /*
                 await mReaction.react("⏪");
                 await mReaction.react("◀");
                 await mReaction.react("⏹");
@@ -47,6 +48,7 @@ exports.run = async (client, message) => {
                 await mReaction.react("⏩");
                 await mReaction.react("⏭");
                 await mReaction.react("🔢");
+                */
                 const collectorPageForward = message.reactions;
                     mReaction.createReactionCollector(pageForward);
                 const collectorPageBackward = message.reactions;
@@ -110,7 +112,7 @@ exports.run = async (client, message) => {
                 collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        mReaction.remove(message.author);
+                        mReaction.message.clearReactions();
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
