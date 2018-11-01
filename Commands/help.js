@@ -48,13 +48,13 @@ exports.run = async (client, message) => {
                 await mReaction.react("▶");
                 await mReaction.react("⏩");
                 */
-                const collectorPageForward = message
+                const collectorPageForward = mReaction.message
                     .createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.reactions
                     .createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message
                     .createReactionCollector(stop);
-                const collectorDoubleForward = message
+                const collectorDoubleForward = mReaction.message
                     .createReactionCollector(doublePageForward);
                 const collectorDoubleBackward = mReaction.message
                     .createReactionCollector(doublePageBackward);
@@ -103,6 +103,8 @@ exports.run = async (client, message) => {
                 collectorPageForward.on("collect", (r) => {
                     if (page == 1) {
                         page++;
+                        const notbot = messageReaction.users.filter(clientuser => clientuser !== client.user).first();
+                        await mReaction.remove(notbot);
                         r.message.edit(pageTwoEmbed);
                     } else if (page == 2) {
                         page++;
