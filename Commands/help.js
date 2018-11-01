@@ -41,6 +41,7 @@ exports.run = async (client, message) => {
             .then(mmmReaction => mmmReaction.message.react("▶"))
             .then(mmmmReaction => mmmmReaction.message.react("⏩"))
             .then(async mReaction => {
+                page = 1;
                 /*
                 await mReaction.react("⏪");
                 await mReaction.react("◀");
@@ -143,12 +144,12 @@ exports.run = async (client, message) => {
                         page += 2;
                         r.message.edit(pageFourEmbed);
                     } else if (page == 3 || page == 4) {
-                        return message.channel.send("You can't skip forward that many pages ahead.");
+                        return message.channel.send("You can't skip forward that many pages.");
                     }
                 });
                 collectorDoubleBackward.on("collect", (r) => {
                     if (page == 1 || page == 2) {
-                        return message.channel.send("You can't skip backward that many pages ahead.");
+                        return message.channel.send("You can't skip backward that many pages.");
                     } else if (page == 3) {
                         page -= 2;
                         r.message.edit(pageOneEmbed);
