@@ -34,20 +34,12 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-        /*
             .then(msg => msg.react("⏪"))
             .then(mmReaction => mmReaction.message.react("◀"))
             .then(mmmReaction => mmmReaction.message.react("⏹"))
             .then(mmmReaction => mmmReaction.message.react("▶"))
             .then(mmmmReaction => mmmmReaction.message.react("⏩"))
-            */
             .then(async mReaction => {
-                
-                await mReaction.react("⏪");
-                await mReaction.react("◀");
-                await mReaction.react("⏹");
-                await mReaction.react("▶");
-                await mReaction.react("⏩");
                 
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
@@ -142,7 +134,7 @@ exports.run = async (client, message) => {
                 });
                 collectorStop.on("collect", async (r) => {
                     await mReaction.message.clearReactions();
-                    await mReaction.delete();
+                    await message.delete();
                     await collectorStop.stop();
                 });
                 collectorDoubleBackward.on("collect", async (r) => {
