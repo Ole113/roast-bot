@@ -48,10 +48,9 @@ exports.run = async (client, message) => {
                 await mReaction.react("▶");
                 await mReaction.react("⏩");
                 */
-                const collectorPageForward = mReaction.message
-                    .createReactionCollector(pageForward);
-                const collectorPageBackward = mReaction.reactions
-                    .createReactionCollector(pageBackward);
+                const collectorPageForward = mReaction.createReactionCollector(pageForward);
+                
+                const collectorPageBackward = mReaction.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message
                     .createReactionCollector(stop);
                 const collectorDoubleForward = mReaction.message
@@ -104,7 +103,7 @@ exports.run = async (client, message) => {
                     if (page == 1) {
                         page++;
                         const notbot = messageReaction.users.filter(clientuser => clientuser !== client.user).first();
-                        mReaction.remove(notbot);
+                        r.remove(notbot);
                         r.message.edit(pageTwoEmbed);
                     } else if (page == 2) {
                         page++;
@@ -133,6 +132,8 @@ exports.run = async (client, message) => {
                 });
                 collectorStop.on("collect", (r) => {
                     mReaction.message.clearReactions();
+                    mReaction.delete();
+                    collectorStop.stop();
                 });
                 collectorDoubleBackward.on("collect", (r) => {
                     if (page == 1 || page == 2) {
