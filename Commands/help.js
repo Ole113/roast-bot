@@ -55,8 +55,8 @@ exports.run = async (client, message) => {
                     .createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message
                     .createReactionCollector(stop);
-                //const collectorDoubleForward = mReaction.message
-                    //.createReactionCollector(doublePageForward);
+                const collectorDoubleForward = mReaction.message
+                    .createReactionCollector(doublePageForward);
                 const collectorDoubleBackward = mReaction.message
                     .createReactionCollector(doublePageBackward);
             
@@ -119,7 +119,6 @@ exports.run = async (client, message) => {
                     if (page == 2) {
                         page--;
                         r.reactions.remove(r.author);
-                        //mReaction.message.clearReactions();
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
@@ -136,10 +135,10 @@ exports.run = async (client, message) => {
                 });
                 collectorDoubleForward.on("collect", (r) => {
                     if (page == 1)  {
-                        page += 2;
+                        page =+ 2;
                         r.message.edit(pageThreeEmbed);
                     } else if (page == 2) {
-                        page += 2;
+                        page =+ 2;
                         r.message.edit(pageFourEmbed);
                     } else if (page == 3 || page == 4) {
                         return message.channel.send("You can't skip forward that many pages.");
@@ -149,10 +148,10 @@ exports.run = async (client, message) => {
                     if (page == 1 || page == 2) {
                         return message.channel.send("You can't skip backward that many pages.");
                     } else if (page == 3) {
-                        page -= 2;
+                        page =- 2;
                         r.message.edit(pageOneEmbed);
                     } else if (page == 4) {
-                        page -= 2;
+                        page =- 2;
                         r.message.edit(pageTwoEmbed);
                     }
                 });
