@@ -50,12 +50,9 @@ exports.run = async (client, message) => {
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
-                const collectorStop = mReaction.message
-                    .createReactionCollector(stop);
-                const collectorDoubleForward = mReaction.message
-                    .createReactionCollector(doublePageForward);
-                const collectorDoubleBackward = mReaction.message
-                    .createReactionCollector(doublePageBackward);
+                const collectorStop = mReaction.message.createReactionCollector(stop);
+                const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
+                const collectorDoubleBackward = mReaction.message.createReactionCollector(doublePageBackward);
             
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
@@ -167,7 +164,7 @@ exports.run = async (client, message) => {
                 collectorDoubleForward.on("collect", async (r) => {
                     if (page == 1)  {
                         page += 2;
-                        r.message.edit(pageThreeEmbed);
+                        await r.message.edit(pageThreeEmbed);
                     } else if (page == 2) {
                         page += 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
