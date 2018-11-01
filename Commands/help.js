@@ -98,7 +98,7 @@ exports.run = async (client, message) => {
                         text: "Page 4 of 4."
                     }
                 });
-                collectorPageForward.on("collect", (r) => {
+                collectorPageForward.on("collect", async (r) => {
                     if (page == 1) {
                         page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
@@ -147,7 +147,7 @@ exports.run = async (client, message) => {
                     await mReaction.delete();
                     await collectorStop.stop();
                 });
-                collectorDoubleBackward.on("collect", (r) => {
+                collectorDoubleBackward.on("collect", async (r) => {
                     if (page == 1 || page == 2) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
@@ -164,7 +164,7 @@ exports.run = async (client, message) => {
                         await r.message.edit(pageTwoEmbed);
                     }
                 });
-                collectorDoubleForward.on("collect", (r) => {
+                collectorDoubleForward.on("collect", async (r) => {
                     if (page == 1)  {
                         page += 2;
                         r.message.edit(pageThreeEmbed);
