@@ -16,7 +16,7 @@ exports.run = async (client, message) => {
         let test = "one";
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
-        const doublePageForward = (reaction) => reaction.emoji.name === "⏭";
+        const doublePageForward = (reaction) => reaction.emoji.name === "⏩";
         const doublePageBackward = (reaction) => reaction.emoji.name === "⏪";
         const stop = (reaction) => reaction.emoji.name === "⏹";
 
