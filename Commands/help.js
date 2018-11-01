@@ -44,7 +44,7 @@ exports.run = async (client, message) => {
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
-                const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
+                //const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
                 const collectorDoubleBackward = mReaction.message.createReactionCollector(doublePageBackward);
             
                 const pageTwoEmbed = new Discord.RichEmbed({
@@ -119,7 +119,7 @@ exports.run = async (client, message) => {
                     } else if (page == 1) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
-                        return message.channel.send("You can't go backwards if your at page 1.");
+                        return message.channel.send("You can't go backwards if you're at page 1.");
                     } else if (page == 3) {
                         page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
@@ -157,6 +157,7 @@ exports.run = async (client, message) => {
                         await r.message.edit(pageTwoEmbed);
                     }
                 });
+                /*
                 collectorDoubleForward.on("collect", async (r) => {
                     if (page == 1)  {
                         page++;
@@ -175,7 +176,9 @@ exports.run = async (client, message) => {
                         await r.remove(notbot);
                         return message.channel.send("You can't skip forward that many pages.");
                     }
+                
                 });
+                */
             });
     }
     /*
