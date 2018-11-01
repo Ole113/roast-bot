@@ -13,7 +13,6 @@ exports.run = async (client, message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
         let page = 1;
-        let test = "one";
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
         const doublePageForward = (reaction) => reaction.emoji.name === "⏩";
@@ -48,9 +47,9 @@ exports.run = async (client, message) => {
                 await mReaction.react("▶");
                 await mReaction.react("⏩");
                 */
-                const collectorPageForward = mReaction.createReactionCollector(pageForward);
+                const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 
-                const collectorPageBackward = mReaction.createReactionCollector(pageBackward);
+                const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message
                     .createReactionCollector(stop);
                 const collectorDoubleForward = mReaction.message
@@ -118,7 +117,6 @@ exports.run = async (client, message) => {
                 collectorPageBackward.on("collect", (r) => {
                     if (page == 2) {
                         page--;
-                        r.reactions.remove();
                         r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
                         return message.channel.send("You can't go backwards if your at page 1.");
