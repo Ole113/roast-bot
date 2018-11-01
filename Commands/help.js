@@ -104,7 +104,7 @@ exports.run = async (client, message) => {
                     if (page == 1) {
                         page++;
                         const notbot = messageReaction.users.filter(clientuser => clientuser !== client.user).first();
-                        await mReaction.remove(notbot);
+                        mReaction.remove(notbot);
                         r.message.edit(pageTwoEmbed);
                     } else if (page == 2) {
                         page++;
