@@ -44,7 +44,7 @@ exports.run = async (client, message) => {
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
-                //const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
+                const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
                 const collectorDoubleBackward = mReaction.message.createReactionCollector(doublePageBackward);
             
                 const pageTwoEmbed = new Discord.RichEmbed({
@@ -136,7 +136,6 @@ exports.run = async (client, message) => {
                     await mReaction.message.clearReactions();
                     await message.delete();
                     await collectorStop.stop();
-                    page = 1;
                 });
                 collectorDoubleBackward.on("collect", async (r) => {
                     if (page == 1 || page == 2) {
@@ -144,41 +143,35 @@ exports.run = async (client, message) => {
                         await r.remove(notbot);
                         return message.channel.send("You can't skip backward that many pages.");
                     } else if (page == 3) {
-                        page--;
-                        page--;
+                        page -= 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageOneEmbed);
                     } else if (page == 4) {
-                        page--;
-                        page--;
+                        page -= 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
                     }
                 });
-                /*
                 collectorDoubleForward.on("collect", async (r) => {
-                    if (page == 1)  {
-                        page++;
-                        page++;
+                    if(page == 1) {
+                        page += 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
                     } else if (page == 2) {
-                        page++;
-                        page++;
+                        page += 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageFourEmbed);
                     } else if (page == 3 || page == 4) {
+                        page += 2;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         return message.channel.send("You can't skip forward that many pages.");
                     }
-                
                 });
-                */
             });
     }
     /*
