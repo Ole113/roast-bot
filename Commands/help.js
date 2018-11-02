@@ -34,17 +34,17 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            .then(msg => msg.react("⏪"))
-            .then(mmReaction => mmReaction.message.react("◀"))
+            //.then(msg => msg.react("⏪"))
+            .then(mmReaction => mmReaction.react("◀"))
             .then(mmmReaction => mmmReaction.message.react("⏹"))
             .then(mmmReaction => mmmReaction.message.react("▶"))
-            .then(mmmmReaction => mmmmReaction.message.react("⏩"))
+            //.then(mmmmReaction => mmmmReaction.message.react("⏩"))
             .then(async mReaction => {
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
-                const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
-                const collectorDoubleBackward = mReaction.message.createReactionCollector(doublePageBackward);
+                //const collectorDoubleForward = mReaction.message.createReactionCollector(doublePageForward);
+                //const collectorDoubleBackward = mReaction.message.createReactionCollector(doublePageBackward);
             
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
@@ -136,9 +136,8 @@ exports.run = async (client, message) => {
                     await collectorStop.stop();
                     await collectorPageBackward.stop();
                     await collectorPageForward.stop();
-                    await collectorDoubleBackward.stop();
-                    await collectorDoubleForward.stop();
                 });
+                /*
                 collectorDoubleBackward.on("collect", async (r) => {
                     if (page == 1 || page == 2) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
@@ -174,6 +173,7 @@ exports.run = async (client, message) => {
                         return message.channel.send("You can't skip forward that many pages.");
                     }
                 });
+                */
             });
     }
     /*
