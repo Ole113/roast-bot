@@ -136,6 +136,8 @@ exports.run = async (client, message) => {
                     await collectorStop.stop();
                     await collectorPageBackward.stop();
                     await collectorPageForward.stop();
+                    await collectorDoubleBackward.stop();
+                    await collectorDoubleForward.stop();
                 });
                 collectorDoubleBackward.on("collect", async (r) => {
                     if (page == 1 || page == 2) {
