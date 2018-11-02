@@ -41,7 +41,7 @@ client.on("ready", () => {
 	console.log("Roast-Bot-Beta is Ready");
 	console.log("-----------------------------------")
 	setInterval(() => {
-		let random = Math.floor(Math.random() * 4);
+		let random = Math.floor(Math.random() * 3);
 		client.user.setActivity(`${prefixFile.prefix}help | ${botPrecense[random]}`, { type: "PLAYING" });
 	}, 20000);
 });
