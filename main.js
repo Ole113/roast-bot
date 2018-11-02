@@ -30,6 +30,7 @@ const onOffFile = require("./Database/on-off.js");
 const vidFile = require("./Commands/vid.js");
 const pollFile = require("./Commands/poll.js");
 const websiteFile = require("./Commands/website.js");
+const updatesFile = require("./Commands/updates.js");
 
 const botPrecense = [
 	"http://roast-bot.com",
@@ -88,6 +89,7 @@ client.on("message", (message) => {
 	vidFile.run(message);
 	pollFile.run(message);
 	websiteFile.run(message);
+  updatesFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
