@@ -40,7 +40,6 @@ exports.run = async (client, message) => {
             .then(mmmReaction => mmmReaction.message.react("▶"))
             //.then(mmmmReaction => mmmmReaction.message.react("⏩"))
             .then(async mReaction => {
-                
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
@@ -134,8 +133,9 @@ exports.run = async (client, message) => {
                 });
                 collectorStop.on("collect", async (r) => {
                     await mReaction.message.clearReactions();
-                    await message.delete();
                     await collectorStop.stop();
+                    await collectorPageBackward.stop();
+                    await collectorPageForward.stop();
                 });
                 /*
                 collectorDoubleBackward.on("collect", async (r) => {
