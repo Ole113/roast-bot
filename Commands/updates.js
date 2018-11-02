@@ -1,9 +1,9 @@
 /*
 *
-*   Things to add to rb!clear:
+*   Things to add to rb!updates:
 * ----------------------------
-*  NEED TO TEST: Make it so it deletes the exact number of messages.
-*  Make it so if someone passes "rb!clear abc" it will give an error AND UPDATE rb!CLEAR HELP DOCS
+* Maybe a better command name?
+*
 */
  
 const Discord = require("discord.js");
