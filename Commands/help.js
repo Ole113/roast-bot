@@ -35,7 +35,7 @@ exports.run = async (client, message) => {
         });
         message.channel.send(pageOneEmbed)
             //.then(msg => msg.react("⏪"))
-            .then(mmReaction => mmReaction.message.react("◀"))
+            .then(mmReaction => mmReaction.react("◀"))
             .then(mmmReaction => mmmReaction.message.react("⏹"))
             .then(mmmReaction => mmmReaction.message.react("▶"))
             //.then(mmmmReaction => mmmmReaction.message.react("⏩"))

@@ -7,7 +7,6 @@
 *  Add a rb!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
 *  Make it so when it has try catch block for commands if will eventaully send errors to db. 
 *
-*  ALEX DO GUD IN PROGRAMING NERD STUFF U R BEST,for what u r
 */
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -35,8 +34,7 @@ const websiteFile = require("./Commands/website.js");
 const botPrecense = [
 	"http://roast-bot.com",
 	"On-Off now live! r!off commandName",
-	"Custom Roasts now live! r!croast help",
-	"Use r!feedback messasge to send feedback"
+	"Use r!feedback messasge to send feedback",
 ];
 client.on("ready", () => {
 	console.log("-----------------------------------")
