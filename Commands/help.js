@@ -9,10 +9,11 @@ const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
 
+const pageFile = require("./page.json");
+
 exports.run = async (client, message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
-        let page = 1;
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
         const stop = (reaction) => reaction.emoji.name === "⏹";
@@ -81,45 +82,46 @@ exports.run = async (client, message) => {
                         text: "Page 4 of 4."
                     }
                 });
+
                 collectorPageForward.on("collect", async (r) => {
-                    if (page == 1) {
-                        page++;
+                    if (pageFile.page == 1) {
+                        pageFile.page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
-                    } else if (page == 2) {
-                        page++;
+                    } else if (pageFile.page == 2) {
+                        pageFile.page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
-                    } else if (page == 3) {
-                        page++;
+                    } else if (pageFile.page == 3) {
+                        pageFile.page++;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageFourEmbed);
-                    } else if (page == 4) {
+                    } else if (pageFile.page == 4) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         return message.channel.send("You are at the max number of pages.");
                     }
                 });
                 collectorPageBackward.on("collect", async (r) => {
-                    if (page == 2) {
-                        page--;
+                    if (pageFile.page == 2) {
+                        pageFile.page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageOneEmbed);
-                    } else if (page == 1) {
+                    } else if (pageFile.page == 1) {
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         return message.channel.send("You can't go backwards if you're at page 1.");
-                    } else if (page == 3) {
-                        page--;
+                    } else if (pageFile.page == 3) {
+                        pageFile.page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
-                    } else if (page == 4) {
-                        page--;
+                    } else if (pageFile.page == 4) {
+                        pageFile.page--;
                         const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
