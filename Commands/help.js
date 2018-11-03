@@ -32,9 +32,12 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            .then((mmReaction) => mmReaction.react("◀"))
-            .then((mmmReaction) => mmmReaction.message.react("⏹"))
-            .then((mmmReaction) => mmmReaction.message.react("▶"))
+            .then( async (mmReaction) => await mmReaction.react("◀"))
+            .then( async (mmmReaction) => await mmmReaction.message.react("⏹"))
+            .then( async (mmmReaction) => {
+                await page--;
+                await mmmReaction.message.react("▶")
+            })
             .then(async mReaction => {
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
