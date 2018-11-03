@@ -36,7 +36,7 @@ exports.run = async (client, message) => {
             .then( async (mmmReaction) => await mmmReaction.message.react("⏹"))
             .then( async (mmmReaction) => await mmmReaction.message.react("▶"))
             .then(async mReaction => {
-                page--;
+                //page--;
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
