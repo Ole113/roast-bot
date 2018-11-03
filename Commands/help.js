@@ -85,21 +85,21 @@ exports.run = async (client, message) => {
                 collectorPageForward.on("collect", async (r) => {
                     if (page == 1) {
                         page++;
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
                     } else if (page == 2) {
                         page++;
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
                     } else if (page == 3) {
                         page++;
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageFourEmbed);
                     } else if (page == 4) {
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         return message.channel.send("You are at the max number of pages.");
                     }
@@ -107,22 +107,22 @@ exports.run = async (client, message) => {
                 collectorPageBackward.on("collect", async (r) => {
                     if (page == 2) {
                         page--;
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageOneEmbed);
                     } else if (page == 1) {
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         return message.channel.send("You can't go backwards if you're at page 1.");
                     } else if (page == 3) {
                         page--;
-                        //const notbot = mReaction.author();
-                        const notbot = mReaction.author();
+                        //const notbot = message.author;
+                        const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
                     } else if (page == 4) {
                         page--;
-                        const notbot = mReaction.author();
+                        const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
                     }
