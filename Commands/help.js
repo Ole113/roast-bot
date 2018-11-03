@@ -8,10 +8,9 @@
 const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
-
-const pageFile = require("./page.json");
  
 exports.run = async (client, message) => {
+    let page = 1;
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
         const pageForward = (reaction) => reaction.emoji.name === "▶";
@@ -84,45 +83,46 @@ exports.run = async (client, message) => {
                 });
 
                 collectorPageForward.on("collect", async (r) => {
-                    if (pageFile.page == 1) {
-                        pageFile.page++;
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    if (page == 1) {
+                        page++;
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
-                    } else if (pageFile.page == 2) {
-                        pageFile.page++;
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    } else if (page == 2) {
+                        page++;
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
-                    } else if (pageFile.page == 3) {
-                        pageFile.page++;
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    } else if (page == 3) {
+                        page++;
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         await r.message.edit(pageFourEmbed);
-                    } else if (pageFile.page == 4) {
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    } else if (page == 4) {
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         return message.channel.send("You are at the max number of pages.");
                     }
                 });
                 collectorPageBackward.on("collect", async (r) => {
-                    if (pageFile.page == 2) {
-                        pageFile.page--;
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    if (page == 2) {
+                        page--;
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         await r.message.edit(pageOneEmbed);
-                    } else if (pageFile.page == 1) {
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    } else if (page == 1) {
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         return message.channel.send("You can't go backwards if you're at page 1.");
-                    } else if (pageFile.page == 3) {
-                        pageFile.page--;
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    } else if (page == 3) {
+                        page--;
+                        //const notbot = mReaction.author();
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
-                    } else if (pageFile.page == 4) {
-                        pageFile.page--;
-                        const notbot = r.users.filter(clientuser => clientuser !== client.user).first();
+                    } else if (page == 4) {
+                        page--;
+                        const notbot = mReaction.author();
                         await r.remove(notbot);
                         await r.message.edit(pageThreeEmbed);
                     }
