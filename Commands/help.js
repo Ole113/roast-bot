@@ -34,11 +34,9 @@ exports.run = async (client, message) => {
         message.channel.send(pageOneEmbed)
             .then( async (mmReaction) => await mmReaction.react("◀"))
             .then( async (mmmReaction) => await mmmReaction.message.react("⏹"))
-            .then( async (mmmReaction) => {
-                await page--;
-                await mmmReaction.message.react("▶")
-            })
+            .then( async (mmmReaction) => await mmmReaction.message.react("▶"))
             .then(async mReaction => {
+                page--;
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
