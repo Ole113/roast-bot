@@ -38,7 +38,6 @@ exports.run = async (client, message) => {
             .then( async (mmmReaction) => await mmmReaction.message.react("▶"))
             .then(async mReaction => {
                 first = true;
-                console.log(first);
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
@@ -86,6 +85,9 @@ exports.run = async (client, message) => {
                 });
 
                 collectorPageForward.on("collect", async (r) => {
+                    if(first == true) {
+                        page--;
+                    }
                     if (page == 1) {
                         page++;
                         const notbot = message.author;
