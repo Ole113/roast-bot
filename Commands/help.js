@@ -8,8 +8,8 @@
 const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
- 
-exports.run = async (client, message) => {
+
+exports.run = async (message) => {
     let page = 1;
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
@@ -32,14 +32,15 @@ exports.run = async (client, message) => {
             }
         });
         message.channel.send(pageOneEmbed)
-            .then(mmReaction => mmReaction.react("◀"))
-            .then(mmmReaction => mmmReaction.message.react("⏹"))
-            .then(mmmReaction => mmmReaction.message.react("▶"))
+            .then((r) => page--)
+            .then((mmReaction) => mmReaction.react("◀"))
+            .then((mmmReaction) => mmmReaction.message.react("⏹"))
+            .then((mmmReaction) => mmmReaction.message.react("▶"))
             .then(async mReaction => {
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
-            
+
                 const pageTwoEmbed = new Discord.RichEmbed({
                     title: pageOneEmbed.title,
                     color: 15427357,
@@ -104,6 +105,7 @@ exports.run = async (client, message) => {
                         return message.channel.send("You are at the max number of pages.");
                     }
                 });
+
                 collectorPageBackward.on("collect", async (r) => {
                     if (page == 2) {
                         page--;
@@ -116,7 +118,6 @@ exports.run = async (client, message) => {
                         return message.channel.send("You can't go backwards if you're at page 1.");
                     } else if (page == 3) {
                         page--;
-                        //const notbot = message.author;
                         const notbot = message.author;
                         await r.remove(notbot);
                         await r.message.edit(pageTwoEmbed);
