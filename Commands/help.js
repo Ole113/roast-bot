@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 const prefixFile = require("../Database/prefix.json");
 
 const pageFile = require("./page.json");
-
+ 
 exports.run = async (client, message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
