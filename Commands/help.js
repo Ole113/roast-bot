@@ -11,6 +11,7 @@ const prefixFile = require("../Database/prefix.json");
 
 exports.run = async (client, message) => {
     let page = 1;
+    let first = false;
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
         const pageForward = (reaction) => reaction.emoji.name === "▶";
@@ -36,6 +37,8 @@ exports.run = async (client, message) => {
             .then( async (mmmReaction) => await mmmReaction.message.react("⏹"))
             .then( async (mmmReaction) => await mmmReaction.message.react("▶"))
             .then(async mReaction => {
+                first = true;
+                console.log(first);
                 const collectorPageForward = mReaction.message.createReactionCollector(pageForward);
                 const collectorPageBackward = mReaction.message.createReactionCollector(pageBackward);
                 const collectorStop = mReaction.message.createReactionCollector(stop);
@@ -81,7 +84,7 @@ exports.run = async (client, message) => {
                         text: "Page 4 of 4."
                     }
                 });
-                page--;
+
                 collectorPageForward.on("collect", async (r) => {
                     if (page == 1) {
                         page++;
