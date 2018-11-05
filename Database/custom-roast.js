@@ -5,14 +5,17 @@ const bsp = require("better-sqlite-pool");
 const prefixFile = require("./prefix.json");
 
 const customRoasts = [
-	{ "number": 1, "roast": "You haven't set any custom roasts yet! Use `r!cr help` to learn how to." },
-	{ "number": 2, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to." },
-	{ "number": 3, "roast": "You haven't set this custom roasts yet! Use `r!cr help` to learn how to." }
+	{ "number": 1, "roast": "You haven't set any custom roasts yet! Use `r!croast help` to learn how to." },
+	{ "number": 2, "roast": "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." },
+	{ "number": 3, "roast": "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." }
 ];
 
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) { return; }
+		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast help")) {
+			return message.channel.send("Coming soon!");
+		}
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast delete #")) {
 			let content = message.content;
 			let contentSlice = content.slice(prefixFile.prefix.length + 15, content.length);
