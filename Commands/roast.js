@@ -112,7 +112,7 @@ const roasts = [
 	{ "number": 97, "roast": "What\'s the difference between you and eggs? Eggs get laid and you don\'t." },
 	{ "number": 98, "roast": "If you\'re gonna be a smartass, first you have to be smart. Otherwise you\'re just an ass." },
 	{ "number": 99, "roast": "At least when I do a handstand my stomach doesn\'t hit me in the face." },
-	{ "number": 100, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
+	{ "number": 125, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
 	{ "number": 101, "roast": "God made you as an example of what not to do."},
 	{ "number": 102, "roast": "You're proof that God has a sense of humor."},
 	{ "number": 103, "roast": "You\'re so fat you could sell shade."},
@@ -147,42 +147,42 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "on") {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
-			let randomRoasts = Math.ceil(Math.random() * 100 + customRoastFile.length);
-			if (randomRoasts > 100 && customRoastFile[randomRoasts].roast.includes("You haven't set this custom roasts yet!")) {
+			let randomRoasts = Math.ceil(Math.random() * 125 + customRoastFile.length);
+			if (randomRoasts > 125 && customRoastFile[randomRoasts].roast.includes("You haven't set this custom roasts yet!")) {
 				randomRoasts -= customRoastFile.length;
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
-			if (randomRoasts >= 101) {
-				return message.channel.send(customRoastFile[randomRoasts - 101].roast + `\n **Custom Roast #${randomRoasts - 100}** <:roast_circle:474755210485563404>`);
+			if (randomRoasts >= 1) {
+				return message.channel.send(customRoastFile[randomRoasts - 125].roast + `\n **Custom Roast #${randomRoasts - 125}** <:roast_circle:474755210485563404>`);
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
-			let random = Math.ceil(Math.random() * 100 + customRoastFile.length);
+			let random = Math.ceil(Math.random() * 125 + customRoastFile.length);
 			const word = message.content;
 			const reply = word.slice(prefixFile.prefix.length + 6, word.length);
 			if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast #")) {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let numberInt = parseInt(number1);
-				if (numberInt > 100 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
+				if (numberInt > 125 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
 					numberInt -= customRoastFile.length;
 					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 				}
-				if (numberInt > 100) {
-					return message.channel.send(customRoastFile[numberInt - 101].roast + `\n **Custom Roast #${numberInt - 100}** <:roast_circle:474755210485563404>`);
+				if (numberInt > 125) {
+					return message.channel.send(customRoastFile[numberInt - 126].roast + `\n **Custom Roast #${numberInt - 125}** <:roast_circle:474755210485563404>`);
 				}
 				if (numberInt > roasts.length - 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 			}
-			if (random > 100 && customRoastFile[random].roast.includes("You haven't set this custom roasts yet!")) {
+			if (random > 125 && customRoastFile[random].roast.includes("You haven't set this custom roasts yet!")) {
 				random -= customRoastFile.length;
 				return message.channel.send(roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 			}
-			if (random > 100) {
-				return message.channel.send(`${reply}, ${customRoastFile[random - 101].roast}\n **Custom Roast #${random - 100}** <:roast_circle:474755210485563404>`);
+			if (random > 125) {
+				return message.channel.send(`${reply}, ${customRoastFile[random - 126].roast}\n **Custom Roast #${random - 125}** <:roast_circle:474755210485563404>`);
 			}
 			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
