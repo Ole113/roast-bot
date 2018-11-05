@@ -36,6 +36,7 @@ const botPrecense = [
 	"http://roast-bot.com",
 	"On-Off now live! r!off commandName",
 	"Use r!feedback messasge to send feedback",
+	client.guilds.size
 ];
 client.on("ready", () => {
 	console.log("-----------------------------------")
