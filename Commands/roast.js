@@ -151,7 +151,7 @@ exports.run = async (message) => {
 			if (randomRoasts > 125 && customRoastFile[randomRoasts].roast.includes("You haven't set this custom roasts yet!")) {
 				randomRoasts -= customRoastFile.length;
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			}
+			} 
 			if (randomRoasts >= 1) {
 				return message.channel.send(customRoastFile[randomRoasts - 125].roast + `\n **Custom Roast #${randomRoasts - 125}** <:roast_circle:474755210485563404>`);
 			} else {
