@@ -113,40 +113,40 @@ const roasts = [
 	{ "number": 98, "roast": "If you\'re gonna be a smartass, first you have to be smart. Otherwise you\'re just an ass." },
 	{ "number": 99, "roast": "At least when I do a handstand my stomach doesn\'t hit me in the face." },
 	{ "number": 135, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
-	{ "number": 101, "roast": "God made you as an example of what not to do."},
-	{ "number": 102, "roast": "You're proof that God has a sense of humor."},
-	{ "number": 103, "roast": "You\'re so fat you could sell shade."},
-	{ "number": 104, "roast": "You\'ll never be the man your mother is."},
-	{ "number": 105, "roast": "Which sexual position produces the ugliest children? Ask your mother."},
-	{ "number": 106, "roast": "I thought of you today. It reminded me to take the garbage out."},
-	{ "number": 107, "roast": "You\'re so ugly when you look in the mirror, your reflection looks away."},
-	{ "number": 108, "roast": "Gay? I\'m straighter than the pole your mom dances on."},
-	{ "number": 109, "roast": "I just stepped in something that was smarter than you… and smelled better too."},
-	{ "number": 110, "roast": "I can\'t help imagining how much awesomer the world would be if your dad had just pulled out."},
-	{ "number": 111, "roast": "Good story, but in what chapter do you shut the fuck up?"},
-	{ "number": 112, "roast": "I was pro life. Then I met you."},
-	{ "number": 113, "roast": "I\'d tell you to go fuck yourself, but that would be cruel and unusual punishment."},
-	{ "number": 114, "roast": "You stare at frozen juice cans because they say, \"concentrate\"."},
-	{ "number": 115, "roast": "You have the perfect face for radio."},
-	{ "number": 116, "roast": "You\'re so ugly you make blind kids cry."},
-	{ "number": 117, "roast": "Nice shirt, what brand is it? Clearance?"},
-	{ "number": 118, "roast": "Don\'t you need a license to be that ugly?"},
-	{ "number": 119, "roast": "One more wrinkle and you\'d pass for a prune."},
-	{ "number": 120, "roast": "You\'re so dumb, your dog teaches you tricks."},
-	{ "number": 121, "roast": "You\'re the reason they invented double doors!"},
-	{ "number": 122, "roast": "Hold on, I\'ll go find you a tampon."},
-	{ "number": 123, "roast": "You prefer three left turns to one right turn."},
-	{ "number": 124, "roast": "You conserve toilet paper by using both sides."},
-	{ "number": 135, "roast": "What did you have for breakfast? Bitch Flakes?"},
-	{ "number": 126, "roast": "You're so stupid you tried to wake a sleeping bag."},
-	{ "number": 127, "roast": "You're so stupid, you'd trip over a cordless phone."},
-	{ "number": 128, "roast": "I called your boyfriend gay and he hit me with his purse!"},
-	{ "number": 129, "roast": "You're so stupid, it takes you an hour to cook minute rice."},
-	{ "number": 130, "roast": "Don’t feel sad, don’t feel blue, Frankenstein was ugly too."},
-	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you."},
-	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back."},
-	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them."},
-	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks."}
+	{ "number": 101, "roast": "God made you as an example of what not to do." },
+	{ "number": 102, "roast": "You're proof that God has a sense of humor." },
+	{ "number": 103, "roast": "You\'re so fat you could sell shade." },
+	{ "number": 104, "roast": "You\'ll never be the man your mother is." },
+	{ "number": 105, "roast": "Which sexual position produces the ugliest children? Ask your mother." },
+	{ "number": 106, "roast": "I thought of you today. It reminded me to take the garbage out." },
+	{ "number": 107, "roast": "You\'re so ugly when you look in the mirror, your reflection looks away." },
+	{ "number": 108, "roast": "Gay? I\'m straighter than the pole your mom dances on." },
+	{ "number": 109, "roast": "I just stepped in something that was smarter than you… and smelled better too." },
+	{ "number": 110, "roast": "I can\'t help imagining how much awesomer the world would be if your dad had just pulled out." },
+	{ "number": 111, "roast": "Good story, but in what chapter do you shut the fuck up?" },
+	{ "number": 112, "roast": "I was pro life. Then I met you." },
+	{ "number": 113, "roast": "I\'d tell you to go fuck yourself, but that would be cruel and unusual punishment." },
+	{ "number": 114, "roast": "You stare at frozen juice cans because they say, \"concentrate\"." },
+	{ "number": 115, "roast": "You have the perfect face for radio." },
+	{ "number": 116, "roast": "You\'re so ugly you make blind kids cry." },
+	{ "number": 117, "roast": "Nice shirt, what brand is it? Clearance?" },
+	{ "number": 118, "roast": "Don\'t you need a license to be that ugly?" },
+	{ "number": 119, "roast": "One more wrinkle and you\'d pass for a prune." },
+	{ "number": 120, "roast": "You\'re so dumb, your dog teaches you tricks." },
+	{ "number": 121, "roast": "You\'re the reason they invented double doors!" },
+	{ "number": 122, "roast": "Hold on, I\'ll go find you a tampon." },
+	{ "number": 123, "roast": "You prefer three left turns to one right turn." },
+	{ "number": 124, "roast": "You conserve toilet paper by using both sides." },
+	{ "number": 135, "roast": "What did you have for breakfast? Bitch Flakes?" },
+	{ "number": 126, "roast": "You're so stupid you tried to wake a sleeping bag." },
+	{ "number": 127, "roast": "You're so stupid, you'd trip over a cordless phone." },
+	{ "number": 128, "roast": "I called your boyfriend gay and he hit me with his purse!" },
+	{ "number": 129, "roast": "You're so stupid, it takes you an hour to cook minute rice." },
+	{ "number": 130, "roast": "Don’t feel sad, don’t feel blue, Frankenstein was ugly too." },
+	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
+	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back." },
+	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them." },
+	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." }
 ];
 
 exports.run = async (message) => {
@@ -156,8 +156,9 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "on") {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
-			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
-			let randomRoasts = 136;
+			let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
+			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+			/*
 			if (randomRoasts > 135 && customRoastFile[randomRoasts].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to.") {
 				randomRoasts -= customRoastFile.length;
 				console.log(randomRoasts);
@@ -168,6 +169,7 @@ exports.run = async (message) => {
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
+			*/
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
 			let random = Math.ceil(Math.random() * 135 + customRoastFile.length);
 			const word = message.content;
@@ -176,6 +178,8 @@ exports.run = async (message) => {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let numberInt = parseInt(number1);
+
+				/*
 				if (numberInt > 135 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
 					numberInt -= customRoastFile.length;
 					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
@@ -183,11 +187,14 @@ exports.run = async (message) => {
 				if (numberInt > 135) {
 					return message.channel.send(customRoastFile[numberInt - 136].roast + `\n **Custom Roast #${numberInt - 135}** <:roast_circle:474755210485563404>`);
 				}
+				*/
+
 				if (numberInt > roasts.length - 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 			}
+			/*
 			if (random > 135 && customRoastFile[random].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to.") {
 				random -= customRoastFile.length;
 				console.log(random);
@@ -196,9 +203,10 @@ exports.run = async (message) => {
 			if (random > 135) {
 				return message.channel.send(`${reply}, ${customRoastFile[random - 136].roast}\n **Custom Roast #${random - 135}** <:roast_circle:474755210485563404>`);
 			}
+			*/
 			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
 	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "off") {
-		return message.channel.send("This command has been turned off by an administrator.");   
+		return message.channel.send("This command has been turned off by an administrator.");
 	}
 };

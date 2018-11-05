@@ -13,8 +13,8 @@ const customRoasts = [
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) { return; }
-		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast help")) {
-			return message.channel.send("Coming soon!");
+		if (message.content.toLowerCase() == "rb!croast help") {
+			return message.channel.send("Coming soon.");
 		}
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast delete #")) {
 			let content = message.content;
@@ -39,7 +39,7 @@ exports.run = async (message) => {
 
 			if (!customRoast.has(key)) {
 				customRoast.set(key, {
-					user: message.author.id, guild: message.guild.id, number: 0, roast: 1
+					user: message.author.id, number: 0, roast: 1
 				});
 			}
 
@@ -54,7 +54,8 @@ exports.run = async (message) => {
 				customRoast.set(key, ++number, "number");
 				return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
 			} else {
-				return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
+				return message.channel.send("You can only have 3 custom roasts.");
+				//return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
 			}
 		}
 	});
