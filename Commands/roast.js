@@ -158,7 +158,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
 			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
 			let randomRoasts = 136;
-			if (randomRoasts > 135 && customRoastFile[randomRoasts].roast.includes("You haven't set this custom roasts yet!")) {
+			if (randomRoasts > 135 && customRoastFile[randomRoasts].roast == "You haven't set this custom roasts yet! Use `r!cr help` to learn how to.") {
 				randomRoasts -= customRoastFile.length;
 				console.log(randomRoasts);
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
