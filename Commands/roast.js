@@ -112,7 +112,7 @@ const roasts = [
 	{ "number": 97, "roast": "What\'s the difference between you and eggs? Eggs get laid and you don\'t." },
 	{ "number": 98, "roast": "If you\'re gonna be a smartass, first you have to be smart. Otherwise you\'re just an ass." },
 	{ "number": 99, "roast": "At least when I do a handstand my stomach doesn\'t hit me in the face." },
-	{ "number": 125, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
+	{ "number": 135, "roast": "I don\'t exactly hate you, but if you were on fire and I had water, I\'d drink it." },
 	{ "number": 101, "roast": "God made you as an example of what not to do."},
 	{ "number": 102, "roast": "You're proof that God has a sense of humor."},
 	{ "number": 103, "roast": "You\'re so fat you could sell shade."},
@@ -137,7 +137,16 @@ const roasts = [
 	{ "number": 122, "roast": "Hold on, I\'ll go find you a tampon."},
 	{ "number": 123, "roast": "You prefer three left turns to one right turn."},
 	{ "number": 124, "roast": "You conserve toilet paper by using both sides."},
-	{ "number": 125, "roast": "What did you have for breakfast? Bitch Flakes?"}
+	{ "number": 135, "roast": "What did you have for breakfast? Bitch Flakes?"},
+	{ "number": 126, "roast": "You're so stupid you tried to wake a sleeping bag."},
+	{ "number": 127, "roast": "You're so stupid, you'd trip over a cordless phone."},
+	{ "number": 128, "roast": "I called your boyfriend gay and he hit me with his purse!"},
+	{ "number": 129, "roast": "You're so stupid, it takes you an hour to cook minute rice."},
+	{ "number": 130, "roast": "Don’t feel sad, don’t feel blue, Frankenstein was ugly too."},
+	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you."},
+	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back."},
+	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them."},
+	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks."}
 ];
 
 exports.run = async (message) => {
@@ -147,42 +156,44 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "on") {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
-			let randomRoasts = Math.ceil(Math.random() * 125 + customRoastFile.length);
-			if (randomRoasts > 125 && customRoastFile[randomRoasts].roast.includes("You haven't set this custom roasts yet!")) {
+			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
+			let randomRoasts = 136;
+			if (randomRoasts > 135 && customRoastFile[randomRoasts].roast.includes("You haven't set this custom roasts yet!")) {
 				randomRoasts -= customRoastFile.length;
+				console.log(randomRoasts);
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			} 
-			if (randomRoasts >= 1) {
-				return message.channel.send(customRoastFile[randomRoasts - 125].roast + `\n **Custom Roast #${randomRoasts - 125}** <:roast_circle:474755210485563404>`);
+			}
+			if (randomRoasts >= 135) {
+				return message.channel.send(customRoastFile[randomRoasts - 135].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
-			let random = Math.ceil(Math.random() * 125 + customRoastFile.length);
+			let random = Math.ceil(Math.random() * 135 + customRoastFile.length);
 			const word = message.content;
 			const reply = word.slice(prefixFile.prefix.length + 6, word.length);
 			if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast #")) {
 				let word1 = message.content;
 				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
 				let numberInt = parseInt(number1);
-				if (numberInt > 125 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
+				if (numberInt > 135 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
 					numberInt -= customRoastFile.length;
 					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 				}
-				if (numberInt > 125) {
-					return message.channel.send(customRoastFile[numberInt - 126].roast + `\n **Custom Roast #${numberInt - 125}** <:roast_circle:474755210485563404>`);
+				if (numberInt > 135) {
+					return message.channel.send(customRoastFile[numberInt - 136].roast + `\n **Custom Roast #${numberInt - 135}** <:roast_circle:474755210485563404>`);
 				}
 				if (numberInt > roasts.length - 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 			}
-			if (random > 125 && customRoastFile[random].roast.includes("You haven't set this custom roasts yet!")) {
+			if (random > 135 && customRoastFile[random].roast.includes("You haven't set this custom roasts yet!")) {
 				random -= customRoastFile.length;
 				return message.channel.send(roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 			}
-			if (random > 125) {
-				return message.channel.send(`${reply}, ${customRoastFile[random - 126].roast}\n **Custom Roast #${random - 125}** <:roast_circle:474755210485563404>`);
+			if (random > 135) {
+				return message.channel.send(`${reply}, ${customRoastFile[random - 136].roast}\n **Custom Roast #${random - 135}** <:roast_circle:474755210485563404>`);
 			}
 			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
