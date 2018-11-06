@@ -158,10 +158,12 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
 			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
 			let randomRoasts = 136;
+			let test = true;
 			if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 137].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 138].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to."))) {
+				test = false;
 				randomRoasts = Math.ceil(Math.random() * 135);
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			} else if (randomRoasts > 135) {
+			} else if (randomRoasts > 135 && !test) {
 				return message.channel.send(customRoastFile[randomRoasts - 136].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
