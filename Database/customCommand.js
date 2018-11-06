@@ -1,4 +1,4 @@
-const discord = require("Discord.js");
+const discord = require("discord.js");
 
 const prefixFile = require("./prefix.json");
 
