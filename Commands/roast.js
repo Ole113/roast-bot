@@ -158,7 +158,6 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
 			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
 			let randomRoasts = 136;
-			
 			if (randomRoasts > 135 && customRoastFile[0].roast.startsWith("You haven't")) {
 				randomRoasts -= customRoastFile.length;
 				console.log(randomRoasts);
