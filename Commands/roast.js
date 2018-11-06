@@ -159,7 +159,7 @@ exports.run = async (message) => {
 			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
 			let randomRoasts = 136;
 			
-			if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." || customRoastFile[randomRoasts - 137].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." || customRoastFile[randomRoasts - 138].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." || customRoastFile[randomRoasts - 139].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to.")) {
+			if (randomRoasts > 135 && customRoastFile[0].includes("You haven't")) {
 				randomRoasts -= customRoastFile.length;
 				console.log(randomRoasts);
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
