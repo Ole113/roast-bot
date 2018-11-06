@@ -31,6 +31,7 @@ const vidFile = require("./Commands/vid.js");
 const pollFile = require("./Commands/poll.js");
 const websiteFile = require("./Commands/website.js");
 const updatesFile = require("./Commands/updates.js");
+const customCommandFile = require("./Database/customCommand.js");
 
 const botPrecense = [
 	"http://roast-bot.com",
@@ -90,7 +91,8 @@ client.on("message", (message) => {
 	vidFile.run(message);
 	pollFile.run(message);
 	websiteFile.run(message);
-  updatesFile.run(message);
+	updatesFile.run(message);
+	customCommandFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
