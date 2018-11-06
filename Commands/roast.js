@@ -165,7 +165,7 @@ exports.run = async (message) => {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
 			*/
-			if (randomRoasts >= 135) {
+			if (randomRoasts > 135) {
 				return message.channel.send(customRoastFile[randomRoasts - 135].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
