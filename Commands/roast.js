@@ -161,9 +161,7 @@ exports.run = async (message) => {
 			if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 137].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 138].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to."))) {
 				randomRoasts = Math.ceil(Math.random() * 135);
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			}
-			
-			if (randomRoasts > 135) {
+			} else if (randomRoasts > 135) {
 				return message.channel.send(customRoastFile[randomRoasts - 136].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
