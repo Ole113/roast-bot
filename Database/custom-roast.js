@@ -49,7 +49,6 @@ exports.run = async (message) => {
 				return message.channel.send(`Custom Roast #${customRoast.get(key, "number")} and has been set to *${customRoast.get(key, "roast")}*`);
 			} else {
 				return message.channel.send("You can only have 3 custom roasts.");
-				//return message.channel.send("You have run out of free custom roasts. To get unlimited upgrade for only $1.50.");
 			}
 		}
 	});
