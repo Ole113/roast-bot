@@ -7,5 +7,6 @@
   "clear": "on",
   "server": "on",
   "bot": "on",
-  "vid": "on"
+  "vid": "on",
+  "censor": "off"
 }
