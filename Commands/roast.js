@@ -156,11 +156,9 @@ exports.run = async (message) => {
 	}
 	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "on") {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
-			//let randomRoasts = Math.ceil(Math.random() * 135 + customRoastFile.length);
-			let randomRoasts = 136;
-			let test = true;
+			let randomRoasts = Math.ceil(Math.random() * roasts.length);
+			/*
 			if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 137].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 138].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to."))) {
-				test = false;
 				randomRoasts = Math.ceil(Math.random() * 135);
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			} else if (randomRoasts > 135 && !test) {
@@ -168,9 +166,10 @@ exports.run = async (message) => {
 			} else {
 				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 			}
+			*/
+			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 		} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast ")) {
-			//let random = Math.ceil(Math.random() * 135 + customRoastFile.length);
-			let random = 136;
+			let random = Math.ceil(Math.random() * roasts.length);
 			const word = message.content;
 			const reply = word.slice(prefixFile.prefix.length + 6, word.length);
 			if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast #")) {
@@ -188,7 +187,7 @@ exports.run = async (message) => {
 				}
 				*/
 
-				if (numberInt > roasts.length - 1) {
+				if (numberInt > roasts.length - 1 || numberInt < 1) {
 					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 				}
 				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);

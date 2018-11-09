@@ -4,12 +4,6 @@ const bsp = require("better-sqlite-pool");
 
 const prefixFile = require("./prefix.json");
 
-const customRoasts = [
-	{ "number": 1, "roast": "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." },
-	{ "number": 2, "roast": "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." },
-	{ "number": 3, "roast": "You haven't set this custom roasts yet! Use `r!croast help` to learn how to." }
-];
-
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) { return; }
@@ -20,7 +14,7 @@ exports.run = async (message) => {
 			let content = message.content;
 			let contentSlice = content.slice(prefixFile.prefix.length + 15, content.length);
 			let numberInt = parseInt(contentSlice);
-			customRoasts[numberInt - 1].roast = "You haven't set this custom roasts yet! Use `r!cr help` to learn how to.";
+			customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `r!cr help` to learn how to.";
 			return message.channel.send(`Custom roast #${numberInt} was removed successfully!`);
 		}
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast #")) {
@@ -39,7 +33,7 @@ exports.run = async (message) => {
 
 			if (!customRoast.has(key)) {
 				customRoast.set(key, {
-					user: message.author.id, number: 0, roast: 1
+					user: message.author.id, number: 0, roast1: 1, roast2: 1, roast3: 1
 				});
 			}
 
