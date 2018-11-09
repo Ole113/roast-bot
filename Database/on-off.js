@@ -53,6 +53,9 @@ exports.run = async (message) => {
 			} else if (commandd.toLowerCase().startsWith("vid")) {
 				onOffFile.vid = "off";
 				return message.channel.send("Video command has been turned off. Use `r!on vid` to turn it back on.");
+			} else if (commandd.toLowerCase().startsWith("censor")) {
+				onOffFile.censor = "off";
+				return message.channel.send("Roast Censoring has been turned off. Use `r!on censor` to turn it back on.");
 			} else {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
 			}
@@ -88,6 +91,9 @@ exports.run = async (message) => {
 			} else if (command.toLowerCase().startsWith("vid")) {
 				onOffFile.vid = "on";
 				return message.channel.send("Video command has been turned on. Use `r!on vid` to turn it back off.");
+			} else if (command.toLowerCase().startsWith("censor")) {
+				onOffFile.censor = "on";
+				return message.channel.send("Roast Censoring has been turned on. Use `r!on censor` to turn it back off.");
 			} else {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
 			}
