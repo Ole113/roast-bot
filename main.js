@@ -45,8 +45,9 @@ client.on("ready", () => {
 	console.log("-----------------------------------")
 	setInterval(() => {
 		let random = Math.floor(Math.random() * 3);
+		console.log(botPrecense[random]);
 		client.user.setActivity(`${prefixFile.prefix}help | ${botPrecense[random]}`, { type: "PLAYING" });
-	}, 20000);
+	}, 10000);
 });
 client.on("guildMemberAdd", (member) => {
 	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
