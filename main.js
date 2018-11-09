@@ -32,6 +32,7 @@ const pollFile = require("./Commands/poll.js");
 const websiteFile = require("./Commands/website.js");
 const updatesFile = require("./Commands/updates.js");
 const customCommandFile = require("./Database/customCommand.js");
+const censorFile = require("./Database/censor.js");
 
 const botPrecense = [
 	"http://roast-bot.com",
@@ -45,7 +46,6 @@ client.on("ready", () => {
 	console.log("-----------------------------------")
 	setInterval(() => {
 		let random = Math.floor(Math.random() * 3);
-		console.log(botPrecense[random]);
 		client.user.setActivity(`${prefixFile.prefix}help | ${botPrecense[random]}`, { type: "PLAYING" });
 	}, 10000);
 });
@@ -94,6 +94,7 @@ client.on("message", (message) => {
 	websiteFile.run(message);
 	updatesFile.run(message);
 	customCommandFile.run(message);
+    censorFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
