@@ -47,7 +47,7 @@ exports.run = async (message) => {
             roastFile[88].roast = "The only reason your partner likes your d*ck is because they were taught to enjoy the little things in life.";
 
             censor.set(key, "on", "censor");
-
+            return message.channel.send("Roast Censoring has been applied.");
         } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off censor") && test == "on") {
             censor.set(key, "off", "censor");
             return message.channel.send("Roast Censoring has been turned off.");
