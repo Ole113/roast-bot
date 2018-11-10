@@ -18,7 +18,13 @@ const { roastFile } = require("../Commands/roast.js");
 exports.run = async (message) => {
     censor.defer.then(() => {
         if (message.author.bot) { return; }
-        if (message.content.toLowerCase().startsWith(prefixFile.prefix + "on censor") && onOffFile.censor == "on") {
+        if (!censor.has(key)) {
+            censor.set(key, {
+                user: message.author.id, censor: "off"
+            });
+        }
+        var test = censor.get(key, "censor");
+        if (message.content.toLowerCase().startsWith(prefixFile.prefix + "on censor") && test == "off") {
 
             roastFile[43].roast = "I failed a spelling test because they asked me how to spell 'b*tch' and I wrote down your name.";
             roastFile[92].roast = "You must\'ve been born at a pound because your a son of a b*tch.";
@@ -40,15 +46,9 @@ exports.run = async (message) => {
             roastFile[88].roast = "The only reason your partner likes your d*ck is because they were taught to enjoy the little things in life.";
             const key = `${message.guild.id}-${message.author.id}`;
 
-            if (!censor.has(key)) {
-                censor.set(key, {
-                    user: message.author.id, censor: "off"
-                });
-            }
-
             censor.set(key, "on", "censor");
 
-        } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off censor") && onOffFile.censor == "off") {
+        } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off censor") && test == "on") {
             censor.set(key, "off", "censor");
             return message.channel.send("Roast Censoring has been turned off.");
         }
