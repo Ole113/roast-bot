@@ -65,7 +65,7 @@ client.on("guildMemberRemove", (member) => {
 	welcomeleavechannel.send(leaveEmbed);
 });
 client.on("message", (message) => {
-	onOffFile.run(message);
+	//onOffFile.run(message);
 	censorFile.run(message);
 	helpFile.run(client, message);
 	botFile.run(client, message);
