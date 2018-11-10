@@ -16,8 +16,8 @@ exports.run = async (message) => {
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "on") {
         
         for (let i = 0; i < roastFile.length; i++) {
-            roastFile[i].roast.replace("bitch", "b*tch");
-            roastFile[i].roast.replace("fuck", "f*ck");
+            roastFile[43].roast.replace("bitch", "b*tch");
+            roastFile[43].roast.replace("fuck", "f*ck");
         }
         return message.channel.send(`Censoring has been applied. ${roastFile[43].roast}`);
     } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "off") {
