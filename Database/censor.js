@@ -15,10 +15,9 @@ exports.run = async (message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "on") {
         
-        for (let i = 0; i < roastFile.length; i++) {
-            roastFile[43].roast.replace("bitch", "b*tch");
-            roastFile[43].roast.replace("fuck", "f*ck");
-        }
+        roastFile.roast.map((r) => {
+            roastFile.roast.replace("bitch", "b*tch");
+        });
         return message.channel.send(`Censoring has been applied. ${roastFile[43].roast}`);
     } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "off") {
         return message.channel.send("This command has been turned off by an administrator.");
