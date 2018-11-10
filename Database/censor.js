@@ -14,11 +14,10 @@ const { roastFile } = require("../Commands/roast.js");
 exports.run = async (message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "on") {
-        
-        for (var i in roastFile) {
-            roastFile[i].roast.replace("bitch", "b*tch");
-        }
-        return message.channel.send(i + "" + roastFile[43].roast);
+
+        roastFile[43].roast.replace("bitch", "b*tch");
+
+        return message.channel.send(roastFile[43].roast);
         //return message.channel.send(`Censoring has been applied. ${roastFile[43].roast}`);
     } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "off") {
         return message.channel.send("This command has been turned off by an administrator.");
