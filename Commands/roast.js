@@ -24,7 +24,7 @@ const roasts = [
 	{ "number": 9, "roast": "Even the shower doesn't want to see you naked." },
 	{ "number": 10, "roast": "I bet you wear a nose ring because no one wants to put one on your finger." },
 	{ "number": 11, "roast": "When the airforce needs extra landing space they should just rent out your forehead." },
-	{ "number": 12, "roast": "If laughter is the best medicine, your face must be curing the world." }, { "roast": "If I wanted a bitch Id have bought a dog." },
+	{ "number": 12, "roast": "If laughter is the best medicine, your face must be curing the world." },
 	{ "number": 13, "roast": "The only way you will ever get laid is if you crawl up a chickens ass and wait." },
 	{ "number": 14, "roast": "It looks like your face caught fire and someone tried to put it out with a hammer." },
 	{ "number": 15, "roast": "Your family tree must be a cactus because everyone on it is a prick." },
@@ -146,7 +146,8 @@ const roasts = [
 	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
 	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back." },
 	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them." },
-	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." }
+	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." },
+	{ "number": 136, "roast": "If I wanted a bitch I'd have bought a dog." }
 ];
 
 exports.run = async (message) => {
@@ -208,3 +209,4 @@ exports.run = async (message) => {
 		return message.channel.send("This command has been turned off by an administrator.");
 	}
 };
+exports.roastFile = roasts;
