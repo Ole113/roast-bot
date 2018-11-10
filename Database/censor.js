@@ -49,7 +49,8 @@ exports.run = async (message) => {
             censor.set(key, "on", "censor");
 
         } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off censor") && onOffFile.censor == "off") {
-            return message.channel.send("");
+            censor.set(key, "off", "censor");
+            return message.channel.send("Roast Censoring has been turned off.");
         }
     });
 }
