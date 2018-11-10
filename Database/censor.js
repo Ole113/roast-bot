@@ -18,6 +18,7 @@ const { roastFile } = require("../Commands/roast.js");
 exports.run = async (message) => {
     censor.defer.then(() => {
         if (message.author.bot) { return; }
+        const key = `${message.guild.id}-${message.author.id}`;
         if (!censor.has(key)) {
             censor.set(key, {
                 user: message.author.id, censor: "off"
@@ -44,7 +45,6 @@ exports.run = async (message) => {
             roastFile[64].roast = "You have more d*ck in your personality than you do in your pants.";
             roastFile[70].roast = "Being a d*ck to everyone won\'t make yours any bigger.";
             roastFile[88].roast = "The only reason your partner likes your d*ck is because they were taught to enjoy the little things in life.";
-            const key = `${message.guild.id}-${message.author.id}`;
 
             censor.set(key, "on", "censor");
 
