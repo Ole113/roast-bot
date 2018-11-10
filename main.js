@@ -33,6 +33,7 @@ const websiteFile = require("./Commands/website.js");
 const updatesFile = require("./Commands/updates.js");
 const customCommandFile = require("./Database/customCommand.js");
 const censorFile = require("./Database/censor.js");
+const test = require("./Database/mySQLTest.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
