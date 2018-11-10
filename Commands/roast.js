@@ -13,11 +13,11 @@ const onOffFile = require("../Database/on-off.json");
 //const { customRoastFile } = require("../Database/custom-roast.js");
 
 const roasts = [
-	{ "number": 1, "roast": "Id offer you some gum but your smiles got plenty of it." },
-	{ "number": 2, "roast": "Repeat After me: semen is not hair gel." },
+	{ "number": 1, "roast": "I'd offer you some gum but your smiles got plenty of it." },
+	{ "number": 2, "roast": "Repeat after me: semen is not hair gel." },
 	{ "number": 3, "roast": "Your body fat is about as evenly distributed as wealth in the US economy." },
-	{ "number": 4, "roast": "Your like dobby from harry potter, only people wont be sad when you die in the seventh book." },
-	{ "number": 5, "roast": "If I asked you about your cock it wouldnt be a very long conversation." },
+	{ "number": 4, "roast": "You're like dobby from harry potter, only people won't be sad when you die in the seventh book." },
+	{ "number": 5, "roast": "If I asked you about your cock it wouldn't be a very long conversation." },
 	{ "number": 6, "roast": "You have the kinds of looks that make people talk about your personality." },
 	{ "number": 7, "roast": "You look like the result of pressing random on the character creation menu." },
 	{ "number": 8, "roast": "You look like the after picture of a meth ad." },
