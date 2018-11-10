@@ -66,6 +66,7 @@ client.on("guildMemberRemove", (member) => {
 });
 client.on("message", (message) => {
 	onOffFile.run(message);
+	censorFile.run(message);
 	helpFile.run(client, message);
 	botFile.run(client, message);
 	roastFile.run(message);
@@ -85,7 +86,6 @@ client.on("message", (message) => {
 	websiteFile.run(message);
 	updatesFile.run(message);
 	customCommandFile.run(message);
-    censorFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
