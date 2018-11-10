@@ -137,17 +137,17 @@ const roasts = [
 	{ "number": 122, "roast": "Hold on, I\'ll go find you a tampon." },
 	{ "number": 123, "roast": "You prefer three left turns to one right turn." },
 	{ "number": 124, "roast": "You conserve toilet paper by using both sides." },
-	{ "number": 135, "roast": "What did you have for breakfast? Bitch Flakes?" },
+	{ "number": 125, "roast": "What did you have for breakfast? Bitch Flakes?" },
 	{ "number": 126, "roast": "You're so stupid you tried to wake a sleeping bag." },
 	{ "number": 127, "roast": "You're so stupid, you'd trip over a cordless phone." },
 	{ "number": 128, "roast": "I called your boyfriend gay and he hit me with his purse!" },
 	{ "number": 129, "roast": "You're so stupid, it takes you an hour to cook minute rice." },
 	{ "number": 130, "roast": "Don’t feel sad, don’t feel blue, Frankenstein was ugly too." },
+	{ "number": 131, "roast": "If I wanted a bitch I'd have bought a dog." }
 	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
 	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back." },
 	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them." },
 	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." },
-	{ "number": 136, "roast": "If I wanted a bitch I'd have bought a dog." }
 ];
 
 exports.run = async (message) => {
