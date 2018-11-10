@@ -147,7 +147,7 @@ const roasts = [
 	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
 	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back." },
 	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them." },
-	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." },
+	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." }
 ];
 
 exports.run = async (message) => {
