@@ -15,9 +15,7 @@ exports.run = async (message) => {
     if (message.author.bot) { return; }
     if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "on") {
         
-        roastFile.roast.map((r) => {
-            roastFile.roast.replace("bitch", "b*tch");
-        });
+        roastFile[43].roast.replace(/bitch/gi, "b*tch");
         return message.channel.send(`Censoring has been applied. ${roastFile[43].roast}`);
     } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "censor") && onOffFile.censor == "off") {
         return message.channel.send("This command has been turned off by an administrator.");
