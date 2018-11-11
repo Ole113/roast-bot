@@ -49,8 +49,8 @@ exports.run = async (message) => {
             censor.set(key, "on", "censor");
             return message.channel.send("Roast Censoring has been applied.");
         } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off censor") && on == "on") {
-            
-                        roastFile[43].roast = "I failed a spelling test because they asked me how to spell 'bitch' and I wrote down your name.";
+
+            roastFile[43].roast = "I failed a spelling test because they asked me how to spell 'bitch' and I wrote down your name.";
             roastFile[92].roast = "You must\'ve been born at a pound because you're a son of a bitch.";
             roastFile[92].roast = "What did you have for breakfast? Bitch Flakes?";
             roastFile[132].roast = "If I wanted a bitch I'd have bought a dog.";
