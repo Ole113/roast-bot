@@ -2,7 +2,7 @@ const Enmap = require("enmap");
 const customPrefix = new Enmap({ name: "custom-prefix" });
 const bsp = require("better-sqlite-pool");
 
-const prefixFile = require("./prefix.json");
+//const prefixFile = require("./prefix.json");
 
 exports.run = async (message) => {
 	if (message.content.toLowerCase() === "rb!prefix help") {
@@ -26,17 +26,14 @@ exports.run = async (message) => {
 			let content = message.content;
 			let customPrefixx = content.slice(10, content.length);
 
-			let defaultPrefix = "rb!";
-
 			const key = `${message.guild.id}-${message.author.id}`;
 			if (!customPrefix.has(key)) {
 				customPrefix.set(key, {
-					guild: message.guild.id, prefix: defaultPrefix
+					guild: message.guild.id, prefix: ""
 				});
 			}
 
 			customPrefix.set(key, customPrefixx, "prefix");
-			prefixFile.prefix = customPrefixx;
 			return message.channel.send(`Custom Prefix set to *${customPrefixx}*`);
 		}
 	});
