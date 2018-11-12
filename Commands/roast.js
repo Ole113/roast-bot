@@ -9,7 +9,7 @@
 const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
-const onOffFile = require("../Database/on-off.json");
+const { onOff } = require("../Database/on-off.js");
 //const { customRoastFile } = require("../Database/custom-roast.js");
 
 const roasts = [

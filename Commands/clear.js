@@ -9,7 +9,7 @@
 const Discord = require("discord.js");
 
 const prefixFile = require("../Database/prefix.json");
-const onOffFile = require("../Database/on-off.json");
+const { onOff } = require("../Database/on-off.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }

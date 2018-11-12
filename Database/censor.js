@@ -12,7 +12,7 @@ const censor = new Enmap({ name: "censor" });
 const bsp = require("better-sqlite-pool");
 
 const prefixFile = require("../Database/prefix.json");
-const onOffFile = require("../Database/on-off.json");
+const { onOff } = require("../Database/on-off.js");
 const { roastFile } = require("../Commands/roast.js");
 
 exports.run = async (message) => {
