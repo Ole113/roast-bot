@@ -3,7 +3,6 @@ const onOff = new Enmap({ name: "on-off" });
 const bsp = require("better-sqlite-pool");
  
 const prefixFile = require("./prefix.json");
-//const onOffFile = require("./on-off.json");
  
 exports.run = async (message) => {
 	onOff.defer.then(() => {

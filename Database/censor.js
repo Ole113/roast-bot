@@ -52,7 +52,7 @@ exports.run = async (message) => {
 
             roastFile[43].roast = "I failed a spelling test because they asked me how to spell 'bitch' and I wrote down your name.";
             roastFile[92].roast = "You must\'ve been born at a pound because you're a son of a bitch.";
-            roastFile[92]-.roast = "What did you have for breakfast? Bitch Flakes?";
+            roastFile[92].roast = "What did you have for breakfast? Bitch Flakes?";
             roastFile[132].roast = "If I wanted a bitch I'd have bought a dog.";
             roastFile[40].roast = "Roses are red, shit is brown, shut the fuck up, and sit the fuck down.";
             roastFile[44].roast = "Twinkle Twinkle little slut, name a guy you haven't fucked, was he skinny, was he tall, Nevermind you did them all.";
