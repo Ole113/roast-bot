@@ -26,34 +26,34 @@ exports.run = async (message) => {
 			let commandd = contentt.slice(prefixFile.prefix.length + 4, contentt.length);
  
 			if (commandd.toLowerCase().startsWith("roast")) {
-				onOff.set(key, "off", roast);
+				onOff.set(key, "off", "roast");
 				return message.channel.send("Roast command has been turn off. User `r!on roast` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("meme")) {
-				onOff.set(key, "off", meme);
+				onOff.set(key, "off", "meme");
 				return message.channel.send("Meme command has been turned off. Use `r!on meme` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("say")) {
-				onOff.set(key, "off", say);
+				onOff.set(key, "off", "say");
 				return message.channel.send("Say command has been turned off. Use `r!on say` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("user")) {
-				onOff.set(key, "off", user);
+				onOff.set(key, "off", "user");
 				return message.channel.send("User command has been turned off. Use `r!on user` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("urban")) {
-				onOff.set(key, "off", urban);
+				onOff.set(key, "off", "urban");
 				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("clear")) {
-				onOff.set(key, "off", clear);
+				onOff.set(key, "off", "clear");
 				return message.channel.send("Clear command has been turned off. Use `r!on clear` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("server")) {
-				onOff.set(key, "off", server);
+				onOff.set(key, "off", "server");
 				return message.channel.send("Server command has been turned off. Use `r!on server` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("bot")) {
-				onOff.set(key, "off", bot);
+				onOff.set(key, "off", "bot");
 				return message.channel.send("Bot command has been turned off. Use `r!on bot` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("vid")) {
-				onOff.set(key, "off", vid);
+				onOff.set(key, "off", "vid");
 				return message.channel.send("Video command has been turned off. Use `r!on vid` to turn it back on.");
 			} else if (commandd.toLowerCase().startsWith("censor")) {
-				onOff.set(key, "off", censor);
+				onOff.set(key, "off", "censor");
 				return message.channel.send("Roast Censoring has been turned off. Use `r!on censor` to turn it back on.");
 			} else {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
@@ -64,34 +64,34 @@ exports.run = async (message) => {
 			let content = message.content;
 			let command = content.slice(prefixFile.prefix.length + 3, content.length);
 			if (command.toLowerCase().startsWith("roast")) {
-				onOff.set(key, "on", roast);
+				onOff.set(key, "on", "roast");
 				return message.channel.send("Roast command has been turn on. User `r!on roast` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("meme")) {
-				onOff.set(key, "on", meme);
+				onOff.set(key, "on", "meme");
 				return message.channel.send("Meme command has been turned on. Use `r!on meme` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("say")) {
-				onOff.set(key, "on", say);
+				onOff.set(key, "on", "say");
 				return message.channel.send("Say command has been turned on. Use `r!on say` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("user")) {
-				onOff.set(key, "on", user);
+				onOff.set(key, "on", "user");
 				return message.channel.send("User command has been turned on. Use `r!on user` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("urban")) {
-				onOff.set(key, "on", urban);
+				onOff.set(key, "on", "urban");
 				return message.channel.send("Urban command has been turned off. Use `r!on urban` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("clear")) {
-				onOff.set(key, "on", clear);
+				onOff.set(key, "on", "clear");
 				return message.channel.send("Clear command has been turned on. Use `r!on clear` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("server")) {
-				onOff.set(key, "on", server);
+				onOff.set(key, "on", "server");
 				return message.channel.send("Server command has been turned on. Use `r!on server` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("bot")) {
-				onOff.set(key, "on", bot);
+				onOff.set(key, "on", "bot");
 				return message.channel.send("Bot command has been turned on. Use `r!on bot` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("vid")) {
-				onOff.set(key, "on", vid);
+				onOff.set(key, "on", "vid");
 				return message.channel.send("Video command has been turned on. Use `r!on vid` to turn it back off.");
 			} else if (command.toLowerCase().startsWith("censor")) {
-				onOff.set(key, "on", censor);
+				onOff.set(key, "on", "censor");
 				return message.channel.send("Roast Censoring has been turned on. Use `r!on censor` to turn it back off.");
 			} else {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
