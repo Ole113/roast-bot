@@ -152,10 +152,13 @@ const roasts = [
 
 exports.run = async (message) => {
 	if (message.author.bot) { return; }
+
+	const key = message.guild.id;
+
 	if (message.content.toLowerCase() === prefixFile.prefix + "roast help") {
 		return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 	}
-	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "on") {
+	if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOff.get(key, "roast") === "on") {
 		if (message.content.toLowerCase() === prefixFile.prefix + "roast") {
 			let randomRoasts = Math.ceil(Math.random() * roasts.length);
 			/*
@@ -205,7 +208,7 @@ exports.run = async (message) => {
 			*/
 			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 		}
-	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOffFile.roast === "off") {
+	} else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "roast") && onOff.get(key, "roast") === "off") {
 		return message.channel.send("This command has been turned off by an administrator.");
 	}
 };

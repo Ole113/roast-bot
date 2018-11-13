@@ -14,6 +14,9 @@ const { onOff } = require("../Database/on-off.js");
 
 exports.run = async (client, message) => {
     if (message.author.bot) { return; }
+
+    const key = message.guild.id;
+
     if(message.content.toLowerCase() === prefixFile.prefix + "bot help"){
         return message.channel.send("**rb!bot help:**\n\n`rb!bot` tells information about Roast-Bot. The information includes: Bot name, created on , Roast-Bot server count, total number of roasts, and total number of memes.\n\nExample:\n\nUSER: rb!bot\nRoast-Bot:\nBot Information:\n\nBot Name:\nRoast-Bot\nCreated On:\nWed Jun 27 2018 02:44:49 GMT+0000 (UTC)\nServer Count:\n328\nTotal Number of Roasts:\n100\nTotal Number of Memes:\n131\n\nCreated By Ole113#2421\n\n\nNote: Stats are from 08/26/2018 and are not current, use rb!bot for current stats.");
     }
