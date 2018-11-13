@@ -18,7 +18,7 @@ const { roastFile } = require("../Commands/roast.js");
 exports.run = async (message) => {
     censor.defer.then(() => {
         if (message.author.bot) { return; }
-        const key = `${message.guild.id}-${message.author.id}`;
+        const key = message.author.id;
         if (!censor.has(key)) {
             censor.set(key, {
                 user: message.author.id, censor: "off"
