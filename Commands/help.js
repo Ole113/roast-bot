@@ -16,6 +16,9 @@ exports.run = async (client, message) => {
 
     const key = message.author.id;
 
+    if (!prefixFile.has(key)) {
+	    prefixFile.set(key, message.guild.id, "guild");
+    }
     if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "help" || message.content.toLowerCase() === "rb!")) {
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
