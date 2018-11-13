@@ -10,8 +10,8 @@ exports.run = async (message) => {
 		if (message.author.bot) { return; }
 
 		const key = message.guild.id;
-		
-		if (message.content.startsWith(prefixFile.get(key, "prefix"))) {
+		const prefix = prefixFile.get(key, "prefix"));
+		if (message.content.startsWith(String(prefix)) {
 			const key = message.author.id;
 			if (!xpLevel.has(key)) {
 				xpLevel.set(key, {
@@ -58,12 +58,12 @@ exports.run = async (message) => {
 		*  
 		*
 		*/
-		if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "level") {
+		if (message.content.toLowerCase() === String(prefix) + "level") {
 			const key = message.author.id;
 			let currentPoints = xpLevel.get(key, "points");
 			xpLevel.set(key, --currentPoints, "points");
 			return message.reply(` You currently have ${xpLevel.get(key, "points")} XP, and are level ${xpLevel.get(key, "level")}! <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "level help") {
+		} else if (message.content.toLowerCase() === prefix + "level help") {
 			return message.channel.send("**rb!level help**\n\n`rb!level` is how you check what your current level/XP is. XP is gained by using a `rb!` command.  Levels are gained by gaining enough XP. For information on XP needed to level up look at the XP-System to part of `rb!help`.\n\nExample:\nUSER: rb!level\nRoast-Bot: @USER, You currently have 5 XP, and are level 1! <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!level` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 		}
 	});
