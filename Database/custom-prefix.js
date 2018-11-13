@@ -5,7 +5,13 @@ const bsp = require("better-sqlite-pool");
 exports.run = async (message) => {
 	
 	const key = message.guild.id;
-
+	
+	if (!customPrefix.has(key)) {
+		customPrefix.set(key, {
+			guild: message.guild.id, prefix: "rb!"
+		});
+	}
+	
 	const prefixFile = customPrefix.get(key, "prefix");
 
 	if (message.content.toLowerCase() === "rb!prefix help") {
@@ -15,12 +21,6 @@ exports.run = async (message) => {
 		if (message.author.bot) { return; }
 		if (!message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "prefix")) {
 			return message.channel.send("Sorry, you need to be an admin to set your servers custom prefix. <:roast_circle:474755210485563404>");
-		}
-
-		if (!customPrefix.has(key)) {
-			customPrefix.set(key, {
-				guild: message.guild.id, prefix: "rb!"
-			});
 		}
 
 		if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "prefix" || message.content.toLowerCase() === "rb!prefix") {
