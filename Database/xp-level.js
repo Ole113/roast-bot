@@ -10,8 +10,9 @@ exports.run = async (message) => {
 		if (message.author.bot) { return; }
 
 		const key = message.guild.id;
-		const prefix = prefixFile.get(key, "prefix"));
-		if (message.content.startsWith(String(prefix)) {
+		const prefix = String(prefixFile.get(key, "prefix"));
+		
+		if (message.content.startsWith(prefix)) {
 			const key = message.author.id;
 			if (!xpLevel.has(key)) {
 				xpLevel.set(key, {
@@ -58,7 +59,7 @@ exports.run = async (message) => {
 		*  
 		*
 		*/
-		if (message.content.toLowerCase() === String(prefix) + "level") {
+		if (message.content.toLowerCase() === prefix + "level") {
 			const key = message.author.id;
 			let currentPoints = xpLevel.get(key, "points");
 			xpLevel.set(key, --currentPoints, "points");
