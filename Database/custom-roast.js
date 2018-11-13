@@ -7,6 +7,9 @@ const prefixFile = require("./prefix.json");
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
 		if (message.author.bot) { return; }
+
+		const key = message.guild.id;
+
 		if (message.content.toLowerCase() == "rb!croast help") {
 			return message.channel.send("Coming soon.");
 		}

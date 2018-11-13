@@ -56,7 +56,7 @@ exports.run = async (message) => {
 		*
 		*/
 		if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "level") {
-			const key = `${message.guild.id}-${message.author.id}`;
+			const key = message.author.id;
 			let currentPoints = xpLevel.get(key, "points");
 			xpLevel.set(key, --currentPoints, "points");
 			return message.reply(` You currently have ${xpLevel.get(key, "points")} XP, and are level ${xpLevel.get(key, "level")}! <:roast_circle:474755210485563404>`);
