@@ -7,13 +7,13 @@
 
 const Discord = require("discord.js");
 
-const prefixFile = require("../Database/prefix.json");
+const { prefixFile } = require("../Database/custom-prefix.js");
 
 exports.run = async (client, message) => {
     let page = 1;
     let first = false;
     if (message.author.bot) { return; }
-    if (message.content.toLowerCase().startsWith(prefixFile.prefix + "help")) {
+    if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "help")) {
         const pageForward = (reaction) => reaction.emoji.name === "▶";
         const pageBackward = (reaction) => reaction.emoji.name === "◀";
         const stop = (reaction) => reaction.emoji.name === "⏹";

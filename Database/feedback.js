@@ -5,13 +5,13 @@ const bsp = require("better-sqlite-pool");
 const prefixFile = require("./prefix.json");
 
 exports.run = async (message) => {
-	if (message.content.toLowerCase() === prefixFile.prefix + "feedback help") {
+	if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "feedback help") {
 		return message.channel.send("coming soon");
 	}
 	feedback.defer.then(() => {
 		if (message.author.bot) { return; }
 
-		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "feedback ")) {
+		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "feedback ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
 
@@ -22,7 +22,7 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let userFeedback = content.slice(prefixFile.prefix.length + 9, content.length);
+			let userFeedback = content.slice(prefixFile.get(key, "prefix").length + 9, content.length);
 
 			let feedbackNumber = feedback.get(key, "feedback");
 

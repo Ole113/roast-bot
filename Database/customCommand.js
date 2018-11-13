@@ -3,12 +3,12 @@ const discord = require("discord.js");
 const prefixFile = require("./prefix.json");
 
 exports.run = async (message) => {
-  if(message.content.toLowerCase().startsWith(prefixFile.prefix + "command ")) {
+  if(message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "command ")) {
     var message = message.content;
 
     var indexOfFirst = paragraph.indexOf(" ");
 
-    let commandName = message.slice(prefixFile.prefix.length + 8, message.indexOf(" ", (indexOfFirst + 1)));
+    let commandName = message.slice(prefixFile.get(key, "prefix").length + 8, message.indexOf(" ", (indexOfFirst + 1)));
     //console.log('The index of the first "' + searchTerm + '" from the beginning is ' + indexOfFirst);
 
     //console.log('The index of the 2nd "' + searchTerm + '" is ' + paragraph.indexOf(searchTerm, (indexOfFirst + 1)));

@@ -7,11 +7,11 @@ const prefixFile = require("./prefix.json");
 exports.run = async (message) => {
 	onOff.defer.then(() => {
 		if (message.author.bot) { return; }
-		if (message.content.toLowerCase() === prefixFile.prefix + "off help" || message.content.toLowerCase() === prefixFile.prefix + "on help") {
+		if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "off help" || message.content.toLowerCase() === prefixFile.get(key, "prefix") + "on help") {
 			return message.channel.send("**On-Off help:**\n\nTo use On-Off you first need to have admin permissions. Next you need to know which command to turn off, for this example we'll use roasts. Before the example of turning commands off remember that not all commamds can be turned off. The list of commands that cannot be turned off are: `r!invite`, `r!help`, custom prefixes, XP/Level, and the ability to turn commands on/off. Now for the example of turning roasts off:\n\nUSER: r!off roast\nRoast-Bot: Roast command has been turn off. User `r!on roast` to turn it back on.\n\nTurning a command back on after it having been turned off:\n\nUSER: r!on roast\nRoast-Bot: Roast command has been turn on. User `r!on roast` to turn it back off.\n\nAs long as you have \"roast\" the command will work, for example you could do `r!off roastsss` and the command would still work as long as you have roast in there.\n\n\nStill having trouble with on/off or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 		}
 		const key = message.guild.id;
-		if (!message.member.hasPermission("ADMINISTRATOR") && (message.content.toLowerCase().startsWith(prefixFile.prefix + "off") || message.content.toLowerCase().startsWith(prefixFile.prefix + "on"))) {
+		if (!message.member.hasPermission("ADMINISTRATOR") && (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "off") || message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "on"))) {
 			return message.channel.send("Sorry, you need to be an admin to turn this command on/off. <:roast_circle:474755210485563404>");
 		}
 		if (!onOff.has(key)) {
@@ -19,10 +19,10 @@ exports.run = async (message) => {
 				guild: message.guild.id, roast: "on", meme: "on", say: "on", user: "on", urban: "on", clear: "on", server: "on", bot: "on", vid: "on", censor: "off"
 			});
 		}
-		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off")) {
+		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "off")) {
  
 			let contentt = message.content;
-			let commandd = contentt.slice(prefixFile.prefix.length + 4, contentt.length);
+			let commandd = contentt.slice(prefixFile.get(key, "prefix").length + 4, contentt.length);
  
 			if (commandd.toLowerCase().startsWith("roast")) {
 				onOff.set(key, "off", "roast");
@@ -59,10 +59,10 @@ exports.run = async (message) => {
 				return message.channel.send("That command doesn't exist or that command isn't available to be turned off.");
 			}
 		}
-		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "on")) {
+		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "on")) {
  
 			let content = message.content;
-			let command = content.slice(prefixFile.prefix.length + 3, content.length);
+			let command = content.slice(prefixFile.get(key, "prefix").length + 3, content.length);
 			if (command.toLowerCase().startsWith("roast")) {
 				onOff.set(key, "on", "roast");
 				return message.channel.send("Roast command has been turn on. User `r!on roast` to turn it back off.");

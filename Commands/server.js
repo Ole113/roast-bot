@@ -8,7 +8,7 @@
 
 const Discord = require("discord.js");
 
-const prefixFile = require("../Database/prefix.json");
+const { prefixFile } = require("../Database/custom-prefix.js");
 const { onOff } = require("../Database/on-off.js");
 
 exports.run = async (message) => {
@@ -16,10 +16,10 @@ exports.run = async (message) => {
     
     const key = message.guild.id;
     
-    if(message.content.toLowerCase() === prefixFile.prefix + "server help"){
+    if(message.content.toLowerCase() === prefixFile.get(key, "prefix") + "server help"){
         return message.channel.send("**rb!server help:**\n\n`rb!server` tells you information about your server. The information that it provides is: Number of people in server, Server name, the date you joined, and the date the server was created.\n\n*Example:\n\n*USER: rb!server\nRoast-Bot: Server Name....\nDate the server was created....\nDate you joined....\nNumber of people in the server....\n\n`rb!server` will still work even if you put 1 or more space after the \"server\".  It will not work however if you put 1 or more spaces and then a character that isn\'t a space. \n\n\n  If your still having trouble with rb!clear NUMBER please join the support server and ask in #roast-bot-help. \n\n\n\nServer Invite Link: https://discordapp.com/invite/9y8yV42");
     }
-    if (message.content.toLowerCase() === prefixFile.prefix + "server" && onOff.get(key, "server") === "on") {
+    if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "server" && onOff.get(key, "server") === "on") {
         let serverIcon = message.guild.iconURL;
         let serverEmbed = new Discord.RichEmbed()
             .setColor("#EB671D")
@@ -31,7 +31,7 @@ exports.run = async (message) => {
             .addField("You Joined:", message.member.joinedAt)
             .addField("Total Members:", message.guild.memberCount);
         return message.channel.send({ embed: serverEmbed });
-    } else if(message.content.toLowerCase() === prefixFile.prefix + "server" && onOff.get(key, "server") === "off") {
+    } else if(message.content.toLowerCase() === prefixFile.get(key, "prefix") + "server" && onOff.get(key, "server") === "off") {
         return message.channel.send("This command has been turned off by an administrator.");      
     }
 };

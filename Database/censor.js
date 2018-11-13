@@ -11,7 +11,7 @@ const Enmap = require("enmap");
 const censor = new Enmap({ name: "censor" });
 const bsp = require("better-sqlite-pool");
 
-const prefixFile = require("../Database/prefix.json");
+const { prefixFile } = require("../Database/custom-prefix.js");
 const { onOff } = require("../Database/on-off.js");
 const { roastFile } = require("../Commands/roast.js");
 
@@ -25,7 +25,7 @@ exports.run = async (message) => {
             });
         }
         var on = censor.get(key, "censor");
-        if (message.content.toLowerCase().startsWith(prefixFile.prefix + "on censor") && on == "off") {
+        if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "on censor") && on == "off") {
 
             roastFile[43].roast = "I failed a spelling test because they asked me how to spell 'b\*tch' and I wrote down your name.";
             roastFile[92].roast = "You must\'ve been born at a pound because you're a son of a b\*tch.";
@@ -48,7 +48,7 @@ exports.run = async (message) => {
 
             censor.set(key, "on", "censor");
             return message.channel.send("Roast Censoring has been applied.");
-        } else if (message.content.toLowerCase().startsWith(prefixFile.prefix + "off censor") && on == "on") {
+        } else if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "off censor") && on == "on") {
 
             roastFile[43].roast = "I failed a spelling test because they asked me how to spell 'bitch' and I wrote down your name.";
             roastFile[92].roast = "You must\'ve been born at a pound because you're a son of a bitch.";
