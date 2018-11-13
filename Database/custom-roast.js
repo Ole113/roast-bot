@@ -9,8 +9,9 @@ exports.run = async (message) => {
 		if (message.author.bot) { return; }
 
 		const key = message.guild.id;
-		const prefix = prefixFile.get(key, "prefix");
-		if (message.content.toLowerCase() == "rb!croast help") {
+		const prefix = String(prefixFile.get(key, "prefix"));
+		
+		if (message.content.toLowerCase() == prefix + "croast help") {
 			return message.channel.send("Coming soon.");
 		}
 		if (message.content.toLowerCase().startsWith(prefix + "croast delete #")) {
