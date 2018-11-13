@@ -8,13 +8,13 @@ exports.run = async (message) => {
 	if (message.author.bot) { return; }
 
 	const key = message.guild.id;
-	
-	if (message.content.toLowerCase() === prefixFile.get(key, "prefix") + "feedback help") {
+	const prefix = String(prefixFile.get(key, "prefix"));
+	if (message.content.toLowerCase() === prefix + "feedback help") {
 		return message.channel.send("coming soon");
 	}
 	feedback.defer.then(() => {
 
-		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "feedback ")) {
+		if (message.content.toLowerCase().startsWith(prefix + "feedback ")) {
 
 			const key = `${message.guild.id}-${message.author.id}`;
 
@@ -25,7 +25,7 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let userFeedback = content.slice(prefixFile.get(key, "prefix").length + 9, content.length);
+			let userFeedback = content.slice(prefix.length + 9, content.length);
 
 			let feedbackNumber = feedback.get(key, "feedback");
 
