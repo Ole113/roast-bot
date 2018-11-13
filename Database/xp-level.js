@@ -8,6 +8,9 @@ exports.run = async (message) => {
 
 	xpLevel.defer.then(() => {
 		if (message.author.bot) { return; }
+
+		const key = message.guild.id;
+		
 		if (message.content.startsWith(prefixFile.get(key, "prefix"))) {
 			const key = message.author.id;
 			if (!xpLevel.has(key)) {

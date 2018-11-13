@@ -3,6 +3,10 @@ const discord = require("discord.js");
 const prefixFile = require("./prefix.json");
 
 exports.run = async (message) => {
+  if (message.author.bot) { return; }
+  
+  const key = message.guild.id;
+
   if(message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "command ")) {
     var message = message.content;
 

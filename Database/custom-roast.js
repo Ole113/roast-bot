@@ -13,14 +13,14 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase() == "rb!croast help") {
 			return message.channel.send("Coming soon.");
 		}
-		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "croast delete #")) {
+		if (message.content.toLowerCase().startsWith(`${prefixFile.get(key, "prefix")}croast delete #`)) {
 			let content = message.content;
 			let contentSlice = content.slice(prefixFile.get(key, "prefix").length + 15, content.length);
 			let numberInt = parseInt(contentSlice);
 			customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `r!croast help` to learn how to.";
 			return message.channel.send(`Custom roast #${numberInt} was removed successfully!`);
 		}
-		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "croast #")) {
+		if (message.content.toLowerCase().startsWith(`${prefixFile.get(key, "prefix")}croast #`)) {
 			let content = message.content;
 			let number = content.slice(prefixFile.get(key, "prefix").length + 8, content.length);
 			let numberInt = parseInt(number);
@@ -30,7 +30,7 @@ exports.run = async (message) => {
 			return message.channel.send(`${customRoasts[numberInt - 1].roast}`);
 		}
 
-		if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "croast ")) {
+		if (message.content.toLowerCase().startsWith(`${prefixFile.get(key, "prefix")}croast `)) {
 
 			const key = message.author.id;
 

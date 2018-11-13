@@ -3,6 +3,10 @@ const Discord = require("discord.js");
 const { prefixFile } = require("../Database/custom-prefix.js");
 
 exports.run = async (message) => {
+    if (message.author.bot) { return; }
+
+    const key = message.guild.id;
+
     if(message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "website help")) {
         return message.channel.send("Coming soon!");
     }
