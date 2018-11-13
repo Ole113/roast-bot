@@ -9,7 +9,14 @@ exports.run = async (message) => {
 		if (message.author.bot) { return; }
 
 		const key = message.guild.id;
-		const prefix = String(prefixFile.get(key, "prefix"));
+		
+		if (!onOff.has(key)) {
+			onOff.set(key, {
+				guild: message.guild.id, roast: "on", meme: "on", say: "on", user: "on", urban: "on", clear: "on", server: "on", bot: "on", vid: "on", censor: "off"
+			});
+		}
+		
+		const prefix = prefixFile.get(key, "prefix");
 
 		if (message.content.toLowerCase() === prefix + "off help" || message.content.toLowerCase() === prefix + "on help") {
 			return message.channel.send("**On-Off help:**\n\nTo use On-Off you first need to have admin permissions. Next you need to know which command to turn off, for this example we'll use roasts. Before the example of turning commands off remember that not all commamds can be turned off. The list of commands that cannot be turned off are: `r!invite`, `r!help`, custom prefixes, XP/Level, and the ability to turn commands on/off. Now for the example of turning roasts off:\n\nUSER: r!off roast\nRoast-Bot: Roast command has been turn off. User `r!on roast` to turn it back on.\n\nTurning a command back on after it having been turned off:\n\nUSER: r!on roast\nRoast-Bot: Roast command has been turn on. User `r!on roast` to turn it back off.\n\nAs long as you have \"roast\" the command will work, for example you could do `r!off roastsss` and the command would still work as long as you have roast in there.\n\n\nStill having trouble with on/off or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
@@ -17,11 +24,7 @@ exports.run = async (message) => {
 		if (!message.member.hasPermission("ADMINISTRATOR") && (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "off") || message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "on"))) {
 			return message.channel.send("Sorry, you need to be an admin to turn this command on/off. <:roast_circle:474755210485563404>");
 		}
-		if (!onOff.has(key)) {
-			onOff.set(key, {
-				guild: message.guild.id, roast: "on", meme: "on", say: "on", user: "on", urban: "on", clear: "on", server: "on", bot: "on", vid: "on", censor: "off"
-			});
-		}
+
 		if (message.content.toLowerCase().startsWith(prefix + "off")) {
  
 			let contentt = message.content;
