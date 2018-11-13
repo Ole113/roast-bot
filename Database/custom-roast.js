@@ -29,7 +29,7 @@ exports.run = async (message) => {
 
 		if (message.content.toLowerCase().startsWith(prefixFile.prefix + "croast ")) {
 
-			const key = `${message.guild.id}-${message.author.id}`;
+			const key = message.author.id;
 
 			if (!customRoast.has(key)) {
 				customRoast.set(key, {

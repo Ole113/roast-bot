@@ -14,7 +14,7 @@ exports.run = async (message) => {
 			return message.channel.send("Sorry, you need to be an admin to set your servers custom prefix. <:roast_circle:474755210485563404>");
 		}
 		if (message.content.toLowerCase() === prefixFile.prefix + "prefix" || message.content.toLowerCase() === "rb!prefix") {
-			const key = `${message.guild.id}-${message.author.id}`;
+			const key = message.guild.id;
 			if (customPrefix.has(key)) {
 				return message.channel.send(`Current Prefix is *${customPrefix.get(key, "prefix")}*`);
 			} else if (!customPrefix.has(key)) {
@@ -29,7 +29,7 @@ exports.run = async (message) => {
 			const key = `${message.guild.id}-${message.author.id}`;
 			if (!customPrefix.has(key)) {
 				customPrefix.set(key, {
-					guild: message.guild.id, prefix: ""
+					guild: message.guild.id, prefix: "rb!"
 				});
 			}
 
