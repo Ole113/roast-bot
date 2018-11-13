@@ -3,6 +3,7 @@ const customRoast = new Enmap({ name: "custom-roast" });
 const bsp = require("better-sqlite-pool");
 
 const prefixFile = require("./prefix.json");
+const { prefixFile } = require("../Database/custom-prefix.js");
 
 exports.run = async (message) => {
 	customRoast.defer.then(() => {
