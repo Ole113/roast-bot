@@ -34,6 +34,8 @@ const updatesFile = require("./Commands/updates.js");
 const customCommandFile = require("./Database/customCommand.js");
 const censorFile = require("./Database/censor.js");
 
+const key = message.guild.id;
+
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot-Beta is Ready");
