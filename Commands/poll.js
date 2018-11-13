@@ -13,8 +13,12 @@ exports.run = async (message) => {
     if (message.author.bot) { return; }
 
     const key = message.guild.id;
-
-    if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "poll")) {
+    const prefix = String(prefixFile.get(key, "prefix"));
+    
+    if (!prefixFile.has(key)) {
+	    prefixFile.set(key, message.guild.id, "guild");
+    }
+    if (message.content.toLowerCase().startsWith(prefix + "poll")) {
         return message.channel.send("coming soon");
     }
 };
