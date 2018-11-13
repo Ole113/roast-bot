@@ -23,7 +23,6 @@ const urbanFile = require("./Commands/urban");
 const xpLevelFile = require("./Database/xp-level.js");
 const userFile = require("./Commands/user.js");
 const customPrefixFile = require("./Database/custom-prefix.js");
-const prefixFile = require("./Database/prefix.json");
 const feedbackFile = require("./Database/feedback.js");
 const customRoastFile = require("./Database/custom-roast.js");
 const onOffFile = require("./Database/on-off.js");
@@ -34,16 +33,14 @@ const updatesFile = require("./Commands/updates.js");
 const customCommandFile = require("./Database/customCommand.js");
 const censorFile = require("./Database/censor.js");
 
-const key = message.guild.id;
-
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot-Beta is Ready");
 	console.log("-----------------------------------")
-	client.user.setActivity(`${prefixFile.get(key, "prefix")}help | roast-bot.com`, { type: "PLAYING" });
+	client.user.setActivity(`r!help | roast-bot.com`, { type: "PLAYING" });
 });
 client.on("guildMemberAdd", (member) => {
-	let welcomeleavechannel = member.guild.channels.find(c => c.name === "welcome-leave-log");
+	let welcomeleavechannel = member.guild.channels.find((c) => c.name === "welcome-leave-log");
 	if (!welcomeleavechannel) return;
 	let joinTime = new Date();
 	let joinEmbed = new Discord.RichEmbed()
