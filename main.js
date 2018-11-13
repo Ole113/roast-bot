@@ -37,7 +37,7 @@ client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot-Beta is Ready");
 	console.log("-----------------------------------")
-	client.user.setActivity(`r!help | roast-bot.com`, { type: "PLAYING" });
+	client.user.setActivity(`rb!help | roast-bot.com`, { type: "PLAYING" });
 });
 client.on("guildMemberAdd", (member) => {
 	let welcomeleavechannel = member.guild.channels.find((c) => c.name === "welcome-leave-log");
