@@ -44,5 +44,6 @@ exports.run = async (message) => {
         return message.channel.send("This command has been turned off by an administrator.");
     } else {
         console.log(onOff.get(key, "server"));
+        console.log(onOff);
     }
 };
