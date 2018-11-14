@@ -25,6 +25,7 @@ exports.run = async (message) => {
 				guild: message.guild.id, roast: "on", meme: "on", say: "on", user: "on", urban: "on", clear: "on", server: "on", bot: "on", vid: "on", censor: "off"
 			});
 		}
+		
 		if (!message.member.hasPermission("ADMINISTRATOR") && (message.content.toLowerCase().startsWith("rb!") || message.content.toLowerCase().startsWith("rb!" + "on"))) {
 			return message.channel.send("Sorry, you need to be an admin to turn this command on/off. <:roast_circle:474755210485563404>");
 		}
