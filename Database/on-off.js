@@ -6,8 +6,12 @@ const { prefixFile } = require("./prefix.json");
 
 exports.run = async (message) => {
 	if (message.author.bot) { return; }
-
+	
 	const key = message.guild.id;
+
+    if (!prefixFile.has(key)) {
+		prefixFile.set(key, message.guild.id, "guild");
+		}
 
 	if (!onOff.has(key)) {
 		onOff.set(key, {
