@@ -21,7 +21,6 @@ exports.run = async (message) => {
     */
     const key = message.guild.id;
 
-
     if (!onOff.has(key)) {
         onOff.set(key, message.guild.id, "guild");
     }
@@ -42,5 +41,7 @@ exports.run = async (message) => {
         return message.channel.send({ embed: serverEmbed });
     } else if (message.content.toLowerCase() === "rb!" + "server" && onOff.get(key, "server") === "off") {
         return message.channel.send("This command has been turned off by an administrator.");
+    } else {
+        console.log(onOff.get(key, "server"));
     }
 };
