@@ -19,8 +19,12 @@ exports.run = async (message) => {
 	prefixFile.set(key, message.guild.id, "guild");
     }
     */
+   const key = message.guild.id;
+
+   if (!onOff.has(key)) {
+       onOff.set(key, message.guild.id, "guild");
+   }
     onOff.defer.then(() => {
-        const key = message.guild.id;
 
         if (!onOff.has(key)) {
             onOff.set(key, message.guild.id, "guild");
