@@ -78,7 +78,7 @@ client.on("message", (message) => {
 	//xpLevelFile.run(message);
 	//userFile.run(message);
 	//feedbackFile.run(message);
-	customPrefixFile.run(message);
+	//customPrefixFile.run(message);
 	//customRoastFile.run(message);
 	//vidFile.run(message);
 	//pollFile.run(message);
