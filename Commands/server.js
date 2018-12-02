@@ -14,11 +14,11 @@ const { onOff } = require("../Database/on-off.js");
 exports.run = async (message) => {
     if (message.author.bot) { return; }
 
-    const key = message.guild.id;
+    const key = `${message.guild.id}-server`;
     
     if (!onOff.has(key)) {
         onOff.set(key, {
-            guild: message.guild.id
+            guild: message.guild.id, server: onOff.get(key, "server")
         });
     }
 
