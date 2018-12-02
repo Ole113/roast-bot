@@ -7,13 +7,7 @@ const { prefixFile } = require("./prefix.json");
 exports.run = async (message) => {
 	if (message.author.bot) { return; }
 	const prefix = "rb!";
-	/*
-		const key = message.guild.id;
-	
-		if (!prefixFile.has(key)) {
-			prefixFile.set(key, message.guild.id, "guild");
-		}
-	*/
+
 	if (message.content.toLowerCase() === "rb!" + "off help" || message.content.toLowerCase() === prefix + "on help") {
 		return message.channel.send("**On-Off help:**\n\nTo use On-Off you first need to have admin permissions. Next you need to know which command to turn off, for this example we'll use roasts. Before the example of turning commands off remember that not all commamds can be turned off. The list of commands that cannot be turned off are: `r!invite`, `r!help`, custom prefixes, XP/Level, and the ability to turn commands on/off. Now for the example of turning roasts off:\n\nUSER: r!off roast\nRoast-Bot: Roast command has been turn off. User `r!on roast` to turn it back on.\n\nTurning a command back on after it having been turned off:\n\nUSER: r!on roast\nRoast-Bot: Roast command has been turn on. User `r!on roast` to turn it back off.\n\nAs long as you have \"roast\" the command will work, for example you could do `r!off roastsss` and the command would still work as long as you have roast in there.\n\n\nStill having trouble with on/off or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
 	}
