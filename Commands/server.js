@@ -36,13 +36,8 @@ exports.run = async (message) => {
             .addField("Created On:", message.guild.createdAt)
             .addField("You Joined:", message.member.joinedAt)
             .addField("Total Members:", message.guild.memberCount);
-        console.log(onOff.get(key, "server"));
         return message.channel.send({ embed: serverEmbed });
-    } else if (message.content.toLowerCase() === "rb!" + "server") {
-        console.log(onOff.get(key, "server"));
+    } else if (message.content.toLowerCase() === "rb!" + "server" && (onOff.get(key, "server") == "off")) {
         return message.channel.send("This command has been turned off by an administrator.");
-    } else {
-        console.log(onOff.get(key, "server"));
-        console.log(onOff);
     }
 };
