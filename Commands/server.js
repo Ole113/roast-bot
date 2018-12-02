@@ -15,11 +15,10 @@ exports.run = async (message) => {
     if (message.author.bot) { return; }
 
     const key = message.guild.id;
-    const test = onOff.get(key, "server");
     
     if (!onOff.has(key)) {
         onOff.set(key, {
-            guild: message.guild.id, server: test
+            guild: message.guild.id
         });
     }
 
@@ -38,6 +37,7 @@ exports.run = async (message) => {
             .addField("You Joined:", message.member.joinedAt)
             .addField("Total Members:", message.guild.memberCount);
         console.log(onOff.get(key, "server"));
+        console.log(onOff);
         return message.channel.send({ embed: serverEmbed });
     } else if (message.content.toLowerCase() === "rb!" + "server") {
         console.log(onOff.get(key, "server"));
