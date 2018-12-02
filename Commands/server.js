@@ -15,10 +15,11 @@ exports.run = async (message) => {
     if (message.author.bot) { return; }
 
     const key = message.guild.id;
-
+    const test = onOff.get(key, "server");
+    
     if (!onOff.has(key)) {
         onOff.set(key, {
-            guild: message.guild.id
+            guild: message.guild.id, server: test
         });
     }
 
