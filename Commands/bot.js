@@ -31,7 +31,7 @@ exports.run = async (client, message) => {
             .addField("Created On:", client.user.createdAt)
             .addField("Server Count:", client.guilds.size)
             .addField("Total Number of Roasts:", "135", true)
-            .addField("Total Number of Memes:", "353", true)
+            .addField("Total Number of Memes:", "415", true)
             .addField("Website:", "http://roast-bot.com")
             .addField("Number of Commands:", "15")
             .setFooter("Created By Ole113#2421");

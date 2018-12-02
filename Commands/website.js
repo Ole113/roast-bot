@@ -15,7 +15,7 @@ exports.run = async (message) => {
             .setColor("#EB671D")
             .setTitle("roast-bot.com  <:roast_circle:474755210485563404>")
             .setURL("http://www.roast-bot.com")
-            .setFooter("Roast-Bot v2.2.0");
+            .setFooter("Roast-Bot v2.3.0");
         return message.channel.send({ embed: websiteEmbed });
     }
 }

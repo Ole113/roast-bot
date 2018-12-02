@@ -38,6 +38,7 @@ exports.run = async (message) => {
             return message.channel.send("Incorrect usage of rb!clear, please provide how many messages you want to be deleted. The correct usage is rb!clear NUMBER. <:roast_circle:474755210485563404>");
         }
         message.channel.bulkDelete(int).then(() => {
+            message.delete(3000);
             return message.channel.send(`Cleared ${int} messages. <:roast_circle:474755210485563404>`);
         });
     } else if(message.content.toLowerCase().startsWith(prefix + "clear") && String(onOff.get(key, "clear")) === "off" || message.content.toLowerCase() === "rb!") {
