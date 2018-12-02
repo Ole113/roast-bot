@@ -18,7 +18,7 @@ exports.run = async (message) => {
 
     if (!onOff.has(key)) {
         onOff.set(key, {
-            guild: message.guild.id
+            guild: message.guild.id, server: onOff.get(key, "server")
         });
     }
 
