@@ -20,7 +20,6 @@ exports.run = async (message) => {
     if (!prefixFile.has(key)) {
 	    prefixFile.set(key, message.guild.id, "guild");
     }
-    
     const word = message.content;
     const number = word.slice(prefix.length + 5, word.length);
     const int = Number(number);
