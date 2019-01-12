@@ -11,7 +11,7 @@ exports.run = async (message) => {
     if (message.author.bot) { return; }
     
     if(message.content.toLowerCase().startsWith("rb!test")) {
-        const update = new testFile({
+        let update = new testFile({
             _id: mongoose.Schema.Types.ObjectId,
             username: message.author.username,
             points: startingPoints++,

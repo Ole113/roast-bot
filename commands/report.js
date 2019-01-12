@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UpdateXPSchema = mongoose.Schema({
+let UpdateXPSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: String,
     points: Number,
