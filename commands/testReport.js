@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const mongoose = require("mongoose");
-const testFile = require("./commands/report.js");
+const testFile = require("./report.js");
 const startingPoints = 0;
 const startingLevel = 0;
 mongoose.connect("mongodb://localhost/roast-bot-beta-test");
