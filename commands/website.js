@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const { prefixFile } = require("../Database/custom-prefix.js");
+const { prefixFile } = require("../database/custom-prefix.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }

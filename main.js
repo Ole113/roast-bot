@@ -11,30 +11,34 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/roast-bot-beta-test");
 /*
-const botFile = require("./Commands/bot.js");
-const clearFile = require("./Commands/clear.js");
-const serverFile = require("./Commands/server.js");
-const inviteFile = require("./Commands/invite.js");
-const helpFile = require("./Commands/help.js");
-const roastFile = require("./Commands/roast.js");
-const memeFile = require("./Commands/meme.js");
-const sayFile = require("./Commands/say.js");
-const urbanFile = require("./Commands/urban");
-const xpLevelFile = require("./Database/xp-level.js");
-const userFile = require("./Commands/user.js");
-const customPrefixFile = require("./Database/custom-prefix.js");
-const feedbackFile = require("./Database/feedback.js");
-const customRoastFile = require("./Database/custom-roast.js");
-const onOffFile = require("./Database/on-off.js");
-const vidFile = require("./Commands/vid.js");
-const pollFile = require("./Commands/poll.js");
-const websiteFile = require("./Commands/website.js");
-const updatesFile = require("./Commands/updates.js");
-const customCommandFile = require("./Database/customCommand.js");
-const censorFile = require("./Database/censor.js");
+const botFile = require("./commands/bot.js");
+const clearFile = require("./commands/clear.js");
+const serverFile = require("./commands/server.js");
+const inviteFile = require("./commands/invite.js");
+const helpFile = require("./commands/help.js");
+const roastFile = require("./commands/roast.js");
+const memeFile = require("./commands/meme.js");
+const sayFile = require("./commands/say.js");
+const urbanFile = require("./commands/urban");
+const xpLevelFile = require("./database/xp-level.js");
+const userFile = require("./commands/user.js");
+const customPrefixFile = require("./database/custom-prefix.js");
+const feedbackFile = require("./database/feedback.js");
+const customRoastFile = require("./database/custom-roast.js");
+const onOffFile = require("./database/on-off.js");
+const vidFile = require("./commands/vid.js");
+const pollFile = require("./commands/poll.js");
+const websiteFile = require("./commands/website.js");
+const updatesFile = require("./commands/updates.js");
+const customCommandFile = require("./database/customCommand.js");
+const censorFile = require("./database/censor.js");
 */
-const testFile = require("./commands/test.js");
+const test = require("./commands/testReport.js");
+
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot-Beta is Ready");
@@ -87,7 +91,7 @@ client.on("message", (message) => {
 	//websiteFile.run(message);
 	//updatesFile.run(message);
 	//customCommandFile.run(message);
-	testFile.run(message);
+	test.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);

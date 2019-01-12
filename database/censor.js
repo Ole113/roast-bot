@@ -11,9 +11,9 @@ const Enmap = require("enmap");
 const censor = new Enmap({ name: "censor" });
 const bsp = require("better-sqlite-pool");
 
-const { prefixFile } = require("../Database/custom-prefix.js");
-const { onOff } = require("../Database/on-off.js");
-const { roastFile } = require("../Commands/roast.js");
+const { prefixFile } = require("../database/custom-prefix.js");
+const { onOff } = require("../database/on-off.js");
+const { roastFile } = require("../commands/roast.js");
 
 exports.run = async (message) => {
     censor.defer.then(() => {

@@ -7,7 +7,7 @@
 
 const Discord = require("discord.js");
 
-const { prefixFile } = require("../Database/custom-prefix.js");
+const { prefixFile } = require("../database/custom-prefix.js");
 
 exports.run = async (client, message) => {
     let page = 1;

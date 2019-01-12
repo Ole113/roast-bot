@@ -9,8 +9,8 @@
 const urban = require("relevant-urban");
 const Discord = require("discord.js");
 
-const { prefixFile } = require("../Database/custom-prefix.js");
-const { onOff } = require("../Database/on-off.js");
+const { prefixFile } = require("../database/custom-prefix.js");
+const { onOff } = require("../database/on-off.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }

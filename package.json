@@ -7,14 +7,12 @@
     "start": "node main.js"
   },
   "engines": {
-    "node": "8.11.4",
+    "node": "^8.11.4",
     "npm": "^5.6.0"
   },
   "dependencies": {
-    "better-sqlite-pool": "^0.1.2",
     "discord.js": "^11.4.2",
-    "enmap": "^4.2.0",
-    "mysql": "^2.16.0",
+    "mongoose": "^5.4.3",
     "node": "8.11.4",
     "node-gyp": "^3.8.0",
     "relevant-urban": "^2.0.0",
@@ -26,7 +24,8 @@
     "url": "git+https://github.com/Ole113/Roast-Bot.git"
   },
   "keywords": [
-    "discord"
+    "discord",
+    "bot"
   ],
   "author": "Ole113",
   "license": "MIT",

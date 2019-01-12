@@ -8,9 +8,9 @@
 
 const Discord = require("discord.js");
 
-const { prefixFile } = require("../Database/custom-prefix.js");
-const { onOff } = require("../Database/on-off.js");
-//const { customRoastFile } = require("../Database/custom-roast.js");
+const { prefixFile } = require("../database/custom-prefix.js");
+const { onOff } = require("../database/on-off.js");
+//const { customRoastFile } = require("../database/custom-roast.js");
 
 const roasts = [
 	{ "number": 1, "roast": "I'd offer you some gum but your smiles got plenty of it." },
