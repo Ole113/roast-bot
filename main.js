@@ -11,6 +11,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+/*
 const botFile = require("./Commands/bot.js");
 const clearFile = require("./Commands/clear.js");
 const serverFile = require("./Commands/server.js");
@@ -32,7 +33,8 @@ const websiteFile = require("./Commands/website.js");
 const updatesFile = require("./Commands/updates.js");
 const customCommandFile = require("./Database/customCommand.js");
 const censorFile = require("./Database/censor.js");
-
+*/
+const testFile = require("./commands/test.js");
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot-Beta is Ready");
@@ -64,13 +66,13 @@ client.on("guildMemberRemove", (member) => {
 	welcomeleavechannel.send(leaveEmbed);
 });
 client.on("message", (message) => {
-	onOffFile.run(message);
+	//onOffFile.run(message);
 	//censorFile.run(message);
 	//helpFile.run(client, message);
 	//botFile.run(client, message);
 	//roastFile.run(message);
 	//inviteFile.run(message);
-	serverFile.run(message);
+	//serverFile.run(message);
 	//memeFile.run(message);
 	//sayFile.run(message);
 	//clearFile.run(message);
@@ -85,6 +87,7 @@ client.on("message", (message) => {
 	//websiteFile.run(message);
 	//updatesFile.run(message);
 	//customCommandFile.run(message);
+	testFile.run(message);
 });
 
 client.login(process.env.BOT_TOKEN);
