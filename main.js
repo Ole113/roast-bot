@@ -37,7 +37,7 @@ const updatesFile = require("./commands/updates.js");
 const customCommandFile = require("./database/customCommand.js");
 const censorFile = require("./database/censor.js");
 */
-const test = require("./commands/testReport.js");
+const sqlTestFile = require("./commands/sqlTestRun.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -91,7 +91,7 @@ client.on("message", (message) => {
 	//websiteFile.run(message);
 	//updatesFile.run(message);
 	//customCommandFile.run(message);
-	test.run(message);
+	sqlTestFile.run();
 });
 
 client.login(process.env.BOT_TOKEN);

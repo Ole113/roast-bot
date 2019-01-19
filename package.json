@@ -13,6 +13,7 @@
   "dependencies": {
     "discord.js": "^11.4.2",
     "mongoose": "^5.4.3",
+    "mysql": "^2.16.0",
     "node": "8.11.4",
     "node-gyp": "^3.8.0",
     "relevant-urban": "^2.0.0",
