@@ -11,9 +11,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost/roast-bot-beta-test");
 /*
 const botFile = require("./commands/bot.js");
 const clearFile = require("./commands/clear.js");
@@ -38,6 +35,7 @@ const customCommandFile = require("./database/customCommand.js");
 const censorFile = require("./database/censor.js");
 */
 const sqlTestFile = require("./commands/sqlTestRun.js");
+const sqlXPTestFile = require("./database/sqlXPTest.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -91,7 +89,8 @@ client.on("message", (message) => {
 	//websiteFile.run(message);
 	//updatesFile.run(message);
 	//customCommandFile.run(message);
-	sqlTestFile.run();
+	//sqlTestFile.run();
+	sqlXPTestFile.run();
 });
 
 client.login(process.env.BOT_TOKEN);

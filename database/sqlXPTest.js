@@ -5,12 +5,15 @@ let connection = mysql.createConnection({
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
-    port: process.env.PORT
+    port: process.env.PORT,
+    ssl: "Amazon RDS"
 });
 
 connection.connect();
 
 exports.run = async (message) => {
+
+    //INSERT INTO `t_users` VALUES ('1', 'Bonjour', 'mondeEEEEE');
 
     let user = {
         username: message.author.username,
