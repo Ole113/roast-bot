@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-const dbConfigFile = require("../dbConfig.json");
 
 let connection = mysql.createConnection({
     host: process.env.HOST,
