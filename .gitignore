@@ -1,2 +1,3 @@
 node_modules
-dbConfig.json
+#So people cannot try to find ways for injection from code.
+./database

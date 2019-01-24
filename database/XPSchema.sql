@@ -1,4 +1,4 @@
-CREATE TABLE roast_bot_table (
+CREATE TABLE roast_bot_xp (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username  TEXT         NOT NULL,
     userID    TEXT         NOT NULL,
