@@ -34,8 +34,8 @@ const updatesFile = require("./commands/updates.js");
 const customCommandFile = require("./database/customCommand.js");
 const censorFile = require("./database/censor.js");
 */
-const sqlTestFile = require("./commands/sqlTestRun.js");
-const sqlXPTestFile = require("./database/sqlXPTest.js");
+const feedbackFile = require("./database/feedback.js");
+const XPLevelFile = require("./database/XPLevel.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -90,7 +90,8 @@ client.on("message", (message) => {
 	//updatesFile.run(message);
 	//customCommandFile.run(message);
 	//sqlTestFile.run();
-	sqlXPTestFile.run();
+	XPLevelFile.run(message);
+	feedbackFile.run(message);
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login("");
