@@ -1,0 +1,1 @@
+The reason why the database folder is no longer on this repo is because of threat of sql injection.

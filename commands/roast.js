@@ -8,8 +8,8 @@
 
 const Discord = require("discord.js");
 
-const { prefixFile } = require("../database/custom-prefix.js");
-const { onOff } = require("../database/on-off.js");
+const { prefixFile } = require("../database/censor/prefix/custom-prefix.js");
+const { onOff } = require("../database/onOff/on-off.js");
 //const { customRoastFile } = require("../database/custom-roast.js");
 
 const roasts = [

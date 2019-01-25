@@ -34,8 +34,9 @@ const updatesFile = require("./commands/updates.js");
 const customCommandFile = require("./database/customCommand.js");
 const censorFile = require("./database/censor.js");
 */
-const feedbackFile = require("./database/feedback.js");
-const XPLevelFile = require("./database/XPLevel.js");
+const feedbackFile = require("./database/feedback/feedback.js");
+const XPLevelFile = require("./database/xpLevel/XPLevel.js");
+const customPrefixFile = require("./database/customPrefix/customPrefix.js");
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
@@ -92,6 +93,7 @@ client.on("message", (message) => {
 	//sqlTestFile.run();
 	XPLevelFile.run(message);
 	feedbackFile.run(message);
+	customPrefixFile.run(message);
 });
 
 client.login("");
