@@ -11,7 +11,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-/*
 const botFile = require("./commands/bot.js");
 const clearFile = require("./commands/clear.js");
 const serverFile = require("./commands/server.js");
@@ -19,31 +18,55 @@ const inviteFile = require("./commands/invite.js");
 const helpFile = require("./commands/help.js");
 const roastFile = require("./commands/roast.js");
 const memeFile = require("./commands/meme.js");
-const sayFile = require("./commands/say.js");
 const urbanFile = require("./commands/urban");
-const xpLevelFile = require("./database/xp-level.js");
 const userFile = require("./commands/user.js");
-const customPrefixFile = require("./database/custom-prefix.js");
-const feedbackFile = require("./database/feedback.js");
-const customRoastFile = require("./database/custom-roast.js");
-const onOffFile = require("./database/on-off.js");
 const vidFile = require("./commands/vid.js");
 const pollFile = require("./commands/poll.js");
 const websiteFile = require("./commands/website.js");
 const updatesFile = require("./commands/updates.js");
-const customCommandFile = require("./database/customCommand.js");
-const censorFile = require("./database/censor.js");
-*/
+const sayFile = require("./commands/say.js");
+
 const feedbackFile = require("./database/feedback/feedback.js");
 const XPLevelFile = require("./database/xpLevel/XPLevel.js");
 const customPrefixFile = require("./database/customPrefix/customPrefix.js");
+const onOffFile = require("./database/onOff/onOff.js");
+
+const dbConfigFile = require("./dbConfig.json")
+
+const mysql = require("mysql");
+
+let connection = mysql.createConnection({
+	host: dbConfigFile.host,
+	user: dbConfigFile.user,
+	password: dbConfigFile.password,
+	database: dbConfigFile.database,
+	port: dbConfigFile.port
+});
+
+connection.connect();
+
+//makes it so the current prefix is in the activity every 5 seconds.
 
 client.on("ready", () => {
 	console.log("-----------------------------------")
 	console.log("Roast-Bot-Beta is Ready");
 	console.log("-----------------------------------")
-	client.user.setActivity(`rb!help | roast-bot.com`, { type: "PLAYING" });
+	/*
+	connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
+		if (err) console.log(err);
+		let prefix;
+		//checks if prefix has been set or not.
+		if (!result.length) {
+			prefix = "rb!";
+		} else {
+			prefix = result[0].prefix;
+		}
+		*/
+	//setInterval(() => {
+		client.user.setActivity(`${"rb!"}help | roast-bot.com`, { type: "PLAYING" });
+	//}, 50000);
 });
+
 client.on("guildMemberAdd", (member) => {
 	let welcomeleavechannel = member.guild.channels.find((c) => c.name === "welcome-leave-log");
 	if (!welcomeleavechannel) return;
@@ -69,31 +92,34 @@ client.on("guildMemberRemove", (member) => {
 	welcomeleavechannel.send(leaveEmbed);
 });
 client.on("message", (message) => {
-	//onOffFile.run(message);
-	//censorFile.run(message);
-	//helpFile.run(client, message);
-	//botFile.run(client, message);
-	//roastFile.run(message);
-	//inviteFile.run(message);
-	//serverFile.run(message);
-	//memeFile.run(message);
-	//sayFile.run(message);
-	//clearFile.run(message);
-	//urbanFile.run(message);
-	//xpLevelFile.run(message);
-	//userFile.run(message);
-	//feedbackFile.run(message);
-	//customPrefixFile.run(message);
-	//customRoastFile.run(message);
-	//vidFile.run(message);
-	//pollFile.run(message);
-	//websiteFile.run(message);
-	//updatesFile.run(message);
+	//database files
+
 	//customCommandFile.run(message);
-	//sqlTestFile.run();
+	//customRoastFile.run(message);
+	//censorFile.run(message);
+	onOffFile.run(message);
 	XPLevelFile.run(message);
 	feedbackFile.run(message);
 	customPrefixFile.run(message);
+
+
+	//command files
+	helpFile.run(client, message);
+	botFile.run(client, message);
+	roastFile.run(message);
+	inviteFile.run(message);
+	serverFile.run(message);
+	memeFile.run(message);
+	sayFile.run(message);
+	clearFile.run(message);
+	urbanFile.run(message);
+	userFile.run(message);
+	vidFile.run(message);
+	pollFile.run(message);
+	websiteFile.run(message);
+	updatesFile.run(message);
+
+
 });
 
 client.login("");

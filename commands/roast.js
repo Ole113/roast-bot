@@ -8,9 +8,19 @@
 
 const Discord = require("discord.js");
 
-const { prefixFile } = require("../database/censor/prefix/custom-prefix.js");
-const { onOff } = require("../database/onOff/on-off.js");
-//const { customRoastFile } = require("../database/custom-roast.js");
+const dbConfigFile = require("./dbConfig.json")
+
+const mysql = require("mysql");
+
+let connection = mysql.createConnection({
+	host: dbConfigFile.host,
+	user: dbConfigFile.user,
+	password: dbConfigFile.password,
+	database: dbConfigFile.database,
+	port: dbConfigFile.port
+});
+
+connection.connect();
 
 const roasts = [
 	{ "number": 1, "roast": "I'd offer you some gum but your smiles got plenty of it." },
@@ -121,7 +131,7 @@ const roasts = [
 	{ "number": 106, "roast": "I thought of you today. It reminded me to take the garbage out." },
 	{ "number": 107, "roast": "You\'re so ugly when you look in the mirror, your reflection looks away." },
 	{ "number": 108, "roast": "Gay? I\'m straighter than the pole your mom dances on." },
-	{ "number": 109, "roast": "I just stepped in something that was smarter than you… and smelled better too." },
+	{ "number": 109, "roast": "I just stepped in something that was smarter than you and smelled better too." },
 	{ "number": 110, "roast": "I can\'t help imagining how much awesomer the world would be if your dad had just pulled out." },
 	{ "number": 111, "roast": "Good story, but in what chapter do you shut the fuck up?" },
 	{ "number": 112, "roast": "I was pro life. Then I met you." },
@@ -142,79 +152,81 @@ const roasts = [
 	{ "number": 127, "roast": "You're so stupid, you'd trip over a cordless phone." },
 	{ "number": 128, "roast": "I called your boyfriend gay and he hit me with his purse!" },
 	{ "number": 129, "roast": "You're so stupid, it takes you an hour to cook minute rice." },
-	{ "number": 130, "roast": "Don’t feel sad, don’t feel blue, Frankenstein was ugly too." },
+	{ "number": 130, "roast": "Don't feel sad, don't feel blue, Frankenstein was ugly too." },
 	{ "number": 131, "roast": "If I wanted a bitch I'd have bought a dog." },
 	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
-	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn’t come back." },
-	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn’t wear them." },
+	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn't come back." },
+	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn't wear them." },
 	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." }
 ];
 
 exports.run = async (message) => {
 	if (message.author.bot) { return; }
 
-	const key = message.guild.id;
-	const prefix = String(prefixFile.get(key, "prefix"));
-	
-	if (!prefixFile.has(key)) {
-	    prefixFile.set(key, message.guild.id, "guild");
-    	}
-	
-	if (message.content.toLowerCase() === prefix + "roast help") {
-		return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
-	}
-	if (message.content.toLowerCase().startsWith(prefix + "roast") && String(onOff.get(key, "roast")) === "on") {
-		if (message.content.toLowerCase() === prefix + "roast") {
-			let randomRoasts = Math.ceil(Math.random() * roasts.length);
-			/*
-			if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 137].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 138].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to."))) {
-				randomRoasts = Math.ceil(Math.random() * 135);
-				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			} else if (randomRoasts > 135 && !test) {
-				return message.channel.send(customRoastFile[randomRoasts - 136].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
-			} else {
-				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			}
-			*/
-			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase().startsWith(prefix + "roast ")) {
-			let random = Math.ceil(Math.random() * roasts.length);
-			const word = message.content;
-			const reply = word.slice(prefixFile.get(key, "prefix").length + 6, word.length);
-			if (message.content.toLowerCase().startsWith(prefixFile.get(key, "prefix") + "roast #")) {
-				let word1 = message.content;
-				let number1 = word1.slice(prefixFile.get(key, "prefix").length + 7, word1.length);
-				let numberInt = parseInt(number1);
+	connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
+		//makes a variable that will be rewritten every time the query is called, default is rb!.
+		let prefix = "rb!";
 
+		if (err) console.log(err);
+		//checks if prefix has been set or not and sets prefix to it.
+		if (result.length) prefix = result[0].prefix;
+
+		if (message.content.toLowerCase() === prefix + "roast help") {
+			return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+		}
+		if (message.content.toLowerCase().startsWith(prefix + "roast")) {
+			if (message.content.toLowerCase() === prefix + "roast") {
+				let randomRoasts = Math.ceil(Math.random() * roasts.length);
 				/*
-				if (numberInt > 135 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
-					numberInt -= customRoastFile.length;
-					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
-				}
-				if (numberInt > 135) {
-					return message.channel.send(customRoastFile[numberInt - 136].roast + `\n **Custom Roast #${numberInt - 135}** <:roast_circle:474755210485563404>`);
+				if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 137].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 138].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to."))) {
+					randomRoasts = Math.ceil(Math.random() * 135);
+					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+				} else if (randomRoasts > 135 && !test) {
+					return message.channel.send(customRoastFile[randomRoasts - 136].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
+				} else {
+					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
 				}
 				*/
+				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+			} else if (message.content.toLowerCase().startsWith(prefix + "roast ")) {
+				let random = Math.ceil(Math.random() * roasts.length);
+				const word = message.content;
+				const reply = word.slice(prefix.length + 6, word.length);
+				if (message.content.toLowerCase().startsWith(prefix + "roast #")) {
+					let word1 = message.content;
+					let number1 = word1.slice(prefix.length + 7, word1.length);
+					let numberInt = parseInt(number1);
 
-				if (numberInt > roasts.length - 1 || numberInt < 1) {
-					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
+					/*
+					if (numberInt > 135 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
+						numberInt -= customRoastFile.length;
+						return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
+					}
+					if (numberInt > 135) {
+						return message.channel.send(customRoastFile[numberInt - 136].roast + `\n **Custom Roast #${numberInt - 135}** <:roast_circle:474755210485563404>`);
+					}
+					*/
+
+					if (numberInt > roasts.length - 1 || numberInt < 1) {
+						return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
+					}
+					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 				}
-				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
+				/*
+				if (random > 135 && customRoastFile[random].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to.") {
+					random -= customRoastFile.length;
+					console.log(random);
+					return message.channel.send(roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
+				}
+				if (random > 135) {
+					return message.channel.send(`${reply}, ${customRoastFile[random - 136].roast}\n **Custom Roast #${random - 135}** <:roast_circle:474755210485563404>`);
+				}
+				*/
+				return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 			}
-			/*
-			if (random > 135 && customRoastFile[random].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to.") {
-				random -= customRoastFile.length;
-				console.log(random);
-				return message.channel.send(roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-			}
-			if (random > 135) {
-				return message.channel.send(`${reply}, ${customRoastFile[random - 136].roast}\n **Custom Roast #${random - 135}** <:roast_circle:474755210485563404>`);
-			}
-			*/
-			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-		}
-	} else if (message.content.toLowerCase().startsWith(prefix + "roast") && String(onOff.get(key, "roast")) === "off") {
+		} /*else if (message.content.toLowerCase().startsWith(prefix + "roast")) {
 		return message.channel.send("This command has been turned off by an administrator.");
-	}
+	}*/
+	});
 };
-exports.roastFile = roasts;
+//exports.roastFile = roasts;
