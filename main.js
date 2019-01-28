@@ -25,6 +25,8 @@ const pollFile = require("./commands/poll.js");
 const websiteFile = require("./commands/website.js");
 const updatesFile = require("./commands/updates.js");
 const sayFile = require("./commands/say.js");
+const searchRoastsFile = require("./commands/searchRoasts.js");
+const leaderboardFile = require("./commands/leaderboard.js");
 
 const feedbackFile = require("./database/feedback/feedback.js");
 const XPLevelFile = require("./database/xpLevel/XPLevel.js");
@@ -102,7 +104,7 @@ client.on("message", (message) => {
 	feedbackFile.run(message);
 	customPrefixFile.run(message);
 
-
+	
 	//command files
 	helpFile.run(client, message);
 	botFile.run(client, message);
@@ -118,8 +120,8 @@ client.on("message", (message) => {
 	pollFile.run(message);
 	websiteFile.run(message);
 	updatesFile.run(message);
-
-
+	searchRoastsFile.run(message);
+	leaderboardFile.run(message);
 });
 
 client.login("");

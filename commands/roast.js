@@ -170,63 +170,64 @@ exports.run = async (message) => {
 		if (err) console.log(err);
 		//checks if prefix has been set or not and sets prefix to it.
 		if (result.length) prefix = result[0].prefix;
+        connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
+            let update;
+            let roastStatus = result[0].roast;
+            if ((message.content.toLowerCase().startsWith(`${prefix}roast on`) || message.content.toLowerCase().startsWith(`${prefix}roast off`)) && !message.member.hasPermission("ADMINISTRATOR")) {
+                return message.channel.send("You need to be an admin to turn this command on/off.");
+            } else if (message.content.toLowerCase().startsWith(`${prefix}roast on`)) {
+                if (err) console.log(err);
 
-		if (message.content.toLowerCase() === prefix + "roast help") {
-			return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
-		}
-		if (message.content.toLowerCase().startsWith(prefix + "roast")) {
-			if (message.content.toLowerCase() === prefix + "roast") {
-				let randomRoasts = Math.ceil(Math.random() * roasts.length);
-				/*
-				if (randomRoasts > 135 && (customRoastFile[randomRoasts - 136].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 137].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to.") || customRoastFile[randomRoasts - 138].roast.startsWith("You haven't set any custom roasts yet! Use `r!croast help` to learn how to."))) {
-					randomRoasts = Math.ceil(Math.random() * 135);
-					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-				} else if (randomRoasts > 135 && !test) {
-					return message.channel.send(customRoastFile[randomRoasts - 136].roast + `\n **Custom Roast #${randomRoasts - 135}** <:roast_circle:474755210485563404>`);
-				} else {
-					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-				}
-				*/
-				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-			} else if (message.content.toLowerCase().startsWith(prefix + "roast ")) {
-				let random = Math.ceil(Math.random() * roasts.length);
-				const word = message.content;
-				const reply = word.slice(prefix.length + 6, word.length);
-				if (message.content.toLowerCase().startsWith(prefix + "roast #")) {
-					let word1 = message.content;
-					let number1 = word1.slice(prefix.length + 7, word1.length);
-					let numberInt = parseInt(number1);
+                if (result[0].roast) {
+                    return message.channel.send(`This command is already on, use *${prefix}roast off* to turn it off.`);
+                } else if (!result[0].roast) {
+                    update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${1}" WHERE guildID = "${message.guild.id}";`;
+                    updateRoast();
+                    return message.channel.send(`Roast command has been turned on, use *${prefix}roast off* to turn it back off.`);
+                }
+            } else if (message.content.toLowerCase().startsWith(`${prefix}roast off`)) {
+                if (err) console.log(err);
 
-					/*
-					if (numberInt > 135 && customRoastFile[numberInt].roast.includes("You haven't set this custom roasts yet!")) {
-						numberInt -= customRoastFile.length;
+                if (!result[0].roast) {
+                    return message.channel.send(`This command is already off, use *${prefix}roast on* to turn it on.`)
+                } else if (result[0].roast) {
+                    update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${0}" WHERE guildID = "${message.guild.id}";`;
+                    updateRoast();
+                    return message.channel.send(`Roast command has been turned off, use *${prefix}roast on* to turn it back on.`);
+                }
+            }
+            function updateRoast() {
+                connection.query(update, function (err, result) {
+                    if (err) console.log(err);
+                });
+            }
+			if (message.content.toLowerCase() === prefix + "roast help") {
+				return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+			}
+			if (message.content.toLowerCase().startsWith(prefix + "roast") && roastStatus) {
+				if (message.content.toLowerCase() === prefix + "roast") {
+					let randomRoasts = Math.ceil(Math.random() * roasts.length);
+					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+				} else if (message.content.toLowerCase().startsWith(prefix + "roast ")) {
+					let random = Math.ceil(Math.random() * roasts.length);
+					const word = message.content;
+					const reply = word.slice(prefix.length + 6, word.length);
+					if (message.content.toLowerCase().startsWith(prefix + "roast #")) {
+						let word1 = message.content;
+						let number1 = word1.slice(prefix.length + 7, word1.length);
+						let numberInt = parseInt(number1);
+
+						if (numberInt > roasts.length - 1 || numberInt < 1) {
+							return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
+						}
 						return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 					}
-					if (numberInt > 135) {
-						return message.channel.send(customRoastFile[numberInt - 136].roast + `\n **Custom Roast #${numberInt - 135}** <:roast_circle:474755210485563404>`);
-					}
-					*/
-
-					if (numberInt > roasts.length - 1 || numberInt < 1) {
-						return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
-					}
-					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
+					return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 				}
-				/*
-				if (random > 135 && customRoastFile[random].roast == "You haven't set this custom roasts yet! Use `r!croast help` to learn how to.") {
-					random -= customRoastFile.length;
-					console.log(random);
-					return message.channel.send(roasts[random].roast + `\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-				}
-				if (random > 135) {
-					return message.channel.send(`${reply}, ${customRoastFile[random - 136].roast}\n **Custom Roast #${random - 135}** <:roast_circle:474755210485563404>`);
-				}
-				*/
-				return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
+			} else if (message.content.toLowerCase().startsWith(prefix + "roast")) {
+				return message.channel.send("This command has been turned off by an administrator.");
 			}
-		} /*else if (message.content.toLowerCase().startsWith(prefix + "roast")) {
-		return message.channel.send("This command has been turned off by an administrator.");
-	}*/
+		});
 	});
 };
-//exports.roastFile = roasts;
+module.exports.roasts = roasts;
