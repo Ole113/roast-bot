@@ -8,7 +8,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const dbConfigFile = require("./dbConfig.json")
+const dbConfigFile = require("../dbConfig.json")
 
 const mysql = require("mysql");
 
@@ -45,7 +45,7 @@ exports.run = async (message) => {
                 } else if (!result[0].user) {
                     update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", user = "${1}" WHERE guildID = "${message.guild.id}";`;
                     updateUser();
-                    return message.channel.send(`user command has been turned on, use *${prefix}user off* to turn it back off.`);
+                    return message.channel.send(`User command has been turned on, use *${prefix}user off* to turn it back off.`);
                 }
             } else if (message.content.toLowerCase().startsWith(`${prefix}user off`)) {
                 if (err) console.log(err);
@@ -68,84 +68,139 @@ exports.run = async (message) => {
             }
             if (message.content.toLowerCase().startsWith(prefix + "user ") && userStatus) {
                 var muser = message.mentions.users;
-
-                muser.forEach(function (users) {
-                    var statuss = "default";
-                    switch (users.presence.status) {
-                        case "online":
-                            statuss = "<:online:493891715678339089>  Online";
-                            break;
-                        case "offline":
-                            statuss = "<:invisible:493897783179214858>  Offline";
-                            break;
-                        case "idle":
-                            statuss = "<:idle:493892777944285194>  Idle";
-                            break;
-                        case "dnd":
-                            statuss = "<:dnd:493892741613355008>  Do Not Disturb";
-                            break;
+                connection.query(`SELECT * FROM roast_bot_xp WHERE userID = ${message.mentions.users.first().id};`, function (err, result) {
+                    let userXP = result[0].userXP;
+                    let userLevel = result[0].userLevel;
+                    function getXPToLevelUp() {
+                        switch (userLevel) {
+                            case 1:
+                                return 5 - userXP;
+                            case 2:
+                                return 15 - userXP;
+                            case 3:
+                                return 25 - userXP;
+                            case 4:
+                                return 50 - userXP;
+                            case 5:
+                                return 100 - userXP;
+                            case 6:
+                                return 200 - userXP;
+                            case 7:
+                                return 500 - userXP;
+                            case 8:
+                                return 1000 - userXP;
+                            case 9:
+                                return 5000 - userXP;
+                            case 10:
+                                return "This user is already max level!";
+                        }
                     }
+                    muser.forEach(function (users) {
+                        var statuss = "default";
+                        switch (users.presence.status) {
+                            case "online":
+                                statuss = "<:online:493891715678339089>  Online";
+                                break;
+                            case "offline":
+                                statuss = "<:invisible:493897783179214858>  Offline";
+                                break;
+                            case "idle":
+                                statuss = "<:idle:493892777944285194>  Idle";
+                                break;
+                            case "dnd":
+                                statuss = "<:dnd:493892741613355008>  Do Not Disturb";
+                                break;
+                        }
 
-                    var gamee = 0;
-                    if (users.presence.game === null) {
-                        gamee = "None";
-                    } else {
-                        gamee = users.presence.game;
-                    }
+                        var gamee = 0;
+                        if (users.presence.game === null) {
+                            gamee = "None";
+                        } else {
+                            gamee = users.presence.game;
+                        }
 
-                    let userEmbed = new Discord.RichEmbed()
-                        .setColor("#EB671D")
-                        .setTitle(`${users.username}'s Stats:`)
-                        .setThumbnail(users.displayAvatarURL)
-                        .addField("Account created at: ", users.createdAt.toString())
-                        .addField("User Id:", users.id)
-                        .addField("Current Game:", gamee)
-                        .addField("Bot:", users.bot.toString())
-                        .addField("Current Presense:", statuss);
-                    return message.channel.send({ embed: userEmbed });
-
-
+                        let userEmbed = new Discord.RichEmbed()
+                            .setColor("#EB671D")
+                            .setTitle(`${users.username}'s Stats:`)
+                            .setThumbnail(users.displayAvatarURL)
+                            .addField("Account created at: ", users.createdAt.toString())
+                            .addField("User Id:", users.id)
+                            .addField("Current Game:", gamee)
+                            .addField("Bot:", users.bot.toString())
+                            .addField("Current Presense:", statuss)
+                            .addField("Current XP and Level:", `XP: ${userXP},  Level: ${userLevel}`)
+                            .addField("XP needed for next level:", getXPToLevelUp());
+                        return message.channel.send({ embed: userEmbed });
+                    });
                 });
             } else if (message.content.toLowerCase().startsWith(prefix + "user ")) {
                 return message.channel.send("This command has been turned off by an administrator.");
             }
-
-            if (message.content.toLowerCase() === prefix + "user" && userStatus) {
-                var status = "default";
-                switch (message.author.presence.status) {
-                    case "online":
-                        status = "<:online:493891715678339089>  Online";
-                        break;
-                    case "offline":
-                        status = "<:invisible:493897783179214858>  Offline";
-                        break;
-                    case "idle":
-                        status = "<:idle:493892777944285194>  Idle";
-                        break;
-                    case "dnd":
-                        status = "<:dnd:493892741613355008>  Do Not Disturb";
-                        break;
+            connection.query(`SELECT * FROM roast_bot_xp WHERE userID = ${message.author.id};`, function (err, result) {
+                let userXP = result[0].userXP;
+                let userLevel = result[0].userLevel;
+                function getXPToLevelUp() {
+                    switch (userLevel) {
+                        case 1:
+                            return 5 - userXP;
+                        case 2:
+                            return 15 - userXP;
+                        case 3:
+                            return 25 - userXP;
+                        case 4:
+                            return 50 - userXP;
+                        case 5:
+                            return 100 - userXP;
+                        case 6:
+                            return 200 - userXP;
+                        case 7:
+                            return 500 - userXP;
+                        case 8:
+                            return 1000 - userXP;
+                        case 9:
+                            return 5000 - userXP;
+                        case 10:
+                            return "You are already max level!";
+                    }
                 }
-                var game = 0;
-                if (message.author.presence.game === null) {
-                    game = "None";
-                } else {
-                    game = message.author.presence.game;
+                if (message.content.toLowerCase() === prefix + "user" && userStatus) {
+                    var status = "default";
+                    switch (message.author.presence.status) {
+                        case "online":
+                            status = "<:online:493891715678339089>  Online";
+                            break;
+                        case "offline":
+                            status = "<:invisible:493897783179214858>  Offline";
+                            break;
+                        case "idle":
+                            status = "<:idle:493892777944285194>  Idle";
+                            break;
+                        case "dnd":
+                            status = "<:dnd:493892741613355008>  Do Not Disturb";
+                            break;
+                    }
+                    var game = 0;
+                    if (message.author.presence.game === null) {
+                        game = "None";
+                    } else {
+                        game = message.author.presence.game;
+                    }
+                    let userEmbed = new Discord.RichEmbed()
+                        .setColor("#EB671D")
+                        .setTitle(`${message.author.username}'s Stats:`)
+                        .setThumbnail(message.author.displayAvatarURL)
+                        .addField("Account created at: ", message.author.createdAt.toString())
+                        .addField("User Id:", message.author.id)
+                        .addField("Current Game:", game)
+                        .addField("Bot:", message.author.bot)
+                        .addField("Current Presense:", status)
+                        .addField("Current XP and Level:", `XP: ${userXP},  Level: ${userLevel}`)
+                        .addField("XP needed for next level:", getXPToLevelUp());
+                    return message.channel.send({ embed: userEmbed });
+                } else if (message.content.toLowerCase() === prefix + "user" && !userStatus) {
+                    return message.channel.send("This command has been turned off by an administrator.");
                 }
-                let userEmbed = new Discord.RichEmbed()
-                    .setColor("#EB671D")
-                    .setTitle(`${message.author.username}'s Stats:`)
-                    .setThumbnail(message.author.displayAvatarURL)
-                    .addField("Account created at: ", message.author.createdAt.toString())
-                    .addField("User Id:", message.author.id)
-                    .addField("Current Game:", game)
-                    .addField("Bot:", message.author.bot)
-                    .addField("Current Presense:", status);
-                return message.channel.send({ embed: userEmbed });
-
-            } else if (message.content.toLowerCase() === prefix + "user" && !userStatus) {
-                return message.channel.send("This command has been turned off by an administrator.");
-            }
+            });
         });
     });
 };

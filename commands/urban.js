@@ -9,7 +9,7 @@
 const urban = require("relevant-urban");
 const Discord = require("discord.js");
 
-const dbConfigFile = require("./dbConfig.json")
+const dbConfigFile = require("../dbConfig.json")
 
 const mysql = require("mysql");
 

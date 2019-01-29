@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const dbConfigFile = require("./dbConfig.json")
+const dbConfigFile = require("../dbConfig.json")
 const roastFile = require("./roast.js");
 
 const mysql = require("mysql");
