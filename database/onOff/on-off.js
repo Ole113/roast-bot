@@ -27,7 +27,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase().startsWith("rb!" + "off")) {
 
 			let contentt = message.content;
-			let commandd = contentt.slice(prefix.length + 4, contentt.length);
+			let commandd = contentt.slice(prefixFile.prefix.length + 4, contentt.length);
 
 			if (commandd.toLowerCase().startsWith("roast")) {
 				onOff.set(key, "off", "roast");
@@ -67,7 +67,7 @@ exports.run = async (message) => {
 		if (message.content.toLowerCase().startsWith("rb!" + "on")) {
 
 			let content = message.content;
-			let command = content.slice(prefix.length + 3, content.length);
+			let command = content.slice(prefixFile.prefix.length + 3, content.length);
 			if (command.toLowerCase().startsWith("roast")) {
 				onOff.set(key, "on", "roast");
 				return message.channel.send("Roast command has been turn on. User `r!on roast` to turn it back off.");

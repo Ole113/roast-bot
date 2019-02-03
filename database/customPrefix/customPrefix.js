@@ -60,4 +60,14 @@ exports.run = async (message) => {
     } else if (!message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith("rb!" + "prefix ")) {
         return message.channel.send("Sorry, you need to be an admin to set the custom prefix for your server. <:roast_circle:474755210485563404>");
     }
+
+    connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
+        //makes a variable that will be rewritten every time the query is called, default is rb!.
+        let prefix = "rb!";
+    
+        if (err) console.log(err);
+        //checks if prefix has been set or not and sets prefix to it.
+        if (result.length) prefix = result[0].prefix;
+        exports.prefix = prefix;
+    });
 }

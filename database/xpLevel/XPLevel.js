@@ -32,12 +32,12 @@ exports.run = async (message) => {
                 } else {
                     let userXP = result[0].userXP;
                     let userLevel = result[0].userLevel;
-                    if (message.content.toLowerCase().startsWith(`${prefix}level `)) {
+                    if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}level `)) {
                         connection.query(`SELECT * FROM roast_bot_xp WHERE userID = "${message.mentions.users.first().id}";`, function (err, result) {
                             if (err) console.log(err);
                             return message.channel.send(`The current XP of ${message.mentions.users.first().username} is ${result[0].userXP}, and their level is ${result[0].userLevel}! <:roast_circle:474755210485563404>`);
                         });
-                    } else if (message.content.toLowerCase() == `${prefix}level`) {
+                    } else if (message.content.toLowerCase() == `${prefixFile.prefix}level`) {
                         return message.reply(`You currently have ${userXP} XP, and are level ${userLevel}! <:roast_circle:474755210485563404>`);
                     }
 

@@ -34,6 +34,7 @@ const XPLevelFile = require("./database/xpLevel/XPLevel.js");
 const customPrefixFile = require("./database/customPrefix/customPrefix.js");
 const onOffFile = require("./database/onOff/onOff.js");
 const customRoastFile = require("./database/customRoast/customRoast.js");
+const censorFile = require("./database/censor/censor.js");
 
 const dbConfigFile = require("./dbConfig.json")
 
@@ -67,7 +68,7 @@ client.on("ready", () => {
 		}
 		*/
 	//setInterval(() => {
-		client.user.setActivity(`${"rb!"}help | roast-bot.com`, { type: "PLAYING" });
+	client.user.setActivity(`${"rb!"}help | roast-bot.com`, { type: "PLAYING" });
 	//}, 50000);
 });
 
@@ -97,16 +98,16 @@ client.on("guildMemberRemove", (member) => {
 });
 client.on("message", (message) => {
 	//database files
-
 	//customCommandFile.run(message);
 	//customRoastFile.run(message);
 	//censorFile.run(message);
 	onOffFile.run(message);
 	XPLevelFile.run(message);
+	censorFile.run(message);
 	feedbackFile.run(message);
 	customPrefixFile.run(message);
 	customRoastFile.run(message);
-	
+
 	//command files
 	helpFile.run(client, message);
 	botFile.run(client, message);

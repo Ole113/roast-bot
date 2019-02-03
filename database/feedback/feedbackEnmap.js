@@ -25,7 +25,7 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let userFeedback = content.slice(prefix.length + 9, content.length);
+			let userFeedback = content.slice(prefixFile.prefix.length + 9, content.length);
 
 			let feedbackNumber = feedback.get(key, "feedback");
 

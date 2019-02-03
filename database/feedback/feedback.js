@@ -22,12 +22,12 @@ exports.run = async (message) => {
         if (err) console.log(err);
         //checks if prefix has been set or not and sets prefix to it.
         if (result.length) prefix = result[0].prefix;
-        const feedbackMessage = message.content.slice(prefix.length + 9, message.content.length);
+        const feedbackMessage = message.content.slice(prefixFile.prefix.length + 9, message.content.length);
 
-        if (message.content.toLowerCase() == `${prefix}feedback`) {
+        if (message.content.toLowerCase() == `${prefixFile.prefix}feedback`) {
             return message.channel.send("You need to specify what the feedback is with rb!feedback *feedback*.");
         }
-        if (message.content.toLowerCase().startsWith(`${prefix}feedback `)) {
+        if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}feedback `)) {
             connection.query(`INSERT INTO roast_bot_feedback (username, userID, feedback) VALUES ("${message.author.username}", "${message.author.id}", "${feedbackMessage}")`, function (err, result) {
                 if (err) console.log(err);
             });

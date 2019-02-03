@@ -16,7 +16,7 @@ exports.run = async (message) => {
 		}
 		if (message.content.toLowerCase().startsWith(prefix + "croast delete #")) {
 			let content = message.content;
-			let contentSlice = content.slice(prefix.length + 15, content.length);
+			let contentSlice = content.slice(prefixFile.prefix.length + 15, content.length);
 			let numberInt = parseInt(contentSlice);
 			customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `r!croast help` to learn how to.";
 			return message.channel.send(`Custom roast #${numberInt} was removed successfully!`);
@@ -42,7 +42,7 @@ exports.run = async (message) => {
 			}
 
 			let content = message.content;
-			let customRoastSlice = content.slice(prefix.length + 7, content.length);
+			let customRoastSlice = content.slice(prefixFile.prefix.length + 7, content.length);
 
 			let number = customRoast.get(key, "number");
 
