@@ -1,6 +1,6 @@
 /*
 *
-*   Things to add to rb!updates:
+*   Things to add to r!updates:
 * ----------------------------
 * Maybe a better command name?
 *
@@ -8,20 +8,8 @@
 
 const Discord = require("discord.js");
 
-const dbConfigFile = require("../dbConfig.json")
+const connection = require("../dbConnect.js");
 const prefixFile = require("../database/customPrefix/customPrefix.js");
-
-const mysql = require("mysql");
-
-let connection = mysql.createConnection({
-    host: dbConfigFile.host,
-    user: dbConfigFile.user,
-    password: dbConfigFile.password,
-    database: dbConfigFile.database,
-    port: dbConfigFile.port
-});
-
-connection.connect();
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }

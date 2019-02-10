@@ -1,27 +1,16 @@
 /*
 *
-*   Things to add to rb!roast, rb!roast @, rb!roast #:
+*   Things to add to r!roast, r!roast @, r!roast #:
 * ----------------------------
 *  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
-*  Make it so you can do rb!roast @USER #roastNumber
+*  Make it so you can do r!roast @USER #roastNumber
 */
 
 const Discord = require("discord.js");
 
-const dbConfigFile = require("../dbConfig.json")
+const connection = require("../dbConnect.js");
 const prefixFile = require("../database/customPrefix/customPrefix.js");
-
-const mysql = require("mysql");
-
-let connection = mysql.createConnection({
-	host: dbConfigFile.host,
-	user: dbConfigFile.user,
-	password: dbConfigFile.password,
-	database: dbConfigFile.database,
-	port: dbConfigFile.port
-});
-
-connection.connect();
+const censorFile = require("../database/censor/censor.js");
 
 const roasts = [
 	{ "number": 1, "roast": "I'd offer you some gum but your smiles got plenty of it." },
@@ -69,7 +58,7 @@ const roasts = [
 	{ "number": 43, "roast": "Twinkle Twinkle little slut, name a guy you haven't fucked, was he skinny, was he tall, Nevermind you did them all." },
 	{ "number": 44, "roast": "I failed a spelling test because they asked me how to spell 'bitch' and I wrote down your name." },
 	{ "number": 45, "roast": "You're like a light switch, even a little kid can turn you on." },
-	{ "number": 46, "roast": "I don't see any penises in the general vicinity... So I'm wondering why you keep opening your fucking mouth." },
+	{ "number": 46, "roast": "I don't see any dicks in the general vicinity... So I'm wondering why you keep opening your fucking mouth." },
 	{ "number": 47, "roast": "Who lit the fuse on your tampon?" },
 	{ "number": 48, "roast": "Twinkle twinkle little slut, You like dick inside your butt." },
 	{ "number": 49, "roast": "The last time I saw a face like yours I fed it a banana." },
@@ -158,66 +147,73 @@ const roasts = [
 	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
 	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn't come back." },
 	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn't wear them." },
-	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." },
-	{ "number": 136, "roast": "You're not completely useless, you can always serve as a bad example." }
+	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." }
+	//{ "number": 136, "roast": "You're not completely useless, you can always serve as a bad example." }
 ];
 
 exports.run = async (message) => {
 	if (message.author.bot) { return; }
+	if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
 
-	if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast on`) || message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast off`)) && !message.member.hasPermission("ADMINISTRATOR")) {
-		return message.channel.send("You need to be an admin to turn this command on/off.");
-	} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast on`)) {
-		if (err) console.log(err);
+		connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
+			let update;
 
-		if (result[0].roast) {
-			return message.channel.send(`This command is already on, use *${prefixFile.prefix}roast off* to turn it off.`);
-		} else if (!result[0].roast) {
-			update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${1}" WHERE guildID = "${message.guild.id}";`;
-			updateRoast();
-			return message.channel.send(`Roast command has been turned on, use *${prefixFile.prefix}roast off* to turn it back off.`);
-		}
-	} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast off`)) {
-		if (err) console.log(err);
+			let roastStatus = result[0].roast;
+			if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast on`) || message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast off`)) && !message.member.hasPermission("ADMINISTRATOR")) {
+				return message.channel.send("You need to be an admin to turn this command on/off.");
+			} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast on`)) {
+				if (err) console.log(err);
 
-		if (!result[0].roast) {
-			return message.channel.send(`This command is already off, use *${prefixFile.prefix}roast on* to turn it on.`)
-		} else if (result[0].roast) {
-			update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${0}" WHERE guildID = "${message.guild.id}";`;
-			updateRoast();
-			return message.channel.send(`Roast command has been turned off, use *${prefixFile.prefix}roast on* to turn it back on.`);
-		}
-	}
-	function updateRoast() {
-		connection.query(update, function (err, result) {
-			if (err) console.log(err);
+				if (result[0].roast) {
+					return message.channel.send(`This command is already on, use *${prefixFile.prefix}roast off* to turn it off.`);
+				} else if (!result[0].roast) {
+					update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${1}" WHERE guildID = "${message.guild.id}";`;
+					updateRoast();
+					return message.channel.send(`Roast command has been turned on, use *${prefixFile.prefix}roast off* to turn it back off.`);
+				}
+			} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast off`)) {
+				if (err) console.log(err);
+
+				if (!result[0].roast) {
+					return message.channel.send(`This command is already off, use *${prefixFile.prefix}roast on* to turn it on.`)
+				} else if (result[0].roast) {
+					update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${0}" WHERE guildID = "${message.guild.id}";`;
+					updateRoast();
+					return message.channel.send(`Roast command has been turned off, use *${prefixFile.prefix}roast on* to turn it back on.`);
+				}
+			}
+			function updateRoast() {
+				connection.query(update, function (err, result) {
+					if (err) console.log(err);
+				});
+			}
+			if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast help`)) {
+				return message.channel.send("**r!roast help:**\n\n`r!roast` has 3 different ways that it can be used. The three ways are:\n**r!roast**\n**r!roast #roastNumber**\n**r!roast @USER**\n\n***r!roast*** generates a random roast. It's as simple as that. All you have to do is `r!roast`\n\nExample:\nUSER: r!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***r!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: r!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***r!roast @USER*** is the last way to use r!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: r!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `r!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+			}
+			if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast`) && !(message.content.toLowerCase() == `${prefixFile.prefix}roast censor on` || message.content.toLowerCase() === `${prefixFile.prefix}roast censor off`) && roastStatus) {
+				let randomRoasts = Math.ceil(Math.random() * roasts.length);
+				let random = Math.ceil(Math.random() * roasts.length);
+
+
+				if (message.content.toLowerCase() === `${prefixFile.prefix}roast`) {
+					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+				} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast `)) {
+					const reply = message.content.slice(prefixFile.prefix.length + 6, message.content.length);
+					if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast #`)) {
+						let number1 = message.content.slice(prefixFile.prefix.length + 7, message.content.length);
+						let numberInt = parseInt(number1);
+
+						if (numberInt > roasts.length - 1 || numberInt < 1) {
+							return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
+						}
+						return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
+					}
+					return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
+				}
+			} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast`) && !roastStatus) {
+				return message.channel.send("This command has been turned off by an administrator.");
+			}
 		});
 	}
-	if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast help`)) {
-		return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
-	}
-	if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast`) && !(message.content.toLowerCase() == `${prefixFile.prefix}roast censor on` || message.content.toLowerCase() === `${prefixFile.prefix}roast censor off`) && roastStatus) {
-		if (message.content.toLowerCase() === `${prefixFile.prefix}roast `) {
-			let randomRoasts = Math.ceil(Math.random() * roasts.length);
-			return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-		} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast `)) {
-			let random = Math.ceil(Math.random() * roasts.length);
-			const word = message.content;
-			const reply = word.slice(prefixFile.prefix.length + 6, word.length);
-			if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast #`)) {
-				let word1 = message.content;
-				let number1 = word1.slice(prefixFile.prefix.length + 7, word1.length);
-				let numberInt = parseInt(number1);
-
-				if (numberInt > roasts.length - 1 || numberInt < 1) {
-					return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
-				}
-				return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
-			}
-			return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
-		}
-	} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast`)) {
-		return message.channel.send("This command has been turned off by an administrator.");
-	}
 };
-exports.roasts = roasts;
+module.exports.roasts = roasts;

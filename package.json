@@ -1,7 +1,7 @@
 {
   "name": "roast-bot",
   "description": "A bot to roast people on discord",
-  "version": "1.9.5",
+  "version": "2.3.0",
   "main": "main.js",
   "scripts": {
     "start": "node main.js"
@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "discord.js": "^11.4.2",
-    "mongoose": "^5.4.3",
     "mysql": "^2.16.0",
-    "node": "8.11.4",
+    "node": "^8.11.4",
     "node-gyp": "^3.8.0",
-    "relevant-urban": "^2.0.0",
-    "request": "2.81.0"
+    "reaction-core": "^2.2.0",
+    "reaction-menu": "^2.0.4",
+    "relevant-urban": "^2.0.0"
   },
   "devDependencies": {},
   "repository": {

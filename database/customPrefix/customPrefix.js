@@ -1,36 +1,24 @@
 //add custom prefix help
-//MAKE SURE IT IS CLEAR YOU CAN ONLY SET IT WITH rb!
-const dbConfigFile = require("../../dbConfig.json")
-
-const mysql = require("mysql");
-
-let connection = mysql.createConnection({
-	host: dbConfigFile.host,
-	user: dbConfigFile.user,
-	password: dbConfigFile.password,
-	database: dbConfigFile.database,
-	port: dbConfigFile.port
-});
-
-connection.connect();
+//MAKE SURE IT IS CLEAR YOU CAN ONLY SET IT WITH r!
+const connection = require("../../dbConnect.js");
 
 exports.run = async (message) => {
     //returns what the prefix is and who set it.
-    if (message.content.toLowerCase() == "rb!prefix") {
+    if (message.content.toLowerCase() == "r!prefix") {
         let getPrefix = connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
             if (err) console.log(err);
             //checks if prefix has been set or not.
             if (!result.length) {
-                return message.channel.send("No admins in your server have set a custom prefix yet so the prefix is still the default, rb!.");
+                return message.channel.send("No admins in your server have set a custom prefix yet so the prefix is still the default, r!.");
             } else {
                 return message.channel.send(`Your server prefix is *${result[0].prefix}* and was set by *${result[0].username}*.`);
             }
         });
     }
     
-    if (message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith("rb!" + "prefix ")) {
+    if (message.content.toLowerCase().startsWith("r!" + "prefix ") && message.member.hasPermission("ADMINISTRATOR")) {
 
-        const newPrefix = message.content.slice("rb!".length + 7, message.content.length);
+        const newPrefix = message.content.slice("r!".length + 7, message.content.length);
 
         //is the param passed into the query and is updated depending on if the user is already in the db.
         let updatePrefix;
@@ -57,13 +45,13 @@ exports.run = async (message) => {
                 return message.channel.send(`Your server prefix has been set to *${result[0].prefix}*.`);
             });
         });
-    } else if (!message.member.hasPermission("ADMINISTRATOR") && message.content.toLowerCase().startsWith("rb!" + "prefix ")) {
+    } else if (message.content.toLowerCase().startsWith("r!" + "prefix ") && !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("Sorry, you need to be an admin to set the custom prefix for your server. <:roast_circle:474755210485563404>");
     }
 
     connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
-        //makes a variable that will be rewritten every time the query is called, default is rb!.
-        let prefix = "rb!";
+        //makes a variable that will be rewritten every time the query is called, default is r!.
+        let prefix = "r!";
     
         if (err) console.log(err);
         //checks if prefix has been set or not and sets prefix to it.

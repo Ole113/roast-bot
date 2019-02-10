@@ -2,9 +2,9 @@
 *
 *  Ideas to add to Roast-Bot:
 * ----------------------------
-*  Add so if someone inputs a command wrong it will give an error message that says they can use rb!command help for more info.
+*  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
 *
-*  Add a rb!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
+*  Add a r!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
 *  Make it so when it has try catch block for commands if will eventaully send errors to db. 
 *
 */
@@ -36,94 +36,82 @@ const onOffFile = require("./database/onOff/onOff.js");
 const customRoastFile = require("./database/customRoast/customRoast.js");
 const censorFile = require("./database/censor/censor.js");
 
-const dbConfigFile = require("./dbConfig.json")
+const connection = require("./dbConnect.js");
 
-const mysql = require("mysql");
-
-let connection = mysql.createConnection({
-	host: dbConfigFile.host,
-	user: dbConfigFile.user,
-	password: dbConfigFile.password,
-	database: dbConfigFile.database,
-	port: dbConfigFile.port
-});
-
-connection.connect();
-
-//makes it so the current prefix is in the activity every 5 seconds.
-
+//makes it so the current prefix is checked for an update every 5 seconds.
 client.on("ready", () => {
-	console.log("-----------------------------------")
-	console.log("Roast-Bot-Beta is Ready");
-	console.log("-----------------------------------")
-	/*
-	connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
-		if (err) console.log(err);
-		let prefix;
-		//checks if prefix has been set or not.
-		if (!result.length) {
-			prefix = "rb!";
-		} else {
-			prefix = result[0].prefix;
-		}
-		*/
-	//setInterval(() => {
-	client.user.setActivity(`${"rb!"}help | roast-bot.com`, { type: "PLAYING" });
-	//}, 50000);
+	console.log("-----------------------------------");
+	console.log("Roast-Bot is Ready");
+	console.log("-----------------------------------");
+
+	client.user.setActivity(`r!help | roast-bot.com`, { type: "PLAYING" });
+
 });
 
-client.on("guildMemberAdd", (member) => {
-	let welcomeleavechannel = member.guild.channels.find((c) => c.name === "welcome-leave-log");
-	if (!welcomeleavechannel) return;
-	let joinTime = new Date();
-	let joinEmbed = new Discord.RichEmbed()
-		.setTitle(member.user.username + " has joined the server.")
-		.setColor("#EB671D")
-		.addField("Time:", joinTime)
-		.addField("Tag:", member)
-		.setThumbnail(member.user.displayAvatarURL);
-	welcomeleavechannel.send(joinEmbed);
-});
-client.on("guildMemberRemove", (member) => {
-	let welcomeleavechannel = member.guild.channels.find((c) => c.name === "welcome-leave-log");
-	let leaveTime = new Date();
-	if (!welcomeleavechannel) { return; }
-	let leaveEmbed = new Discord.RichEmbed()
-		.setTitle(member.user.username + " has left the server, later aligator.")
-		.setColor("#EB671D")
-		.addField("Time:", leaveTime)
-		.addField("Tag:", member)
-		.setThumbnail(member.user.displayAvatarURL);
-	welcomeleavechannel.send(leaveEmbed);
-});
 client.on("message", (message) => {
+
 	//database files
 	//customCommandFile.run(message);
 	//customRoastFile.run(message);
-	//censorFile.run(message);
-	onOffFile.run(message);
-	XPLevelFile.run(message);
-	censorFile.run(message);
-	feedbackFile.run(message);
 	customPrefixFile.run(message);
-	customRoastFile.run(message);
+	if (message.content.toLowerCase().startsWith(customPrefixFile.prefix || "r!")) {
 
-	//command files
-	helpFile.run(client, message);
-	botFile.run(client, message);
-	roastFile.run(message);
-	inviteFile.run(message);
-	serverFile.run(message);
-	memeFile.run(message);
-	sayFile.run(message);
-	clearFile.run(message);
-	urbanFile.run(message);
-	userFile.run(message);
-	vidFile.run(message);
-	websiteFile.run(message);
-	updatesFile.run(message);
-	searchRoastsFile.run(message);
-	leaderboardFile.run(message);
+		connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
+			if (err) console.log(err);
+
+			//sets the default of everything to ON.
+			if (!result.length) {
+				connection.query(`INSERT INTO roast_bot_on_off (guildID, username, _clear, bot, meme, roast, say, _server, urban, user, vid) VALUES ("${message.guild.id}", "${message.author.username}", "${1}", "${1}", "${1}", "${1}", "${1}", "${1}", "${1}", "${1}", "${1}");`, function (err, result) {
+					if (err) console.log(err);
+				});
+				onOffFile.run(message);
+				//censorFile.run(message);
+				feedbackFile.run(message);
+				//customRoastFile.run(message);
+				XPLevelFile.run(message);
+
+				//command files
+				botFile.run(client, message);
+				roastFile.run(message);
+				inviteFile.run(message);
+				serverFile.run(message);
+				helpFile.run(client, message);
+				memeFile.run(message);
+				sayFile.run(message);
+				clearFile.run(message);
+				urbanFile.run(message);
+				userFile.run(message);
+				//vidFile.run(message);
+				websiteFile.run(message);
+				updatesFile.run(message);
+				searchRoastsFile.run(message);
+				leaderboardFile.run(message);
+			} else {
+				onOffFile.run(message);
+				//censorFile.run(message);
+				feedbackFile.run(message);
+				//customRoastFile.run(message);
+				XPLevelFile.run(message);
+
+				//command files
+				botFile.run(client, message);
+				roastFile.run(message);
+				inviteFile.run(message);
+				serverFile.run(message);
+				helpFile.run(client, message);
+				memeFile.run(message);
+				sayFile.run(message);
+				clearFile.run(message);
+				urbanFile.run(message);
+				userFile.run(message);
+				//vidFile.run(message);
+				websiteFile.run(message);
+				updatesFile.run(message);
+				searchRoastsFile.run(message);
+				leaderboardFile.run(message);
+			}
+		});
+	}
 });
 
 client.login(tokenFile.token);

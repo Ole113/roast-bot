@@ -1,25 +1,10 @@
-const dbConfigFile = require("../../dbConfig.json")
-
-const mysql = require("mysql");
-
-let connection = mysql.createConnection({
-    host: dbConfigFile.host,
-    user: dbConfigFile.user,
-    password: dbConfigFile.password,
-    database: dbConfigFile.database,
-    port: dbConfigFile.port
-});
-
-connection.connect();
+const connection = require("../../dbConnect.js");
+const prefixFile = require("../customPrefix/customPrefix.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }
-    connection.query(`SELECT * FROM roast_bot_custom_prefix WHERE guildID = "${message.guild.id}";`, function (err, result) {
-        //makes a variable that will be rewritten every time the query is called, default is rb!.
-        let prefix = "rb!";
-        if (err) console.log(err);
-        //checks if prefix has been set or not and sets prefix to it.
-        if (result.length) prefix = result[0].prefix;
+    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
+
         connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
             let roastStatus = result[0].roast;
             if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast custom `) && !roastStatus) {
@@ -62,5 +47,5 @@ exports.run = async (message) => {
                 });
             }
         });
-    });
+    }
 }

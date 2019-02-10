@@ -12,7 +12,7 @@ exports.run = async (message) => {
 
     var indexOfFirst = paragraph.indexOf(" ");
 
-    let commandName = message.slice(prefixFile.get(key, "prefix").length + 8, message.indexOf(" ", (indexOfFirst + 1)));
+    let commandName = message.content.slice(prefixFile.get(key, "prefix").length + 8, message.content.indexOf(" ", (indexOfFirst + 1)));
     //console.log('The index of the first "' + searchTerm + '" from the beginning is ' + indexOfFirst);
 
     //console.log('The index of the 2nd "' + searchTerm + '" is ' + paragraph.indexOf(searchTerm, (indexOfFirst + 1)));
