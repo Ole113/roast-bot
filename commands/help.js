@@ -2,7 +2,7 @@
 *
 *   Things to add to r!help:
 * ----------------------------
-*
+*4️⃣
 */
 //https://kmcgamer.github.io/programming/discordhelp/
 
