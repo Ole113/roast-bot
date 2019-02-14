@@ -2,7 +2,7 @@
 *
 *   Things to add to rb!help:
 * ----------------------------
-*
+*4️⃣
 */
 //https://kmcgamer.github.io/programming/discordhelp/
 //working emojies https://discordjs.guide/popular-topics/miscellaneous-examples.html#emoji-characters
