@@ -1,6 +1,6 @@
 /*
 *
-*   Things to add to r!invite:
+*   Things to add to rb!invite:
 * ----------------------------
 * 
 */
@@ -12,7 +12,7 @@ const prefixFile = require("../database/customPrefix/customPrefix.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }
-    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
+    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "rb!")) {
 
         connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
             let update;

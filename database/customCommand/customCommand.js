@@ -16,7 +16,7 @@ exports.run = async (message) => {
     //console.log('The index of the first "' + searchTerm + '" from the beginning is ' + indexOfFirst);
 
     //console.log('The index of the 2nd "' + searchTerm + '" is ' + paragraph.indexOf(searchTerm, (indexOfFirst + 1)));
- var message = 'r!command test test2 test3';
+ var message = 'rb!command test test2 test3';
 
 var indexOfFirst = message.indexOf(" ");
 var indexOfSecond = message.indexOf(" ", 10);

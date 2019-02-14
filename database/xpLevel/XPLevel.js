@@ -4,7 +4,7 @@ const prefixFile = require("../customPrefix/customPrefix.js");
 exports.run = async (message) => {
     if (message.author.bot) return;
 
-    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
+    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "rb!")) {
         connection.query(`SELECT * FROM roast_bot_xp WHERE userID = "${message.author.id}"`, function (err, result) {
             //the sql to be called depending if the user already is in db or xp++
             let updateXP;
@@ -15,12 +15,13 @@ exports.run = async (message) => {
             } else {
                 let userXP = result[0].userXP;
                 let userLevel = result[0].userLevel;
+                /*
                 if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}level `)) {
                     connection.query(`SELECT * FROM roast_bot_xp WHERE userID = "${message.mentions.users.first().id}";`, function (err, result) {
                         if (err) console.log(err);
                         return message.channel.send(`The current XP of ${message.mentions.users.first().username} is ${result[0].userXP}, and their level is ${result[0].userLevel}! <:roast_circle:474755210485563404>`);
                     });
-                } else if (message.content.toLowerCase() == `${prefixFile.prefix}level`) {
+                } else */if (message.content.toLowerCase() == `${prefixFile.prefix}level`) {
                     return message.reply(`You currently have ${userXP} XP, and are level ${userLevel}! <:roast_circle:474755210485563404>`);
                 }
 
@@ -55,13 +56,13 @@ exports.run = async (message) => {
                         case 2:
                             return message.reply("Level up, your're now level 2: Roast-Noob! <:roast_circle:474755210485563404>.\n\n5/15 XP for level 3.");
                         case 3:
-                            return message.reply("Level up, your're now level 3: Roast-Learner! <:roast_circle:474755210485563404>.\n\n15/25 XP for level 4.");
+                            return message.reply("Level up, your're now level 3: Roast-Learnerb! <:roast_circle:474755210485563404>.\n\n15/25 XP for level 4.");
                         case 4:
-                            return message.reply("Level up, your're now level 4: Mediocre Roaster! <:roast_circle:474755210485563404>\n\n25/50 XP for level 5.");
+                            return message.reply("Level up, your're now level 4: Mediocre Roasterb! <:roast_circle:474755210485563404>\n\n25/50 XP for level 5.");
                         case 5:
-                            return message.reply("Level up, your're now level 5: Advanced Roaster! <:roast_circle:474755210485563404>\n\n50/100 XP for level 6.");
+                            return message.reply("Level up, your're now level 5: Advanced Roasterb! <:roast_circle:474755210485563404>\n\n50/100 XP for level 6.");
                         case 6:
-                            return message.reply("Level up, your're now level 6: Roast-Master! <:roast_circle:474755210485563404>\n\n100/200 XP for level 7.");
+                            return message.reply("Level up, your're now level 6: Roast-Masterb! <:roast_circle:474755210485563404>\n\n100/200 XP for level 7.");
                         case 7:
                             return message.reply("Level up, your're now level 7: Roast-Jesus! <:roast_circle:474755210485563404>\n\n200/500 XP for level 8.");
                         case 8:
@@ -81,6 +82,6 @@ exports.run = async (message) => {
             });
         });
     } else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}level help`)) {
-        return message.channel.send("**r!level help**\n\n`r!level` is how you check what your current level/XP is. XP is gained by using a `r!` command.  Levels are gained by gaining enough XP. For information on XP needed to level up look at the XP-System to part of `r!help`.\n\nExample:\nUSER: r!level\nRoast-Bot: @USER, You currently have 5 XP, and are level 1! <:roast_circle:474755210485563404>\n\nStill having trouble with `r!level` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+        return message.channel.send("**rb!level help**\n\n`rb!level` is how you check what your current level/XP is. XP is gained by using a `rb!` command.  Levels are gained by gaining enough XP. For information on XP needed to level up look at the XP-System to part of `rb!help`.\n\nExample:\nUSER: rb!level\nRoast-Bot: @USER, You currently have 5 XP, and are level 1! <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!level` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
     }
 }

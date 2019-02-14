@@ -2,9 +2,9 @@
 *
 *  Ideas to add to Roast-Bot:
 * ----------------------------
-*  Add so if someone inputs a command wrong it will give an error message that says they can use r!command help for more info.
+*  Add so if someone inputs a command wrong it will give an error message that says they can use rb!command help for more info.
 *
-*  Add a r!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
+*  Add a rb!user @USER and have stats such as if they have nitro, servers in, date joined disord and other info
 *  Make it so when it has try catch block for commands if will eventaully send errors to db. 
 *
 */
@@ -28,6 +28,7 @@ const updatesFile = require("./commands/updates.js");
 const sayFile = require("./commands/say.js");
 const searchRoastsFile = require("./commands/searchRoasts.js");
 const leaderboardFile = require("./commands/leaderboard.js");
+const topServersFile = require("./commands/topServers.js");
 
 const feedbackFile = require("./database/feedback/feedback.js");
 const XPLevelFile = require("./database/xpLevel/XPLevel.js");
@@ -41,10 +42,10 @@ const connection = require("./dbConnect.js");
 //makes it so the current prefix is checked for an update every 5 seconds.
 client.on("ready", () => {
 	console.log("-----------------------------------");
-	console.log("Roast-Bot is Ready");
+	console.log("Roast-Bot-Beta is Ready");
 	console.log("-----------------------------------");
 
-	client.user.setActivity(`r!help | roast-bot.com`, { type: "PLAYING" });
+	client.user.setActivity(`rb!help | roast-bot.com`, { type: "PLAYING" });
 
 });
 
@@ -54,7 +55,7 @@ client.on("message", (message) => {
 	//customCommandFile.run(message);
 	//customRoastFile.run(message);
 	customPrefixFile.run(message);
-	if (message.content.toLowerCase().startsWith(customPrefixFile.prefix || "r!")) {
+	if (message.content.toLowerCase().startsWith(customPrefixFile.prefix || "rb!")) {
 
 		connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
 			if (err) console.log(err);
@@ -86,6 +87,7 @@ client.on("message", (message) => {
 				updatesFile.run(message);
 				searchRoastsFile.run(message);
 				leaderboardFile.run(message);
+				topServersFile.run(client, message);
 			} else {
 				onOffFile.run(message);
 				//censorFile.run(message);
@@ -109,6 +111,7 @@ client.on("message", (message) => {
 				updatesFile.run(message);
 				searchRoastsFile.run(message);
 				leaderboardFile.run(message);
+				topServersFile.run(client, message);
 			}
 		});
 	}

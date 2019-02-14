@@ -14,6 +14,7 @@ Vid
 Website
 Feedback
 Level(@)
+If user is not in db rb!level returns nothing.
 TypeError: Cannot read property 'userXP' of undefined
     at Query.<anonymous> (/home/ubuntu/Roast-Bot-Stable-2.5.0/database/xpLevel/XPLevel.js:21:130)
 //Censor

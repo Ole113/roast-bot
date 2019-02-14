@@ -3,7 +3,7 @@ const prefixFile = require("../customPrefix/customPrefix.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }
-    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
+    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "rb!")) {
 
         connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
             let roastStatus = result[0].roast;
@@ -39,7 +39,7 @@ exports.run = async (message) => {
                                 roastString += roast + "<!>^?^<!>";
                                 connection.query(`UPDATE roast_bot_custom_roast SET roasts = "${roastString}" WHERE userID = "${message.author.id}"`, function (err, result) {
                                     if (err) console.log(err);
-                                    return message.channel.send(`Your roast has successfully been added as custom roast #${roastsLength}, use r!croast #${roastsLength} to view it.`);
+                                    return message.channel.send(`Your roast has successfully been added as custom roast #${roastsLength}, use rb!croast #${roastsLength} to view it.`);
                                 });
                             }
                         }

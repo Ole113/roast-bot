@@ -1,6 +1,6 @@
 /*
 *
-*    Things to add to r!censor:
+*    Things to add to rb!censor:
 *  ------------------------------
 *
 *

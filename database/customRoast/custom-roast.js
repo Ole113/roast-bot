@@ -18,7 +18,7 @@ exports.run = async (message) => {
 			let content = message.content;
 			let contentSlice = content.slice(prefixFile.prefix.length + 15, content.length);
 			let numberInt = parseInt(contentSlice);
-			customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `r!croast help` to learn how to.";
+			customRoasts[numberInt - 1].roast = "You haven't set any custom roasts yet! Use `rb!croast help` to learn how to.";
 			return message.channel.send(`Custom roast #${numberInt} was removed successfully!`);
 		}
 		if (message.content.toLowerCase().startsWith(prefix + "croast #")) {
@@ -37,7 +37,7 @@ exports.run = async (message) => {
 
 			if (!customRoast.has(key)) {
 				customRoast.set(key, {
-					user: message.author.id, number: 0, roast1: "You haven't set any custom roasts yet! Use `r!croast help` to learn how to.", roast2: "You haven't set any custom roasts yet! Use `r!croast help` to learn how to.", roast3: "You haven't set any custom roasts yet! Use `r!croast help` to learn how to."
+					user: message.author.id, number: 0, roast1: "You haven't set any custom roasts yet! Use `rb!croast help` to learn how to.", roast2: "You haven't set any custom roasts yet! Use `rb!croast help` to learn how to.", roast3: "You haven't set any custom roasts yet! Use `rb!croast help` to learn how to."
 				});
 			}
 

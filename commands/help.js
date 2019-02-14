@@ -1,11 +1,11 @@
 /*
 *
-*   Things to add to r!help:
+*   Things to add to rb!help:
 * ----------------------------
 *
 */
 //https://kmcgamer.github.io/programming/discordhelp/
-
+//working emojies https://discordjs.guide/popular-topics/miscellaneous-examples.html#emoji-characters
 const Discord = require("discord.js");
 
 const RC = require("reaction-core");
@@ -23,7 +23,7 @@ exports.run = async (client, message) => {
             { name: `${prefixFile.prefix}search *whatToSearch*`, value: "Searches all the roasts and returns the results that have the *whatToSearch* in it."},
             { name: `${prefixFile.prefix}meme, or ${prefixFile.prefix}meme *memeNumber*`, value: "Sends a meme to the current channel." },
             { name: `${prefixFile.prefix}invite`, value: "Link to invite Roast-Bot to a server." },
-            { name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(r!) you can change it to anything you want by using `r!prefix newPrefix`. To view your prefix use `r!prefix`. The prefix by default is r!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `r!prefix newPrefix`. If you forget your prefix you can always change it with `r!prefix newPrefix` or view it with `r!prefix`." },
+            { name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(rb!) you can change it to anything you want by using `rb!prefix newPrefix`. To view your prefix use `rb!prefix`. The prefix by default is rb!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `rb!prefix newPrefix`. If you forget your prefix you can always change it with `rb!prefix newPrefix` or view it with `rb!prefix`." },
         ],
         footer: {
             text: "Page 1 of 4."
@@ -51,25 +51,26 @@ exports.run = async (client, message) => {
         color: 15427357,
         fields: [
             { name: `\n\n${prefixFile.prefix}global leaderboard, ${prefixFile.prefix}server leaderboard`, value: "Shows the server or global leaders in XP." },
+            { name: `${prefixFile.prefix}top servers`, value: "The top 5 servers that Roast-Bot is in." },
             { name: `${prefixFile.prefix}bot`, value: "More info about Roast-Bot." },
             { name: `${prefixFile.prefix}feedback *feedbackMsg*`, value: `${prefixFile.prefix}feedback sends your feedback to me so I can improve Roast-Bot! If you are ever using Roast-Bot and a command isn't working or something else is wrong you can also report them here!` },
             { name: `${prefixFile.prefix}website`, value: "The link to the Roast-Bot website!" },
-            { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use r!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
-            { name: "On-Off", value: "If you want to turn any command on/off just use `r!off commandName` to turn the command off. To turn a command back on use `r!on commandName`. *Note:* `r!help` and `r!invite` cannot be turned off." }
+            { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use rb!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
+            { name: "On-Off", value: "If you want to turn any command on/off just use `rb!off commandName` to turn the command off. To turn a command back on use `rb!on commandName`. *Note:* `rb!help` and `rb!invite` cannot be turned off." }
         ],
         footer: {
-            /**
-             * CHANGE THIS ONCE PAGE 4 IS ADDED
-             */
-            text: "Page 3 of 3."
+            text: "Page 3 of 4."
         }
     });
     const pageFourEmbed = new Discord.RichEmbed({
         title: pageOneEmbed.title,
         color: 15427357,
         fields: [
-
-
+            { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use rb!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
+            { name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(rb!) you can change it to anything you want by using `rb!prefix newPrefix`. To view your prefix use `rb!prefix`. The prefix by default is rb!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `rb!prefix newPrefix`. If you forget your prefix you can always change it with `rb!prefix newPrefix` or view it with `rb!prefix`." },
+            { name: "On-Off", value: "If you want to turn any command on/off just use `rb!off commandName` to turn the command off. To turn a command back on use `rb!on commandName`. *Note:* `rb!help` and `rb!invite` cannot be turned off." },
+            { name: "\n\n***Command Help:***", value: `If your still having trouble using a command you can use *${prefixFile.prefix}commandName help* for more detailed help. If you still don't understand please join the support server.` },
+            { name: "Roast-Bot Development Server", value: "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.3.0, for release notes join the Roast-Bot help server." }
         ],
         footer: {
             text: "Page 4 of 4."
@@ -80,6 +81,7 @@ exports.run = async (client, message) => {
         pageOneEmbed,
         pageTwoEmbed,
         pageThreeEmbed,
+        pageFourEmbed
     ];
 
     if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}help`)) {
@@ -104,16 +106,14 @@ exports.run = async (client, message) => {
                         menu.select(3).catch(console.error);
                     }
                 },
-                /*
                 {
-                    emoji: '4️⃣',
+                    emoji: "4⃣",
                     run: (user, message) => {
                         menu.select(4).catch(console.error);
                     }
                 }
-                */
-            ]
-            return buttons
+            ];
+            return buttons;
         }
         let menu = new RM.Menu(message.channel, handler, { RM: { disable: { left: true, right: true } }, RC: { owner: message.author.id } });
         let btns = makeBtns(menu);

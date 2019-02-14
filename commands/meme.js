@@ -1,6 +1,6 @@
 /*
 *
-*   Things to add to r!meme:
+*   Things to add to rb!meme:
 * ----------------------------
 *
 */
@@ -12,7 +12,7 @@ const prefixFile = require("../database/customPrefix/customPrefix.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }
-    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
+    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "rb!")) {
 
         connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
             let update;
@@ -47,11 +47,11 @@ exports.run = async (message) => {
                 });
             }
             if (message.content.toLowerCase() === `${prefixFile.prefix}meme help`) {
-                return message.channel.send("**r!meme help:**\n\nr!meme has 2 ways that it can be used.  These 2 ways are as follows:\n**r!meme**\n**r!meme #memeNumber**\n\n**r!meme** will generate a random meme. You can put `r!meme `, notice the space and it will also generate a random meme the same as `r!meme` with no space would.\n\nExample:\nUSER: r!meme\nRoast-Bot: Meme #someNumber `a meme`\n\n**r!meme #memeNumber** is almost as simple as `r!meme`,  the only difference is that `memeNumber`, is which meme you want to be sent.\n\nExample:\nUSER:r!meme #12\nRoast-Bot: Meme #12`meme picture`\n\nStill having trouble with r!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
+                return message.channel.send("**rb!meme help:**\n\nrb!meme has 2 ways that it can be used.  These 2 ways are as follows:\n**rb!meme**\n**rb!meme #memeNumber**\n\n**rb!meme** will generate a random meme. You can put `rb!meme `, notice the space and it will also generate a random meme the same as `rb!meme` with no space would.\n\nExample:\nUSER: rb!meme\nRoast-Bot: Meme #someNumber `a meme`\n\n**rb!meme #memeNumber** is almost as simple as `rb!meme`,  the only difference is that `memeNumber`, is which meme you want to be sent.\n\nExample:\nUSER:rb!meme #12\nRoast-Bot: Meme #12`meme picture`\n\nStill having trouble with rb!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
             }
-            if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}meme`) || message.content.toLowerCase() === "r!") && memeStatus) {
+            if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}meme`) || message.content.toLowerCase() === "rb!") && memeStatus) {
                 const randomMemes = Math.ceil(Math.random() * 536);
-                if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}meme #`) || message.content.toLowerCase().startsWith("r!meme #")) {
+                if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}meme #`) || message.content.toLowerCase().startsWith("rb!meme #")) {
                     let number2 = message.content.slice(prefixFile.prefix.length + 6, message.content.length);
                     let numberInt1 = parseInt(number2);
                     if (numberInt1 > 536) {
@@ -61,7 +61,7 @@ exports.run = async (message) => {
                 } else {
                     return message.channel.send(`Meme #${randomMemes} <:roast_circle:474755210485563404>`, { files: [`images/meme${randomMemes}.PNG`] });
                 }
-            } else if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}meme`) || message.content.toLowerCase().startsWith("r!meme")) && !memeStatus) {
+            } else if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}meme`) || message.content.toLowerCase().startsWith("rb!meme")) && !memeStatus) {
                 return message.channel.send("This command has been turned off by an administrator.");
             }
         });

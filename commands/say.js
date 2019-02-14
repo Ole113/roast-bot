@@ -5,7 +5,7 @@ const connection = require("../dbConnect.js");
 
 exports.run = async (message) => {
     if (message.author.bot) { return; }
-    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "r!")) {
+    if (message.content.toLowerCase().startsWith(prefixFile.prefix || "rb!")) {
         connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
             let update;
             let onOrOff = result[0].say;
@@ -39,11 +39,11 @@ exports.run = async (message) => {
             }
 
             if (message.content.toLowerCase() === `${prefixFile.prefix}say` || message.content.toLowerCase() === `${prefixFile.prefix}say ` && onOrOff) {
-                return message.channel.send("Please provide what you want Roast-Bot to say. The correct usage is `r!say whatToSay`. ");
+                return message.channel.send("Please provide what you want Roast-Bot to say. The correct usage is `rb!say whatToSay`. ");
             }
 
             if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}say help`)) {
-                return message.channel.send("**r!say help:**\n\nTo use `r!say whatToSay` \"whatToSay\" is want you want the bot to say.\n\n*Example:*\n\nUSER: r!say Hello!\nRoast-Bot: Hello!\n\nIf you accidentally use `r!say` with one or more spaces after r!say without saying what you want Roast-Bot to say, Roast-Bot will return a warning of \"Please provide what you want Roast-Bot to say. The correct usage is `r!say whatToSay`.\"\n\nStill having trouble with r!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
+                return message.channel.send("**rb!say help:**\n\nTo use `rb!say whatToSay` \"whatToSay\" is want you want the bot to say.\n\n*Example:*\n\nUSER: rb!say Hello!\nRoast-Bot: Hello!\n\nIf you accidentally use `rb!say` with one or more spaces after rb!say without saying what you want Roast-Bot to say, Roast-Bot will return a warning of \"Please provide what you want Roast-Bot to say. The correct usage is `rb!say whatToSay`.\"\n\nStill having trouble with rb!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
             }
             if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}say `) && !(message.content.includes(`${prefixFile.prefix}say on`) || message.content.includes(`${prefixFile.prefix}say off`)) && onOrOff) {
                 const say = message.content.slice(prefixFile.prefix.length + 4, message.content.length);
