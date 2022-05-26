@@ -1,4 +1,2 @@
 node_modules
-#So people cannot try to find ways for injection from code.
-dbConfig.json
-token.json
+token.js

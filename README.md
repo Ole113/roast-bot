@@ -11,7 +11,6 @@ Roast-Bot<br><br>Roast-Bot is a discord bot made with discord.js and hosted on A
 </p>
 
 
-
 <br><br>
 **Roast-Bot Commands:**
 

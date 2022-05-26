@@ -1,128 +1,115 @@
-/*
-*
-*   Things to add to rb!help:
-* ----------------------------
-*4️⃣
-*/
 //https://kmcgamer.github.io/programming/discordhelp/
-//working emojies https://discordjs.guide/popular-topics/miscellaneous-examples.html#emoji-characters
+
 const Discord = require("discord.js");
 
 const RC = require("reaction-core");
 const RM = require("reaction-menu");
 const handler = new RC.Handler();
-const prefixFile = require("../database/customPrefix/customPrefix.js");
 
 exports.run = async (client, message) => {
-    const pageOneEmbed = new Discord.RichEmbed({
-        title: "Roast-Bot Help:",
-        color: 15427357,
-        fields: [
-            { name: `\n\n*Commands:*\n\n${prefixFile.prefix}help`, value: `List of Roast-Bot Commands(this message).` },
-            { name: `${prefixFile.prefix}roast *@user*, ${prefixFile.prefix}roast, or ${prefixFile.prefix}roast *roastNumber*`, value: "Generate a random roast with the number of roast it was." },
-            { name: `${prefixFile.prefix}search *whatToSearch*`, value: "Searches all the roasts and returns the results that have the *whatToSearch* in it."},
-            { name: `${prefixFile.prefix}meme, or ${prefixFile.prefix}meme *memeNumber*`, value: "Sends a meme to the current channel." },
-            { name: `${prefixFile.prefix}invite`, value: "Link to invite Roast-Bot to a server." },
-            { name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(rb!) you can change it to anything you want by using `rb!prefix newPrefix`. To view your prefix use `rb!prefix`. The prefix by default is rb!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `rb!prefix newPrefix`. If you forget your prefix you can always change it with `rb!prefix newPrefix` or view it with `rb!prefix`." },
-        ],
-        footer: {
-            text: "Page 1 of 4."
-        }
-    });
-    const pageTwoEmbed = new Discord.RichEmbed({
-        title: pageOneEmbed.title,
-        color: 15427357,
-        fields: [
-            { name: `\n\n${prefixFile.prefix}user, or ${prefixFile.prefix}user *@user*`, value: `${prefixFile.prefix}user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!` },
-            { name: `${prefixFile.prefix}urban *whatToSearch*`, value: "Search up anything on the Urban Dictionary!" },
-            { name: `${prefixFile.prefix}say *whatToSay*`, value: `To use this command use ${prefixFile.prefix}say and then what you want Roast-Bot to say.` },
-            { name: `${prefixFile.prefix}clear *NUMBER*`, value: "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**" },
-            { name: `${prefixFile.prefix}server`, value: "Info about your server." },
-            { name: "\n\n***Command Help:***", value: `If your still having trouble using a command you can use *${prefixFile.prefix}commandName help* for more detailed help. If you still don't understand please join the support server.` },
-            { name: "Roast-Bot Development Server", value: "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.3.0, for release notes join the Roast-Bot help server." }
-        ],
-        footer: {
-            text: "Page 2 of 4."
-        }
-    });
+    // const pageOneEmbed = new Discord.MessageEmbed({
+    //     title: "Roast-Bot Help:",
+    //     color: 15427357,
+    //     fields: [
+    //         { name: `\n\n*Commands:*\n\nr!help`, value: `List of Roast-Bot Commands(this message).` },
+    //         { name: `r!roast *@user*, r!roast, or r!roast *roastNumber*`, value: "Generate a random roast with the number of roast it was." },
+    //         { name: `r!search *whatToSearch*`, value: "Searches all the roasts and returns the results that have the *whatToSearch* in it."},
+    //         { name: `r!meme, or r!meme *memeNumber*`, value: "Sends a meme to the current channel." },
+    //         { name: `r!invite`, value: "Link to invite Roast-Bot to a server." }
+    //     ],
+    //     footer: {
+    //         text: "Page 1 of 3."
+    //     }
+    // });
+    // const pageTwoEmbed = new Discord.MessageEmbed({
+    //     title: pageOneEmbed.title,
+    //     color: 15427357,
+    //     fields: [
+    //         { name: `\n\nr!user, or r!user *@user*`, value: `r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!` },
+    //         { name: `r!urban *whatToSearch*`, value: "Search up anything on the Urban Dictionary!" },
+    //         { name: `r!say *whatToSay*`, value: `To use this command use r!say and then what you want Roast-Bot to say.` },
+    //         { name: `r!clear *NUMBER*`, value: "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**" },
+    //         { name: `r!server`, value: "Info about your server." },
+    //     ],
+    //     footer: {
+    //         text: "Page 2 of 3."
+    //     }
+    // });
 
-    const pageThreeEmbed = new Discord.RichEmbed({
-        title: pageOneEmbed.title,
-        color: 15427357,
-        fields: [
-            { name: `\n\n${prefixFile.prefix}global leaderboard, ${prefixFile.prefix}server leaderboard`, value: "Shows the server or global leaders in XP." },
-            { name: `${prefixFile.prefix}top servers`, value: "The top 5 servers that Roast-Bot is in." },
-            { name: `${prefixFile.prefix}bot`, value: "More info about Roast-Bot." },
-            { name: `${prefixFile.prefix}feedback *feedbackMsg*`, value: `${prefixFile.prefix}feedback sends your feedback to me so I can improve Roast-Bot! If you are ever using Roast-Bot and a command isn't working or something else is wrong you can also report them here!` },
-            { name: `${prefixFile.prefix}website`, value: "The link to the Roast-Bot website!" },
-            { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use rb!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
-            { name: "On-Off", value: "If you want to turn any command on/off just use `rb!off commandName` to turn the command off. To turn a command back on use `rb!on commandName`. *Note:* `rb!help` and `rb!invite` cannot be turned off." }
-        ],
-        footer: {
-            text: "Page 3 of 4."
-        }
-    });
-    const pageFourEmbed = new Discord.RichEmbed({
-        title: pageOneEmbed.title,
-        color: 15427357,
-        fields: [
-            { name: "\n\n*Utilities:*\n\nXP-System", value: "Everytime you use a Roast-Bot command your XP increases! `Use rb!level` to check your level and XP! Level 1: 0-9XP, Level 2: 10XP, Level 3: 15XP, Level 4: 25XP Level 5: 50XP, Level 6: 100XP, Level 7: 200XP, Level 8: 500XP, Level 9: 1,000XP, Level 10: 5,000XP" },
-            { name: "Custom Prefix", value: "If you don't like Roast-Bot's prefix(rb!) you can change it to anything you want by using `rb!prefix newPrefix`. To view your prefix use `rb!prefix`. The prefix by default is rb!. **Note:** YOU CAN ONLY CHANGE YOUR PREFIX WITH `rb!prefix newPrefix`. If you forget your prefix you can always change it with `rb!prefix newPrefix` or view it with `rb!prefix`." },
-            { name: "On-Off", value: "If you want to turn any command on/off just use `rb!off commandName` to turn the command off. To turn a command back on use `rb!on commandName`. *Note:* `rb!help` and `rb!invite` cannot be turned off." },
-            { name: "\n\n***Command Help:***", value: `If your still having trouble using a command you can use *${prefixFile.prefix}commandName help* for more detailed help. If you still don't understand please join the support server.` },
-            { name: "Roast-Bot Development Server", value: "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.3.0, for release notes join the Roast-Bot help server." }
-        ],
-        footer: {
-            text: "Page 4 of 4."
-        }
-    });
+    // const pageThreeEmbed = new Discord.MessageEmbed({
+    //     title: pageOneEmbed.title,
+    //     color: 15427357,
+    //     fields: [
+    //         { name: `r!bot`, value: "More info about Roast-Bot." },
+    //         { name: "\n\n***Command Help:***", value: `If your still having trouble using a command you can use *r!commandName help* for more detailed help. If you still don't understand please join the support server.` },
+    //         { name: "Roast-Bot Development Server", value: "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.3.0, for release notes join the Roast-Bot help server." }
+    //     ],
+    //     footer: {
+    //         text: "Page 3 of 3."
+    //     }
+    // });
+    
+    // const pages = [
+    //     pageOneEmbed,
+    //     pageTwoEmbed,
+    //     pageThreeEmbed,
+    // ];
 
-    const pages = [
-        pageOneEmbed,
-        pageTwoEmbed,
-        pageThreeEmbed,
-        pageFourEmbed
-    ];
-
-    if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}help`)) {
+    // if (message.content.toLowerCase().startsWith(`r!help`)) {
         
-        let makeBtns = (menu) => {
-            const buttons = [
-                {
-                    emoji: "1⃣",
-                    run: (user, message) => {
-                        menu.select(1).catch(console.error);
-                    }
-                },
-                {
-                    emoji: "2⃣",
-                    run: (user, message) => {
-                        menu.select(2).catch(console.error);
-                    }
-                },
-                {
-                    emoji: "3⃣",
-                    run: (user, message) => {
-                        menu.select(3).catch(console.error);
-                    }
-                },
-                {
-                    emoji: "4⃣",
-                    run: (user, message) => {
-                        menu.select(4).catch(console.error);
-                    }
-                }
-            ];
-            return buttons;
-        }
-        let menu = new RM.Menu(message.channel, handler, { RM: { disable: { left: true, right: true } }, RC: { owner: message.author.id } });
-        let btns = makeBtns(menu);
-        for (let page of pages) {
-            await menu.add(page).catch(console.error);
-        }
-        menu.send(btns).catch(console.error);
+    //     let makeBtns = (menu) => {
+    //         const buttons = [
+    //             {
+    //                 emoji: "1⃣",
+    //                 run: (user, message) => {
+    //                     menu.select(1).catch(console.error);
+    //                 }
+    //             },
+    //             {
+    //                 emoji: "2⃣",
+    //                 run: (user, message) => {
+    //                     menu.select(2).catch(console.error);
+    //                 }
+    //             },
+    //             {
+    //                 emoji: "3⃣",
+    //                 run: (user, message) => {
+    //                     menu.select(3).catch(console.error);
+    //                 }
+    //             },
+    //         ];
+    //         return buttons
+    //     }
+    //     let menu = new RM.Menu(message.channel, handler, { RM: { disable: { left: true, right: true } }, RC: { owner: message.author.id } });
+    //     let btns = makeBtns(menu);
+    //     for (let page of pages) {
+    //         await menu.add(page).catch(console.error);
+    //     }
+    //     menu.send(btns).catch(console.error);
         
-        client.on("messageReactionAdd", (messageReaction, user) => handler.handle(messageReaction, user));
+    //     client.on("messageReactionAdd", (messageReaction, user) => handler.handle(messageReaction, user));
+    // }
+
+    if (message.content.toLowerCase() === `r!help`) {
+
+        let helpEmbed = new Discord.MessageEmbed()
+        .setColor("#EB671D")
+        .setTitle(`Roast Bot Help`)
+        .addField(`*Commands:*\n\nr!help`, `List of Roast-Bot Commands(this message).`)
+        .addField(`r!roast *@user*, r!roast, or r!roast *roastNumber*`, `Generate a random roast with the number of roast it was.`)
+        .addField(`r!search *whatToSearch*`, `Searches all the roasts and returns the results that have the *whatToSearch* in it.`)
+        .addField(`r!meme, or r!meme *memeNumber*`, "Sends a meme to the current channel.")
+        .addField(`r!invite`, "Link to invite Roast-Bot to a server.")
+        .addField(`r!user, or r!user *@user*`, `r!user returns stats about you, or the person you tagged. The stats include: current presence, user id, current game, when their account was created and more!`)
+        .addField(`r!urban *whatToSearch*`, "Search up anything on the Urban Dictionary!")
+        .addField(`r!say *whatToSay*`, `To use this command use r!say and then what you want Roast-Bot to say.`)
+        .addField(`r!clear *NUMBER*`, "Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**")
+        .addField(`r!server`, "Info about your server.")
+        .addField(`r!bot`, "More info about Roast-Bot.")
+        .addField("***Command Help:***", `If your still having trouble using a command you can use *r!commandName help* for more detailed help. If you still don't understand please join the support server.`)
+        .addField("Roast-Bot Development Server", "If you still need help, have any questions or feedback join the Roast-Bot help server. \n \n https://discord.gg/fuDF42D \n\nv2.3.0, for release notes join the Roast-Bot help server.")
+
+        return message.channel.send({ embed: helpEmbed });
+
     }
-
 };

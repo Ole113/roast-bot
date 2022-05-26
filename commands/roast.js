@@ -1,16 +1,4 @@
-/*
-*
-*   Things to add to rb!roast, rb!roast @, rb!roast #:
-* ----------------------------
-*  Make it so people cannot roast bots reason being "Bots are too powerfull to be roasted" or something like that.
-*  Make it so you can do rb!roast @USER #roastNumber
-*/
-
 const Discord = require("discord.js");
-
-const connection = require("../dbConnect.js");
-const prefixFile = require("../database/customPrefix/customPrefix.js");
-const censorFile = require("../database/censor/censor.js");
 
 const roasts = [
 	{ "number": 1, "roast": "I'd offer you some gum but your smiles got plenty of it." },
@@ -25,11 +13,11 @@ const roasts = [
 	{ "number": 10, "roast": "I bet you wear a nose ring because no one wants to put one on your finger." },
 	{ "number": 11, "roast": "When the airforce needs extra landing space they should just rent out your forehead." },
 	{ "number": 12, "roast": "If laughter is the best medicine, your face must be curing the world." },
-	{ "number": 13, "roast": "The only way you will ever get laid is if you crawl up a chickens ass and wait." },
+	{ "number": 13, "roast": "The only way you will ever get laid is if you crawl up a chicken's ass and wait." },
 	{ "number": 14, "roast": "It looks like your face caught fire and someone tried to put it out with a hammer." },
 	{ "number": 15, "roast": "Your family tree must be a cactus because everyone on it is a prick." },
-	{ "number": 16, "roast": "Save your breath - youre going to need it to blow up your date." },
-	{ "number": 17, "roast": "Your proof evolution can go in reverse." },
+	{ "number": 16, "roast": "Save your breath - you're going to need it to blow up your date." },
+	{ "number": 17, "roast": "You're proof evolution can go in reverse." },
 	{ "number": 18, "roast": "When you were born, the doctor came out to the waiting room and said to your dad, \"I'm very sorry. We did everything we could. But he pulled through.\"" },
 	{ "number": 19, "roast": "You've got less meat in your pants than there is in a vegetarian restaurant." },
 	{ "number": 20, "roast": "I wasn't born with enough middle fingers to let you know how I feel about you." },
@@ -40,7 +28,7 @@ const roasts = [
 	{ "number": 25, "roast": "I'd say you're funny, but looks aren't everything." },
 	{ "number": 26, "roast": "You must have been born on a highway because thats where most accidents happen." },
 	{ "number": 27, "roast": "When I see your face theres not a thing I would change... Except for the direction im walking in." },
-	{ "number": 28, "roast": "Your so ugly when you popped out the doctor said aww what a treasure and your mom said yeah lets bury it." },
+	{ "number": 28, "roast": "You're so ugly when you popped out the doctor said, \"Aww what a treasure\", and your mom said, \"yeah lets bury it.\"" },
 	{ "number": 29, "roast": "I hear when you were a child your mother wanted to hire somebody to take care of you, but the mafia wanted too much." },
 	{ "number": 30, "roast": "You're so fat the only letters of the alphabet you know are KFC." },
 	{ "number": 31, "roast": "The only positive thing about you is your HIV status." },
@@ -65,15 +53,15 @@ const roasts = [
 	{ "number": 50, "roast": "Roses are red, violets are blue. I have five fingers and the middle one is for you." },
 	{ "number": 51, "roast": "I'd like to kick you in the teeth but why improve your looks?" },
 	{ "number": 52, "roast": "At least there's one good thing about your body. It isn't as ugly as your face." },
-	{ "number": 53, "roast": "Your the reason the gene pool needs a lifeguard." },
-	{ "number": 54, "roast": "Your not yourself today, I noticed the improvement immediately." },
-	{ "number": 55, "roast": "You\'re the reason your dad drinks." },
+	{ "number": 53, "roast": "You're the reason the gene pool needs a lifeguard." },
+	{ "number": 54, "roast": "You're not yourself today, I noticed the improvement immediately." },
+	{ "number": 55, "roast": "You're the reason your dad drinks." },
 	{ "number": 56, "roast": "Is your butt jealous of the amount of shit that just came out of your mouth?" },
 	{ "number": 57, "roast": "You\'d be suicidal if you felt as bad as you look." },
 	{ "number": 58, "roast": "Your lips keep moving but I don\'t speak stupid." },
 	{ "number": 59, "roast": "Calling you an idiot would be an insult to all stupid people." },
-	{ "number": 60, "roast": "Brains aren\'t everything, in fact in your case their nothing." },
-	{ "number": 61, "roast": "I know your not as stupid as you look, Nobody could be!" },
+	{ "number": 60, "roast": "Brains aren't everything, in fact in your case they're nothing." },
+	{ "number": 61, "roast": "I know you're not as stupid as you look, Nobody could be!" },
 	{ "number": 62, "roast": "You\'re kind of like Rapunzel except instead of letting down your hair, you let down everyone in your life." },
 	{ "number": 63, "roast": "You have more dick in your personality than you do in your pants." },
 	{ "number": 64, "roast": "I\'m sorry your dad beat you instead of cancer." },
@@ -85,7 +73,7 @@ const roasts = [
 	{ "number": 70, "roast": "Your face could scare the shit out of a toilet." },
 	{ "number": 71, "roast": "They say people get what they deserve. In your case it\'s a participation trophy." },
 	{ "number": 72, "roast": "Anyone willing to fuck you is just too lazy to masturbate." },
-	{ "number": 73, "roast": "Your so stupid I don\'t have the time or the crayons to explain this to you." },
+	{ "number": 73, "roast": "You're so stupid I don't have the time or the crayons to explain this to you." },
 	{ "number": 74, "roast": "Your face looks like something I would draw with my non dominant hand." },
 	{ "number": 75, "roast": "If my dog had your face I would shave his ass and teach him to walk backwards." },
 	{ "number": 76, "roast": "If your IQ was multipled by anything it would still be 0." },
@@ -100,8 +88,8 @@ const roasts = [
 	{ "number": 85, "roast": "Everything that comes out of your mouth is a lie, everything that goes in is a cock." },
 	{ "number": 86, "roast": "I heard you received a brain transplant but it rejected your body." },
 	{ "number": 87, "roast": "The only reason your partner likes your dick is because they were taught to enjoy the little things in life." },
-	{ "number": 88, "roast": "Someone once said your as pretty as a picture... I agree I would love to hang you." },
-	{ "number": 89, "roast": "Your like Mondays, everyone hates you." },
+	{ "number": 88, "roast": "Someone once said you're as pretty as a picture... I agree I would love to hang you." },
+	{ "number": 89, "roast": "You're like Mondays, everyone hates you." },
 	{ "number": 90, "roast": "The 80\'s called, they want their haircut back." },
 	{ "number": 91, "roast": "You must\'ve been born at a pound because you're a son of a bitch." },
 	{ "number": 92, "roast": "It\'s better to let someone think you are an idiot then to open your mouth and prove it." },
@@ -147,73 +135,42 @@ const roasts = [
 	{ "number": 132, "roast": "You shouldn't play hide and seek, no one would look for you." },
 	{ "number": 133, "roast": "You're so ugly, when you threw a boomerang it didn't come back." },
 	{ "number": 134, "roast": "The clothes you wear are so ugly even a scarecrow wouldn't wear them." },
-	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." }
-	//{ "number": 136, "roast": "You're not completely useless, you can always serve as a bad example." }
+	{ "number": 135, "roast": "You're so ugly, when you got robbed, the robbers made you wear their masks." },
+	{ "number": 136, "roast": "You're not completely useless, you can always serve as a bad example." },
+	{ "number": 137, "roast": "Your dick is so short, if I cut it in half, I would lose the piece that came off." }
 ];
 
 exports.run = async (message) => {
 	if (message.author.bot) { return; }
-	if (message.content.toLowerCase().startsWith(prefixFile.prefix || "rb!")) {
 
-		connection.query(`SELECT * FROM roast_bot_on_off WHERE guildID = "${message.guild.id}";`, function (err, result) {
-			let update;
+	if (message.content.toLowerCase().startsWith("r!")) {
 
-			let roastStatus = result[0].roast;
-			if ((message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast on`) || message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast off`)) && !message.member.hasPermission("ADMINISTRATOR")) {
-				return message.channel.send("You need to be an admin to turn this command on/off.");
-			} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast on`)) {
-				if (err) console.log(err);
+		if (message.content.toLowerCase().startsWith(`r!roast help`)) {
+			return message.channel.send("**r!roast help:**\n\n`r!roast` has 3 different ways that it can be used. The three ways are:\n**r!roast**\n**r!roast #roastNumber**\n**r!roast @USER**\n\n***r!roast*** generates a random roast. It's as simple as that. All you have to do is `r!roast`\n\nExample:\nUSER: r!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***r!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: r!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***r!roast @USER*** is the last way to use r!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: r!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `r!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
+		}
 
-				if (result[0].roast) {
-					return message.channel.send(`This command is already on, use *${prefixFile.prefix}roast off* to turn it off.`);
-				} else if (!result[0].roast) {
-					update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${1}" WHERE guildID = "${message.guild.id}";`;
-					updateRoast();
-					return message.channel.send(`Roast command has been turned on, use *${prefixFile.prefix}roast off* to turn it back off.`);
-				}
-			} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast off`)) {
-				if (err) console.log(err);
+		if (message.content.toLowerCase().startsWith(`r!roast`) && !(message.content.toLowerCase() == `r!roast censor on` || message.content.toLowerCase() === `r!roast censor off`)) {
+			let randomRoasts = Math.ceil(Math.random() * roasts.length - 1);
+			let random = Math.ceil(Math.random() * roasts.length - 1);
 
-				if (!result[0].roast) {
-					return message.channel.send(`This command is already off, use *${prefixFile.prefix}roast on* to turn it on.`)
-				} else if (result[0].roast) {
-					update = `UPDATE roast_bot_on_off SET username = "${message.author.username}", roast = "${0}" WHERE guildID = "${message.guild.id}";`;
-					updateRoast();
-					return message.channel.send(`Roast command has been turned off, use *${prefixFile.prefix}roast on* to turn it back on.`);
-				}
-			}
-			function updateRoast() {
-				connection.query(update, function (err, result) {
-					if (err) console.log(err);
-				});
-			}
-			if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast help`)) {
-				return message.channel.send("**rb!roast help:**\n\n`rb!roast` has 3 different ways that it can be used. The three ways are:\n**rb!roast**\n**rb!roast #roastNumber**\n**rb!roast @USER**\n\n***rb!roast*** generates a random roast. It's as simple as that. All you have to do is `rb!roast`\n\nExample:\nUSER: rb!roast\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:\n\n***rb!roast #roastNumber*** is a way to return a specific roast. At the end of every roast it will say \"Roast #... <:roast_circle:474755210485563404>\" the number is what number of roast it is.\n\nExample:\nUSER: rb!roast #99\nRoast-Bot: You must've been born at a pound because your a son of a bitch.\nRoast #99 <:roast_circle:474755210485563404>\n\n***rb!roast @USER*** is the last way to use rb!roast. The way that this command works is you roast a person in your server.\n\nExample:\nUSER: rb!roast @Roast-Bot#0168\nRoast-Bot: @Roast-Bot#0168, Some babies were dropped on their heads but you were clearly thrown at a wall.\nRoast #41 <:roast_circle:474755210485563404>\n\nStill having trouble with `rb!roast` or have a suggestion? Join the support server: https://discordapp.com/invite/9y8yV42");
-			}
-			if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast`) && !(message.content.toLowerCase() == `${prefixFile.prefix}roast censor on` || message.content.toLowerCase() === `${prefixFile.prefix}roast censor off`) && roastStatus) {
-				let randomRoasts = Math.ceil(Math.random() * roasts.length);
-				let random = Math.ceil(Math.random() * roasts.length);
+			if (message.content.toLowerCase() === `r!roast`) {
+				return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
+			} else if (message.content.toLowerCase().startsWith(`r!roast `)) {
+				const reply = message.content.slice("r!".length + 6, message.content.length);
+				if (message.content.toLowerCase().startsWith(`r!roast #`)) {
+					let number1 = message.content.slice("r!".length + 7, message.content.length);
+					let numberInt = parseInt(number1);
 
-
-				if (message.content.toLowerCase() === `${prefixFile.prefix}roast`) {
-					return message.channel.send(roasts[randomRoasts].roast + `\n **Roast #${randomRoasts}** <:roast_circle:474755210485563404>`);
-				} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast `)) {
-					const reply = message.content.slice(prefixFile.prefix.length + 6, message.content.length);
-					if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast #`)) {
-						let number1 = message.content.slice(prefixFile.prefix.length + 7, message.content.length);
-						let numberInt = parseInt(number1);
-
-						if (numberInt > roasts.length - 1 || numberInt < 1) {
-							return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
-						}
-						return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
+					if (numberInt > roasts.length - 1 || numberInt < 1) {
+						return message.channel.send(`Sorry there isn't a Roast #${numberInt}, the number of Roasts is ${roasts.length - 1}`);
 					}
-					return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
+					return message.channel.send(roasts[numberInt].roast + `\n **Roast #${numberInt}** <:roast_circle:474755210485563404>`);
 				}
-			} else if (message.content.toLowerCase().startsWith(`${prefixFile.prefix}roast`) && !roastStatus) {
-				return message.channel.send("This command has been turned off by an administrator.");
+				return message.channel.send(`${reply}, ${roasts[random].roast}\n **Roast #${random}** <:roast_circle:474755210485563404>`);
 			}
-		});
+		}
+
 	}
+	
 };
 module.exports.roasts = roasts;

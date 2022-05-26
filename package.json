@@ -2,16 +2,16 @@
   "name": "roast-bot",
   "description": "A bot to roast people on discord",
   "version": "2.3.0",
-  "main": "main.js",
+  "main": "shard.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node shard.js"
   },
   "engines": {
-    "node": "^8.11.4",
+    "node": "^13.0.0",
     "npm": "^5.6.0"
   },
   "dependencies": {
-    "discord.js": "^11.4.2",
+    "discord.js": "^12.5.2",
     "mysql": "^2.16.0",
     "node": "^8.11.4",
     "node-gyp": "^3.8.0",
