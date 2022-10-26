@@ -1,49 +1,48 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-import { TOKEN } from "./token.js";
+const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
+const {fs} = require('node:fs');
+const path = require('node:path');
+const { token } = require('./config.json');
 
-const botFile = require("./commands/bot.js");
-const clearFile = require("./commands/clear.js");
-const inviteFile = require("./commands/invite.js");
-const helpFile = require("./commands/help.js");
-const roastFile = require("./commands/roast.js");
-const memeFile = require("./commands/meme.js");
-const userFile = require("./commands/user.js");
-const updatesFile = require("./commands/updates.js");
-const sayFile = require("./commands/say.js");
-const searchRoastsFile = require("./commands/searchRoasts.js");
-const urbanFile = require("./commands/urban.js");
+const client = new Client({ intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages
+    ]
+});
 
-client.on("ready", () => {
+client.commands = new Collection();
+
+// Retrieval of all the commands.
+cmdPath = path.join(__dirname, 'commands')
+for (const cmdFile in fs.readdirSync(cmdPath).filter(file => file.endsWith('.js'))) {
+    const command = require(path.join(cmdPath, cmdFile));
+    client.commands.set(command.data.name, command)
+}
+
+client.once(Events.ClientReady, c => {
     console.log("-----------------------------------");
     console.log("Roast-Bot is Ready");
     console.log("-----------------------------------");
-    client.shard.fetchClientValues("guilds.cache.size")
-        .then(results => {
+
+    client.shard.fetchClientValues('guilds.cache.size')
+        .then(result => {
             console.log(`${results.reduce((acc, guildCount) => acc + guildCount, 0)} total guilds`);
         })
         .catch(console.error);
-    client.user.setActivity(`r!help`, { type: "PLAYING" });
+        client.user.setActivity(`Now with slash commands!`, { type: 'PLAYING' });
 });
+ 
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isChatInputCommand()) return;
+    const command = client.commands.get(interaction.commandName);
+    if (!command) return;
 
-client.on("message", (message) => {
-    if (message.content.toLowerCase().startsWith("r!")) {
-        if (message.guild === null) {
-            return message.channel.send("You cannot use this command in DM");
-        } else {
-            botFile.run(client, message);
-            roastFile.run(message);
-            inviteFile.run(message);
-            helpFile.run(client, message);
-            memeFile.run(message);
-            sayFile.run(message);
-            clearFile.run(message);
-            userFile.run(message);
-            updatesFile.run(client, message);
-            searchRoastsFile.run(message);
-            urbanFile.run(message);
-        }
+    try {
+       await command.execute(interaction);
+    } catch(error) {
+        console.error(`${interaction.commandName} Failed: ${error}`);
+        await interaction.reply( {content: 'An unexpected error occured.', ephemeral: true});
     }
-});
+})
 
-client.login(TOKEN);
+client.login(token)

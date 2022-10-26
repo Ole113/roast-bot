@@ -1,17 +1,18 @@
+const { SlashCommandBuilder } = require("discord.js");
 const Discord = require("discord.js");
 
-exports.run = async (message) => {
-    if (message.author.bot) { return; }
+module.exports = {
+    data: new SlashCommandBuilder()
+    .setName('r_invite')
+    .setDescription('Retrieve a link to invite Roast bot to your server!'),
+    async execute(interaction) {
 
-    if (message.content.toLowerCase().startsWith(`r!invite help`)) {
-        return message.channel.send("**r!invite help:**\n\nIf you love using Roast-Bot you can invite it with a simple invite link.  If you click on blue text that says \"Invite Link\" you will be redirected to a page where you can invite Roast-Bot!\n\n*Example:\n\n*USER: r!invite\nRoast-Bot:         Invite Link\n**Roast-Bot v1.9.0**\n\nIf you put 1 or more spaces after `r!invite` the command will still work. It will however not work if you put 1 or more spaces after the \"server” and then a character that isn\'t a space.");
-    }
-    if (message.content.toLowerCase().startsWith(`r!invite`)) {
-        let inviteEmbed = new Discord.MessageEmbed()
-            .setColor("#EB671D")
-            .setTitle("Invite Link  <:roast_circle:474755210485563404>")
-            .setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
-            .setFooter("Roast-Bot v2.2.0");
-        return message.channel.send({ embed: inviteEmbed });
-    }
+        // Simply create a embed and reply to the command with the given embed.
+        let embed = new Discord.MessageEmbed()
+        .setColor("#EB671D")
+        .setTitle("Invite Link  <:roast_circle:474755210485563404>")
+        .setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
+        .setFooter("Roast-Bot v3.0.0");
+        return await interaction.reply({embeds: [embed]});
+    },
 };
