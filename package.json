@@ -1,7 +1,7 @@
 {
   "name": "roast-bot",
   "description": "A bot to roast people on discord",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "main": "shard.js",
   "scripts": {
     "start": "node shard.js"
@@ -11,15 +11,14 @@
     "npm": "^5.6.0"
   },
   "dependencies": {
-    "discord.js": "^12.5.2",
-    "mysql": "^2.16.0",
-    "node": "^8.11.4",
-    "node-gyp": "^3.8.0",
-    "reaction-core": "^2.2.0",
-    "reaction-menu": "^2.0.4",
+    "discord.js": "^14.6.0",
+    "mysql": "^2.18.1",
+    "node": "^8.17.0",
+    "node-gyp": "^9.3.0",
+    "reaction-core": "^2.4.0",
+    "reaction-menu": "^2.1.0",
     "relevant-urban": "^2.0.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ole113/Roast-Bot.git"
