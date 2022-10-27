@@ -12,8 +12,9 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
         .setDMPermission(false),
         async execute(interaction) {
+            
             // Fail-quick ideology, if we don't have the required permission there's not need to continue.
-            if (!interaction.Client.user.hasPermission(PermissionFlagsBits.ManageMessages)) {
+            if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.ManageMessages)) {
                 return await interaction.reply({content: `Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>`, ephemeral: true})
             }
 
@@ -23,7 +24,9 @@ module.exports = {
 
             // after we've bulk deleted we gotta send a confirmation to the user.
             await interaction.channel.bulkDelete(amount).then(() => {
-                return interaction.editReply({ content: `Cleared ${amount} messages. <:roast_circle:474755210485563404>`, ephemeral: true });
+                return interaction.followUp({ content: `Cleared ${amount} messages. <:roast_circle:474755210485563404>`, ephemeral: true });
+            }).catch(() => {
+                return interaction.followUp({ content: `I'm unable to delete messages that are more than 14 days old :( <:roast_circle:474755210485563404>`, ephemeral: true})
             });
         },
 };
