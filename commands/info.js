@@ -26,6 +26,7 @@ module.exports = {
                     .setThumbnail(icon)
                     .addFields(
                         { name: "Bot Name:", value: interaction.client.user.username },
+                        {name: "Support Server", value: "Are you experiencing problems with Roast bot or do you have any suggestions? Join our Support server Today: https://discordapp.com/invite/9y8yV42"},
                         { name: "Created On:", value: interaction.client.user.createdAt.toISOString().split('T')[0]},
                         { name: "Version: ", value: version},
                         { name: "Number of Roasts: ", value: roast_amount},
