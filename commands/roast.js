@@ -35,11 +35,11 @@ module.exports = {
 				}
 				return await interaction.channel.send(`${target}, ${message}`);
 			} catch (err) {
-				console.error(err)
+				console.error(err);
 
 				// Error code 50013 is Missing permissions to channel
 				if (err.code == 50013) {
-					return await interaction.user.send(`Whoops. it looks like i'm unable to send messages in: ${interaction.guild.name} > #${interaction.channel.name}`)
+					return await interaction.user.send(`Whoops. it looks like i'm unable to send messages in: ${interaction.guild.name} > #${interaction.channel.name}`);
 				}
 			}
 		}

@@ -7,10 +7,11 @@ module.exports = {
         async execute(interaction) {
 
             // Simply create a embed and reply to the command with the given embed.
-                let icon = interaction.client.user.displayAvatarURL;
-                let embed = new EmbedBuilder()
+                const icon = interaction.client.user.displayAvatarURL;
+                const embed = new EmbedBuilder()
                     .setColor("#EB671D")
                     .setTitle("<:roast_circle:474755210485563404> Bot Information:")
+                    .setThumbnail(icon)
                     .addFields(
                         { name: "Bot Name:", value: interaction.client.user.username },
                         { name: "Created On:", value: String(interaction.client.user.createdAt) },

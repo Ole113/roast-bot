@@ -15,7 +15,7 @@ module.exports = {
 
             // Fail-quick ideology, if we don't have the required permission there's not need to continue.
             if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.ManageMessages)) {
-                return await interaction.reply({content: `Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>`, ephemeral: true})
+                return await interaction.reply({content: `Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>`, ephemeral: true});
             }
 
             // we need the amount of messages to delete, and also need to defer to prevent the interaction from failing.
@@ -26,7 +26,7 @@ module.exports = {
             await interaction.channel.bulkDelete(amount).then(() => {
                 return interaction.followUp({ content: `Cleared ${amount} messages. <:roast_circle:474755210485563404>`, ephemeral: true });
             }).catch(() => {
-                return interaction.followUp({ content: `I'm unable to delete messages that are more than 14 days old :( <:roast_circle:474755210485563404>`, ephemeral: true})
+                return interaction.followUp({ content: `I'm unable to delete messages that are more than 14 days old :( <:roast_circle:474755210485563404>`, ephemeral: true});
             });
         },
 };

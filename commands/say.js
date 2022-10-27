@@ -16,15 +16,15 @@ module.exports = {
                 await interaction.reply("if you can read this you're extremely fast and i'm fascinated by your fast reading skills!");
                 await interaction.deleteReply();
 
-                message = interaction.options.getString('message')
+                const message = interaction.options.getString('message');
                 try {
-                    return await interaction.channel.send(message)
+                    return await interaction.channel.send(message);
                 } catch (err) {
-                    console.error(err)
+                    console.error(err);
 
                     // Error code 50013 is Missing permissions to channel
                     if (err.code == 50013) {
-                        return await interaction.user.send(`Whoops. it looks like i'm unable to send messages in: ${interaction.guild.name} > #${interaction.channel.name}`)
+                        return await interaction.user.send(`Whoops. it looks like i'm unable to send messages in: ${interaction.guild.name} > #${interaction.channel.name}`);
                     }
                 }
             },

@@ -7,7 +7,7 @@ module.exports = {
     async execute(interaction) {
 
         // Simply create a embed and reply to the command with the given embed.
-        let embed = new EmbedBuilder()
+        const embed = new EmbedBuilder()
         .setColor("#EB671D")
         .setTitle("Invite Link  <:roast_circle:474755210485563404>")
         .setURL("https://discordapp.com/oauth2/authorize?client_id=461361233644355595&scope=bot&permissions=8")
