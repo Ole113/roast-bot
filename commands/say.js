@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('r_say')
+        .setName('say')
         .setDescription('Make the bot say whatever you want!')
         .addStringOption(option =>
             option
@@ -15,7 +15,7 @@ module.exports = {
                 // Shady work-around to avoid having to send a reply but also avoid the "interaction didn't respond" message.
                 await interaction.reply("if you can read this you're extremely fast and i'm fascinated by your fast reading skills!");
                 await interaction.deleteReply();
-                
+
                 message = interaction.options.getString('message')
                 try {
                     return await interaction.channel.send(message)

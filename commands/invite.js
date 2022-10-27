@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('r_invite')
+    .setName('invite')
     .setDescription('Retrieve a link to invite Roast bot to your server!'),
     async execute(interaction) {
 

@@ -2,10 +2,10 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('r_bot')
+        .setName('info')
         .setDescription('Gives information about the bot.'),
         async execute(interaction) {
-            
+
             // Simply create a embed and reply to the command with the given embed.
                 let icon = interaction.client.user.displayAvatarURL;
                 let embed = new EmbedBuilder()

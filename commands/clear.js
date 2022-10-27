@@ -2,7 +2,7 @@ const { SlashCommandBuilder, PermissionFlagsBits} = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("r_clear")
+        .setName("clear")
         .setDescription('Clears the current channel for X amount of messages.')
         .addIntegerOption(option => 
             option
@@ -12,7 +12,7 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
         .setDMPermission(false),
         async execute(interaction) {
-            
+
             // Fail-quick ideology, if we don't have the required permission there's not need to continue.
             if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.ManageMessages)) {
                 return await interaction.reply({content: `Roast-Bot needs to be given Manage Messages permissions to use this command :( <:roast_circle:474755210485563404>`, ephemeral: true})

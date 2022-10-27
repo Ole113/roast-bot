@@ -11,7 +11,7 @@ const MemeAmount = 536
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('r_meme')
+        .setName('meme')
         .setDescription('Send a meme to the channel.')
         .addIntegerOption(option =>
             option 
@@ -21,7 +21,7 @@ module.exports = {
                 .setMaxValue(MemeAmount)
         ),
         async execute(interaction) {
-            
+
             // Retrieving the Option number, if it is Null we'll find a random meme.
             const number = interaction.options.getInteger('number') ?? Math.ceil(Math.random() * MemeAmount);
             return await interaction.reply({content: `Meme ${number} <:roast_circle:474755210485563404>`, files: [`./images/meme${number}.PNG`]});

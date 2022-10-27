@@ -142,7 +142,7 @@ const roasts = [
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('r_roast')
+		.setName('roast')
 		.setDescription('Roasts a user!')
 		.addUserOption(option =>
 			option
@@ -175,7 +175,7 @@ module.exports = {
 				return await interaction.channel.send(`${target}, ${message}`);
 			} catch (err) {
 				console.error(err)
-				
+
 				// Error code 50013 is Missing permissions to channel
 				if (err.code == 50013) {
 					return await interaction.user.send(`Whoops. it looks like i'm unable to send messages in: ${interaction.guild.name} > #${interaction.channel.name}`)
