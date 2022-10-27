@@ -32,7 +32,7 @@ module.exports = {
                         { name: "Number of Memes: ", value: meme_amount},
                         { name: "Number of Commands:", value: "14"}
                         )
-                    .setFooter({ text: "Created by Ole113#2421 Rewritten by ElHeroLeGoat#9561" })
-                await interaction.reply({embeds: [embed]});
+                    .setFooter({ text: "Created by Ole113#2421 Rewritten by ElHeroLeGoat#9561" });
+                return await interaction.reply({embeds: [embed]});
         },
 };
