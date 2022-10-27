@@ -13,21 +13,20 @@
 <br><br>
 **Roast-Bot Commands:**
 
-* *r!help*: List of Roast-Bot Commands.
+* */info* Learn more about Roast-Bot.
 
-* *r!bot*: Learn more about Roast-Bot.
+* */invite*: Link to invite Roast-Bot to a server.
 
-* *r!roast @USER, r!roast, or r!roast #roastNumber*: Generate a random roast with the number of roast it was.
+* */clear #Amount*: Deletes X amount of messages from the current channel. **To use this command Roast-Bot needs to be given Manage Messages Permission & the messages cannot be more than 14 days old.**
 
-* *r!invite*: Link to invite Roast-Bot to a server.
+* */roast user, #number*: posts a roast, if user is selected the user will be tagged and if there's no number the roast will be random.
 
-* *r!meme, or r!meme #memeNumber*: Sends a meme to the current channel.
+* */meme #Number*: Sends a meme to the current channel, it'll be random if a number is not picked.
 
-* *r!clear NUMBER*: Choose how many messages you want to delete. Max is 100. **To use this command Roast-Bot needs to given Manage Messages permissions.**
+* */say message*: Makes roast-Bot say whatever you wrote in the message.
 
-* *r!say*: To use this command use `r!say ` and then what you want Roast-Bot to say.
+* */urban Word*: Make Roast-Bot look up a word in the Urban Dictionary.
 
-* *r!urban whatToSearch*: Search up anything on the Urban Dictionary!
 <br><br><br>
 
 **Still Need Help, Have Questions, or Feedback?**
