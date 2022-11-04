@@ -1,23 +1,31 @@
-const Discord = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 
-exports.run = async (message) => {
-    if (message.author.bot) { return; }
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('say')
+        .setDescription('Make the bot say whatever you want!')
+        .addStringOption(option =>
+            option
+                .setName('message')
+                .setDescription('What should the bot say?')
+                .setRequired(true)
+            ),
+            async execute(interaction) {
 
-    if (message.content.toLowerCase().startsWith("r!")) {
+                // Shady work-around to avoid having to send a reply but also avoid the "interaction didn't respond" message.
+                await interaction.reply("if you can read this you're extremely fast and i'm fascinated by your fast reading skills!");
+                await interaction.deleteReply();
 
-        if (message.content.toLowerCase() === `r!say` || message.content.toLowerCase() === `r!say `) {
-            return message.channel.send("Please provide what you want Roast-Bot to say. The correct usage is `r!say whatToSay`. ");
-        }
+                const message = interaction.options.getString('message');
+                try {
+                    return await interaction.channel.send(message);
+                } catch (err) {
+                    console.error(err);
 
-        if (message.content.toLowerCase().startsWith(`r!say help`)) {
-            return message.channel.send("**r!say help:**\n\nTo use `r!say whatToSay` \"whatToSay\" is want you want the bot to say.\n\n*Example:*\n\nUSER: r!say Hello!\nRoast-Bot: Hello!\n\nIf you accidentally use `r!say` with one or more spaces after r!say without saying what you want Roast-Bot to say, Roast-Bot will return a warning of \"Please provide what you want Roast-Bot to say. The correct usage is `r!say whatToSay`.\"\n\nStill having trouble with r!meme or have a suggestion? Join the support server:\nhttps://discordapp.com/invite/9y8yV42");
-        }
-
-        if (message.content.toLowerCase().startsWith(`r!say `) && !(message.content.includes(`r!say on`) || message.content.includes(`r!say off`))) {
-            const say = message.content.slice("r!".length + 4, message.content.length);
-            return message.channel.send(say);
-        }
-
-    }
-
+                    // Error code 50013 is Missing permissions to channel
+                    if (err.code == 50013) {
+                        return await interaction.user.send(`Whoops. it looks like i'm unable to send messages in: ${interaction.guild.name} > #${interaction.channel.name}`);
+                    }
+                }
+            },
 };

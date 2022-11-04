@@ -1,2 +1,5 @@
 node_modules
+*.old
 token.js
+config.json
+.eslintrc.json
