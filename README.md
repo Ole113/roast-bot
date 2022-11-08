@@ -9,6 +9,14 @@
 *125* Roasts, More than *300* Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
 </p>
 
+<h1>Setup:</h1>
+<p>
+Make sure you have at least Node version 16.0.0
+1. Run `npm install`
+2. Put in the correct token and client id in the config.json
+3. Run `node ./deploy-commands.js`
+4. Run `node shard.js`
+</p>
 
 <br><br>
 **Roast-Bot Commands:**
