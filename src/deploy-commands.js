@@ -30,12 +30,15 @@ const rest = new REST().setToken(token);
     );
 
     await rest.put(Routes.applicationCommands(clientId), { body: [] });
-    await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
-      body: [],
-    });
+
+    // Uncomment this to reset deploying to a specific guild
+    // await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
+    //   body: [],
+    // });
 
     const data = await rest.put(
-      Routes.applicationGuildCommands(clientId, guildId),
+      //Routes.applicationGuildCommands(clientId, guildId),
+      Routes.applicationCommands(clientId),
       { body: commands },
     );
 
