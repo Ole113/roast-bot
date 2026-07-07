@@ -6,7 +6,7 @@
   <img src="https://discordbots.org/api/widget/461361233644355595.svg" alt="Roast-Bot" />
 </a>
 
-_125_ Roasts, More than _500_ Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
+_190_ Roasts, More than _500_ Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
 
 </p>
 
