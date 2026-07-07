@@ -1,36 +1,29 @@
 {
-  "name": "roast-bot",
-  "description": "A bot to roast people on discord",
-  "version": "3.0.0",
-  "main": "shard.js",
+  "name": "roast-bot-rewrite",
+  "version": "3.5.2",
+  "description": "",
+  "main": "src/cluster.js",
   "scripts": {
-    "start": "node shard.js"
-  },
-  "engines": {
-    "node": "^13.0.0",
-    "npm": "^5.6.0"
-  },
-  "dependencies": {
-    "discord.js": "^14.6.0",
-    "mysql": "^2.18.1",
-    "node": "^8.17.0",
-    "node-gyp": "^9.3.0",
-    "reaction-core": "^2.4.0",
-    "reaction-menu": "^2.1.0",
-    "relevant-urban": "^2.0.0"
+    "test": "node src/main.js",
+    "start": "node src/cluster.js",
+    "deploy-commands": "node src/deploy-commands.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ole113/Roast-Bot.git"
+    "url": "git+https://github.com/Ole113/roast-bot.git"
   },
-  "keywords": [
-    "discord",
-    "bot"
-  ],
-  "author": "Ole113",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ole113/Roast-Bot/issues"
+    "url": "https://github.com/Ole113/roast-bot/issues"
   },
-  "homepage": "https://github.com/Ole113/Roast-Bot#readme"
+  "homepage": "https://github.com/Ole113/roast-bot#readme",
+  "dependencies": {
+    "discord-hybrid-sharding": "^2.1.3",
+    "discord.js": "^14.13.0",
+    "relevant-urban": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0"
+  }
 }

@@ -6,34 +6,35 @@
   <img src="https://discordbots.org/api/widget/461361233644355595.svg" alt="Roast-Bot" />
 </a>
 
-*125* Roasts, More than *300* Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
+_125_ Roasts, More than _500_ Memes, Roast-Bot has everything you need to roast the hell out of people in your discord server.
+
 </p>
 
 <h1>Setup:</h1>
 <p>
 Make sure you have at least Node version 16.0.0
 1. Run `npm install`
-2. Put in the correct token and client id in the config.json
+2. Put in the correct token and client id in the config-sample.json and rename it to config.json
 3. Run `node ./deploy-commands.js`
-4. Run `node shard.js`
+4. Run `node cluster.js` or just `node main.js` if you don't want the bot to be sharded
 </p>
 
 <br><br>
 **Roast-Bot Commands:**
 
-* */info* Learn more about Roast-Bot.
+- _/info_ Learn more about Roast-Bot.
 
-* */invite*: Link to invite Roast-Bot to a server.
+- _/invite_: Link to invite Roast-Bot to a server.
 
-* */clear #Amount*: Deletes X amount of messages from the current channel. **To use this command Roast-Bot needs to be given Manage Messages Permission & the messages cannot be more than 14 days old.**
+- _/clear #Amount_: Deletes X amount of messages from the current channel. **To use this command Roast-Bot needs to be given Manage Messages Permission & the messages cannot be more than 14 days old.**
 
-* */roast user, #number*: posts a roast, if user is selected the user will be tagged and if there's no number the roast will be random.
+- _/roast user, #number_: posts a roast, if user is selected the user will be tagged and if there's no number the roast will be random.
 
-* */meme #Number*: Sends a meme to the current channel, it'll be random if a number is not picked.
+- _/meme #Number_: Sends a meme to the current channel, it'll be random if a number is not picked.
 
-* */say message*: Makes roast-Bot say whatever you wrote in the message.
+- _/say message_: Makes roast-Bot say whatever you wrote in the message.
 
-* */urban Word*: Make Roast-Bot look up a word in the Urban Dictionary.
+- _/urban Word_: Make Roast-Bot look up a word in the Urban Dictionary.
 
 <br><br><br>
 
@@ -41,4 +42,3 @@ Make sure you have at least Node version 16.0.0
 
 Join the Roast-Bot Development Server:
 **https://discord.gg/fuDF42D**
-
